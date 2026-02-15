@@ -1,0 +1,6 @@
+# URLs used by scripts/weekly-summarize-eval.sh
+# One URL per line. Lines starting with # are ignored.
+
+https://github.com/steipete/summarize
+https://docs.openclaw.ai
+https://openrouter.ai/models
