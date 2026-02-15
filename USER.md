@@ -6,11 +6,12 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** Hector
 - **Pronouns:** _(optional)_
 - **Timezone:** America/Chicago
-- **Notes:** Prefiere respuestas cortas pero concisas.
+- **Notes:** Prefiere respuestas cortas pero concisas. Mismo estilo en Telegram y webchat. No acceder a contraseñas guardadas.
 
 ## Context
 
 - Prioridad actual: terminar el proyecto PHD.
+- Límite explícito: no acceder a contraseñas guardadas.
 
 ---
 
