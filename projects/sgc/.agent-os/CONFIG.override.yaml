@@ -1,0 +1,16 @@
+project:
+  name: "sgc"
+  owner: "Hector"
+
+overrides:
+  writable_paths:
+    - "./context"
+    - "./memory"
+    - "./research"
+    - "./deliverables"
+
+agents:
+  active: []
+
+metadata:
+  created_at: "2026-02-16"

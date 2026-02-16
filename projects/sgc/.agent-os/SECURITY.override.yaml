@@ -1,0 +1,4 @@
+project_security:
+  escalation_contact: ""
+  extra_blocked_paths: []
+  approved_external_domains: []
