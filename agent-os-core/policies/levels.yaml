@@ -1,0 +1,20 @@
+levels:
+  L1_Observer:
+    can: ["read_files", "search_internal", "draft_content", "take_notes"]
+    cannot: ["call_external_apis", "send_messages", "execute_code", "delete_anything"]
+    approval: "all_actions"
+
+  L2_Advisor:
+    can: ["everything_in_L1", "propose_file_changes", "suggest_api_calls"]
+    cannot: ["deploy_to_production", "modify_system_config", "delete_anything"]
+    approval: "per_action"
+
+  L3_Operator:
+    can: ["everything_in_L2", "write_files_to_workspace", "execute_approved_scripts"]
+    cannot: ["modify_agent_configs", "access_credentials_directly"]
+    approval: "destructive_only"
+
+  L4_Autonomous:
+    can: ["everything_in_L3", "create_sub_tasks", "delegate"]
+    cannot: ["expand_own_permissions", "disable_logging", "modify_security_config"]
+    approval: "critical_only"

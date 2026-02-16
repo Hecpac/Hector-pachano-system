@@ -1,0 +1,15 @@
+project:
+  name: "phd"
+  owner: "Hector"
+
+overrides:
+  writable_paths:
+    - "./context"
+    - "./memory"
+    - "./research"
+    - "./deliverables"
+
+agents:
+  active:
+    - "research-analyst"
+    - "execution-operator"

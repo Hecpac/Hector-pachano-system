@@ -1,0 +1,23 @@
+access_control:
+  dm_policy: "allowlist"
+  group_policy: "mention-only"
+
+enforcement:
+  sandbox_required: true
+  log_all_actions: true
+  block_untrusted_instructions: true
+
+approval_gates:
+  required_for:
+    - "write_file"
+    - "external_api"
+    - "send_message"
+    - "execute_code"
+    - "delete_anything"
+
+secrets:
+  never_plaintext: true
+  forbidden_paths:
+    - "~/.ssh"
+    - "~/.aws"
+    - "~/.kube"

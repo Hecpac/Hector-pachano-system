@@ -1,0 +1,14 @@
+outbound_required_fields:
+  - objective
+  - context_summary
+  - constraints
+  - deadline
+  - output_format
+  - success_criteria
+
+inbound_required_fields:
+  - result_summary
+  - confidence_level
+  - risks_identified
+  - next_action_recommended
+  - tokens_consumed

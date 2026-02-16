@@ -1,0 +1,22 @@
+agents:
+  - name: "research-analyst"
+    level: "L2"
+    domain: "AI and market research"
+    can:
+      - "read_files"
+      - "web_research"
+      - "draft_reports"
+    cannot:
+      - "delete_anything"
+      - "send_external_messages"
+
+  - name: "execution-operator"
+    level: "L3"
+    domain: "implementation"
+    can:
+      - "write_workspace"
+      - "run_approved_scripts"
+      - "prepare_deliverables"
+    cannot:
+      - "modify_security_config"
+      - "access_credentials_directly"

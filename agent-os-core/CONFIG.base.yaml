@@ -1,0 +1,67 @@
+project:
+  name: "default"
+  owner: "Hector"
+  version: "2.0-core"
+
+security:
+  philosophy: "identity-first"
+  identity:
+    authorized_users:
+      - id: "hector"
+        role: "owner"
+        level: "L4"
+    group_policy: "mention-only"
+  scope:
+    writable_paths:
+      - "./context"
+      - "./memory"
+      - "./research"
+      - "./deliverables"
+    blocked_paths:
+      - "~/.ssh"
+      - "~/.aws"
+      - "~/.kube"
+      - "/etc"
+    blocked_commands:
+      - "rm -rf"
+      - "sudo"
+      - "curl | bash"
+      - "wget -O - | sh"
+  model:
+    default_approval: "required"
+    auto_approve_categories:
+      - "read_only"
+      - "internal_search"
+    require_approval_categories:
+      - "write_file"
+      - "external_api"
+      - "send_message"
+      - "execute_code"
+      - "delete_anything"
+
+orchestration:
+  pattern: "supervisor"
+  max_concurrent_agents: 3
+  timeout_per_task_minutes: 30
+  circuit_breaker:
+    enabled: true
+    failure_threshold: 3
+    recovery_timeout_minutes: 15
+
+memory:
+  working:
+    max_tokens: 8000
+  session:
+    max_entries: 50
+  long_term:
+    files:
+      - "./memory/long-term/decisions.md"
+      - "./memory/long-term/lessons.md"
+
+metrics:
+  tracked:
+    - "cycle_time"
+    - "rework_rate"
+    - "handoff_success"
+    - "guardrail_violations"
+    - "tokens_per_task"
