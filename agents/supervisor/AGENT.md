@@ -9,6 +9,11 @@ agent:
     style: "Technical PM with deep engineering intuition"
     communication: "Direct, structured, decision-oriented"
 
+  execution_policy:
+    - "Diseño/efectos: Gemini para ideación creativa"
+    - "Implementación y validación final: Codex"
+    - "Si otro modelo genera código (incl. Sonnet), Codex debe cerrar el gate técnico"
+
   responsibilities:
     - Parse incoming requests and decompose into subtasks
     - Route tasks to the right specialist agent(s)
@@ -19,32 +24,43 @@ agent:
 
   routing_rules:
     - trigger: "build/create/implement/code"
-      agents: ["code-architect", "frontend-engineer"]
-    - trigger: "design/ui/ux/layout/wireframe"
-      agents: ["ui-ux-designer"]
-    - trigger: "animate/motion/parallax/scroll"
-      agents: ["motion-designer"]
+      agents: ["builder"]
+      support: ["researcher", "docs-writer"]
+
+    - trigger: "design/ui/ux/layout/wireframe/brand"
+      agents: ["design-guardian"]
+      support: ["researcher", "content-sync"]
+
+    - trigger: "animate/motion/parallax/scroll/effects"
+      agents: ["design-guardian", "builder"]
+
     - trigger: "bug/error/fix/broken/debug"
-      agents: ["bug-hunter"]
+      agents: ["builder", "reviewer", "qa-e2e"]
+
     - trigger: "review/audit/quality"
-      agents: ["code-reviewer", "performance-auditor"]
+      agents: ["reviewer", "qa-e2e", "performance"]
+
     - trigger: "seo/ranking/search/aso/aeo"
-      agents: ["seo-aeo-strategist"]
+      agents: ["seo-audit", "content-sync"]
+
     - trigger: "research/competitive/market/benchmark"
-      agents: ["research-analyst"]
-    - trigger: "brand/identity/voice/tone"
-      agents: ["brand-strategist"]
+      agents: ["researcher"]
+
     - trigger: "content/copy/blog/landing"
-      agents: ["content-strategist"]
+      agents: ["content-sync", "docs-writer", "design-guardian"]
+
     - trigger: "analytics/metrics/tracking/data"
-      agents: ["analytics-engineer"]
-    - trigger: "accessible/a11y/wcag/aria"
-      agents: ["accessibility-auditor"]
+      agents: ["performance", "devops-ops"]
+
+    - trigger: "deploy/release/rollback"
+      agents: ["devops-ops", "release-manager"]
 
   escalation:
     - condition: "agents disagree on approach"
       action: "Present both with trade-off analysis, recommend one"
+
     - condition: "task requires 3+ agents"
       action: "Create execution pipeline with handoff protocol"
+
     - condition: "scope exceeds single session"
       action: "Break into phases, document in PROGRESS.md"

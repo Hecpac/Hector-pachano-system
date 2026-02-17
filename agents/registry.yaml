@@ -1,0 +1,99 @@
+version: 1
+updated_at: "2026-02-17"
+owner: "Hector"
+
+orchestration:
+  supervisor: "supervisor"
+  default_model: "codex"
+  final_signoff: "supervisor"
+
+llm_policy:
+  design_ideation:
+    primary: "gemini"
+    scope: "dirección visual, variantes creativas, efectos"
+  implementation:
+    primary: "codex"
+    scope: "código de producción y refactor"
+  final_validation:
+    primary: "codex"
+    required_for_code_from:
+      - "sonnet"
+      - "gemini"
+      - "other"
+
+stack:
+  tiers:
+    build:
+      description: "Investigación, diseño, construcción y documentación"
+      agents:
+        - id: "researcher"
+          role: "Research, benchmarks, contexto competitivo"
+        - id: "design-guardian"
+          role: "UI/UX, sistema visual, interacción"
+        - id: "builder"
+          role: "Implementación técnica"
+        - id: "docs-writer"
+          role: "Especificaciones, ADRs, guías"
+        - id: "content-sync"
+          role: "Sincronización de contenido"
+
+    quality:
+      description: "Gate técnico y de experiencia"
+      agents:
+        - id: "reviewer"
+          role: "Code review y criterios de aceptación"
+        - id: "qa-e2e"
+          role: "Escenarios end-to-end y regresión"
+        - id: "performance"
+          role: "Rendimiento y optimización"
+        - id: "seo-audit"
+          role: "SEO/AEO y hallazgos de discoverability"
+
+    delivery:
+      description: "Operación, release y despliegue"
+      agents:
+        - id: "devops-ops"
+          role: "Infraestructura, CI/CD, observabilidad"
+        - id: "release-manager"
+          role: "Versionado, release notes y salida a producción"
+
+routing:
+  by_request_type:
+    feature:
+      build: ["researcher", "design-guardian", "builder", "docs-writer"]
+      quality: ["reviewer", "qa-e2e", "performance"]
+      delivery: ["release-manager"]
+
+    bugfix:
+      build: ["builder"]
+      quality: ["reviewer", "qa-e2e"]
+      delivery: ["release-manager"]
+
+    landing:
+      build: ["researcher", "design-guardian", "content-sync", "builder"]
+      quality: ["reviewer", "seo-audit", "performance"]
+      delivery: ["release-manager"]
+
+    audit:
+      build: ["researcher", "docs-writer"]
+      quality: ["reviewer", "qa-e2e", "performance", "seo-audit"]
+      delivery: ["devops-ops"]
+
+handoff_protocol:
+  required_fields:
+    - "objective"
+    - "scope_in"
+    - "scope_out"
+    - "inputs"
+    - "outputs"
+    - "risks"
+    - "checks_run"
+    - "next_owner"
+
+conflict_resolution:
+  when_agents_disagree: "Supervisor presenta opciones con trade-offs y recomienda una ruta"
+  priority_order:
+    - "preferencias explícitas de Hector"
+    - "menor riesgo técnico"
+    - "mejor costo/velocidad"
+  final_decision: "supervisor"
