@@ -16,6 +16,7 @@
 - En trabajo técnico, priorizar verificación real (comandos/estado) sobre suposiciones.
 - Para tareas largas, usar avances breves y accionables.
 - Regla de ejecución para diseño/efectos: Gemini CLI para ideación creativa; Codex para implementación y validación técnica.
+- Regla multi-LLM: si Sonnet propone/genera código, Codex hace validación final y cierre técnico.
 
 ## Estado OpenClaw (base inicial)
 - Canal activo principal: Telegram.
