@@ -11,6 +11,7 @@
 - No acceder a contraseñas guardadas.
 - Antes de iniciar sesión cada día: revisar y reportar rápido el estado del informe/batch de evaluación (Codex vs Gemini).
 - Cuando pida noticias, priorizar cobertura global de IA.
+- Quiere un informe de QTS al final de cada sesión (hora de cierre: 6:00 PM America/Chicago).
 
 ## Preferencias operativas
 - En trabajo técnico, priorizar verificación real (comandos/estado) sobre suposiciones.
