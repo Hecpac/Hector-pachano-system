@@ -6,7 +6,7 @@ export function CaseStudiesSection() {
   return (
     <section className="section reveal-on-scroll" id="casos">
       <p className="eyebrow">CASOS</p>
-      <div className="case-grid">
+      <div className="case-grid stagger-fade-in">
         {caseStudies.map((item) => (
           <article key={item.id} className={`case-card ${item.featured ? 'case-card--wide' : ''}`}>
             <Image src={item.image} alt={item.alt} width={1600} height={1000} />

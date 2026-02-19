@@ -166,7 +166,8 @@ h3 {
 }
 
 .button:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.26);
 }
 
 .button:focus-visible {
@@ -218,6 +219,50 @@ h3 {
   to {
     transform: translateX(-50%);
   }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.motion-ready .reveal-on-scroll .stagger-fade-in > * {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.motion-ready .reveal-on-scroll.is-visible .stagger-fade-in > * {
+  animation: fade-in-up 520ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.motion-ready .reveal-on-scroll.is-visible .stagger-fade-in > :nth-child(1) {
+  animation-delay: 70ms;
+}
+
+.motion-ready .reveal-on-scroll.is-visible .stagger-fade-in > :nth-child(2) {
+  animation-delay: 140ms;
+}
+
+.motion-ready .reveal-on-scroll.is-visible .stagger-fade-in > :nth-child(3) {
+  animation-delay: 210ms;
+}
+
+.motion-ready .reveal-on-scroll.is-visible .stagger-fade-in > :nth-child(4) {
+  animation-delay: 280ms;
+}
+
+.motion-ready .reveal-on-scroll.is-visible .stagger-fade-in > :nth-child(5) {
+  animation-delay: 350ms;
+}
+
+.motion-ready .reveal-on-scroll.is-visible .stagger-fade-in > :nth-child(6) {
+  animation-delay: 420ms;
 }
 
 .service-grid {
@@ -413,6 +458,25 @@ h3 {
 .section--faq summary {
   cursor: pointer;
   font-weight: 600;
+  list-style: none;
+}
+
+.section--faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.section--faq summary::after {
+  content: '+';
+  float: right;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  color: var(--accent);
+  transform: scale(1.2);
+  transition: transform 220ms ease;
+}
+
+.section--faq details[open] summary::after {
+  content: '−';
+  transform: scale(1.2) rotate(180deg);
 }
 
 .section--faq p {
@@ -554,6 +618,12 @@ h3 {
     opacity: 1;
     transform: none;
   }
+
+  .stagger-fade-in > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -627,8 +697,11 @@ h3 {
     right: 0;
     bottom: 0;
     padding: 0.75rem;
-    background: color-mix(in oklab, var(--bg) 90%, #191919);
+    background: color-mix(in oklab, var(--bg) 82%, #191919);
     border-top: 1px solid var(--line);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.38);
     z-index: 30;
     display: grid;
     grid-template-columns: 1fr 1fr;

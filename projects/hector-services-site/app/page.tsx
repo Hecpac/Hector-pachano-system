@@ -81,7 +81,7 @@ export default function HomePage() {
 
       <section className="section reveal-on-scroll" id="services">
         <p className="eyebrow">SERVICIOS</p>
-        <div className="service-grid">
+        <div className="service-grid stagger-fade-in">
           {services.map((service) => (
             <article key={service.id} className="service-card">
               <p className="service-id">{service.id}</p>
@@ -97,7 +97,7 @@ export default function HomePage() {
 
       <section className="section reveal-on-scroll" id="process">
         <p className="eyebrow">PROCESO</p>
-        <ol className="process-list">
+        <ol className="process-list stagger-fade-in">
           <li>Diagnóstico</li>
           <li>Implementación</li>
           <li>Optimización</li>
