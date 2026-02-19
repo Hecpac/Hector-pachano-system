@@ -1,8 +1,20 @@
+import { submitLeadAction } from '../actions'
+
+import { LeadForm } from '@/components/sections/lead-form'
+
 export default function ContactPage() {
+  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || 'https://cal.com'
+
   return (
-    <main style={{ padding: '3rem 1rem', maxWidth: 960, margin: '0 auto' }}>
-      <h1>Contacto</h1>
-      <p>Formulario y agenda de diagnóstico.</p>
+    <main className="page-shell contact-page">
+      <section className="section">
+        <p className="eyebrow">CONTACTO</p>
+        <h1>Agenda tu diagnóstico</h1>
+        <p className="lead">
+          Comparte contexto y objetivo. Te respondo con una propuesta accionable.
+        </p>
+        <LeadForm action={submitLeadAction} calLink={calLink} />
+      </section>
     </main>
   )
 }

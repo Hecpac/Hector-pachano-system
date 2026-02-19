@@ -145,18 +145,52 @@ a {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
-.case-grid img {
-  width: 100%;
-  height: auto;
+.case-card {
+  grid-column: span 6;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  display: block;
-  grid-column: span 6;
-  background: #fff;
+  overflow: clip;
+  background: var(--surface);
 }
 
-.case-grid .case-wide {
+.case-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid var(--line);
+}
+
+.case-card--wide {
   grid-column: span 12;
+}
+
+.case-card__meta {
+  padding: 1rem;
+  text-align: left;
+}
+
+.case-card__service {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.case-card__meta h3 {
+  margin: 0.45rem 0;
+  font-size: 1.1rem;
+}
+
+.case-card__metric {
+  margin: 0;
+  font-weight: 600;
+}
+
+.case-card__detail {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
 }
 
 .process-list {
@@ -202,6 +236,99 @@ a {
   margin-bottom: 1.2rem;
 }
 
+.lead--center {
+  margin-inline: auto;
+  margin-bottom: 1.75rem;
+}
+
+.lead-form-wrap {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1rem;
+  text-align: left;
+}
+
+.lead-form {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.lead-form__field {
+  grid-column: span 6;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.lead-form__field--full {
+  grid-column: span 12;
+}
+
+.lead-form__field span {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lead-form input,
+.lead-form select,
+.lead-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.72rem 0.8rem;
+  font: inherit;
+}
+
+.lead-form input:focus-visible,
+.lead-form select:focus-visible,
+.lead-form textarea:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--accent) 70%, #fff);
+  outline-offset: 2px;
+}
+
+.lead-form__actions {
+  grid-column: span 12;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.lead-form__submit {
+  min-width: 230px;
+}
+
+.lead-form__feedback {
+  grid-column: span 12;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.lead-form__feedback--success {
+  color: #0f7a29;
+}
+
+.lead-form__feedback--error {
+  color: #b42318;
+}
+
+.lead-form__trap {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-page h1 {
+  margin: 0.5rem 0;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  letter-spacing: -0.03em;
+}
+
 @media (max-width: 1199px) {
   .service-card {
     grid-column: span 6;
@@ -223,9 +350,19 @@ a {
   }
 
   .service-card,
-  .case-grid img,
-  .case-grid .case-wide {
+  .case-card,
+  .case-card--wide {
     grid-column: span 12;
+  }
+
+  .lead-form__field,
+  .lead-form__field--full {
+    grid-column: span 12;
+  }
+
+  .lead-form__actions {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .process-list {

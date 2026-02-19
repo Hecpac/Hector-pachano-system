@@ -1,4 +1,7 @@
-import Image from 'next/image'
+import { submitLeadAction } from './actions'
+
+import { CaseStudiesSection } from '@/components/sections/case-studies'
+import { LeadForm } from '@/components/sections/lead-form'
 
 const services = [
   {
@@ -21,7 +24,24 @@ const services = [
   }
 ]
 
+const faqItems = [
+  {
+    question: '¿Trabajas por paquetes o a medida?',
+    answer: 'Ambos. Primero hacemos diagnóstico para definir alcance, prioridad y qué sí genera retorno.'
+  },
+  {
+    question: '¿En cuánto tiempo puede salir el MVP?',
+    answer: 'En 1-2 semanas podemos tener una versión funcional publicada y lista para captar leads.'
+  },
+  {
+    question: '¿Puedo contratar solo una parte (ej. SEO)?',
+    answer: 'Sí. Pero cuando conviene, propongo plan integral para no perder impacto por trabajo aislado.'
+  }
+]
+
 export default function HomePage() {
+  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || 'https://cal.com'
+
   return (
     <main className="page-shell">
       <header className="top-nav">
@@ -62,30 +82,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" id="casos">
-        <p className="eyebrow">CASOS</p>
-        <div className="case-grid">
-          <Image
-            src="/images/cases/case-automation.svg"
-            alt="Caso de automatización"
-            width={1600}
-            height={1000}
-          />
-          <Image
-            src="/images/cases/case-web.svg"
-            alt="Caso de diseño web"
-            width={1600}
-            height={1000}
-          />
-          <Image
-            src="/images/cases/case-seo.svg"
-            alt="Caso de SEO y AEO"
-            className="case-wide"
-            width={1600}
-            height={1000}
-          />
-        </div>
-      </section>
+      <CaseStudiesSection />
 
       <section className="section" id="process">
         <p className="eyebrow">PROCESO</p>
@@ -99,21 +96,20 @@ export default function HomePage() {
 
       <section className="section section--faq" id="faq">
         <p className="eyebrow">FAQ</p>
-        <details>
-          <summary>¿Trabajas por paquetes o a medida?</summary>
-          <p>Ambos. Primero hacemos diagnóstico para definir alcance y prioridad.</p>
-        </details>
-        <details>
-          <summary>¿En cuánto tiempo puede salir el MVP?</summary>
-          <p>En 1-2 semanas podemos tener una primera versión funcional publicada.</p>
-        </details>
+        {faqItems.map((item) => (
+          <details key={item.question}>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
       </section>
 
       <section className="section cta" id="contact">
         <h2>¿Listo para dejar de improvisar tu presencia digital?</h2>
-        <a href="mailto:hola@tudominio.com" className="button">
-          Empezar ahora
-        </a>
+        <p className="lead lead--center">
+          Cuéntame tu objetivo y te propongo un plan claro con alcance, tiempos e inversión.
+        </p>
+        <LeadForm action={submitLeadAction} calLink={calLink} />
       </section>
     </main>
   )
