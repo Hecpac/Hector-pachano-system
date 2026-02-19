@@ -14,24 +14,21 @@ import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/seo/site'
 const services = [
   {
     id: '01',
-    title: 'Automatizaciones',
-    href: '/services/automatizaciones',
-    description: 'Reducimos tareas manuales con flujos y APIs para que tu operación escale sin fricción.',
-    result: 'Menos tiempo operativo, más foco en ventas.'
+    title: 'Diseño Web',
+    href: '/services/diseno-web',
+    description: 'Sitios de alto rendimiento construidos para convertir. No solo bonitos — medibles.'
   },
   {
     id: '02',
-    title: 'Diseño Web',
-    href: '/services/diseno-web',
-    description: 'Sitios rápidos y con diseño editorial que convierten visitas en oportunidades reales.',
-    result: 'Más confianza y mejor tasa de conversión.'
+    title: 'Automatizaciones',
+    href: '/services/automatizaciones',
+    description: 'Flujos que eliminan trabajo repetitivo y escalan sin contratar más gente.'
   },
   {
     id: '03',
     title: 'SEO / AEO',
     href: '/services/seo-aeo',
-    description: 'Posicionamiento orgánico y optimización para motores de búsqueda y respuestas de IA.',
-    result: 'Tráfico constante sin depender solo de anuncios.'
+    description: 'Posicionamiento estratégico para motores de búsqueda y para IA generativa.'
   }
 ]
 
@@ -60,101 +57,125 @@ export default function HomePage() {
   const calLink = process.env.NEXT_PUBLIC_CAL_LINK || 'https://cal.com/tu-usuario/diagnostico'
 
   return (
-    <main className="page-shell" id="main-content">
+    <main id="main-content">
       <JsonLd data={websiteSchema} />
       <JsonLd data={organizationSchema} />
       <JsonLd data={faqSchema(faqItems)} />
 
-      <header className="top-nav">
-        <span className="eyebrow">
-          <span className="brand-highlight">{SITE_NAME.toUpperCase()}</span> {'//'} DIGITAL SYSTEMS
-        </span>
-        <nav className="top-nav__links" aria-label="Navegación principal">
-          <Link href="/services">Servicios</Link>
-          <Link href="/work">Casos</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contacto</Link>
-        </nav>
-        <div className="top-nav__actions">
+      <nav className="landing-nav">
+        <div className="landing-nav__brand">
+          <span>{SITE_NAME}</span> {'//'} Digital Systems
+        </div>
+
+        <ul className="landing-nav__links">
+          <li>
+            <Link href="/services">Servicios</Link>
+          </li>
+          <li>
+            <a href="#casos">Casos</a>
+          </li>
+          <li>
+            <Link href="/blog">Blog</Link>
+          </li>
+          <li>
+            <Link href="/about">About</Link>
+          </li>
+          <li>
+            <Link href="/contact">Contacto</Link>
+          </li>
+        </ul>
+
+        <div className="landing-nav__cta">
           <ThemeToggle />
-          <a href="#contact" className="button button--small">
-            Agenda diagnóstico
+          <a href="#contact" className="btn-cta">
+            Agenda Diagnóstico
           </a>
         </div>
-      </header>
+      </nav>
 
-      <section className="hero section reveal-on-scroll cinematic-panel is-visible" id="top">
-        <p className="eyebrow">AUTOMATIZACIONES · DISEÑO WEB · SEO/AEO</p>
-        <h1 lang="en">Design. Automate. Rank.</h1>
-        <p className="lead">
-          Construyo sistemas digitales que generan ingresos: web de alto rendimiento, procesos automáticos
-          y posicionamiento estratégico.
-        </p>
-        <div className="hero-cta">
-          <a href="#contact" className="button">
-            Agenda diagnóstico
-          </a>
-          <a href="#casos" className="button button--ghost">
-            Ver casos
-          </a>
+      <section className="landing-hero">
+        <div className="landing-hero__counter">01 / 04</div>
+
+        <div className="landing-hero__content">
+          <div className="landing-hero__tags">
+            <span className="landing-hero__tag">Automatizaciones</span>
+            <span className="landing-hero__tag">Diseño Web</span>
+            <span className="landing-hero__tag">SEO / AEO</span>
+          </div>
+
+          <h1 className="landing-hero__headline" lang="en">
+            Design.
+            <br />
+            <span className="line-orange">Automate.</span>
+            <br />
+            <span className="line-outline">Rank.</span>
+          </h1>
         </div>
 
-        <div className="ticker" aria-hidden="true">
-          <div className="ticker__track">
-            AUTOMATIZACIONES · DISEÑO WEB · SEO / AEO · PERFORMANCE · CONVERSIÓN ·
-            AUTOMATIZACIONES · DISEÑO WEB · SEO / AEO · PERFORMANCE · CONVERSIÓN ·
-            AUTOMATIZACIONES · DISEÑO WEB · SEO / AEO · PERFORMANCE · CONVERSIÓN ·
+        <div className="landing-hero__bottom">
+          <div className="landing-hero__descriptor">
+            <p>
+              Construyo <strong>sistemas digitales que generan ingresos</strong>: web de alto rendimiento,
+              procesos automáticos y posicionamiento estratégico.
+            </p>
+          </div>
+
+          <div className="landing-hero__actions">
+            <a href="#contact" className="btn-primary">
+              Agenda Diagnóstico
+            </a>
+            <a href="#casos" className="btn-secondary">
+              Ver Casos
+            </a>
           </div>
         </div>
-      </section>
 
-      <section className="section reveal-on-scroll cinematic-panel" id="services">
-        <p className="eyebrow">SERVICIOS</p>
-        <div className="service-grid stagger-fade-in">
-          {services.map((service) => (
-            <article key={service.id} className="service-card">
-              <p className="service-id">{service.id}</p>
-              <h2>{service.title}</h2>
-              <p>{service.description}</p>
-              <p className="service-result">{service.result}</p>
-              <Link href={service.href} className="service-link">
-                Ver servicio →
-              </Link>
-            </article>
-          ))}
+        <div className="landing-scroll-indicator" aria-hidden="true">
+          <div className="landing-scroll-line" />
+          <span>Scroll</span>
         </div>
       </section>
 
-      <CaseStudiesSection />
+      <div className="landing-ticker" aria-hidden="true">
+        <div className="landing-ticker__track">
+          <span>Automatizaciones ·</span>
+          <span>Diseño Web ·</span>
+          <span>SEO / AEO ·</span>
+          <span>Performance ·</span>
+          <span>Conversión ·</span>
+          <span>Automatizaciones ·</span>
+          <span>Diseño Web ·</span>
+          <span>SEO / AEO ·</span>
+          <span>Performance ·</span>
+          <span>Conversión ·</span>
+        </div>
+      </div>
 
-      <section className="section reveal-on-scroll cinematic-panel" id="process">
-        <p className="eyebrow">PROCESO</p>
-        <ol className="process-list stagger-fade-in">
-          <li>Diagnóstico</li>
-          <li>Implementación</li>
-          <li>Optimización</li>
-          <li>Escalado</li>
-        </ol>
-      </section>
-
-      <section className="section section--faq reveal-on-scroll cinematic-panel" id="faq">
-        <p className="eyebrow">FAQ</p>
-        {faqItems.map((item) => (
-          <details key={item.question}>
-            <summary>{item.question}</summary>
-            <p>{item.answer}</p>
-          </details>
+      <div className="landing-section-label">Servicios</div>
+      <section className="landing-services-grid">
+        {services.map((service) => (
+          <article className="landing-service-card" key={service.id}>
+            <p className="landing-service-card__num">{service.id}</p>
+            <h2 className="landing-service-card__name">{service.title}</h2>
+            <p className="landing-service-card__desc">{service.description}</p>
+            <Link href={service.href} className="landing-service-card__arrow" aria-label={`Ir a ${service.title}`}>
+              ↗
+            </Link>
+          </article>
         ))}
       </section>
 
-      <section className="section cta reveal-on-scroll cinematic-panel" id="contact">
-        <h2>¿Listo para dejar de improvisar tu presencia digital?</h2>
-        <p className="lead lead--center">
-          Cuéntame tu objetivo y te propongo un plan claro con alcance, tiempos e inversión.
-        </p>
-        <LeadForm action={submitLeadAction} calLink={calLink} />
-      </section>
+      <div className="page-shell">
+        <CaseStudiesSection />
+
+        <section className="section cta reveal-on-scroll cinematic-panel" id="contact">
+          <h2>¿Listo para dejar de improvisar tu presencia digital?</h2>
+          <p className="lead lead--center">
+            Cuéntame tu objetivo y te propongo un plan claro con alcance, tiempos e inversión.
+          </p>
+          <LeadForm action={submitLeadAction} calLink={calLink} />
+        </section>
+      </div>
     </main>
   )
 }

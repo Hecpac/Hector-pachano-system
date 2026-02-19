@@ -1,21 +1,22 @@
 import type { Metadata } from 'next'
-import { IBM_Plex_Mono, Space_Grotesk } from 'next/font/google'
+import { Bebas_Neue, DM_Mono } from 'next/font/google'
 
 import { AnalyticsSnippets } from '@/components/ui/analytics-snippets'
 import { ScrollReveal } from '@/components/ui/scroll-reveal'
 import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_URL } from '@/lib/seo/site'
 import './globals.css'
 
-const displayFont = Space_Grotesk({
+const displayFont = Bebas_Neue({
   subsets: ['latin'],
   variable: '--font-display',
-  weight: ['500', '600', '700']
+  weight: '400'
 })
 
-const monoFont = IBM_Plex_Mono({
+const monoFont = DM_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
-  weight: ['400', '500', '600']
+  weight: ['300', '400', '500'],
+  style: ['normal', 'italic']
 })
 
 export const metadata: Metadata = {
