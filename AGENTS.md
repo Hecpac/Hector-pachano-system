@@ -117,6 +117,20 @@ Reactions are lightweight social signals. Humans use them constantly — they sa
 
 Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
 
+## 🧭 Router Multi-LLM (stack actual)
+
+Usa este enrutamiento por defecto para tareas técnicas:
+
+1. **Codex (`openai-codex/gpt-5.3-codex`)** → implementación, refactor, debug, tests y cierre técnico.
+2. **Gemini (`google-gemini-cli/gemini-3-pro-preview`)** → ideación creativa, alternativas de diseño, exploración de contexto largo.
+3. **Sonnet (`anthropic/claude-sonnet-4-6`)** → revisión profunda, trade-offs complejos y segunda opinión técnica.
+4. **Opus (`anthropic/claude-opus-4-6`)** → escalación para decisiones críticas o bloqueos de alto impacto.
+
+Reglas operativas:
+- Si otro modelo propone código, **Codex valida y hace cierre final**.
+- Mantener verificación real con comandos/estado cuando aplique.
+- Priorizar respuestas cortas y accionables para Hector.
+
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
 **📝 Platform Formatting:**
