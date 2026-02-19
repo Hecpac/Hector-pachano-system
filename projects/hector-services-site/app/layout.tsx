@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Mono, Space_Grotesk } from 'next/font/google'
+
+import { ScrollReveal } from '@/components/ui/scroll-reveal'
 import './globals.css'
 
 const displayFont = Space_Grotesk({
@@ -30,7 +32,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className={`${displayFont.variable} ${monoFont.variable}`}>{children}</body>
+      <body className={`${displayFont.variable} ${monoFont.variable}`}>
+        {children}
+        <ScrollReveal />
+      </body>
     </html>
   )
 }

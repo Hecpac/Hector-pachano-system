@@ -51,7 +51,7 @@ export default function HomePage() {
         </a>
       </header>
 
-      <section className="hero section" id="top">
+      <section className="hero section reveal-on-scroll is-visible" id="top">
         <p className="eyebrow">AUTOMATIZACIONES · DISEÑO WEB · SEO/AEO</p>
         <h1>Design. Automate. Rank.</h1>
         <p className="lead">
@@ -66,9 +66,16 @@ export default function HomePage() {
             Ver casos
           </a>
         </div>
+
+        <div className="ticker" aria-hidden="true">
+          <div className="ticker__track">
+            AUTOMATIZACIONES · DISEÑO WEB · SEO / AEO · PERFORMANCE · CONVERSIÓN ·
+            AUTOMATIZACIONES · DISEÑO WEB · SEO / AEO · PERFORMANCE · CONVERSIÓN ·
+          </div>
+        </div>
       </section>
 
-      <section className="section" id="services">
+      <section className="section reveal-on-scroll" id="services">
         <p className="eyebrow">SERVICIOS</p>
         <div className="service-grid">
           {services.map((service) => (
@@ -84,7 +91,7 @@ export default function HomePage() {
 
       <CaseStudiesSection />
 
-      <section className="section" id="process">
+      <section className="section reveal-on-scroll" id="process">
         <p className="eyebrow">PROCESO</p>
         <ol className="process-list">
           <li>Diagnóstico</li>
@@ -94,7 +101,7 @@ export default function HomePage() {
         </ol>
       </section>
 
-      <section className="section section--faq" id="faq">
+      <section className="section section--faq reveal-on-scroll" id="faq">
         <p className="eyebrow">FAQ</p>
         {faqItems.map((item) => (
           <details key={item.question}>
@@ -104,7 +111,7 @@ export default function HomePage() {
         ))}
       </section>
 
-      <section className="section cta" id="contact">
+      <section className="section cta reveal-on-scroll" id="contact">
         <h2>¿Listo para dejar de improvisar tu presencia digital?</h2>
         <p className="lead lead--center">
           Cuéntame tu objetivo y te propongo un plan claro con alcance, tiempos e inversión.

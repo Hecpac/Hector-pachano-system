@@ -7,7 +7,7 @@ export default function ContactPage() {
 
   return (
     <main className="page-shell contact-page">
-      <section className="section">
+      <section className="section reveal-on-scroll is-visible">
         <p className="eyebrow">CONTACTO</p>
         <h1>Agenda tu diagnóstico</h1>
         <p className="lead">

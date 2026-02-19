@@ -4,7 +4,7 @@ import { caseStudies } from '@/content/case-studies/cases'
 
 export function CaseStudiesSection() {
   return (
-    <section className="section" id="casos">
+    <section className="section reveal-on-scroll" id="casos">
       <p className="eyebrow">CASOS</p>
       <div className="case-grid">
         {caseStudies.map((item) => (
