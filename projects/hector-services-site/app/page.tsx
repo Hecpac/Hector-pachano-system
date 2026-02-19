@@ -66,7 +66,9 @@ export default function HomePage() {
       <JsonLd data={faqSchema(faqItems)} />
 
       <header className="top-nav">
-        <span className="eyebrow">{SITE_NAME.toUpperCase()} {'//'} DIGITAL SYSTEMS</span>
+        <span className="eyebrow">
+          <span className="brand-highlight">{SITE_NAME.toUpperCase()}</span> {'//'} DIGITAL SYSTEMS
+        </span>
         <nav className="top-nav__links" aria-label="Navegación principal">
           <Link href="/services">Servicios</Link>
           <Link href="/work">Casos</Link>
