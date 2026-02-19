@@ -88,7 +88,7 @@ export default function HomePage() {
         <div className="landing-nav__cta">
           <ThemeToggle />
           <a href="#contact" className="btn-cta">
-            Agenda Diagnóstico
+            Agenda el diagnóstico
           </a>
         </div>
       </nav>
@@ -103,29 +103,30 @@ export default function HomePage() {
             <span className="landing-hero__tag">SEO / AEO</span>
           </div>
 
-          <h1 className="landing-hero__headline" lang="en">
-            Design.
+          <h1 className="landing-hero__headline">
+            No vendo páginas web.
             <br />
-            <span className="line-orange">Automate.</span>
+            <span className="line-orange">Construyo sistemas digitales</span>
             <br />
-            <span className="line-outline">Rank.</span>
+            <span className="line-outline">que generan ingresos.</span>
           </h1>
         </div>
 
         <div className="landing-hero__bottom">
           <div className="landing-hero__descriptor">
             <p>
-              Construyo <strong>sistemas digitales que generan ingresos</strong>: web de alto rendimiento,
-              procesos automáticos y posicionamiento estratégico.
+              <strong>Diseño que convierte + SEO que posiciona + automatización que escala.</strong>
+              <br />
+              Todo integrado, todo medible, todo tuyo.
             </p>
           </div>
 
           <div className="landing-hero__actions">
             <a href="#contact" className="btn-primary">
-              Agenda Diagnóstico
+              Agenda el diagnóstico
             </a>
             <a href="#casos" className="btn-secondary">
-              Ver Casos
+              Ver resultados
             </a>
           </div>
         </div>
