@@ -72,6 +72,7 @@ export default function HomePage() {
         <nav className="top-nav__links" aria-label="Navegación principal">
           <Link href="/services">Servicios</Link>
           <Link href="/work">Casos</Link>
+          <Link href="/blog">Blog</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contacto</Link>
         </nav>

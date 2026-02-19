@@ -79,3 +79,44 @@ export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
     }))
   }
 }
+
+export function blogPostingSchema(input: {
+  title: string
+  description: string
+  path: string
+  publishedAt: string
+  tags: string[]
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: input.title,
+    description: input.description,
+    datePublished: input.publishedAt,
+    author: {
+      '@type': 'Person',
+      name: SITE_NAME
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME
+    },
+    keywords: input.tags.join(', '),
+    mainEntityOfPage: `${SITE_URL}${input.path}`
+  }
+}
+
+export function blogCollectionSchema(posts: Array<{ title: string; slug: string; publishedAt: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: `${SITE_NAME} Blog`,
+    url: `${SITE_URL}/blog`,
+    blogPost: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      datePublished: post.publishedAt,
+      url: `${SITE_URL}/blog/${post.slug}`
+    }))
+  }
+}

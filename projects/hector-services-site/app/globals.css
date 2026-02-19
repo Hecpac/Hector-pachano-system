@@ -483,6 +483,81 @@ h3 {
   font-weight: 500;
 }
 
+.blog-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.blog-card {
+  grid-column: span 4;
+  border: 1px solid color-mix(in srgb, var(--line) 72%, #fff 8%);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+  padding: 1rem;
+}
+
+.blog-card h2 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.blog-card h2 a:hover {
+  color: var(--accent);
+}
+
+.blog-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.blog-card__meta {
+  margin: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 70%, var(--accent));
+}
+
+.blog-card__tags {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.blog-card__tags span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.blog-card__tags--article {
+  margin-top: 0.95rem;
+  margin-bottom: 1.3rem;
+}
+
+.blog-article h1 {
+  margin: 0.6rem 0;
+}
+
+.blog-article__content {
+  display: grid;
+  gap: 1rem;
+  max-width: 70ch;
+}
+
+.blog-article__content p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .service-id {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.8rem;
@@ -786,7 +861,8 @@ h3 {
     display: none;
   }
 
-  .service-card {
+  .service-card,
+  .blog-card {
     grid-column: span 6;
   }
 
@@ -807,7 +883,8 @@ h3 {
 
   .service-card,
   .case-card,
-  .case-card--wide {
+  .case-card--wide,
+  .blog-card {
     grid-column: span 12;
   }
 
