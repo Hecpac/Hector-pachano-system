@@ -1,22 +1,49 @@
 import type { Metadata } from 'next'
 
-import { SITE_URL } from '@/lib/seo/site'
+import { Breadcrumbs } from '@/components/ui/breadcrumbs'
+import { JsonLd } from '@/components/ui/json-ld'
+import { buildPageMetadata } from '@/lib/seo/meta'
+import { breadcrumbSchema, serviceSchema } from '@/lib/seo/schema'
 
-export const metadata: Metadata = {
-  title: 'Diseño Web',
-  description:
-    'Diseño y desarrollo web orientado a conversión: arquitectura de contenido, UI editorial y performance.',
-  alternates: {
-    canonical: `${SITE_URL}/services/diseno-web`
-  }
-}
+const title = 'Diseño Web'
+const description =
+  'Diseño y desarrollo web orientado a conversión: arquitectura de contenido, UI editorial y performance.'
+const path = '/services/diseno-web'
+
+export const metadata: Metadata = buildPageMetadata({
+  title,
+  description,
+  path
+})
 
 export default function DisenoWebPage() {
   return (
     <main className="page-shell" id="main-content">
+      <JsonLd
+        data={[
+          breadcrumbSchema([
+            { name: 'Inicio', path: '/' },
+            { name: 'Servicios', path: '/services' },
+            { name: title, path }
+          ]),
+          serviceSchema({
+            name: title,
+            description,
+            path
+          })
+        ]}
+      />
+
       <section className="section reveal-on-scroll cinematic-panel is-visible">
+        <Breadcrumbs
+          items={[
+            { label: 'Inicio', href: '/' },
+            { label: 'Servicios', href: '/services' },
+            { label: title }
+          ]}
+        />
         <p className="eyebrow">SERVICIO</p>
-        <h1>Diseño Web</h1>
+        <h1>{title}</h1>
         <p className="lead">
           Construimos sitios que comunican autoridad y convierten visitas en oportunidades reales.
         </p>

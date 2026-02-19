@@ -7,8 +7,9 @@ import { CaseStudiesSection } from '@/components/sections/case-studies'
 import { LeadForm } from '@/components/sections/lead-form'
 import { JsonLd } from '@/components/ui/json-ld'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
+import { buildPageMetadata } from '@/lib/seo/meta'
 import { faqSchema, organizationSchema, websiteSchema } from '@/lib/seo/schema'
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/seo/site'
+import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/seo/site'
 
 const services = [
   {
@@ -49,13 +50,11 @@ const faqItems = [
   }
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Inicio',
   description: SITE_DESCRIPTION,
-  alternates: {
-    canonical: SITE_URL
-  }
-}
+  path: '/'
+})
 
 export default function HomePage() {
   const calLink = process.env.NEXT_PUBLIC_CAL_LINK || 'https://cal.com/tu-usuario/diagnostico'

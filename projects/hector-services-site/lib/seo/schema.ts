@@ -33,3 +33,36 @@ export function faqSchema(items: Array<{ question: string; answer: string }>) {
     }))
   }
 }
+
+export function serviceSchema(input: {
+  name: string
+  description: string
+  path: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: input.name,
+    name: input.name,
+    description: input.description,
+    provider: {
+      '@type': 'ProfessionalService',
+      name: SITE_NAME,
+      url: SITE_URL
+    },
+    url: `${SITE_URL}${input.path}`
+  }
+}
+
+export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.path}`
+    }))
+  }
+}

@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-import { SITE_URL } from '@/lib/seo/site'
+import { Breadcrumbs } from '@/components/ui/breadcrumbs'
+import { JsonLd } from '@/components/ui/json-ld'
+import { buildPageMetadata } from '@/lib/seo/meta'
+import { breadcrumbSchema } from '@/lib/seo/schema'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Servicios',
   description:
     'Servicios de automatizaciones, diseño web y SEO/AEO para construir un sistema digital orientado a ingresos.',
-  alternates: {
-    canonical: `${SITE_URL}/services`
-  }
-}
+  path: '/services'
+})
 
 const services = [
   {
@@ -33,7 +34,17 @@ const services = [
 export default function ServicesPage() {
   return (
     <main className="page-shell" id="main-content">
+      <JsonLd
+        data={
+          breadcrumbSchema([
+            { name: 'Inicio', path: '/' },
+            { name: 'Servicios', path: '/services' }
+          ])
+        }
+      />
+
       <section className="section reveal-on-scroll cinematic-panel is-visible">
+        <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Servicios' }]} />
         <p className="eyebrow">SERVICIOS</p>
         <h1>Servicios integrados para crecimiento</h1>
         <p className="lead">Puedes contratar una línea puntual o un plan integral de ejecución.</p>

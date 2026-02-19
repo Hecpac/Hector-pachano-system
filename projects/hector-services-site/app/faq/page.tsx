@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 
+import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { JsonLd } from '@/components/ui/json-ld'
-import { faqSchema } from '@/lib/seo/schema'
-import { SITE_URL } from '@/lib/seo/site'
+import { buildPageMetadata } from '@/lib/seo/meta'
+import { breadcrumbSchema, faqSchema } from '@/lib/seo/schema'
 
 const items = [
   {
@@ -19,20 +20,27 @@ const items = [
   }
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'FAQ',
   description: 'Preguntas frecuentes sobre alcance, tiempos y forma de trabajo.',
-  alternates: {
-    canonical: `${SITE_URL}/faq`
-  }
-}
+  path: '/faq'
+})
 
 export default function FAQPage() {
   return (
     <main className="page-shell" id="main-content">
-      <JsonLd data={faqSchema(items)} />
+      <JsonLd
+        data={[
+          faqSchema(items),
+          breadcrumbSchema([
+            { name: 'Inicio', path: '/' },
+            { name: 'FAQ', path: '/faq' }
+          ])
+        ]}
+      />
 
       <section className="section section--faq reveal-on-scroll cinematic-panel is-visible">
+        <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'FAQ' }]} />
         <p className="eyebrow">FAQ</p>
         <h1>Preguntas frecuentes</h1>
         {items.map((item) => (

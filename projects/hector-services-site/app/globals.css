@@ -230,6 +230,39 @@ h3 {
   color: color-mix(in srgb, var(--ink) 75%, var(--accent));
 }
 
+.breadcrumbs {
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: '›';
+  margin-left: 0.45rem;
+  color: color-mix(in srgb, var(--accent) 70%, var(--muted));
+}
+
+.breadcrumbs a:hover {
+  color: var(--ink);
+}
+
 .button {
   display: inline-flex;
   align-items: center;
