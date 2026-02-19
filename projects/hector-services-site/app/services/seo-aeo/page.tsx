@@ -29,7 +29,12 @@ export default function SeoAeoPage() {
           serviceSchema({
             name: title,
             description,
-            path
+            path,
+            offers: [
+              'Technical SEO e indexación',
+              'Estrategia de contenidos por intención',
+              'Optimización AEO para respuestas de IA'
+            ]
           })
         ]}
       />

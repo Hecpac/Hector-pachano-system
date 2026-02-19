@@ -1,9 +1,10 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useEffect, useRef } from 'react'
 import { useFormStatus } from 'react-dom'
 
 import type { LeadFormState } from '@/app/actions'
+import { trackEvent } from '@/lib/analytics/events'
 
 type LeadFormProps = {
   action: (state: LeadFormState, formData: FormData) => Promise<LeadFormState>
@@ -27,6 +28,18 @@ function SubmitButton() {
 
 export function LeadForm({ action, calLink }: LeadFormProps) {
   const [state, formAction] = useActionState(action, initialState)
+  const wasSuccess = useRef(false)
+
+  useEffect(() => {
+    if (state.status === 'success' && !wasSuccess.current) {
+      wasSuccess.current = true
+      trackEvent('lead_form_submit_success', { source: 'website' })
+    }
+
+    if (state.status !== 'success') {
+      wasSuccess.current = false
+    }
+  }, [state.status])
 
   return (
     <div className="lead-form-wrap">
@@ -57,7 +70,7 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
 
         <label className="lead-form__field">
           <span>Servicio principal</span>
-          <select name="projectType" defaultValue="">
+          <select name="projectType" defaultValue="" required>
             <option value="" disabled>
               Selecciona una opción
             </option>
@@ -80,7 +93,13 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
 
         <div className="lead-form__actions">
           <SubmitButton />
-          <a href={calLink} target="_blank" rel="noreferrer" className="button button--ghost">
+          <a
+            href={calLink}
+            target="_blank"
+            rel="noreferrer"
+            className="button button--ghost"
+            onClick={() => trackEvent('calendar_click', { source: 'lead_form', href: calLink })}
+          >
             Agendar en calendario
           </a>
         </div>

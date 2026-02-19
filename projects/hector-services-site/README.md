@@ -5,14 +5,14 @@ Sitio inspirado en la referencia visual de Foundry (Basement), adaptado a venta 
 - Diseño Web
 - SEO/AEO
 
-## Stack propuesto
+## Stack
 
-- **Framework:** Next.js 15 (App Router) + React 19
+- **Framework:** Next.js 16 (App Router) + React 19
 - **Lenguaje:** TypeScript estricto
-- **Estilos:** CSS global (base) + Tailwind v4 listo para activar
+- **Estilos:** CSS global custom + sistema de motion responsive
 - **Deploy:** Vercel
-- **SEO/AEO:** Metadata API + Open Graph + Schema (siguiente fase)
-- **Analytics (siguiente fase):** Vercel Analytics o Plausible
+- **SEO/AEO:** Metadata API + Open Graph dinámico + JSON-LD + robots/sitemap
+- **Tracking base:** eventos `lead_form_submit_success` y `calendar_click`
 
 ## Ejecutar local
 
@@ -21,27 +21,26 @@ npm install
 npm run dev
 ```
 
+## Variables de entorno
+
+1. Copia `.env.example` a `.env.local`
+2. Configura:
+   - `NEXT_PUBLIC_SITE_URL`
+   - `NEXT_PUBLIC_CAL_LINK`
+   - `GOOGLE_SITE_VERIFICATION` (recomendado)
+   - `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`
+
+Si faltan variables de Resend, el formulario sigue operando en modo local (sin envío externo) para no bloquear desarrollo.
+
+## SEO / Search Console
+
+Checklist operativo:
+- `docs/seo/search-console-checklist.md`
+
 ## Estructura clave
 
 - `app/` rutas y páginas
-- `public/images/` placeholders visuales para reemplazo posterior
-- `content/` casos, testimonios y FAQs
-- `docs/` wireframes y copy
-
-## Formulario real (Resend + Calendar)
-
-1. Copia `.env.example` a `.env.local`
-2. Define `NEXT_PUBLIC_CAL_LINK`
-3. Agrega `RESEND_API_KEY`, `CONTACT_TO_EMAIL` y `CONTACT_FROM_EMAIL`
-4. Reinicia el servidor (`npm run dev`)
-
-Si faltan variables, el formulario sigue operando en modo local (sin envío externo) para no bloquear desarrollo.
-
-## Próximos pasos (inmediatos)
-
-1. Reemplazar placeholders por imágenes reales de casos
-2. Definir color acento definitivo (índigo o verde neón)
-3. Cargar 2-3 casos con métricas reales verificables
-4. Agregar schema de `ProfessionalService` + FAQ
-5. Conectar analytics de conversión (evento submit + click calendario)
-
+- `lib/seo/` metadata helpers y schemas
+- `lib/analytics/` tracking client-side
+- `public/images/` assets visuales
+- `docs/` wireframes, referencias y checklists

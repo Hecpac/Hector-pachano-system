@@ -29,7 +29,12 @@ export default function DisenoWebPage() {
           serviceSchema({
             name: title,
             description,
-            path
+            path,
+            offers: [
+              'Arquitectura de contenido y UX comercial',
+              'Implementación Next.js performance-first',
+              'Optimización de conversión y CTAs'
+            ]
           })
         ]}
       />

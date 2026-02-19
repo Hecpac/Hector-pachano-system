@@ -38,6 +38,7 @@ export function serviceSchema(input: {
   name: string
   description: string
   path: string
+  offers: string[]
 }) {
   return {
     '@context': 'https://schema.org',
@@ -49,6 +50,18 @@ export function serviceSchema(input: {
       '@type': 'ProfessionalService',
       name: SITE_NAME,
       url: SITE_URL
+    },
+    areaServed: 'Remote',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${input.name} - Alcances`,
+      itemListElement: input.offers.map((offer) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: offer
+        }
+      }))
     },
     url: `${SITE_URL}${input.path}`
   }

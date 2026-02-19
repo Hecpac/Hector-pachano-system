@@ -29,7 +29,12 @@ export default function AutomatizacionesPage() {
           serviceSchema({
             name: title,
             description,
-            path
+            path,
+            offers: [
+              'Lead intake y enrutamiento automático',
+              'Integración CRM y formularios',
+              'Notificaciones y seguimiento operativo'
+            ]
           })
         ]}
       />

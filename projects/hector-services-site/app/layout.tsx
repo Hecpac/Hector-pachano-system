@@ -42,6 +42,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION
   }
 }
 
