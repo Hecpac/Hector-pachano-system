@@ -1,23 +1,23 @@
 :root {
-  --bg: #ff5a1f;
-  --ink: #101010;
-  --muted: #3f2b20;
-  --line: #1a120d;
-  --accent: #111111;
-  --surface: #ff6930;
-  --surface-strong: #ff7a46;
+  --bg: #090909;
+  --ink: #f5f5f5;
+  --muted: #b6b6b6;
+  --line: #2a2a2a;
+  --accent: #ff6a00;
+  --surface: #111111;
+  --surface-strong: #171717;
   --radius: 18px;
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 [data-theme='minimal'] {
-  --bg: #ff7445;
-  --ink: #101010;
-  --muted: #4b3428;
-  --line: #24170f;
-  --accent: #111111;
-  --surface: #ff855b;
-  --surface-strong: #ff966f;
+  --bg: #0f0f10;
+  --ink: #f0f0f0;
+  --muted: #aaaaad;
+  --line: #323236;
+  --accent: #ff8a3d;
+  --surface: #151517;
+  --surface-strong: #1a1a1d;
 }
 
 * {
@@ -232,12 +232,10 @@ h3 {
 
 .brand-highlight {
   display: inline-block;
-  background: #101010;
-  color: #ff8a3d;
-  padding: 0.06rem 0.28rem;
-  border-radius: 4px;
+  color: var(--accent);
   font-weight: 700;
   letter-spacing: 0.15em;
+  text-shadow: 0 0 16px color-mix(in srgb, var(--accent) 48%, transparent);
 }
 
 .breadcrumbs {
@@ -403,12 +401,6 @@ h3 {
   animation-delay: 420ms;
 }
 
-#services.section {
-  background:
-    radial-gradient(circle at 14% 8%, rgba(255, 106, 0, 0.12) 0%, transparent 38%),
-    linear-gradient(180deg, #111112 0%, #0d0d0e 100%);
-}
-
 .service-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -451,26 +443,6 @@ h3 {
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-#services .service-card {
-  background:
-    linear-gradient(180deg, rgba(255, 106, 0, 0.14) 0%, rgba(255, 106, 0, 0.03) 30%, transparent 62%),
-    linear-gradient(175deg, #161617 0%, #0b0b0c 82%);
-  border-color: color-mix(in srgb, var(--line) 58%, var(--accent) 42%);
-}
-
-#services .service-card:nth-child(2) {
-  background:
-    linear-gradient(130deg, rgba(255, 106, 0, 0.28) 0%, rgba(255, 106, 0, 0.08) 38%, transparent 72%),
-    linear-gradient(175deg, #19110e 0%, #0b0b0c 84%);
-  border-color: color-mix(in srgb, var(--line) 44%, var(--accent) 56%);
-}
-
-#services .service-card .service-id,
-#services .service-card .service-result,
-#services .service-card .service-link {
-  color: color-mix(in srgb, var(--accent) 88%, #fff) !important;
-}
-
 [data-theme='minimal'] .service-card {
   box-shadow:
     0 12px 24px rgba(0, 0, 0, 0.32),
@@ -483,18 +455,6 @@ h3 {
 
 [data-theme='minimal'] .service-card:hover {
   transform: translateY(-4px);
-}
-
-[data-theme='minimal'] #services .service-card {
-  background:
-    linear-gradient(180deg, rgba(255, 106, 0, 0.08) 0%, rgba(255, 106, 0, 0.02) 30%, transparent 62%),
-    linear-gradient(175deg, #171719 0%, #111113 82%);
-}
-
-[data-theme='minimal'] #services .service-card:nth-child(2) {
-  background:
-    linear-gradient(130deg, rgba(255, 106, 0, 0.16) 0%, rgba(255, 106, 0, 0.05) 38%, transparent 72%),
-    linear-gradient(175deg, #191514 0%, #111113 84%);
 }
 
 .service-card h2 {
@@ -684,6 +644,57 @@ h3 {
 .case-card__detail {
   margin: 0.3rem 0 0;
   color: var(--muted);
+}
+
+#casos.section {
+  background:
+    radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.16) 0%, transparent 36%),
+    linear-gradient(180deg, #ff713d 0%, #ff5a1f 100%);
+  border-color: #1b120d;
+}
+
+#casos .eyebrow,
+#casos .case-card__service,
+#casos .case-card__metric {
+  color: #111 !important;
+}
+
+#casos .case-card {
+  border-color: #1b120d;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 28%, transparent 62%),
+    linear-gradient(170deg, #ff8f64 0%, #ff6a37 82%);
+  box-shadow:
+    0 16px 30px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+#casos .case-card img {
+  border-bottom-color: #1b120d;
+}
+
+#casos .case-card__meta h3,
+#casos .case-card__detail {
+  color: #2f1f14;
+}
+
+#casos .case-card:hover {
+  border-color: #140d09;
+  box-shadow:
+    0 22px 38px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+[data-theme='minimal'] #casos.section {
+  background:
+    radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.12) 0%, transparent 36%),
+    linear-gradient(180deg, #ff8358 0%, #ff6b3d 100%);
+}
+
+[data-theme='minimal'] #casos .case-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.03) 28%, transparent 62%),
+    linear-gradient(170deg, #ffa07e 0%, #ff7a4f 82%);
 }
 
 .process-list {
@@ -981,96 +992,5 @@ h3 {
     z-index: 30;
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* --- Orange + Black mode (requested) --- */
-.hero {
-  background: linear-gradient(145deg, #ff7a45 0%, #ff5a1f 65%, #ff4b14 100%) !important;
-}
-
-#services.section {
-  background:
-    radial-gradient(circle at 20% 8%, rgba(0, 0, 0, 0.14) 0%, transparent 42%),
-    linear-gradient(180deg, #ff6d36 0%, #ff5a1f 100%) !important;
-}
-
-.section,
-.top-nav,
-.theme-toggle,
-.blog-card,
-.lead-form-wrap {
-  background: var(--surface) !important;
-  border-color: var(--line) !important;
-}
-
-.ticker {
-  background: #ff4f17 !important;
-  border-color: var(--line) !important;
-}
-
-.ticker__track {
-  color: #111 !important;
-}
-
-.service-card,
-.case-card,
-.process-list li {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 24%, transparent 60%),
-    linear-gradient(175deg, #ff8659 0%, #ff6631 82%) !important;
-  border-color: var(--line) !important;
-}
-
-.service-card p,
-.case-card__detail,
-.blog-card p,
-.lead,
-.lead-form__field span,
-.section--faq p {
-  color: var(--muted) !important;
-}
-
-.service-link,
-.service-id,
-.case-card__service,
-.eyebrow,
-.blog-card__meta {
-  color: #111 !important;
-}
-
-.button {
-  background: #101010 !important;
-  color: #ff8a3d !important;
-  border-color: #101010 !important;
-}
-
-.button--ghost {
-  background: transparent !important;
-  color: #111 !important;
-  border-color: #111 !important;
-}
-
-.lead-form input,
-.lead-form select,
-.lead-form textarea {
-  background: #ffd6c3 !important;
-  color: #111 !important;
-  border-color: color-mix(in srgb, #111 70%, #fff) !important;
-}
-
-.lead-form input::placeholder,
-.lead-form textarea::placeholder {
-  color: #5a463a !important;
-}
-
-@media (max-width: 767px) {
-  .top-nav {
-    background: color-mix(in oklab, var(--bg) 92%, #fff) !important;
-  }
-
-  .hero-cta {
-    background: color-mix(in oklab, var(--bg) 88%, #fff) !important;
-    border-top-color: var(--line) !important;
   }
 }
