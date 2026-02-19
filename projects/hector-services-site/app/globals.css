@@ -188,6 +188,14 @@ a {
   background: linear-gradient(140deg, #111111 0%, #161616 62%, #1a1a1a 100%);
 }
 
+#top.section {
+  min-height: clamp(70vh, 80vh, 90vh);
+  padding-block: clamp(4rem, 9vh, 7.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .hero h1 {
   margin: 0.4rem 0 0.8rem;
   font-size: clamp(2.4rem, 8vw, 6.4rem);
@@ -651,6 +659,11 @@ h3 {
     radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.16) 0%, transparent 36%),
     linear-gradient(180deg, #ff713d 0%, #ff5a1f 100%);
   border-color: #1b120d;
+  padding-block: clamp(1.4rem, 3.2vh, 2.2rem);
+}
+
+#casos .case-grid {
+  gap: 0.75rem;
 }
 
 #casos .eyebrow,
@@ -671,11 +684,23 @@ h3 {
 
 #casos .case-card img {
   border-bottom-color: #1b120d;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
-#casos .case-card__meta h3,
+#casos .case-card__meta {
+  padding: 0.75rem 0.85rem;
+}
+
+#casos .case-card__meta h3 {
+  color: #2f1f14;
+  margin: 0.3rem 0;
+  font-size: 0.98rem;
+}
+
 #casos .case-card__detail {
   color: #2f1f14;
+  font-size: 0.9rem;
 }
 
 #casos .case-card:hover {
@@ -930,6 +955,15 @@ h3 {
 
   .hero {
     padding-top: 2rem;
+  }
+
+  #top.section {
+    min-height: 74svh;
+    padding-block: 2.4rem 2.8rem;
+  }
+
+  #casos.section {
+    padding-block: 1.2rem 1.4rem;
   }
 
   .service-card,
