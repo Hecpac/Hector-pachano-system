@@ -2,6 +2,7 @@ import { submitLeadAction } from './actions'
 
 import { CaseStudiesSection } from '@/components/sections/case-studies'
 import { LeadForm } from '@/components/sections/lead-form'
+import { ThemeToggle } from '@/components/ui/theme-toggle'
 
 const services = [
   {
@@ -46,9 +47,12 @@ export default function HomePage() {
     <main className="page-shell">
       <header className="top-nav">
         <span className="eyebrow">HECTOR // DIGITAL SYSTEMS</span>
-        <a href="#contact" className="button button--small">
-          Agenda diagnóstico
-        </a>
+        <div className="top-nav__actions">
+          <ThemeToggle />
+          <a href="#contact" className="button button--small">
+            Agenda diagnóstico
+          </a>
+        </div>
       </header>
 
       <section className="hero section reveal-on-scroll is-visible" id="top">

@@ -7,6 +7,17 @@
   --surface: #111111;
   --surface-strong: #171717;
   --radius: 18px;
+  color-scheme: dark;
+}
+
+[data-theme='minimal'] {
+  --bg: #0f0f10;
+  --ink: #f0f0f0;
+  --muted: #aaaaad;
+  --line: #323236;
+  --accent: #ff8a3d;
+  --surface: #151517;
+  --surface-strong: #1a1a1d;
 }
 
 * {
@@ -41,6 +52,44 @@ a {
   background: var(--surface);
   padding: 0.75rem;
   margin-bottom: 1.2rem;
+}
+
+.top-nav__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.14rem;
+  background: #0e0e0f;
+}
+
+.theme-toggle__btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.38rem 0.62rem;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.theme-toggle__btn.is-active {
+  background: color-mix(in srgb, var(--accent) 85%, #111 15%);
+  color: #111;
+}
+
+[data-theme='minimal'] .theme-toggle__btn.is-active {
+  color: #0f0f10;
 }
 
 .section {
@@ -213,6 +262,20 @@ h3 {
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
+[data-theme='minimal'] .service-card {
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='minimal'] .service-card::before {
+  opacity: 0.2;
+}
+
+[data-theme='minimal'] .service-card:hover {
+  transform: translateY(-4px);
+}
+
 .service-card h2 {
   margin-top: 0.35rem;
   margin-bottom: 0.45rem;
@@ -264,6 +327,16 @@ h3 {
   box-shadow:
     0 24px 44px rgba(0, 0, 0, 0.52),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='minimal'] .case-card {
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+[data-theme='minimal'] .case-card:hover {
+  transform: translateY(-4px);
 }
 
 .case-card img {
@@ -373,6 +446,12 @@ h3 {
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
   padding: 1rem;
   text-align: left;
+}
+
+[data-theme='minimal'] .lead-form-wrap {
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .lead-form {
@@ -507,7 +586,8 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .button {
+  .hero-cta .button,
+  .lead-form__actions .button {
     width: 100%;
   }
 
@@ -524,9 +604,21 @@ h3 {
   .top-nav {
     position: sticky;
     top: 0;
+    flex-wrap: wrap;
+    gap: 0.6rem;
     background: color-mix(in oklab, var(--bg) 90%, #191919);
     backdrop-filter: blur(8px);
     z-index: 20;
+  }
+
+  .top-nav__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .theme-toggle__btn {
+    padding: 0.34rem 0.56rem;
+    font-size: 0.65rem;
   }
 
   .hero-cta {
