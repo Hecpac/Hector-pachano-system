@@ -1,11 +1,12 @@
 :root {
-  --bg: #f6f6f6;
-  --ink: #0c0c0c;
-  --muted: #575757;
-  --line: #dcdcdc;
-  --accent: #4f46e5;
-  --surface: #ffffff;
-  --radius: 12px;
+  --bg: #090909;
+  --ink: #f5f5f5;
+  --muted: #b6b6b6;
+  --line: #2a2a2a;
+  --accent: #ff6a00;
+  --surface: #111111;
+  --surface-strong: #171717;
+  --radius: 10px;
 }
 
 * {
@@ -16,9 +17,9 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color: var(--ink);
   background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-display), Inter, system-ui, sans-serif;
 }
 
 a {
@@ -36,36 +37,51 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--line);
-  padding: 0.75rem 0;
-  margin-bottom: 2rem;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 0.75rem;
+  margin-bottom: 1.2rem;
 }
 
 .section {
-  border-top: 1px solid var(--line);
-  padding-block: 3.5rem;
+  border: 1px solid var(--line);
+  border-top: 0;
+  background: var(--surface);
+  padding: 3rem 1rem;
+}
+
+.hero {
+  background: linear-gradient(140deg, #111111 0%, #161616 62%, #1a1a1a 100%);
 }
 
 .hero h1 {
-  margin: 0.5rem 0 0.5rem;
-  font-size: clamp(2.5rem, 7vw, 6rem);
-  line-height: 0.95;
+  margin: 0.4rem 0 0.8rem;
+  font-size: clamp(2.4rem, 8vw, 6.4rem);
+  line-height: 0.9;
   letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), Inter, system-ui, sans-serif;
+}
+
 .lead {
-  max-width: 58ch;
+  max-width: 60ch;
   color: var(--muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 .eyebrow {
   margin: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--ink) 75%, var(--accent));
 }
 
 .button {
@@ -75,24 +91,33 @@ a {
   border: 1px solid var(--ink);
   border-radius: 999px;
   padding: 0.7rem 1rem;
-  font-size: 0.9rem;
-  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
-  background: var(--ink);
-  color: #fff;
+  font-size: 0.88rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: transform 0.14s ease, background 0.2s ease, color 0.2s ease;
+  background: var(--accent);
+  color: #111;
 }
 
 .button:hover {
   transform: translateY(-1px);
 }
 
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .button--small {
   padding: 0.45rem 0.8rem;
-  font-size: 0.8rem;
+  font-size: 0.76rem;
 }
 
 .button--ghost {
   background: transparent;
   color: var(--ink);
+  border-color: var(--line);
 }
 
 .hero-cta {
@@ -112,8 +137,8 @@ a {
   grid-column: span 4;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--surface);
-  padding: 1.1rem;
+  background: var(--surface-strong);
+  padding: 1rem;
 }
 
 .service-card h2 {
@@ -133,9 +158,10 @@ a {
 }
 
 .service-id {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
+  color: var(--accent);
 }
 
 .case-grid {
@@ -150,7 +176,7 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: clip;
-  background: var(--surface);
+  background: #0e0e0e;
 }
 
 .case-card img {
@@ -171,20 +197,21 @@ a {
 
 .case-card__service {
   margin: 0;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.75rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.74rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--accent);
 }
 
 .case-card__meta h3 {
   margin: 0.45rem 0;
-  font-size: 1.1rem;
+  font-size: 1.06rem;
 }
 
 .case-card__metric {
   margin: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
   font-weight: 600;
 }
 
@@ -205,9 +232,10 @@ a {
 .process-list li {
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: var(--surface);
+  background: #121212;
   padding: 0.7rem 1rem;
   text-align: center;
+  font-family: var(--font-mono), ui-monospace, monospace;
   font-weight: 500;
 }
 
@@ -244,7 +272,7 @@ a {
 .lead-form-wrap {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--surface);
+  background: var(--surface-strong);
   padding: 1rem;
   text-align: left;
 }
@@ -266,6 +294,7 @@ a {
 }
 
 .lead-form__field span {
+  font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -278,16 +307,21 @@ a {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: #fff;
+  background: #0f0f0f;
   color: var(--ink);
   padding: 0.72rem 0.8rem;
   font: inherit;
 }
 
+.lead-form input::placeholder,
+.lead-form textarea::placeholder {
+  color: #7f7f7f;
+}
+
 .lead-form input:focus-visible,
 .lead-form select:focus-visible,
 .lead-form textarea:focus-visible {
-  outline: 2px solid color-mix(in oklab, var(--accent) 70%, #fff);
+  outline: 2px solid color-mix(in oklab, var(--accent) 68%, #fff);
   outline-offset: 2px;
 }
 
@@ -309,11 +343,11 @@ a {
 }
 
 .lead-form__feedback--success {
-  color: #0f7a29;
+  color: #7ef59c;
 }
 
 .lead-form__feedback--error {
-  color: #b42318;
+  color: #ff8d84;
 }
 
 .lead-form__trap {
@@ -355,6 +389,14 @@ a {
     grid-column: span 12;
   }
 
+  .process-list {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    width: 100%;
+  }
+
   .lead-form__field,
   .lead-form__field--full {
     grid-column: span 12;
@@ -365,18 +407,10 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .process-list {
-    grid-template-columns: 1fr;
-  }
-
-  .button {
-    width: 100%;
-  }
-
   .top-nav {
     position: sticky;
     top: 0;
-    background: color-mix(in oklab, var(--bg) 92%, white);
+    background: color-mix(in oklab, var(--bg) 90%, #191919);
     backdrop-filter: blur(8px);
     z-index: 20;
   }
@@ -387,7 +421,7 @@ a {
     right: 0;
     bottom: 0;
     padding: 0.75rem;
-    background: color-mix(in oklab, var(--bg) 90%, white);
+    background: color-mix(in oklab, var(--bg) 90%, #191919);
     border-top: 1px solid var(--line);
     z-index: 30;
     display: grid;

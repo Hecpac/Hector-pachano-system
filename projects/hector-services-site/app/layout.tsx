@@ -1,5 +1,18 @@
 import type { Metadata } from 'next'
+import { IBM_Plex_Mono, Space_Grotesk } from 'next/font/google'
 import './globals.css'
+
+const displayFont = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['500', '600', '700']
+})
+
+const monoFont = IBM_Plex_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  weight: ['400', '500', '600']
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hector-services-site.com'),
@@ -17,7 +30,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body className={`${displayFont.variable} ${monoFont.variable}`}>{children}</body>
     </html>
   )
 }
