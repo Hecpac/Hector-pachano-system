@@ -401,6 +401,12 @@ h3 {
   animation-delay: 420ms;
 }
 
+#services.section {
+  background:
+    radial-gradient(circle at 14% 8%, rgba(255, 106, 0, 0.12) 0%, transparent 38%),
+    linear-gradient(180deg, #111112 0%, #0d0d0e 100%);
+}
+
 .service-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -443,6 +449,26 @@ h3 {
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
+#services .service-card {
+  background:
+    linear-gradient(180deg, rgba(255, 106, 0, 0.14) 0%, rgba(255, 106, 0, 0.03) 30%, transparent 62%),
+    linear-gradient(175deg, #161617 0%, #0b0b0c 82%);
+  border-color: color-mix(in srgb, var(--line) 58%, var(--accent) 42%);
+}
+
+#services .service-card:nth-child(2) {
+  background:
+    linear-gradient(130deg, rgba(255, 106, 0, 0.28) 0%, rgba(255, 106, 0, 0.08) 38%, transparent 72%),
+    linear-gradient(175deg, #19110e 0%, #0b0b0c 84%);
+  border-color: color-mix(in srgb, var(--line) 44%, var(--accent) 56%);
+}
+
+#services .service-card .service-id,
+#services .service-card .service-result,
+#services .service-card .service-link {
+  color: color-mix(in srgb, var(--accent) 88%, #fff) !important;
+}
+
 [data-theme='minimal'] .service-card {
   box-shadow:
     0 12px 24px rgba(0, 0, 0, 0.32),
@@ -455,6 +481,18 @@ h3 {
 
 [data-theme='minimal'] .service-card:hover {
   transform: translateY(-4px);
+}
+
+[data-theme='minimal'] #services .service-card {
+  background:
+    linear-gradient(180deg, rgba(255, 106, 0, 0.08) 0%, rgba(255, 106, 0, 0.02) 30%, transparent 62%),
+    linear-gradient(175deg, #171719 0%, #111113 82%);
+}
+
+[data-theme='minimal'] #services .service-card:nth-child(2) {
+  background:
+    linear-gradient(130deg, rgba(255, 106, 0, 0.16) 0%, rgba(255, 106, 0, 0.05) 38%, transparent 72%),
+    linear-gradient(175deg, #191514 0%, #111113 84%);
 }
 
 .service-card h2 {
