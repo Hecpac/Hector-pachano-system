@@ -1,0 +1,8 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#FFFFFF"/>
+  <rect x="60" y="60" width="1480" height="880" rx="24" fill="#F6F6F6" stroke="#DCDCDC"/>
+  <text x="110" y="170" fill="#0C0C0C" font-size="52" font-family="Inter, Arial, sans-serif" font-weight="700">CASE 02 · DISEÑO WEB</text>
+  <text x="110" y="240" fill="#575757" font-size="28" font-family="Inter, Arial, sans-serif">Placeholder visual para reemplazo por mockup final</text>
+  <rect x="110" y="320" width="1380" height="480" rx="16" fill="#FFFFFF" stroke="#DCDCDC" stroke-dasharray="14 10"/>
+  <text x="130" y="390" fill="#4F46E5" font-size="24" font-family="ui-monospace, Menlo, monospace">LANDING · PERFORMANCE · CONVERSIÓN</text>
+</svg>
