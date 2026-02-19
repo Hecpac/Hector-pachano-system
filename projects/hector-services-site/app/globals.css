@@ -1181,13 +1181,29 @@ h3 {
 }
 
 .landing-hero__headline {
+  display: grid;
+  gap: 0.08em;
   font-family: var(--font-display), Impact, sans-serif;
-  font-size: clamp(90px, 14vw, 206px);
-  line-height: 0.88;
+  font-size: clamp(88px, 13vw, 194px);
+  line-height: 0.86;
   letter-spacing: 0.01em;
   color: #f0ede8;
   text-transform: uppercase;
   opacity: 1;
+}
+
+.landing-hero__headline > span {
+  display: block;
+}
+
+.landing-hero__headline .line-kicker {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: clamp(16px, 2.1vw, 30px);
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(240, 237, 232, 0.78);
+  margin-bottom: 0.22em;
 }
 
 .landing-hero__headline .line-orange {
@@ -1230,14 +1246,20 @@ h3 {
 }
 
 .landing-hero__descriptor p {
-  font-size: 12px;
-  line-height: 1.7;
-  color: rgba(240, 237, 232, 0.55);
+  margin: 0;
 }
 
-.landing-hero__descriptor p strong {
+.landing-hero__descriptor-main {
+  font-size: 12px;
+  line-height: 1.7;
   color: #f0ede8;
-  font-weight: 400;
+}
+
+.landing-hero__descriptor-support {
+  margin-top: 0.2rem !important;
+  font-size: 11px;
+  line-height: 1.7;
+  color: rgba(240, 237, 232, 0.56);
 }
 
 .landing-hero__actions {
@@ -1430,12 +1452,23 @@ h3 {
 
   .landing-hero__headline {
     font-size: clamp(64px, 22vw, 132px);
+    gap: 0.12em;
+  }
+
+  .landing-hero__headline .line-kicker {
+    font-size: clamp(13px, 3.8vw, 18px);
+    letter-spacing: 0.06em;
+    margin-bottom: 0.16em;
   }
 
   .landing-hero__bottom {
     flex-direction: column;
     align-items: flex-start;
     padding-bottom: 28px;
+  }
+
+  .landing-hero__descriptor {
+    max-width: 100%;
   }
 
   .landing-hero__actions {

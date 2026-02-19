@@ -104,21 +104,18 @@ export default function HomePage() {
           </div>
 
           <h1 className="landing-hero__headline">
-            No vendo páginas web.
-            <br />
+            <span className="line-kicker">No vendo páginas web.</span>
             <span className="line-orange">Construyo sistemas digitales</span>
-            <br />
             <span className="line-outline">que generan ingresos.</span>
           </h1>
         </div>
 
         <div className="landing-hero__bottom">
           <div className="landing-hero__descriptor">
-            <p>
-              <strong>Diseño que convierte + SEO que posiciona + automatización que escala.</strong>
-              <br />
-              Todo integrado, todo medible, todo tuyo.
+            <p className="landing-hero__descriptor-main">
+              Diseño que convierte + SEO que posiciona + automatización que escala.
             </p>
+            <p className="landing-hero__descriptor-support">Todo integrado, todo medible, todo tuyo.</p>
           </div>
 
           <div className="landing-hero__actions">
