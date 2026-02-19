@@ -26,6 +26,11 @@
 
 html {
   scroll-behavior: smooth;
+  touch-action: manipulation;
+}
+
+[id] {
+  scroll-margin-top: 5rem;
 }
 
 html,
@@ -48,14 +53,50 @@ a {
   padding: 1rem;
 }
 
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #111;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  z-index: 100;
+}
+
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
 .top-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.8rem;
   border: 1px solid var(--line);
   background: var(--surface);
   padding: 0.75rem;
   margin-bottom: 1.2rem;
+}
+
+.top-nav__links {
+  display: inline-flex;
+  gap: 0.8rem;
+  align-items: center;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.top-nav__links a {
+  color: var(--muted);
+  transition: color 180ms ease;
+}
+
+.top-nav__links a:hover {
+  color: var(--ink);
 }
 
 .top-nav__actions {
@@ -165,6 +206,18 @@ h3 {
   max-width: 60ch;
   color: var(--muted);
   margin-bottom: 1.4rem;
+}
+
+.bullet-list {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.55rem;
+  color: var(--muted);
+}
+
+.bullet-list li::marker {
+  color: var(--accent);
 }
 
 .eyebrow {
@@ -371,6 +424,16 @@ h3 {
 .service-card p {
   margin: 0;
   color: var(--muted);
+}
+
+.service-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .service-result {
@@ -678,6 +741,10 @@ h3 {
 }
 
 @media (max-width: 1199px) {
+  .top-nav__links {
+    display: none;
+  }
+
   .service-card {
     grid-column: span 6;
   }

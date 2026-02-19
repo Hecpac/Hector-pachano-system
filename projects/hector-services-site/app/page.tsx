@@ -1,25 +1,34 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+
 import { submitLeadAction } from './actions'
 
 import { CaseStudiesSection } from '@/components/sections/case-studies'
 import { LeadForm } from '@/components/sections/lead-form'
+import { JsonLd } from '@/components/ui/json-ld'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
+import { faqSchema, organizationSchema, websiteSchema } from '@/lib/seo/schema'
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/seo/site'
 
 const services = [
   {
     id: '01',
     title: 'Automatizaciones',
+    href: '/services/automatizaciones',
     description: 'Reducimos tareas manuales con flujos y APIs para que tu operación escale sin fricción.',
     result: 'Menos tiempo operativo, más foco en ventas.'
   },
   {
     id: '02',
     title: 'Diseño Web',
+    href: '/services/diseno-web',
     description: 'Sitios rápidos y con diseño editorial que convierten visitas en oportunidades reales.',
     result: 'Más confianza y mejor tasa de conversión.'
   },
   {
     id: '03',
     title: 'SEO / AEO',
+    href: '/services/seo-aeo',
     description: 'Posicionamiento orgánico y optimización para motores de búsqueda y respuestas de IA.',
     result: 'Tráfico constante sin depender solo de anuncios.'
   }
@@ -40,13 +49,31 @@ const faqItems = [
   }
 ]
 
+export const metadata: Metadata = {
+  title: 'Inicio',
+  description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: SITE_URL
+  }
+}
+
 export default function HomePage() {
-  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || 'https://cal.com'
+  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || 'https://cal.com/tu-usuario/diagnostico'
 
   return (
-    <main className="page-shell">
+    <main className="page-shell" id="main-content">
+      <JsonLd data={websiteSchema} />
+      <JsonLd data={organizationSchema} />
+      <JsonLd data={faqSchema(faqItems)} />
+
       <header className="top-nav">
-        <span className="eyebrow">HECTOR // DIGITAL SYSTEMS</span>
+        <span className="eyebrow">{SITE_NAME.toUpperCase()} {'//'} DIGITAL SYSTEMS</span>
+        <nav className="top-nav__links" aria-label="Navegación principal">
+          <Link href="/services">Servicios</Link>
+          <Link href="/work">Casos</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contacto</Link>
+        </nav>
         <div className="top-nav__actions">
           <ThemeToggle />
           <a href="#contact" className="button button--small">
@@ -57,7 +84,7 @@ export default function HomePage() {
 
       <section className="hero section reveal-on-scroll cinematic-panel is-visible" id="top">
         <p className="eyebrow">AUTOMATIZACIONES · DISEÑO WEB · SEO/AEO</p>
-        <h1>Design. Automate. Rank.</h1>
+        <h1 lang="en">Design. Automate. Rank.</h1>
         <p className="lead">
           Construyo sistemas digitales que generan ingresos: web de alto rendimiento, procesos automáticos
           y posicionamiento estratégico.
@@ -75,6 +102,7 @@ export default function HomePage() {
           <div className="ticker__track">
             AUTOMATIZACIONES · DISEÑO WEB · SEO / AEO · PERFORMANCE · CONVERSIÓN ·
             AUTOMATIZACIONES · DISEÑO WEB · SEO / AEO · PERFORMANCE · CONVERSIÓN ·
+            AUTOMATIZACIONES · DISEÑO WEB · SEO / AEO · PERFORMANCE · CONVERSIÓN ·
           </div>
         </div>
       </section>
@@ -88,6 +116,9 @@ export default function HomePage() {
               <h2>{service.title}</h2>
               <p>{service.description}</p>
               <p className="service-result">{service.result}</p>
+              <Link href={service.href} className="service-link">
+                Ver servicio →
+              </Link>
             </article>
           ))}
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { IBM_Plex_Mono, Space_Grotesk } from 'next/font/google'
 
 import { ScrollReveal } from '@/components/ui/scroll-reveal'
+import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_URL } from '@/lib/seo/site'
 import './globals.css'
 
 const displayFont = Space_Grotesk({
@@ -17,15 +18,30 @@ const monoFont = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hector-services-site.com'),
-  title: 'Hector — Automatizaciones, Diseño Web y SEO/AEO',
-  description:
-    'Sistemas digitales que generan ingresos: automatizaciones, diseño web y SEO/AEO para negocios que quieren escalar.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — Automatizaciones, Diseño Web y SEO/AEO`,
+    template: `%s | ${SITE_NAME}`
+  },
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
   openGraph: {
-    title: 'Hector — Design. Automate. Rank.',
-    description:
-      'Automatizaciones + Diseño Web + SEO/AEO en un solo partner.',
-    images: ['/images/og/og-default.svg']
+    title: `${SITE_NAME} — Design. Automate. Rank.`,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: 'es_MX',
+    type: 'website',
+    images: ['/opengraph-image']
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE_NAME} — Design. Automate. Rank.`,
+    description: SITE_DESCRIPTION,
+    images: ['/opengraph-image']
+  },
+  alternates: {
+    canonical: SITE_URL
   }
 }
 
@@ -33,6 +49,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <body className={`${displayFont.variable} ${monoFont.variable}`}>
+        <a className="skip-link" href="#main-content">
+          Ir al contenido principal
+        </a>
         {children}
         <ScrollReveal />
       </body>
