@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Mono, Space_Grotesk } from 'next/font/google'
 
+import { AnalyticsSnippets } from '@/components/ui/analytics-snippets'
 import { ScrollReveal } from '@/components/ui/scroll-reveal'
 import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_URL } from '@/lib/seo/site'
 import './globals.css'
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         {children}
         <ScrollReveal />
+        <AnalyticsSnippets />
       </body>
     </html>
   )

@@ -11,6 +11,7 @@ type BuildPageMetadataInput = {
 
 export function buildPageMetadata({ title, description, path, noindex = false }: BuildPageMetadataInput): Metadata {
   const canonical = `${SITE_URL}${path}`
+  const imagePath = path === '/' ? '/opengraph-image' : `${path}/opengraph-image`
 
   return {
     title,
@@ -25,13 +26,13 @@ export function buildPageMetadata({ title, description, path, noindex = false }:
       siteName: SITE_NAME,
       locale: 'es_MX',
       type: 'website',
-      images: ['/opengraph-image']
+      images: [imagePath]
     },
     twitter: {
       card: 'summary_large_image',
       title: `${title} | ${SITE_NAME}`,
       description,
-      images: ['/opengraph-image']
+      images: [imagePath]
     },
     robots: noindex
       ? {

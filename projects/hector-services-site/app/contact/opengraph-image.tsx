@@ -5,5 +5,8 @@ export const size = ogSize
 export const contentType = ogContentType
 
 export default function OpenGraphImage() {
-  return createOgImage({ title: 'Design. Automate. Rank.' })
+  return createOgImage({
+    title: 'Agenda un diagnóstico',
+    subtitle: 'Scope · Timeline · Inversión'
+  })
 }

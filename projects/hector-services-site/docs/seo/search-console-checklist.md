@@ -18,6 +18,7 @@ Eventos expuestos en cliente:
 - `calendar_click`
 
 ### Integración rápida con GTM/dataLayer
+- [ ] Definir `NEXT_PUBLIC_GTM_ID` (o `NEXT_PUBLIC_GA_ID` si no usarás GTM)
 - [ ] Confirmar que `window.dataLayer` esté presente en producción
 - [ ] Crear triggers por evento en GTM
 - [ ] Crear conversiones en GA4 para ambos eventos
