@@ -1166,8 +1166,7 @@ h3 {
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 32px;
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards 0.3s;
+  opacity: 1;
 }
 
 .landing-hero__tag {
@@ -1188,8 +1187,7 @@ h3 {
   letter-spacing: 0.01em;
   color: #f0ede8;
   text-transform: uppercase;
-  opacity: 0;
-  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s;
+  opacity: 1;
 }
 
 .landing-hero__headline .line-orange {
@@ -1224,8 +1222,7 @@ h3 {
   padding-bottom: 40px;
   position: relative;
   z-index: 2;
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards 1s;
+  opacity: 1;
 }
 
 .landing-hero__descriptor {
@@ -1288,8 +1285,7 @@ h3 {
   align-items: center;
   gap: 8px;
   z-index: 2;
-  opacity: 0;
-  animation: fadeIn 1s ease forwards 1.4s;
+  opacity: 1;
 }
 
 .landing-scroll-line {
