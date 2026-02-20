@@ -1686,8 +1686,12 @@ h3 {
 }
 
 .landing-ticker__track {
-  display: inline-flex;
-  animation: ticker 30s linear infinite;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: max-content;
+  animation: ticker-infinite 22s linear infinite;
+  will-change: transform;
 }
 
 .landing-ticker__track span {
@@ -1695,16 +1699,29 @@ h3 {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #fff;
-  padding: 0 32px;
+  padding: 0 24px;
   font-family: var(--font-mono), ui-monospace, monospace;
 }
 
-@keyframes ticker {
-  0% {
+.landing-ticker__track span::after {
+  content: '·';
+  margin-left: 24px;
+  opacity: 0.85;
+}
+
+@keyframes ticker-infinite {
+  from {
     transform: translateX(0);
   }
-  100% {
-    transform: translateX(-50%);
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-ticker__track {
+    animation: none;
   }
 }
 

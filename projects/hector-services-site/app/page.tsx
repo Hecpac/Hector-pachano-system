@@ -49,6 +49,8 @@ const faqItems = [
   }
 ]
 
+const tickerItems = ['Automatizaciones', 'Diseño Web', 'SEO / AEO', 'Performance', 'Conversión']
+
 export const metadata: Metadata = buildPageMetadata({
   title: 'Sistemas Digitales: Web, Automatización y SEO',
   description: SITE_DESCRIPTION,
@@ -129,28 +131,15 @@ export default function HomePage() {
 
       <div className="landing-content-wrapper">
         <div className="landing-ticker" aria-hidden="true">
-          <div className="landing-ticker__track">
-            <span>Automatizaciones ·</span>
-            <span>Diseño Web ·</span>
-            <span>SEO / AEO ·</span>
-            <span>Performance ·</span>
-            <span>Conversión ·</span>
-            <span>Automatizaciones ·</span>
-            <span>Diseño Web ·</span>
-            <span>SEO / AEO ·</span>
-            <span>Performance ·</span>
-            <span>Conversión ·</span>
-            {/* Duplicate set for seamless infinite loop */}
-            <span>Automatizaciones ·</span>
-            <span>Diseño Web ·</span>
-            <span>SEO / AEO ·</span>
-            <span>Performance ·</span>
-            <span>Conversión ·</span>
-            <span>Automatizaciones ·</span>
-            <span>Diseño Web ·</span>
-            <span>SEO / AEO ·</span>
-            <span>Performance ·</span>
-            <span>Conversión ·</span>
+          <div className="landing-ticker__track" role="presentation" aria-hidden="true">
+            {tickerItems.map((item) => (
+              <span key={`ticker-a-${item}`}>{item}</span>
+            ))}
+          </div>
+          <div className="landing-ticker__track" role="presentation" aria-hidden="true">
+            {tickerItems.map((item) => (
+              <span key={`ticker-b-${item}`}>{item}</span>
+            ))}
           </div>
         </div>
 
