@@ -8,7 +8,7 @@ export function Footer() {
           <a href="https://www.pachanodesign.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>Pachano Design ↗</a>
           <Link href="/legal/privacidad" style={{ color: 'var(--muted)' }}>Política de Privacidad</Link>
           <Link href="/legal/aviso-legal" style={{ color: 'var(--muted)' }}>Aviso Legal</Link>
-          <a href="mailto:pachanohector15@gmail.com" style={{ color: 'var(--muted)' }}>pachanohector15@gmail.com</a>
+          <a href="mailto:Pachanodesign@gmail.com" style={{ color: 'var(--muted)' }}>Pachanodesign@gmail.com</a>
         </nav>
         <p style={{ color: 'var(--muted)', fontSize: '0.8rem', margin: 0 }}>
           &copy; {new Date().getFullYear()} Hector Pachano // Digital Systems. Todos los derechos reservados.

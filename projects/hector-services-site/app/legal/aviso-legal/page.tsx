@@ -20,7 +20,7 @@ export default function AvisoLegalPage() {
         <h2>Condiciones de Uso</h2>
         <p>El uso de este sitio web implica la aceptación de estas condiciones. Queda prohibida la reproducción total o parcial del contenido sin autorización previa.</p>
         <h2>Contacto</h2>
-        <p>Para cualquier duda o consulta sobre este aviso legal, puedes escribir a pachanohector15@gmail.com.</p>
+        <p>Para cualquier duda o consulta sobre este aviso legal, puedes escribir a Pachanodesign@gmail.com.</p>
       </div>
     </main>
   )
