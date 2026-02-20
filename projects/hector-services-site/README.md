@@ -29,12 +29,29 @@ npm run dev
    - `NEXT_PUBLIC_CAL_LINK`
    - `GOOGLE_SITE_VERIFICATION` (recomendado)
    - `NEXT_PUBLIC_GTM_ID` o `NEXT_PUBLIC_GA_ID`
-   - `LEAD_WEBHOOK_URL`, `LEAD_WEBHOOK_BACKUP_URL`, `LEAD_WEBHOOK_BEARER_TOKEN` (recomendado para CRM/n8n)
+   - `LEAD_WEBHOOK_URL`, `LEAD_WEBHOOK_BACKUP_URL`, `LEAD_WEBHOOK_BEARER_TOKEN` (recomendado para CRM)
    - `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` (fallback email)
+   - `KV_REST_API_URL`, `KV_REST_API_TOKEN`, `CRON_SECRET` (cola de reintentos sin n8n)
 
 Comportamiento de seguridad:
 - En **desarrollo**, si no hay canales de entrega configurados, el formulario usa modo local.
 - En **producción**, si no hay webhook ni Resend configurado, devuelve error (evita pérdida silenciosa de leads).
+
+## Automatización directa (sin n8n)
+
+El flujo de leads soporta reintentos automáticos nativos en Vercel:
+
+- Realtime: intenta enviar al webhook (primario + backup) y a Resend.
+- Si todo falla: encola el lead en Vercel KV.
+- Cron: `vercel.json` ejecuta `/api/leads/retry` cada 10 minutos.
+- Seguridad: la ruta de retry valida `Authorization: Bearer <CRON_SECRET>` en producción.
+
+Ruta de retry manual:
+
+```bash
+curl -X POST "https://tu-dominio.com/api/leads/retry?max=20" \
+  -H "Authorization: Bearer $CRON_SECRET"
+```
 
 ## SEO / Search Console
 
