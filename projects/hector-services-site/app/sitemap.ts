@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 import { getBlogPosts } from '@/content/blog/posts'
+import { getCaseStudies } from '@/content/case-studies/cases'
 import { SITE_URL } from '@/lib/seo/site'
 
 const baseRoutes = [
@@ -9,7 +10,7 @@ const baseRoutes = [
   '/services/automatizaciones',
   '/services/diseno-web',
   '/services/seo-aeo',
-  '/work',
+  '/cases',
   '/about',
   '/contact',
   '/faq',
@@ -19,7 +20,8 @@ const baseRoutes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
   const blogRoutes = getBlogPosts().map((post) => `/blog/${post.slug}`)
-  const routes = [...baseRoutes, ...blogRoutes]
+  const caseRoutes = getCaseStudies().map((caseStudy) => `/cases/${caseStudy.slug}`)
+  const routes = [...baseRoutes, ...caseRoutes, ...blogRoutes]
 
   return routes.map((route) => ({
     url: `${SITE_URL}${route}`,
