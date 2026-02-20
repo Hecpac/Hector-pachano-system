@@ -8,9 +8,9 @@ import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema } from '@/lib/seo/schema'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Auditor IA para Webs B2B',
+  title: 'Auditor de Webs B2B',
   description:
-    'Ingresa la URL de tu sitio web y recibe un diagnóstico IA gratuito sobre rendimiento, SEO, accesibilidad y capacidad de conversión.',
+    'Ingresa la URL de tu sitio web y recibe un diagnóstico gratuito sobre su rendimiento, SEO, accesibilidad y capacidad de conversión.',
   path: '/auditor'
 })
 
@@ -20,13 +20,13 @@ export default function WebAuditorPage() {
       <JsonLd
         data={breadcrumbSchema([
           { name: 'Inicio', path: '/' },
-          { name: 'Auditor IA', path: '/auditor' }
+          { name: 'Auditor Web', path: '/auditor' }
         ])}
       />
 
       <section className="section reveal-on-scroll cinematic-panel is-visible">
-        <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Auditor IA' }]} />
-        <p className="eyebrow">DIAGNÓSTICO IA</p>
+        <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Auditor Web' }]} />
+        <p className="eyebrow">DIAGNÓSTICO TÉCNICO</p>
         <h1>Descubre por qué tu web no convierte como debería</h1>
         <p className="lead">
           La mayoría de sitios B2B pierden leads por tiempos de carga lentos, falta de optimización

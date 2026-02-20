@@ -8,7 +8,7 @@ import { SITE_NAME } from '@/lib/seo/site'
 const links = [
   { label: 'Servicios', href: '/services' },
   { label: 'Casos', href: '/cases' },
-  { label: 'Auditor IA', href: '/auditor' },
+  { label: 'Auditor Web', href: '/auditor' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
   { label: 'Contacto', href: '/contact' }
@@ -78,7 +78,7 @@ export function LandingNav() {
 
         <div className="landing-nav__cta">
           <Link href="/auditor" className="btn-auditor" onClick={closeMenu}>
-            Auditor IA
+            Auditor Web
           </Link>
 
           <Link href="/contact" className="btn-cta" onClick={closeMenu}>
