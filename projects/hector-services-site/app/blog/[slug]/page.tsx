@@ -92,7 +92,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) notFound()
 
   return (
-    <main className="page-shell" id="main-content">
+    <main className="page-shell page-shell--blog" id="main-content">
       <JsonLd
         data={[
           breadcrumbSchema([
