@@ -40,6 +40,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-mono), ui-monospace, monospace;
+  overflow-x: clip;
 }
 
 a {
@@ -575,9 +576,9 @@ h3 {
   margin: 0;
   color: var(--muted);
   line-height: 1.7;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
 }
 
 .blog-article__content h2,
@@ -607,8 +608,8 @@ h3 {
 
 .blog-article__content li {
   line-height: 1.65;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .blog-article__content a {
@@ -1961,10 +1962,6 @@ h3 {
     font-size: 9px;
     letter-spacing: 0.1em;
     padding-block: 10px;
-  }
-
-  .blog-article.cinematic-panel {
-    overflow: visible;
   }
 
   .blog-article h1 {
