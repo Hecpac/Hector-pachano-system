@@ -11,6 +11,56 @@ type BlogPostPageProps = {
   params: Promise<{ slug: string }>
 }
 
+function renderBlogContent(content: string[], slug: string) {
+  const nodes = []
+
+  for (let index = 0; index < content.length; index += 1) {
+    const block = content[index]?.trim()
+    if (!block) continue
+
+    if (block.startsWith('## ')) {
+      nodes.push(
+        <h2 key={`${slug}-h2-${index}`}>{block.slice(3).trim()}</h2>
+      )
+      continue
+    }
+
+    if (block.startsWith('### ')) {
+      nodes.push(
+        <h3 key={`${slug}-h3-${index}`}>{block.slice(4).trim()}</h3>
+      )
+      continue
+    }
+
+    if (block.startsWith('- ')) {
+      const items: string[] = [block.slice(2).trim()]
+      let cursor = index + 1
+
+      while (cursor < content.length) {
+        const next = content[cursor]?.trim()
+        if (!next?.startsWith('- ')) break
+        items.push(next.slice(2).trim())
+        cursor += 1
+      }
+
+      nodes.push(
+        <ul key={`${slug}-ul-${index}`}>
+          {items.map((item, itemIndex) => (
+            <li key={`${slug}-li-${index}-${itemIndex}`}>{item}</li>
+          ))}
+        </ul>
+      )
+
+      index = cursor - 1
+      continue
+    }
+
+    nodes.push(<p key={`${slug}-p-${index}`}>{block}</p>)
+  }
+
+  return nodes
+}
+
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params
   const post = getBlogPostBySlug(slug)
@@ -80,11 +130,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           ))}
         </div>
 
-        <div className="blog-article__content">
-          {post.content.map((paragraph, index) => (
-            <p key={`${post.slug}-${index}`}>{paragraph}</p>
-          ))}
-        </div>
+        <div className="blog-article__content">{renderBlogContent(post.content, post.slug)}</div>
       </article>
     </main>
   )

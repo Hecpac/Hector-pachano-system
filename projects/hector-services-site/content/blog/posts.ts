@@ -28,14 +28,33 @@ const posts: BlogPost[] = [
     slug: 'si-la-ia-no-te-ve-2026-w08',
     title: 'Si la IA no te ve: tu web antigua es invisible en búsquedas con IA y cómo resolverlo',
     excerpt:
-      'Audita 5 páginas clave, agrega FAQs con schema y mejora velocidad móvil para que Google y asistentes de IA puedan citar tu negocio B2B.',
+      'La visibilidad en IA no se arregla con diseño bonito: se gana con política de bots, arquitectura semántica y contenido citables por asistentes.',
     publishedAt: '2026-02-20',
-    readingTime: '4 min',
+    readingTime: '7 min',
     tags: ['AEO', 'SEO', 'Web', 'Conversión'],
     content: [
-      'Muchas webs B2B antiguas dependen de plantillas pesadas, contenido genérico y estructura pobre. Resultado: los motores generativos no entienden qué vendes, a quién ayudas ni por qué elegirte, y terminas fuera de respuestas y comparativas.',
-      'La solución práctica es simple: primero, define una página por servicio con problema, resultado y casos reales; segundo, añade bloques de preguntas frecuentes con marcado schema (FAQ y Organization); tercero, corrige rendimiento móvil y enlaces internos para que el rastreo sea claro y rápido.',
-      'Si quieres saber exactamente qué está bloqueando tu visibilidad, agenda un diagnóstico técnico-comercial: en una sesión te mostramos brechas concretas y un plan de ejecución en 30 días.'
+      '## Abrí ChatGPT y tu empresa no apareció: por qué pasa',
+      'Muchas empresas B2B siguen midiendo su web solo con métricas tradicionales (ranking en Google, visitas y formularios). El problema es que la capa de descubrimiento cambió: clientes y decisores ya preguntan a asistentes como ChatGPT, Claude o Copilot antes de abrir resultados clásicos. Si tu sitio no está preparado para esa lectura, puedes seguir “bien” en SEO clásico y aun así quedar fuera del shortlist que ve el comprador.',
+      'El error común es tratar la visibilidad en IA como una extensión automática del SEO de siempre. No lo es. OpenAI separa OAI-SearchBot (descubrimiento/búsqueda) de GPTBot (entrenamiento), Google distingue Google-Extended de sus crawlers de Search, y Anthropic diferencia bots de usuario/búsqueda de bots de entrenamiento. En otras palabras: la política técnica que aplicas hoy puede estar bloqueando justo el canal que mañana te iba a recomendar.',
+      '## Caso típico B2B: misma empresa, dos resultados distintos',
+      'Escenario A (web antigua): home genérica, páginas de servicio ambiguas, robots heredado bloqueando bots sin criterio por canal, y contenido largo sin respuestas concretas. Resultado: el asistente no identifica claramente qué problema resuelves, para quién y con qué prueba. El usuario pregunta “¿qué proveedor me ayuda con X?” y tu marca ni entra en la conversación.',
+      'Escenario B (web orientada a citabilidad): una URL por servicio con problema → solución → evidencia, bloques de preguntas directas, estructura semántica limpia, sitemap actualizado y reglas por user-agent decididas con intención (qué permites para búsqueda y qué bloqueas para entrenamiento). Resultado: más probabilidad de ser extraído como respuesta útil y no solo como link perdido en un listado.',
+      '## Plan de ejecución en 30 días (sin rehacer todo tu sitio)',
+      '- Semana 1: audita robots.txt y políticas por bot (OpenAI, Anthropic, Google, Microsoft). Define qué habilitas para descubrimiento y qué restringes para entrenamiento, con una decisión explícita por canal.',
+      '- Semana 2: reestructura 3-5 páginas críticas de servicio. Cada una debe responder: qué problema resuelves, para quién, cómo lo ejecutas, qué resultado esperable entregas.',
+      '- Semana 3: agrega bloques de contenido citables (Q&A reales, comparativas, objeciones frecuentes) y marcado estructurado donde aplique. Evita relleno: prioriza claridad y especificidad.',
+      '- Semana 4: mide señales de negocio, no solo tráfico. Observa calidad de leads, velocidad de calificación y consultas entrantes donde ya te mencionan por recomendación de IA.',
+      '## Qué datos obligan a tomar esto en serio',
+      'Google reportó expansión de AI Overviews a más de 200 países y más de 40 idiomas, y Microsoft reportó incrementos de compra en journeys asistidos por Copilot. Es decir: no hablamos de experimento futuro, hablamos de una capa activa de descubrimiento y conversión hoy. Si tu web no está diseñada para ser entendida y citada, compites con desventaja desde el primer minuto del proceso comercial.',
+      'Si quieres aterrizar esto a tu caso real, agenda un diagnóstico técnico-comercial: revisamos tu visibilidad actual en buscadores y asistentes, detectamos bloqueos concretos y te entregamos un roadmap ejecutable de 30 días con prioridades por impacto.',
+      '## Fuentes verificadas',
+      '- https://developers.openai.com/api/docs/bots/',
+      '- https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=en',
+      '- https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler',
+      '- https://blog.google/products-and-platforms/products/search/ai-overview-expansion-may-2025-update/',
+      '- https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents',
+      '- https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots',
+      '- https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap'
     ]
   },
   {

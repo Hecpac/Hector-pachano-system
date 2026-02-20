@@ -580,6 +580,37 @@ h3 {
   hyphens: auto;
 }
 
+.blog-article__content h2,
+.blog-article__content h3 {
+  margin: 1rem 0 0.15rem;
+  color: var(--ink);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.blog-article__content h2 {
+  font-size: clamp(1.05rem, 3.8vw, 1.42rem);
+}
+
+.blog-article__content h3 {
+  font-size: clamp(0.98rem, 3.2vw, 1.2rem);
+}
+
+.blog-article__content ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.45rem;
+  color: var(--muted);
+}
+
+.blog-article__content li {
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .blog-article__content a {
   overflow-wrap: anywhere;
   word-break: break-word;
