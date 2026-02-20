@@ -134,6 +134,28 @@ Reglas operativas:
 - Mantener verificación real con comandos/estado cuando aplique.
 - Priorizar respuestas cortas y accionables para Hector.
 
+### 🧩 Preset operativo — Subagentes (Codex-first)
+
+Usar este preset en tareas grandes/divisibles (refactor amplio, implementación multi-módulo, QA+review paralelo). No usar para fixes triviales.
+
+**Límites por defecto**
+- `max_agent_depth: 2`
+- `max_children_per_agent: 3`
+- `max_parallel_agents_total: 6`
+
+**Guardrails de presupuesto**
+- Definir antes de arrancar: tope de tiempo, tope de costo y tope de tokens por tarea.
+- Si se alcanza un tope: parar nuevos spawns y devolver resumen + siguiente paso recomendado.
+
+**Coordinación**
+- Cada subagente debe tener: objetivo único, entregable explícito y criterio de “done”.
+- Un orquestador integra resultados, elimina duplicados y resuelve conflictos.
+- Acciones externas o sensibles (deploy, borrado, publicación, credenciales) requieren aprobación explícita de Hector.
+
+**Quality gate de cierre**
+- Ejecutar checks reales (tests/lint/typecheck/comandos de verificación) antes de cerrar.
+- Aunque otro modelo genere código, **Codex hace validación y cierre técnico final**.
+
 **🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
 **📝 Platform Formatting:**
