@@ -102,8 +102,8 @@ export default function HomePage() {
               <Image
                 src="/images/services/hero.jpeg"
                 alt="Escultura clásica trabajando en laptop, visual editorial de sistemas digitales"
+                className="landing-hero__image"
                 fill
-                style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
                 quality={90}
                 priority
                 fetchPriority="high"

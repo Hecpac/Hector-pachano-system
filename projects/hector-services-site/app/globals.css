@@ -1463,6 +1463,11 @@ h3 {
   filter: none;
 }
 
+.landing-hero__image {
+  object-fit: cover;
+  object-position: 34% 66%;
+}
+
 @keyframes pulse {
   0%,
   100% {
@@ -1980,6 +1985,10 @@ h3 {
     height: auto;
     width: 80%;
     max-height: 50vh;
+  }
+
+  .landing-hero__image {
+    object-position: 28% 82%;
   }
 
   .landing-hero__counter,
