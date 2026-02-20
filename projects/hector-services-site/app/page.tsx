@@ -56,7 +56,7 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default function HomePage() {
-  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || '/contact'
+  const calLink = '/contact'
 
   return (
     <main id="main-content">
@@ -112,9 +112,9 @@ export default function HomePage() {
 
         <Parallax speed={0.2} relativeTo="scroll" className="landing-hero__bottom" zIndex={2}>
           <div className="landing-hero__actions">
-            <a href="#contact" className="btn-primary">
+            <Link href="/contact" className="btn-primary">
               Agenda el diagnóstico
-            </a>
+            </Link>
             <a href="#casos" className="btn-secondary">
               Ver resultados
             </a>

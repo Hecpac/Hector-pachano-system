@@ -81,10 +81,10 @@ export function LandingNav() {
             Auditor IA
           </Link>
 
-          <a href="#contact" className="btn-cta" aria-label="Agenda el diagnóstico" onClick={closeMenu}>
+          <Link href="/contact" className="btn-cta" aria-label="Agenda el diagnóstico" onClick={closeMenu}>
             <span className="btn-cta__label-desktop">Agenda el diagnóstico</span>
             <span className="btn-cta__label-mobile">Agenda</span>
-          </a>
+          </Link>
 
           <button
             type="button"

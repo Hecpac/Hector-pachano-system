@@ -105,8 +105,6 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
           <SubmitButton />
           <a
             href={calLink}
-            target="_blank"
-            rel="noreferrer"
             className="button button--ghost"
             onClick={() => trackEvent('calendar_click', { source: 'lead_form', href: calLink })}
           >
