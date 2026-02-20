@@ -20,8 +20,8 @@ function getRedisClient(): Redis | null {
   }
 
   const disabled = process.env.LEAD_RETRY_QUEUE_ENABLED?.toLowerCase() === 'false'
-  const url = process.env.KV_REST_API_URL?.trim()
-  const token = process.env.KV_REST_API_TOKEN?.trim()
+  const url = process.env.KV_REST_API_URL?.trim() || process.env.UPSTASH_REDIS_REST_URL?.trim()
+  const token = process.env.KV_REST_API_TOKEN?.trim() || process.env.UPSTASH_REDIS_REST_TOKEN?.trim()
 
   if (disabled || !url || !token) {
     redisClient = null
