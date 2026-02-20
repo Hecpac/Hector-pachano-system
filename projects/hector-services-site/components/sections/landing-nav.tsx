@@ -8,7 +8,7 @@ import { SITE_NAME } from '@/lib/seo/site'
 const links = [
   { label: 'Servicios', href: '/services' },
   { label: 'Casos', href: '/cases' },
-  { label: 'Auditor', href: '/auditor' },
+  { label: 'Auditor IA', href: '/auditor' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
   { label: 'Contacto', href: '/contact' }
@@ -81,9 +81,8 @@ export function LandingNav() {
             Auditor IA
           </Link>
 
-          <Link href="/contact" className="btn-cta" aria-label="Agenda el diagnóstico" onClick={closeMenu}>
-            <span className="btn-cta__label-desktop">Agenda el diagnóstico</span>
-            <span className="btn-cta__label-mobile">Agenda</span>
+          <Link href="/contact" className="btn-cta" onClick={closeMenu}>
+            Agenda
           </Link>
 
           <button

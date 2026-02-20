@@ -196,7 +196,7 @@ export const caseStudies: CaseStudy[] = [
       businessImpact:
         'La operación comercial ganó velocidad y consistencia: más leads atendidos a tiempo, menos oportunidades perdidas por seguimiento tardío y mejor previsibilidad del pipeline.',
       measurement: {
-        window: '2026-01-08 → 2026-03-05',
+        window: '2025-10-28 → 2025-12-23',
         sources: ['Logs de automatización', 'CRM (HubSpot)', 'Dashboard operativo'],
         conversionDefinition: 'Lead contactado por primera vez en menos de 24 horas.'
       }
@@ -343,7 +343,7 @@ export const caseStudies: CaseStudy[] = [
       businessImpact:
         'Con el mismo tráfico se generaron más oportunidades comerciales y mejor calidad de conversación inicial, gracias a una narrativa más clara y una experiencia más rápida.',
       measurement: {
-        window: '2026-02-03 → 2026-03-17',
+        window: '2025-12-02 → 2026-01-16',
         sources: ['GA4', 'Search Console', 'Eventos frontend (Next.js)'],
         conversionDefinition: 'Formulario enviado con datos completos para contacto comercial.'
       }

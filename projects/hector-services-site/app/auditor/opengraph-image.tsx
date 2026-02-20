@@ -6,7 +6,7 @@ export const contentType = ogContentType
 
 export default function OpenGraphImage() {
   return createOgImage({
-    title: 'Auditor de Webs B2B',
+    title: 'Auditor IA para Webs B2B',
     subtitle: 'Diagnóstico técnico · Rendimiento · Conversión'
   })
 }

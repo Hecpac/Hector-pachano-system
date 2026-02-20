@@ -84,7 +84,7 @@ export default function HomePage() {
             </div>
 
             <h1 className="landing-hero__headline">
-              <span className="line-kicker">No vendo páginas web.</span>
+              <span className="line-kicker">No vendo páginas web. </span>
               <span className="line-orange">Construyo sistemas digitales</span>
               <span className="line-outline">que generan ingresos.</span>
             </h1>
@@ -100,10 +100,10 @@ export default function HomePage() {
           <Parallax speed={0.15} relativeTo="scroll" className="landing-hero__image-container" zIndex={2}>
             <div className="landing-hero__image-inner">
               <Image
-                src="/images/hero/graphic-design-content.jpeg"
-                alt="Design problem under control"
+                src="/images/services/hero.jpeg"
+                alt="Escultura clásica trabajando en laptop, visual editorial de sistemas digitales"
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
                 quality={90}
                 priority
                 fetchPriority="high"
@@ -117,9 +117,9 @@ export default function HomePage() {
             <Link href="/contact" className="btn-primary">
               Agenda el diagnóstico
             </Link>
-            <a href="#casos" className="btn-secondary">
+            <Link href="/cases" className="btn-secondary">
               Ver resultados
-            </a>
+            </Link>
           </div>
         </Parallax>
 
