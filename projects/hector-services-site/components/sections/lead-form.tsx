@@ -55,17 +55,26 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
 
         <label htmlFor="name" className="lead-form__field">
           <span>Nombre</span>
-          <input type="text" id="name" name="name" required placeholder="Tu nombre" />
+          <input type="text" id="name" name="name" required placeholder="Tu nombre…" autoComplete="name" />
         </label>
 
         <label htmlFor="email" className="lead-form__field">
           <span>Email</span>
-          <input type="email" id="email" name="email" required placeholder="tu@email.com" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="tu@email.com…"
+            autoComplete="email"
+            spellCheck={false}
+            inputMode="email"
+          />
         </label>
 
         <label htmlFor="company" className="lead-form__field">
           <span>Empresa</span>
-          <input type="text" id="company" name="company" placeholder="Nombre de empresa" />
+          <input type="text" id="company" name="company" placeholder="Nombre de empresa…" autoComplete="organization" />
         </label>
 
         <label htmlFor="projectType" className="lead-form__field">
@@ -88,7 +97,7 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
             name="message"
             required
             rows={4}
-            placeholder="Cuéntame el contexto, objetivo y deadline."
+            placeholder="Cuéntame el contexto, objetivo y deadline…"
           />
         </label>
 
@@ -106,7 +115,9 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
         </div>
 
         {state.message ? (
-          <p className={`lead-form__feedback lead-form__feedback--${state.status}`}>{state.message}</p>
+          <p aria-live="polite" role="status" className={`lead-form__feedback lead-form__feedback--${state.status}`}>
+            {state.message}
+          </p>
         ) : null}
       </form>
     </div>
