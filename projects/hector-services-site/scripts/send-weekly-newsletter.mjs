@@ -29,7 +29,8 @@ function parseEnvLine(line) {
 }
 
 async function loadEnvFiles() {
-  const envFiles = [path.join(projectRoot, '.env.local'), path.join(projectRoot, '.env')]
+  // Load .env first, then .env.local so local values win deterministically.
+  const envFiles = [path.join(projectRoot, '.env'), path.join(projectRoot, '.env.local')]
 
   for (const envFile of envFiles) {
     try {
@@ -37,9 +38,7 @@ async function loadEnvFiles() {
       for (const line of raw.split(/\r?\n/)) {
         const parsed = parseEnvLine(line)
         if (!parsed) continue
-        if (!process.env[parsed.key]) {
-          process.env[parsed.key] = parsed.value
-        }
+        process.env[parsed.key] = parsed.value
       }
     } catch {
       // ignore missing env files
