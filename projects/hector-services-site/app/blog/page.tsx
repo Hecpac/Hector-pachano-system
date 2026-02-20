@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import { getBlogPosts } from '@/content/blog/posts'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { JsonLd } from '@/components/ui/json-ld'
+import { Parallax } from '@/components/ui/parallax'
+import { ExpandableBlogCard } from '@/components/ui/expandable-blog-card'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { blogCollectionSchema, breadcrumbSchema } from '@/lib/seo/schema'
 
@@ -34,34 +37,38 @@ export default function BlogPage() {
         ]}
       />
 
-      <section className="section reveal-on-scroll cinematic-panel is-visible">
-        <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Blog' }]} />
-        <p className="eyebrow">BLOG</p>
-        <h1>Insights de ejecución: web, automatización y SEO/AEO</h1>
-        <p className="lead">
-          Artículos cortos y accionables para construir un sistema digital que convierta mejor.
-        </p>
+      <section className="section reveal-on-scroll cinematic-panel is-visible" style={{ position: 'relative', overflow: 'hidden' }}>
+        
+        <div className="blog-hero__grid">
+          <div className="blog-hero__content">
+            <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Blog' }]} />
+            <p className="eyebrow">BLOG</p>
+            <h1>Insights de ejecución: web, automatización y SEO/AEO</h1>
+            <p className="lead">
+              Artículos cortos y accionables para construir un sistema digital que convierta mejor.
+            </p>
+          </div>
 
-        <div className="blog-grid stagger-fade-in">
-          {posts.map((post) => (
-            <article key={post.slug} className="blog-card">
-              <p className="blog-card__meta">
-                {post.publishedAt} · {post.readingTime}
-              </p>
-              <h2>
-                <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-              </h2>
-              <p>{post.excerpt}</p>
-              <div className="blog-card__tags">
-                {post.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-              <Link href={`/blog/${post.slug}`} className="service-link">
-                Leer artículo →
-              </Link>
-            </article>
-          ))}
+          <Parallax speed={0.1} relativeTo="scroll" className="blog-hero__image-container" zIndex={1}>
+            <div className="blog-hero__image-inner">
+              <Image
+                src="/images/blog/bilder.jpeg"
+                alt="Hombres leyendo - Insights del blog"
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                quality={90}
+                priority
+              />
+            </div>
+          </Parallax>
+        </div>
+
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <div className="blog-grid stagger-fade-in" style={{ marginTop: '2rem' }}>
+            {posts.map((post) => (
+              <ExpandableBlogCard key={post.slug} post={post} />
+            ))}
+          </div>
         </div>
       </section>
     </main>

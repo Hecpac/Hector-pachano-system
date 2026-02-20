@@ -39,6 +39,9 @@ export function buildPageMetadata({ title, description, path, noindex = false }:
           index: false,
           follow: false
         }
-      : undefined
+      : {
+          index: true,
+          follow: true
+        }
   }
 }

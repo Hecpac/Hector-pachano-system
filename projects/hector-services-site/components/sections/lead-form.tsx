@@ -53,24 +53,24 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
           aria-hidden="true"
         />
 
-        <label className="lead-form__field">
+        <label htmlFor="name" className="lead-form__field">
           <span>Nombre</span>
-          <input type="text" name="name" required placeholder="Tu nombre" />
+          <input type="text" id="name" name="name" required placeholder="Tu nombre" />
         </label>
 
-        <label className="lead-form__field">
+        <label htmlFor="email" className="lead-form__field">
           <span>Email</span>
-          <input type="email" name="email" required placeholder="tu@email.com" />
+          <input type="email" id="email" name="email" required placeholder="tu@email.com" />
         </label>
 
-        <label className="lead-form__field">
+        <label htmlFor="company" className="lead-form__field">
           <span>Empresa</span>
-          <input type="text" name="company" placeholder="Nombre de empresa" />
+          <input type="text" id="company" name="company" placeholder="Nombre de empresa" />
         </label>
 
-        <label className="lead-form__field">
+        <label htmlFor="projectType" className="lead-form__field">
           <span>Servicio principal</span>
-          <select name="projectType" defaultValue="" required>
+          <select id="projectType" name="projectType" defaultValue="" required>
             <option value="" disabled>
               Selecciona una opción
             </option>
@@ -81,9 +81,10 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
           </select>
         </label>
 
-        <label className="lead-form__field lead-form__field--full">
+        <label htmlFor="message" className="lead-form__field lead-form__field--full">
           <span>¿Qué quieres resolver?</span>
           <textarea
+            id="message"
             name="message"
             required
             rows={4}

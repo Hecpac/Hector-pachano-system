@@ -99,3 +99,61 @@ export async function submitLeadAction(
     }
   }
 }
+
+export async function submitAuditorAction(
+  _previousState: LeadFormState = INITIAL_STATE,
+  formData: FormData
+): Promise<LeadFormState> {
+  const trap = String(formData.get('trap') || '')
+  if (trap) {
+    return { status: 'success', message: 'Gracias.' }
+  }
+
+  const website = String(formData.get('website') || '').trim()
+  const email = String(formData.get('email') || '').trim()
+
+  if (!website || !email) {
+    return { status: 'error', message: 'Completa la URL y tu email.' }
+  }
+
+  const resendKey = process.env.RESEND_API_KEY
+  const toEmail = process.env.CONTACT_TO_EMAIL
+  const fromEmail = process.env.CONTACT_FROM_EMAIL || 'Leads <onboarding@resend.dev>'
+
+  if (!resendKey || !toEmail) {
+    console.info('[auditor-form] fallback', { website, email })
+    return { status: 'success', message: '¡Listo! (Modo local) Enviaremos el reporte a tu email pronto.' }
+  }
+
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${resendKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: [toEmail],
+        subject: `Nueva solicitud de auditoría web: ${website}`,
+        reply_to: email,
+        text: [
+          `Alguien ha solicitado una auditoría web.`,
+          `URL: ${website}`,
+          `Email: ${email}`,
+          '',
+          `Revisa el sitio y envíale un reporte manual pronto.`
+        ].join('\n')
+      }),
+      cache: 'no-store'
+    })
+
+    if (!response.ok) {
+      return { status: 'error', message: 'No pude enviar la solicitud. Intenta de nuevo.' }
+    }
+
+    return { status: 'success', message: 'Solicitud recibida. Recibirás tu auditoría detallada pronto.' }
+  } catch (error) {
+    return { status: 'error', message: 'Error de conexión.' }
+  }
+}

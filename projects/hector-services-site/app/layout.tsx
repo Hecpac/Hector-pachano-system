@@ -3,6 +3,7 @@ import { Bebas_Neue, DM_Mono } from 'next/font/google'
 
 import { AnalyticsSnippets } from '@/components/ui/analytics-snippets'
 import { ScrollReveal } from '@/components/ui/scroll-reveal'
+import { Footer } from '@/components/layout/footer'
 import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_URL } from '@/lib/seo/site'
 import './globals.css'
 
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Ir al contenido principal
         </a>
         {children}
+        <Footer />
         <ScrollReveal />
         <AnalyticsSnippets />
       </body>

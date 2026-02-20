@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import { submitLeadAction } from './actions'
 
 import { CaseStudiesSection } from '@/components/sections/case-studies'
 import { LeadForm } from '@/components/sections/lead-form'
 import { JsonLd } from '@/components/ui/json-ld'
-import { ThemeToggle } from '@/components/ui/theme-toggle'
+import { Parallax } from '@/components/ui/parallax'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { faqSchema, organizationSchema, websiteSchema } from '@/lib/seo/schema'
 import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/seo/site'
@@ -48,7 +49,7 @@ const faqItems = [
 ]
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Inicio',
+  title: 'Sistemas Digitales: Web, Automatización y SEO',
   description: SITE_DESCRIPTION,
   path: '/'
 })
@@ -62,62 +63,86 @@ export default function HomePage() {
       <JsonLd data={organizationSchema} />
       <JsonLd data={faqSchema(faqItems)} />
 
-      <nav className="landing-nav">
-        <div className="landing-nav__brand">
-          <span>{SITE_NAME}</span> {'//'} Digital Systems
-        </div>
+      <header className="landing-header">
+        <nav className="landing-nav" aria-label="Navegación principal">
+          <div className="landing-nav__brand">
+            <span>{SITE_NAME}</span> {'//'} Digital Systems
+          </div>
 
-        <ul className="landing-nav__links">
-          <li>
-            <Link href="/services">Servicios</Link>
-          </li>
-          <li>
-            <a href="#casos">Casos</a>
-          </li>
-          <li>
-            <Link href="/blog">Blog</Link>
-          </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-          <li>
-            <Link href="/contact">Contacto</Link>
-          </li>
-        </ul>
+          <ul className="landing-nav__links">
+            <li>
+              <Link href="/services">Servicios</Link>
+            </li>
+            <li>
+              <a href="#casos">Casos</a>
+            </li>
+            <li>
+              <Link href="/auditor">Auditor</Link>
+            </li>
+            <li>
+              <Link href="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link href="/about">About</Link>
+            </li>
+            <li>
+              <Link href="/contact">Contacto</Link>
+            </li>
+          </ul>
 
-        <div className="landing-nav__cta">
-          <ThemeToggle />
-          <a href="#contact" className="btn-cta">
-            Agenda el diagnóstico
-          </a>
-        </div>
-      </nav>
+          <div className="landing-nav__cta">
+            <a href="#contact" className="btn-cta">
+              Agenda el diagnóstico
+            </a>
+          </div>
+        </nav>
+      </header>
 
       <section className="landing-hero">
+        <Parallax speed={-0.3} relativeTo="scroll" zIndex={0}>
+          <div className="landing-hero__bg-glow" />
+        </Parallax>
+
         <div className="landing-hero__counter">01 / 04</div>
 
-        <div className="landing-hero__content">
-          <div className="landing-hero__tags">
-            <span className="landing-hero__tag">Automatizaciones</span>
-            <span className="landing-hero__tag">Diseño Web</span>
-            <span className="landing-hero__tag">SEO / AEO</span>
-          </div>
+        <div className="landing-hero__grid">
+          <Parallax speed={0.4} relativeTo="scroll" className="landing-hero__content" zIndex={2}>
+            <div className="landing-hero__tags">
+              <span className="landing-hero__tag">Automatizaciones</span>
+              <span className="landing-hero__tag">Diseño Web</span>
+              <span className="landing-hero__tag">SEO / AEO</span>
+            </div>
 
-          <h1 className="landing-hero__headline">
-            <span className="line-kicker">No vendo páginas web.</span>
-            <span className="line-orange">Construyo sistemas digitales</span>
-            <span className="line-outline">que generan ingresos.</span>
-          </h1>
+            <h1 className="landing-hero__headline">
+              <span className="line-kicker">No vendo páginas web.</span>
+              <span className="line-orange">Construyo sistemas digitales</span>
+              <span className="line-outline">que generan ingresos.</span>
+            </h1>
+
+            <div className="landing-hero__descriptor">
+              <p className="landing-hero__descriptor-main">
+                Diseño que convierte + SEO que posiciona + automatización que escala.
+              </p>
+              <p className="landing-hero__descriptor-support">Todo integrado, todo medible, todo tuyo.</p>
+            </div>
+          </Parallax>
+
+          <Parallax speed={0.15} relativeTo="scroll" className="landing-hero__image-container" zIndex={2}>
+            <div className="landing-hero__image-inner">
+              <Image
+                src="/images/hero/graphic-design-content.jpeg"
+                alt="Design problem under control"
+                fill
+                style={{ objectFit: 'cover' }}
+                quality={90}
+                priority
+                fetchPriority="high"
+              />
+            </div>
+          </Parallax>
         </div>
 
-        <div className="landing-hero__bottom">
-          <div className="landing-hero__descriptor">
-            <p className="landing-hero__descriptor-main">
-              Diseño que convierte + SEO que posiciona + automatización que escala.
-            </p>
-            <p className="landing-hero__descriptor-support">Todo integrado, todo medible, todo tuyo.</p>
-          </div>
-
+        <Parallax speed={0.2} relativeTo="scroll" className="landing-hero__bottom" zIndex={2}>
           <div className="landing-hero__actions">
             <a href="#contact" className="btn-primary">
               Agenda el diagnóstico
@@ -126,7 +151,7 @@ export default function HomePage() {
               Ver resultados
             </a>
           </div>
-        </div>
+        </Parallax>
 
         <div className="landing-scroll-indicator" aria-hidden="true">
           <div className="landing-scroll-line" />
@@ -134,45 +159,65 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="landing-ticker" aria-hidden="true">
-        <div className="landing-ticker__track">
-          <span>Automatizaciones ·</span>
-          <span>Diseño Web ·</span>
-          <span>SEO / AEO ·</span>
-          <span>Performance ·</span>
-          <span>Conversión ·</span>
-          <span>Automatizaciones ·</span>
-          <span>Diseño Web ·</span>
-          <span>SEO / AEO ·</span>
-          <span>Performance ·</span>
-          <span>Conversión ·</span>
+      <div className="landing-content-wrapper">
+        <div className="landing-ticker" aria-hidden="true">
+          <div className="landing-ticker__track">
+            <span>Automatizaciones ·</span>
+            <span>Diseño Web ·</span>
+            <span>SEO / AEO ·</span>
+            <span>Performance ·</span>
+            <span>Conversión ·</span>
+            <span>Automatizaciones ·</span>
+            <span>Diseño Web ·</span>
+            <span>SEO / AEO ·</span>
+            <span>Performance ·</span>
+            <span>Conversión ·</span>
+            {/* Duplicate set for seamless infinite loop */}
+            <span>Automatizaciones ·</span>
+            <span>Diseño Web ·</span>
+            <span>SEO / AEO ·</span>
+            <span>Performance ·</span>
+            <span>Conversión ·</span>
+            <span>Automatizaciones ·</span>
+            <span>Diseño Web ·</span>
+            <span>SEO / AEO ·</span>
+            <span>Performance ·</span>
+            <span>Conversión ·</span>
+          </div>
         </div>
-      </div>
 
-      <div className="landing-section-label">Servicios</div>
-      <section className="landing-services-grid">
-        {services.map((service) => (
-          <article className="landing-service-card" key={service.id}>
-            <p className="landing-service-card__num">{service.id}</p>
-            <h2 className="landing-service-card__name">{service.title}</h2>
-            <p className="landing-service-card__desc">{service.description}</p>
-            <Link href={service.href} className="landing-service-card__arrow" aria-label={`Ir a ${service.title}`}>
-              ↗
-            </Link>
-          </article>
-        ))}
-      </section>
-
-      <div className="page-shell">
-        <CaseStudiesSection />
-
-        <section className="section cta reveal-on-scroll cinematic-panel" id="contact">
-          <h2>¿Listo para dejar de improvisar tu presencia digital?</h2>
-          <p className="lead lead--center">
-            Cuéntame tu objetivo y te propongo un plan claro con alcance, tiempos e inversión.
-          </p>
-          <LeadForm action={submitLeadAction} calLink={calLink} />
+        <div className="landing-section-label">Servicios</div>
+        <section className="landing-services-grid">
+          {services.map((service, index) => (
+            <Parallax 
+              key={service.id} 
+              speed={index === 1 ? -0.05 : 0.05} 
+              relativeTo="viewport"
+              className="landing-service-card-wrapper"
+            >
+              <Link href={service.href} className="landing-service-card">
+                <p className="landing-service-card__num">{service.id}</p>
+                <h2 className="landing-service-card__name">{service.title}</h2>
+                <p className="landing-service-card__desc">{service.description}</p>
+                <div className="landing-service-card__footer">
+                  <span className="landing-service-card__arrow">↗</span>
+                </div>
+              </Link>
+            </Parallax>
+          ))}
         </section>
+
+        <div className="page-shell">
+          <CaseStudiesSection />
+
+          <section className="section cta reveal-on-scroll cinematic-panel" id="contact">
+            <h2>¿Listo para dejar de improvisar tu presencia digital?</h2>
+            <p className="lead lead--center">
+              Cuéntame tu objetivo y te propongo un plan claro con alcance, tiempos e inversión.
+            </p>
+            <LeadForm action={submitLeadAction} calLink={calLink} />
+          </section>
+        </div>
       </div>
     </main>
   )
