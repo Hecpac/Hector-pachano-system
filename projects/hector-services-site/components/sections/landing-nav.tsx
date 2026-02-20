@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { SITE_NAME } from '@/lib/seo/site'
 
@@ -16,15 +16,63 @@ const links = [
 
 export function LandingNav() {
   const [isOpen, setIsOpen] = useState(false)
+  const navRef = useRef<HTMLElement | null>(null)
 
   const closeMenu = () => setIsOpen(false)
 
+  useEffect(() => {
+    if (!isOpen) {
+      document.body.classList.remove('landing-nav-open')
+      return
+    }
+
+    document.body.classList.add('landing-nav-open')
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node | null
+      if (target && navRef.current && !navRef.current.contains(target)) {
+        setIsOpen(false)
+      }
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener('pointerdown', handlePointerDown)
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.classList.remove('landing-nav-open')
+      document.removeEventListener('pointerdown', handlePointerDown)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 981px)')
+
+    const handleDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        setIsOpen(false)
+      }
+    }
+
+    mediaQuery.addEventListener('change', handleDesktop)
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleDesktop)
+    }
+  }, [])
+
   return (
     <header className="landing-header">
-      <nav className={`landing-nav${isOpen ? ' is-open' : ''}`} aria-label="Navegación principal">
+      <nav ref={navRef} className={`landing-nav${isOpen ? ' is-open' : ''}`} aria-label="Navegación principal">
         <div className="landing-nav__brand">
           <span className="landing-nav__brand-name">{SITE_NAME}</span>
-          <span className="landing-nav__brand-sep"> //</span>
+          <span className="landing-nav__brand-sep">{' // '}</span>
           <span className="landing-nav__brand-sub"> Digital Systems</span>
         </div>
 
