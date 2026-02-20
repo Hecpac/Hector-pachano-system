@@ -10,6 +10,20 @@ export type BlogPost = {
 
 const posts: BlogPost[] = [
   {
+    slug: 'si-la-ia-no-te-ve-2026-w08',
+    title: 'Si la IA no te ve: tu web antigua es invisible en búsquedas con IA y cómo resolverlo',
+    excerpt:
+      'Audita 5 páginas clave, agrega FAQs con schema y mejora velocidad móvil para que Google y asistentes de IA puedan citar tu negocio B2B.',
+    publishedAt: '2026-02-20',
+    readingTime: '4 min',
+    tags: ['AEO', 'SEO', 'Web', 'Conversión'],
+    content: [
+      'Muchas webs B2B antiguas dependen de plantillas pesadas, contenido genérico y estructura pobre. Resultado: los motores generativos no entienden qué vendes, a quién ayudas ni por qué elegirte, y terminas fuera de respuestas y comparativas.',
+      'La solución práctica es simple: primero, define una página por servicio con problema, resultado y casos reales; segundo, añade bloques de preguntas frecuentes con marcado schema (FAQ y Organization); tercero, corrige rendimiento móvil y enlaces internos para que el rastreo sea claro y rápido.',
+      'Si quieres saber exactamente qué está bloqueando tu visibilidad, agenda un diagnóstico técnico-comercial: en una sesión te mostramos brechas concretas y un plan de ejecución en 30 días.'
+    ]
+  },
+  {
     slug: 'agentes-ia-vs-automatizacion-tradicional',
     title: 'De Zapier a Agentes Autónomos: El futuro de la operación B2B en 2026',
     excerpt:
