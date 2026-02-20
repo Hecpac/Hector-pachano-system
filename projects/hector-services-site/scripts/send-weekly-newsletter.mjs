@@ -104,7 +104,11 @@ async function sendNewsletter() {
   const recipients = splitRecipients(recipientsRaw)
   const fromEmail = process.env.NEWSLETTER_FROM_EMAIL || process.env.CONTACT_FROM_EMAIL || 'Boletín <onboarding@resend.dev>'
   const replyTo = process.env.NEWSLETTER_REPLY_TO || undefined
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.premiumhome.design').replace(/\/$/, '')
+  const siteUrl = (
+    process.env.NEWSLETTER_SITE_URL ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    'https://www.pachanodesign.com'
+  ).replace(/\/$/, '')
 
   const latestPost = await getLatestPostMeta()
   const state = await readState()
