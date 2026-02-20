@@ -29,9 +29,12 @@ npm run dev
    - `NEXT_PUBLIC_CAL_LINK`
    - `GOOGLE_SITE_VERIFICATION` (recomendado)
    - `NEXT_PUBLIC_GTM_ID` o `NEXT_PUBLIC_GA_ID`
-   - `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`
+   - `LEAD_WEBHOOK_URL`, `LEAD_WEBHOOK_BACKUP_URL`, `LEAD_WEBHOOK_BEARER_TOKEN` (recomendado para CRM/n8n)
+   - `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` (fallback email)
 
-Si faltan variables de Resend, el formulario sigue operando en modo local (sin envío externo) para no bloquear desarrollo.
+Comportamiento de seguridad:
+- En **desarrollo**, si no hay canales de entrega configurados, el formulario usa modo local.
+- En **producción**, si no hay webhook ni Resend configurado, devuelve error (evita pérdida silenciosa de leads).
 
 ## SEO / Search Console
 
