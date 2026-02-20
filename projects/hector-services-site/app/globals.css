@@ -1677,6 +1677,7 @@ h3 {
 }
 
 .landing-ticker {
+  --ticker-speed: 18s;
   background: var(--accent);
   padding: 10px 0;
   overflow: hidden;
@@ -1690,7 +1691,7 @@ h3 {
   align-items: center;
   flex-shrink: 0;
   min-width: max-content;
-  animation: ticker-infinite 22s linear infinite;
+  animation: ticker-infinite var(--ticker-speed) linear infinite;
   will-change: transform;
 }
 
@@ -1722,6 +1723,12 @@ h3 {
 @media (prefers-reduced-motion: reduce) {
   .landing-ticker__track {
     animation: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .landing-ticker {
+    --ticker-speed: 12s;
   }
 }
 
