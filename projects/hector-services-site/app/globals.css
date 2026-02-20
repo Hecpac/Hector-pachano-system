@@ -253,6 +253,7 @@ h3 {
 .breadcrumbs ol {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.45rem;
   margin: 0;
   padding: 0;
@@ -277,6 +278,15 @@ h3 {
 
 .breadcrumbs a:hover {
   color: var(--ink);
+}
+
+.breadcrumbs li:last-child {
+  min-width: 0;
+}
+
+.breadcrumbs li:last-child span {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .button {
@@ -557,13 +567,22 @@ h3 {
 .blog-article__content {
   display: grid;
   gap: 1rem;
-  max-width: 70ch;
+  max-width: min(70ch, 100%);
+  min-width: 0;
 }
 
 .blog-article__content p {
   margin: 0;
   color: var(--muted);
   line-height: 1.7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.blog-article__content a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Expandable Card CSS */
@@ -1911,6 +1930,14 @@ h3 {
     font-size: 9px;
     letter-spacing: 0.1em;
     padding-block: 10px;
+  }
+
+  .blog-article.cinematic-panel {
+    overflow: visible;
+  }
+
+  .blog-article h1 {
+    text-wrap: balance;
   }
 }
 
