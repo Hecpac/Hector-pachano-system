@@ -15,7 +15,7 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default function ContactPage() {
-  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || 'https://cal.com/tu-usuario/diagnostico'
+  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || '/contact'
 
   return (
     <main className="page-shell contact-page" id="main-content">

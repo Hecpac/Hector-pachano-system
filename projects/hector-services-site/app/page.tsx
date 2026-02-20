@@ -56,7 +56,7 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default function HomePage() {
-  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || 'https://cal.com/tu-usuario/diagnostico'
+  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || '/contact'
 
   return (
     <main id="main-content">
