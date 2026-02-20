@@ -27,6 +27,8 @@
 html {
   scroll-behavior: smooth;
   touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 [id] {
@@ -40,7 +42,6 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-mono), ui-monospace, monospace;
-  overflow-x: clip;
 }
 
 a {
@@ -566,7 +567,7 @@ h3 {
 }
 
 .blog-article {
-  overflow-x: hidden;
+  min-width: 0;
 }
 
 .blog-article h1 {
@@ -576,7 +577,13 @@ h3 {
 .blog-article__content {
   display: grid;
   gap: 1rem;
+  width: 100%;
   max-width: min(70ch, 100%);
+  min-width: 0;
+}
+
+.blog-article__content > * {
+  max-width: 100%;
   min-width: 0;
 }
 
