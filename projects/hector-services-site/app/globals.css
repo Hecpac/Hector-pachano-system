@@ -1209,6 +1209,36 @@ h3 {
   display: none;
 }
 
+.btn-auditor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(232, 230, 225, 0.92);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.btn-auditor:hover {
+  border-color: rgba(255, 75, 43, 0.75);
+  background: rgba(255, 75, 43, 0.14);
+  color: #fff;
+}
+
+.btn-auditor:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .btn-cta:hover {
   background: color-mix(in srgb, var(--accent) 78%, #000);
 }
@@ -1718,6 +1748,13 @@ h3 {
     gap: 8px;
   }
 
+  .btn-auditor {
+    min-height: 32px;
+    padding: 6px 10px;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+
   .btn-cta {
     min-height: 34px;
     padding: 7px 14px;
@@ -1863,6 +1900,11 @@ h3 {
   .landing-nav__brand-sep,
   .landing-nav__brand-sub {
     display: none;
+  }
+
+  .btn-auditor {
+    padding: 6px 8px;
+    font-size: 7.5px;
   }
 
   .landing-nav__links a {
