@@ -1,23 +1,23 @@
 :root {
-  --bg: #090909;
-  --ink: #f5f5f5;
-  --muted: #b6b6b6;
+  --bg: #0d0f12;
+  --ink: #e8e6e1;
+  --muted: #b9b7b2;
   --line: #2a2a2a;
-  --accent: #ff6a00;
-  --surface: #111111;
-  --surface-strong: #171717;
+  --accent: #ff4b2b;
+  --surface: #111419;
+  --surface-strong: #171b21;
   --radius: 18px;
   color-scheme: dark;
 }
 
 [data-theme='minimal'] {
-  --bg: #0f0f10;
-  --ink: #f0f0f0;
-  --muted: #aaaaad;
-  --line: #323236;
-  --accent: #ff8a3d;
-  --surface: #151517;
-  --surface-strong: #1a1a1d;
+  --bg: #12161b;
+  --ink: #eceae5;
+  --muted: #c3c1bc;
+  --line: #35373b;
+  --accent: #ff5a36;
+  --surface: #191d24;
+  --surface-strong: #20252e;
 }
 
 * {
@@ -656,8 +656,8 @@ h3 {
 
 #casos.section {
   background:
-    radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.16) 0%, transparent 36%),
-    linear-gradient(180deg, #ff713d 0%, #ff5a1f 100%);
+    radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.14) 0%, transparent 36%),
+    linear-gradient(180deg, #ff5f40 0%, #ff4b2b 100%);
   border-color: #1b120d;
   padding-block: clamp(1.4rem, 3.2vh, 2.2rem);
 }
@@ -675,11 +675,11 @@ h3 {
 #casos .case-card {
   border-color: #1b120d;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 28%, transparent 62%),
-    linear-gradient(170deg, #ff8f64 0%, #ff6a37 82%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 28%, transparent 62%),
+    linear-gradient(170deg, #ff7a5a 0%, #ff5a3a 82%);
   box-shadow:
     0 16px 30px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 #casos .case-card img {
@@ -712,14 +712,14 @@ h3 {
 
 [data-theme='minimal'] #casos.section {
   background:
-    radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.12) 0%, transparent 36%),
-    linear-gradient(180deg, #ff8358 0%, #ff6b3d 100%);
+    radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.1) 0%, transparent 36%),
+    linear-gradient(180deg, #ff6f50 0%, #ff5734 100%);
 }
 
 [data-theme='minimal'] #casos .case-card {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.03) 28%, transparent 62%),
-    linear-gradient(170deg, #ffa07e 0%, #ff7a4f 82%);
+    linear-gradient(170deg, #ff8b6a 0%, #ff6240 82%);
 }
 
 .process-list {
@@ -1043,14 +1043,14 @@ h3 {
   padding: 18px 40px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(12px);
-  background: rgba(13, 13, 13, 0.72);
+  background: rgba(13, 15, 18, 0.72);
 }
 
 .landing-nav__brand {
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(240, 237, 232, 0.9);
+  color: rgba(232, 230, 225, 0.9);
   font-family: var(--font-mono), ui-monospace, monospace;
   white-space: nowrap;
 }
@@ -1070,13 +1070,13 @@ h3 {
 }
 
 .landing-nav__links a {
-  color: rgba(240, 237, 232, 0.52);
+  color: rgba(232, 230, 225, 0.52);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .landing-nav__links a:hover {
-  color: #f0ede8;
+  color: #e8e6e1;
 }
 
 .landing-nav__cta {
@@ -1091,12 +1091,12 @@ h3 {
 }
 
 .landing-nav__cta .theme-toggle__btn {
-  color: rgba(240, 237, 232, 0.62);
+  color: rgba(232, 230, 225, 0.62);
 }
 
 .landing-nav__cta .theme-toggle__btn.is-active {
   background: rgba(255, 255, 255, 0.14);
-  color: #f0ede8;
+  color: #e8e6e1;
 }
 
 .btn-cta {
@@ -1125,7 +1125,7 @@ h3 {
   padding: 0 40px;
   position: relative;
   overflow: hidden;
-  background: #0d0d0d;
+  background: #0d0f12;
 }
 
 .landing-hero::before {
@@ -1145,10 +1145,22 @@ h3 {
   right: -120px;
   width: 720px;
   height: 720px;
-  background: radial-gradient(circle, rgba(255, 90, 31, 0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 75, 43, 0.18) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
   animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.62;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
 }
 
 .landing-hero__content {
@@ -1187,7 +1199,7 @@ h3 {
   font-size: clamp(88px, 13vw, 194px);
   line-height: 0.86;
   letter-spacing: 0.01em;
-  color: #f0ede8;
+  color: #e8e6e1;
   text-transform: uppercase;
   opacity: 1;
 }
@@ -1202,7 +1214,7 @@ h3 {
   line-height: 1.25;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(240, 237, 232, 0.78);
+  color: rgba(232, 230, 225, 0.78);
   margin-bottom: 0.22em;
 }
 
@@ -1211,7 +1223,7 @@ h3 {
 }
 
 .landing-hero__headline .line-outline {
-  -webkit-text-stroke: 1.5px #f0ede8;
+  -webkit-text-stroke: 1.5px #e8e6e1;
   color: transparent;
 }
 
@@ -1223,7 +1235,7 @@ h3 {
   writing-mode: vertical-rl;
   font-size: 9px;
   letter-spacing: 0.2em;
-  color: rgba(240, 237, 232, 0.24);
+  color: rgba(232, 230, 225, 0.24);
   font-family: var(--font-mono), ui-monospace, monospace;
   z-index: 2;
 }
@@ -1252,14 +1264,14 @@ h3 {
 .landing-hero__descriptor-main {
   font-size: 12px;
   line-height: 1.7;
-  color: #f0ede8;
+  color: #e8e6e1;
 }
 
 .landing-hero__descriptor-support {
   margin-top: 0.2rem !important;
   font-size: 11px;
   line-height: 1.7;
-  color: rgba(240, 237, 232, 0.56);
+  color: rgba(232, 230, 225, 0.56);
 }
 
 .landing-hero__actions {
@@ -1290,11 +1302,11 @@ h3 {
 
 .btn-secondary {
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #f0ede8;
+  color: #e8e6e1;
 }
 
 .btn-secondary:hover {
-  border-color: #f0ede8;
+  border-color: #e8e6e1;
 }
 
 .landing-scroll-indicator {
@@ -1321,7 +1333,7 @@ h3 {
   font-size: 8px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(240, 237, 232, 0.3);
+  color: rgba(232, 230, 225, 0.3);
   font-family: var(--font-mono), ui-monospace, monospace;
 }
 
@@ -1385,13 +1397,13 @@ h3 {
 }
 
 .landing-service-card {
-  background: #0d0d0d;
+  background: #0d0f12;
   padding: 40px 32px;
   transition: background 0.3s;
 }
 
 .landing-service-card:hover {
-  background: #141414;
+  background: #151922;
 }
 
 .landing-service-card__num {
@@ -1406,7 +1418,7 @@ h3 {
   font-family: var(--font-display), Impact, sans-serif;
   font-size: 34px;
   letter-spacing: 0.02em;
-  color: #f0ede8;
+  color: #e8e6e1;
   margin-bottom: 10px;
   text-transform: uppercase;
   line-height: 0.95;
@@ -1415,7 +1427,7 @@ h3 {
 .landing-service-card__desc {
   font-size: 11px;
   line-height: 1.7;
-  color: rgba(240, 237, 232, 0.45);
+  color: rgba(232, 230, 225, 0.45);
   font-family: var(--font-mono), ui-monospace, monospace;
 }
 
