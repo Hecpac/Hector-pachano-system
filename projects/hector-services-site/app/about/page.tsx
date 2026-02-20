@@ -56,7 +56,7 @@ export default function AboutPage() {
             Me enfoco en stacks modernos y de alto impacto: <strong>React, Next.js, Node.js, y arquitecturas Serverless</strong>.
           </p>
           <p>
-            Además de mis servicios de desarrollo y optimización técnica, soy el fundador de <a href="https://pachanodesign.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>Pachano Design</a>, un estudio donde combinamos esta excelencia técnica con estética visual de muy alto nivel.
+            Además de mis servicios de desarrollo y optimización técnica, soy el fundador de <a href="https://www.pachanodesign.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>Pachano Design</a>, un estudio donde combinamos esta excelencia técnica con estética visual de muy alto nivel.
           </p>
 
           <h2 style={{ marginTop: '2rem' }}>¿Por qué trabajar conmigo?</h2>
