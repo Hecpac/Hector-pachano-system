@@ -5,12 +5,13 @@ import Image from 'next/image'
 import { submitLeadAction } from './actions'
 
 import { CaseStudiesSection } from '@/components/sections/case-studies'
+import { LandingNav } from '@/components/sections/landing-nav'
 import { LeadForm } from '@/components/sections/lead-form'
 import { JsonLd } from '@/components/ui/json-ld'
 import { Parallax } from '@/components/ui/parallax'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { faqSchema, organizationSchema, websiteSchema } from '@/lib/seo/schema'
-import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/seo/site'
+import { SITE_DESCRIPTION } from '@/lib/seo/site'
 
 const services = [
   {
@@ -63,43 +64,7 @@ export default function HomePage() {
       <JsonLd data={organizationSchema} />
       <JsonLd data={faqSchema(faqItems)} />
 
-      <header className="landing-header">
-        <nav className="landing-nav" aria-label="Navegación principal">
-          <div className="landing-nav__brand">
-            <span className="landing-nav__brand-name">{SITE_NAME}</span>
-            <span className="landing-nav__brand-sep"> {'//'} </span>
-            <span className="landing-nav__brand-sub">Digital Systems</span>
-          </div>
-
-          <ul className="landing-nav__links">
-            <li>
-              <Link href="/services">Servicios</Link>
-            </li>
-            <li>
-              <a href="#casos">Casos</a>
-            </li>
-            <li>
-              <Link href="/auditor">Auditor</Link>
-            </li>
-            <li>
-              <Link href="/blog">Blog</Link>
-            </li>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contacto</Link>
-            </li>
-          </ul>
-
-          <div className="landing-nav__cta">
-            <a href="#contact" className="btn-cta" aria-label="Agenda el diagnóstico">
-              <span className="btn-cta__label-desktop">Agenda el diagnóstico</span>
-              <span className="btn-cta__label-mobile">Agenda</span>
-            </a>
-          </div>
-        </nav>
-      </header>
+      <LandingNav />
 
       <section className="landing-hero">
         <Parallax speed={-0.3} relativeTo="scroll" zIndex={0}>
