@@ -10,6 +10,21 @@ export type BlogPost = {
 
 const posts: BlogPost[] = [
   {
+    slug: 'si-la-ia-no-te-ve-2026-w09-test',
+    title: '[Prueba] Si la IA no te ve: visibilidad en asistentes de IA en 2026',
+    excerpt:
+      'La visibilidad en IA es canal-específica: separa bots de entrenamiento y búsqueda para no desaparecer en ChatGPT, Claude o Copilot.',
+    publishedAt: '2026-02-20',
+    readingTime: '4 min',
+    tags: ['AEO', 'SEO', 'Web', 'Conversión'],
+    content: [
+      'Puedes seguir bien posicionado en Google y aun así quedar fuera de recomendaciones en asistentes de IA si bloqueas los bots equivocados o no das señales claras de rastreo. OpenAI separa OAI-SearchBot (búsqueda) de GPTBot (entrenamiento), y Anthropic distingue Claude-SearchBot/Claude-User de ClaudeBot.',
+      'La solución no es permitir todo ni bloquear todo: define una política granular por canal. Mantén control independiente para entrenamiento (por ejemplo, GPTBot o Google-Extended) y decide explícitamente qué bots de búsqueda/usuario habilitas para sostener descubrimiento y tráfico cualificado.',
+      'Si quieres convertir esta política en ejecución real, el siguiente paso es auditar robots/sitemap y reglas por user-agent en tu stack (por ejemplo, con robots.ts y sitemap en Next.js) para alinear visibilidad, compliance y conversión en un mismo plan.',
+      'Fuentes verificadas: OpenAI Crawlers (https://developers.openai.com/api/docs/bots/), Google Common Crawlers (https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=en), Anthropic Help Center (https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler), Google AI Overviews update (https://blog.google/products-and-platforms/products/search/ai-overview-expansion-may-2025-update/), Microsoft Ads Copilot Checkout (https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents), Next.js robots/sitemap (https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots, https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap).'
+    ]
+  },
+  {
     slug: 'si-la-ia-no-te-ve-2026-w08',
     title: 'Si la IA no te ve: tu web antigua es invisible en búsquedas con IA y cómo resolverlo',
     excerpt:
