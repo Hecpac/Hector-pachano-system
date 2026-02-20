@@ -20,7 +20,7 @@ export default function PrivacidadPage() {
         <h2>Uso de la Información</h2>
         <p>No compartimos, vendemos ni alquilamos tus datos personales a terceros. Los utilizamos únicamente para establecer comunicación comercial contigo.</p>
         <h2>Tus Derechos</h2>
-        <p>Tienes derecho a acceder, rectificar o eliminar tus datos personales en cualquier momento enviando un correo a hola@hectorpachano.com.</p>
+        <p>Tienes derecho a acceder, rectificar o eliminar tus datos personales en cualquier momento enviando un correo a pachanohector15@gmail.com.</p>
       </div>
     </main>
   )

@@ -17,7 +17,7 @@ export const organizationSchema = {
   description: SITE_DESCRIPTION,
   areaServed: 'Remote',
   telephone: '+1-555-019-2026',
-  email: 'hola@hectorpachano.com',
+  email: 'pachanohector15@gmail.com',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Ciudad de México',
