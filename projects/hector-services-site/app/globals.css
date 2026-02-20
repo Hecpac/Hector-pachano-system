@@ -164,7 +164,7 @@ a {
   opacity: 0;
 }
 
-.motion-ready .reveal-on-scroll {
+.motion-ready .reveal-on-scroll.will-reveal {
   opacity: 0;
   transform: translateY(22px) scale(0.985);
   transition:
@@ -376,7 +376,7 @@ h3 {
   }
 }
 
-.motion-ready .reveal-on-scroll .stagger-fade-in > * {
+.motion-ready .reveal-on-scroll.will-reveal .stagger-fade-in > * {
   opacity: 0;
   transform: translateY(12px);
 }

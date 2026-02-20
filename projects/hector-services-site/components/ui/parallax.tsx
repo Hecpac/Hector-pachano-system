@@ -23,33 +23,36 @@ export function Parallax({
 
     let rafId: number
 
+    const clampShift = (value: number, maxShift: number) =>
+      Math.max(-maxShift, Math.min(maxShift, value))
+
     const updatePosition = () => {
       if (!ref.current) return
-      
+
       // Use parent to determine visibility to avoid jumping issues when transforming self
       const parent = ref.current.parentElement
       if (!parent) return
-      
+
       const rect = parent.getBoundingClientRect()
       const windowHeight = window.innerHeight
 
       // Only update if the parent element is somewhat in the viewport
       if (rect.top <= windowHeight && rect.bottom >= 0) {
         let yPos = 0
-        
+
         if (relativeTo === 'scroll') {
-           yPos = window.scrollY * speed
+          yPos = clampShift(window.scrollY * speed, 160)
         } else {
-           const elementCenter = rect.top + rect.height / 2
-           const viewportCenter = windowHeight / 2
-           const distance = viewportCenter - elementCenter
-           // Reversing distance so positive speed moves it in opposite direction of scroll
-           yPos = -distance * speed
+          const elementCenter = rect.top + rect.height / 2
+          const viewportCenter = windowHeight / 2
+          const distance = viewportCenter - elementCenter
+          // Reversing distance so positive speed moves it in opposite direction of scroll
+          yPos = clampShift(-distance * speed, 140)
         }
-        
+
         ref.current.style.transform = `translate3d(0, ${yPos}px, 0)`
       }
-      
+
       rafId = requestAnimationFrame(updatePosition)
     }
 
@@ -61,7 +64,16 @@ export function Parallax({
   }, [speed, relativeTo])
 
   return (
-    <div ref={ref} className={className} style={{ willChange: 'transform', zIndex, position: zIndex ? 'relative' : undefined }}>
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        willChange: 'transform',
+        zIndex,
+        position: zIndex ? 'relative' : undefined,
+        contain: 'paint'
+      }}
+    >
       {children}
     </div>
   )
