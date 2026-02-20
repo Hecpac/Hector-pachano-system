@@ -1,0 +1,116 @@
+{
+  "week_key": "2026-W09-test",
+  "slug_objetivo_editor": "si-la-ia-no-te-ve-2026-w09-test",
+  "topic": "Si la IA no te ve, no te recomienda: visibilidad en asistentes de IA en 2026",
+  "angle": "La visibilidad en IA no depende solo de SEO clásico; depende de gestionar explícitamente bots de IA (OpenAI/Anthropic/Google) y exponer señales técnicas claras (robots + sitemap) por canal.",
+  "hook": "Puedes seguir indexado en Google y aun así desaparecer de ChatGPT, Claude o Copilot si bloqueas sus bots o no das señales de rastreo claras.",
+  "key_insight": "La visibilidad en IA es canal-específica: cada ecosistema usa bots/tokens distintos, con controles independientes. La estrategia ganadora no es permitir todo ni bloquear todo, sino separar bots de entrenamiento vs bots de búsqueda/recuperación y auditarlo semanalmente.",
+  "data_points": [
+    {
+      "claim": "OpenAI separa bots por uso (búsqueda vs entrenamiento) y el control es independiente.",
+      "evidence": "OpenAI documenta OAI-SearchBot (aparición en búsqueda de ChatGPT) y GPTBot (entrenamiento).",
+      "source_url": "https://developers.openai.com/api/docs/bots/"
+    },
+    {
+      "claim": "Si bloqueas OAI-SearchBot, tu sitio no se muestra en respuestas de búsqueda de ChatGPT.",
+      "evidence": "OpenAI indica que sitios opt-out de OAI-SearchBot no aparecerán en ChatGPT search answers (aunque pueden aparecer como links navegacionales).",
+      "source_url": "https://developers.openai.com/api/docs/bots/"
+    },
+    {
+      "claim": "Google-Extended no afecta rankings en Google Search.",
+      "evidence": "Google define Google-Extended como token standalone para Gemini training/grounding y aclara que no impacta inclusión ni ranking en Search.",
+      "source_url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=en"
+    },
+    {
+      "claim": "AI Overviews ya opera a escala global.",
+      "evidence": "Google reporta disponibilidad en más de 200 países/territorios y más de 40 idiomas; además, +10% de uso en tipos de consultas con AI Overviews en mercados grandes como US e India.",
+      "source_url": "https://blog.google/products-and-platforms/products/search/ai-overview-expansion-may-2025-update/"
+    },
+    {
+      "claim": "Anthropic advierte impacto de visibilidad al desactivar bots de búsqueda/usuario.",
+      "evidence": "Claude Help Center indica que desactivar Claude-SearchBot o Claude-User puede reducir visibilidad del sitio en resultados de búsqueda/invocaciones de usuario.",
+      "source_url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler"
+    },
+    {
+      "claim": "Microsoft ya vincula descubrimiento conversacional con conversión medible.",
+      "evidence": "Microsoft Ads reporta +53% compras en 30 minutos en journeys con Copilot y 194% más probabilidad de compra cuando hay intención de compra.",
+      "source_url": "https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents"
+    },
+    {
+      "claim": "Next.js facilita control técnico directo para rastreadores.",
+      "evidence": "Docs oficiales muestran robots.ts con reglas por user-agent y sitemap.(xml|ts) para indexación eficiente.",
+      "source_url": "https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots"
+    }
+  ],
+  "real_example": {
+    "name": "Copilot Checkout + presencia en resultados orgánicos de Copilot",
+    "what_happened": "Microsoft indica que Copilot Checkout se despliega en EE. UU. y que feeds de Microsoft Merchant Center ayudan a resultados orgánicos en Copilot; además reporta mejoras de conversión en journeys asistidos.",
+    "why_it_matters": "Si una marca no habilita correctamente rastreo/exposición de contenido y feeds, pierde superficie justo donde la intención se convierte más rápido.",
+    "source_urls": [
+      "https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents"
+    ]
+  },
+  "tension": "Cumplimiento/legal suele querer bloquear bots por miedo a entrenamiento, mientras crecimiento necesita presencia en IA. La salida práctica es política granular: bloquear entrenamiento cuando aplique (p.ej., GPTBot/Google-Extended/ClaudeBot) pero permitir bots de búsqueda/usuario que sostienen descubrimiento (p.ej., OAI-SearchBot, Claude-SearchBot, según estrategia).",
+  "sources_used": [
+    {
+      "source": "OpenAI Developers",
+      "title": "Overview of OpenAI Crawlers",
+      "url": "https://developers.openai.com/api/docs/bots/",
+      "type": "official",
+      "fetched_at_utc": "2026-02-20T18:03:37Z"
+    },
+    {
+      "source": "Google for Developers",
+      "title": "Google's common crawlers",
+      "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=en",
+      "type": "official",
+      "fetched_at_utc": "2026-02-20T18:03:48Z"
+    },
+    {
+      "source": "Claude Help Center (Anthropic)",
+      "title": "Does Anthropic crawl data from the web, and how can site owners block the crawler?",
+      "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "type": "official",
+      "fetched_at_utc": "2026-02-20T18:03:57Z"
+    },
+    {
+      "source": "Google Blog",
+      "title": "AI Overviews are now available in over 200 countries and territories, and more than 40 languages",
+      "url": "https://blog.google/products-and-platforms/products/search/ai-overview-expansion-may-2025-update/",
+      "type": "official",
+      "fetched_at_utc": "2026-02-20T18:04:13Z"
+    },
+    {
+      "source": "Microsoft Ads Blog",
+      "title": "Conversations that Convert: Copilot Checkout and Brand Agents",
+      "url": "https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents",
+      "type": "official",
+      "fetched_at_utc": "2026-02-20T18:04:27Z"
+    },
+    {
+      "source": "Next.js Docs",
+      "title": "robots.txt file convention",
+      "url": "https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots",
+      "type": "official",
+      "fetched_at_utc": "2026-02-20T18:04:32Z"
+    },
+    {
+      "source": "Next.js Docs",
+      "title": "sitemap.xml file convention",
+      "url": "https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap",
+      "type": "official",
+      "fetched_at_utc": "2026-02-20T18:04:36Z"
+    }
+  ],
+  "freshness_check": {
+    "checked_at_utc": "2026-02-20T18:05:01Z",
+    "observations": [
+      "Google common crawlers page indica 'Last updated 2026-02-11 UTC'.",
+      "Next.js robots/sitemap docs incluyen '@last-updated: 2026-02-20'.",
+      "Claude Help Center marca el artículo como 'Updated today'.",
+      "Microsoft Ads source está en ruta de enero 2026.",
+      "Google Blog source corresponde a actualización de mayo 2025 (aún vigente para adopción global reportada)."
+    ],
+    "overall_assessment": "Fuentes oficiales y recientes; señal suficiente para boletín de prueba W09-2026."
+  }
+}
