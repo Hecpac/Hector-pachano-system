@@ -66,7 +66,9 @@ export default function HomePage() {
       <header className="landing-header">
         <nav className="landing-nav" aria-label="Navegación principal">
           <div className="landing-nav__brand">
-            <span>{SITE_NAME}</span> {'//'} Digital Systems
+            <span className="landing-nav__brand-name">{SITE_NAME}</span>
+            <span className="landing-nav__brand-sep"> {'//'} </span>
+            <span className="landing-nav__brand-sub">Digital Systems</span>
           </div>
 
           <ul className="landing-nav__links">
@@ -91,8 +93,9 @@ export default function HomePage() {
           </ul>
 
           <div className="landing-nav__cta">
-            <a href="#contact" className="btn-cta">
-              Agenda el diagnóstico
+            <a href="#contact" className="btn-cta" aria-label="Agenda el diagnóstico">
+              <span className="btn-cta__label-desktop">Agenda el diagnóstico</span>
+              <span className="btn-cta__label-mobile">Agenda</span>
             </a>
           </div>
         </nav>

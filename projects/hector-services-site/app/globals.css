@@ -1106,8 +1106,13 @@ h3 {
   white-space: nowrap;
 }
 
-.landing-nav__brand span {
+.landing-nav__brand-name {
   color: var(--accent);
+}
+
+.landing-nav__brand-sep,
+.landing-nav__brand-sub {
+  color: rgba(232, 230, 225, 0.86);
 }
 
 .landing-nav__links {
@@ -1158,6 +1163,9 @@ h3 {
 }
 
 .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.12em;
@@ -1169,7 +1177,12 @@ h3 {
   border-radius: 50px;
   cursor: pointer;
   text-decoration: none;
+  white-space: nowrap;
   transition: background 0.2s;
+}
+
+.btn-cta__label-mobile {
+  display: none;
 }
 
 .btn-cta:hover {
@@ -1630,37 +1643,65 @@ h3 {
 
 @media (max-width: 980px) {
   .landing-nav {
-    padding: 16px 16px;
+    padding: max(12px, env(safe-area-inset-top, 0px)) 14px 10px;
     flex-wrap: wrap;
-    row-gap: 12px;
+    align-items: flex-start;
+    row-gap: 10px;
   }
 
   .landing-nav__brand {
     flex: 1 1 auto;
     min-width: 0;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .landing-nav__cta {
+    order: 2;
     margin-left: auto;
+    flex: 0 0 auto;
+  }
+
+  .btn-cta {
+    min-height: 34px;
+    padding: 7px 14px;
+    font-size: 9px;
+    letter-spacing: 0.11em;
+  }
+
+  .btn-cta__label-desktop {
+    display: none;
+  }
+
+  .btn-cta__label-mobile {
+    display: inline;
   }
 
   .landing-nav__links {
     display: flex;
     order: 3;
     width: 100%;
-    gap: 14px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .landing-nav__links::-webkit-scrollbar {
-    display: none;
+    margin: 0;
+    padding: 2px 0 0;
+    gap: 8px 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible;
   }
 
   .landing-nav__links li {
     flex: 0 0 auto;
+  }
+
+  .landing-nav__links a {
+    display: inline-flex;
+    padding: 4px 0;
+    font-size: 9px;
+    letter-spacing: 0.11em;
+    color: rgba(232, 230, 225, 0.72);
   }
 
   .landing-hero {
@@ -1725,6 +1766,27 @@ h3 {
   .landing-services-grid {
     grid-template-columns: 1fr;
     margin: 0 16px 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-nav {
+    padding-inline: 12px;
+  }
+
+  .landing-nav__brand-sep,
+  .landing-nav__brand-sub {
+    display: none;
+  }
+
+  .landing-nav__links {
+    justify-content: flex-start;
+    gap: 6px 10px;
+  }
+
+  .landing-nav__links a {
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
   }
 }
 
