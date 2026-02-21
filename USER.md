@@ -6,7 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** Hector
 - **Pronouns:** _(optional)_
 - **Timezone:** America/Chicago
-- **Notes:** Prefiere respuestas cortas pero concisas. Mismo estilo en Telegram y webchat. No acceder a contraseñas guardadas. Antes de empezar sesión cada día, revisar estado del informe/batch de evaluación (Codex vs Gemini) y reportar rápidamente. No es de México; cuando pida noticias, priorizar cobertura global de IA. Regla operativa: en diseño/efectos usar Gemini CLI para ideación y Codex para implementación/validación. Quiere informe de QTS al final de cada sesión (cierre definido: 6:00 PM America/Chicago).
+- **Notes:** Prefiere respuestas cortas pero concisas. Mismo estilo en Telegram y webchat. No acceder a contraseñas guardadas. Antes de empezar sesión cada día, revisar estado del informe/batch de evaluación (Codex vs Gemini) y reportar rápidamente. No es de México; cuando pida noticias, priorizar cobertura global de IA. Regla operativa: en diseño/efectos usar Gemini CLI para ideación y Codex para implementación/validación. Quiere informe de QTS al final de cada sesión (cierre definido: 6:00 PM America/Chicago). Para tareas completas, prefiere investigación deep-dive (más profundidad, contraste de fuentes y plan accionable).
 
 ## Context
 
