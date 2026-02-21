@@ -218,8 +218,29 @@ export function isProduction(): boolean {
 }
 
 export async function deliverLead(payload: LeadPayload, email: LeadEmailInput): Promise<LeadDeliveryOutcome> {
-  const webhook = await sendLeadToWebhook(payload)
-  const resend = await sendLeadToResend(email)
+  const [webhookResult, resendResult] = await Promise.allSettled([sendLeadToWebhook(payload), sendLeadToResend(email)])
+
+  const webhook =
+    webhookResult.status === 'fulfilled'
+      ? webhookResult.value
+      : [
+          {
+            channel: 'lead-webhook',
+            attempted: true,
+            ok: false,
+            detail: toErrorMessage(webhookResult.reason)
+          }
+        ]
+
+  const resend =
+    resendResult.status === 'fulfilled'
+      ? resendResult.value
+      : {
+          channel: 'resend',
+          attempted: true,
+          ok: false,
+          detail: toErrorMessage(resendResult.reason)
+        }
 
   const delivered = webhook.some((result) => result.ok) || resend.ok
 
