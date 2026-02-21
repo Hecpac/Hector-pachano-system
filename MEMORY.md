@@ -18,7 +18,7 @@
 - Para tareas largas, usar avances breves y accionables.
 - Regla de ejecución para diseño/efectos: Gemini CLI para ideación creativa; Codex para implementación y validación técnica.
 - Regla multi-LLM: si Sonnet propone/genera código, Codex hace validación final y cierre técnico.
-- Para tareas completas, prefiere enfoque deep-dive: investigación a fondo, contraste de fuentes, trade-offs claros y plan ejecutable.
+- Para tareas completas/complejas, prefiere enfoque deep-dive: investigación a fondo, contraste de fuentes, trade-offs claros y plan ejecutable.
 
 ## Estado OpenClaw (base inicial)
 - Canal activo principal: Telegram.
