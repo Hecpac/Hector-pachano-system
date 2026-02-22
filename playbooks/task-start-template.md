@@ -10,6 +10,7 @@
 
 ## 2) Objetivo
 - **Objetivo principal (1 línea):**
+- **Modo:** rápido / profundo
 - **Definition of Done (DoD):**
   - [ ]
   - [ ]

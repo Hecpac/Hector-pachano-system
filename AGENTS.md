@@ -134,6 +134,28 @@ Reglas operativas:
 - Mantener verificación real con comandos/estado cuando aplique.
 - Priorizar respuestas cortas y accionables para Hector.
 
+### ⚙️ Preset operativo — Rápido vs Profundo (auto)
+
+**Default:** usar modo **rápido**.
+
+**Cambiar a profundo automáticamente** cuando haya al menos una de estas señales:
+- Decisión de arquitectura, trade-offs o alto impacto.
+- Ambigüedad alta (faltan supuestos críticos o hay datos conflictivos).
+- Tarea multi-etapa (investigación + implementación + validación).
+- Riesgo operativo (producción, datos sensibles, cambios difíciles de revertir).
+
+**Modo rápido (respuesta corta):**
+- Formato: **qué haré → evidencia mínima → siguiente paso**.
+- Priorizar acción inmediata y comandos/checks concretos.
+
+**Modo profundo (deep-dive):**
+- Formato: **contexto → opciones (2-3) → trade-offs → recomendación → plan ejecutable → validación**.
+- Cerrar con riesgos y criterios de rollback.
+
+**Overrides explícitos del usuario:**
+- Si Hector dice “rápido/corto”, no hacer deep-dive.
+- Si Hector dice “piensa/deep-dive/profundo”, expandir análisis aunque tome más tiempo.
+
 ### 🧩 Preset operativo — Subagentes (Codex-first)
 
 Usar este preset en tareas grandes/divisibles (refactor amplio, implementación multi-módulo, QA+review paralelo). No usar para fixes triviales.
