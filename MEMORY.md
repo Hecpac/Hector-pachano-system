@@ -19,6 +19,7 @@
 - Regla de ejecución para diseño/efectos: Gemini CLI para ideación creativa; Codex para implementación y validación técnica.
 - Regla multi-LLM: si Sonnet propone/genera código, Codex hace validación final y cierre técnico.
 - Para tareas completas/complejas, prefiere enfoque deep-dive: investigación a fondo, contraste de fuentes, trade-offs claros y plan ejecutable.
+- Para QTS: quiere ejecución con loop operativo y skills reutilizables (P0/P1 primero, gate real de validación y rollback explícito).
 
 ## Estado OpenClaw (base inicial)
 - Canal activo principal: Telegram.
