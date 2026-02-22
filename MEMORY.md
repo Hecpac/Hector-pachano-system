@@ -16,7 +16,8 @@
 ## Preferencias operativas
 - En trabajo técnico, priorizar verificación real (comandos/estado) sobre suposiciones.
 - Para tareas largas, usar avances breves y accionables.
-- Regla de ejecución para diseño/efectos: Gemini CLI para ideación creativa; Codex para implementación y validación técnica.
+- Regla de ejecución para diseño/efectos: Gemini CLI para ideación creativa y cambios de diseño; Codex para implementación y validación técnica.
+- Para decisiones complejas (deepthink), priorizar Gemini en análisis profundo y trade-offs; Codex mantiene cierre técnico final cuando hay código.
 - Regla multi-LLM: si Sonnet propone/genera código, Codex hace validación final y cierre técnico.
 - Para tareas completas/complejas, prefiere enfoque deep-dive: investigación a fondo, contraste de fuentes, trade-offs claros y plan ejecutable.
 - Para QTS: quiere ejecución con loop operativo y skills reutilizables (P0/P1 primero, gate real de validación y rollback explícito).
