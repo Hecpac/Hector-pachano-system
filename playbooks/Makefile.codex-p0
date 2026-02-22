@@ -1,0 +1,80 @@
+# Makefile base (Codex P0)
+# Copia este archivo a la raíz de tu repo como `Makefile` y define comandos.
+
+SHELL := /bin/bash
+.DEFAULT_GOAL := help
+
+# === Override per repo ===
+INSTALL_CMD   ?=
+BUILD_CMD     ?=
+RUN_CMD       ?=
+TEST_CMD      ?=
+LINT_CMD      ?=
+TYPECHECK_CMD ?=
+FORMAT_CMD    ?=
+
+.PHONY: help doctor install build run test lint typecheck format check ci
+
+help:
+	@echo "Codex P0 Makefile"
+	@echo ""
+	@echo "Targets:"
+	@echo "  make doctor      # muestra comandos configurados"
+	@echo "  make install"
+	@echo "  make build"
+	@echo "  make run"
+	@echo "  make test"
+	@echo "  make lint"
+	@echo "  make typecheck"
+	@echo "  make format"
+	@echo "  make check       # lint + typecheck + test + build"
+	@echo "  make ci          # alias de check"
+	@echo ""
+	@echo "Uso rápido (sin editar archivo):"
+	@echo "  make check LINT_CMD='uv run ruff check .' TYPECHECK_CMD='uv run pyright' TEST_CMD='uv run pytest -q' BUILD_CMD='uv run python -m build'"
+
+# Macro: ejecuta variable obligatoria
+# $(call run_required,BUILD_CMD)
+define run_required
+	@if [[ -z "$($(1))" ]]; then \
+		echo "❌ $(1) no está definido."; \
+		echo "   Edita Makefile o pásalo en línea de comandos."; \
+		exit 2; \
+	fi
+	@echo "▶ $($(1))"
+	@eval "$($(1))"
+endef
+
+doctor:
+	@echo "INSTALL_CMD   = $(INSTALL_CMD)"
+	@echo "BUILD_CMD     = $(BUILD_CMD)"
+	@echo "RUN_CMD       = $(RUN_CMD)"
+	@echo "TEST_CMD      = $(TEST_CMD)"
+	@echo "LINT_CMD      = $(LINT_CMD)"
+	@echo "TYPECHECK_CMD = $(TYPECHECK_CMD)"
+	@echo "FORMAT_CMD    = $(FORMAT_CMD)"
+
+install:
+	$(call run_required,INSTALL_CMD)
+
+build:
+	$(call run_required,BUILD_CMD)
+
+run:
+	$(call run_required,RUN_CMD)
+
+test:
+	$(call run_required,TEST_CMD)
+
+lint:
+	$(call run_required,LINT_CMD)
+
+typecheck:
+	$(call run_required,TYPECHECK_CMD)
+
+format:
+	$(call run_required,FORMAT_CMD)
+
+check: lint typecheck test build
+
+ci: check
