@@ -117,6 +117,14 @@ export function WebAuditorForm({ action }: WebAuditorProps) {
             <h3>¡Escaneo Finalizado! 🚨</h3>
             <p>Hemos encontrado <strong>varias oportunidades críticas</strong> de mejora en rendimiento y conversión para <span className="brand-highlight">{targetUrl}</span>.</p>
             <p>Déjanos tu correo y te enviamos el diagnóstico completo detallando qué está fallando y cómo solucionarlo.</p>
+            <p style={{ marginTop: '1rem', fontStyle: 'italic', color: 'var(--muted)' }}>
+              Nota final: la ironía es obvia y no la vamos a suavizar. Estás auditando sitios de clientes que tienen exactamente el mismo problema que tú.
+              La diferencia es que tú sabes cómo resolverlo en una tarde. Hazlo. Tu sitio puede ser de los mejores portafolios de consultor —
+              solo necesita que Google lo sepa.
+            </p>
+            <p className="blog-card__meta" style={{ marginTop: '0.4rem' }}>
+              Auditoría generada el 23 febrero 2026
+            </p>
           </div>
 
           <input type="hidden" name="website" value={targetUrl} />
