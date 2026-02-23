@@ -20,13 +20,13 @@ export const SITE_URL = normalizeSiteUrl(RAW_SITE_URL);
 export const SITE_NAME = 'Hector Pachano'
 
 export const SITE_DESCRIPTION =
-  'Sistemas digitales que generan ingresos: automatizaciones, diseño web y SEO/AEO para negocios que quieren escalar.'
+  'Diseño web, SEO/AEO y automatizaciones para empresas B2B: sistemas digitales orientados a ingresos y crecimiento comercial.'
 
 export const SITE_KEYWORDS = [
-  'automatizaciones',
-  'diseño web',
-  'SEO',
-  'AEO',
-  'growth',
-  'desarrollo web'
+  'diseño web b2b',
+  'automatizaciones para empresas',
+  'seo b2b',
+  'aeo',
+  'automatización de procesos',
+  'desarrollo web next.js'
 ]

@@ -26,13 +26,13 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Automatizaciones, Diseño Web y SEO/AEO`,
+    default: `${SITE_NAME} | Diseño Web, SEO/AEO y Automatización para Empresas B2B`,
     template: `%s | ${SITE_NAME}`
   },
   description: SITE_DESCRIPTION,
   keywords: SITE_KEYWORDS,
   openGraph: {
-    title: `${SITE_NAME} — Design. Automate. Rank.`,
+    title: `${SITE_NAME} | Diseño Web, SEO/AEO y Automatización para Empresas B2B`,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_NAME} — Design. Automate. Rank.`,
+    title: `${SITE_NAME} | Diseño Web, SEO/AEO y Automatización para Empresas B2B`,
     description: SITE_DESCRIPTION,
     images: ['/opengraph-image']
   },

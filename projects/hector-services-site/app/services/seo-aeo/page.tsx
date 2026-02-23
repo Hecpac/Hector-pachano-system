@@ -5,9 +5,9 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, serviceSchema } from '@/lib/seo/schema'
 
-const title = 'SEO / AEO'
+const title = 'SEO y AEO para Empresas B2B'
 const description =
-  'Estrategia SEO y AEO para crecer tráfico orgánico y aparecer en respuestas de motores de búsqueda e IA.'
+  'Servicio SEO y AEO para empresas B2B: posicionamiento orgánico, arquitectura de contenidos y visibilidad en respuestas de IA.'
 const path = '/services/seo-aeo'
 
 export const metadata: Metadata = buildPageMetadata({

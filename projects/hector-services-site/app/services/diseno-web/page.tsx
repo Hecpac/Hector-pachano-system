@@ -5,9 +5,9 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, serviceSchema } from '@/lib/seo/schema'
 
-const title = 'Diseño Web'
+const title = 'Diseño Web de Alto Rendimiento para Empresas B2B'
 const description =
-  'Diseño y desarrollo web orientado a conversión: arquitectura de contenido, UI editorial y performance.'
+  'Diseño y desarrollo web para empresas B2B con foco en conversión, arquitectura editorial y performance en Next.js.'
 const path = '/services/diseno-web'
 
 export const metadata: Metadata = buildPageMetadata({

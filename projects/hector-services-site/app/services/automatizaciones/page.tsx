@@ -5,9 +5,9 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, serviceSchema } from '@/lib/seo/schema'
 
-const title = 'Automatizaciones'
+const title = 'Automatizaciones de Procesos para Empresas B2B'
 const description =
-  'Automatizaciones de procesos y sistemas: integración de CRM, formularios, notificaciones y flujos operativos.'
+  'Automatizaciones de procesos para empresas B2B: integración de CRM, formularios, notificaciones y flujos operativos.'
 const path = '/services/automatizaciones'
 
 export const metadata: Metadata = buildPageMetadata({
