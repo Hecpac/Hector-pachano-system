@@ -1,9 +1,10 @@
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from './site'
+import { SITE_CONTACT_EMAIL, SITE_DESCRIPTION, SITE_ENTITY_NAME, SITE_NAME, SITE_URL } from './site'
 
 export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: SITE_NAME,
+  name: SITE_ENTITY_NAME,
+  alternateName: SITE_NAME,
   url: SITE_URL,
   description: SITE_DESCRIPTION,
   inLanguage: 'es'
@@ -12,17 +13,17 @@ export const websiteSchema = {
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: SITE_NAME,
+  name: SITE_ENTITY_NAME,
+  alternateName: SITE_NAME,
   url: SITE_URL,
   description: SITE_DESCRIPTION,
-  areaServed: 'Remote',
-  telephone: '+1-555-019-2026',
-  email: 'Pachanodesign@gmail.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Ciudad de México',
-    addressCountry: 'MX'
+  founder: {
+    '@type': 'Person',
+    name: SITE_NAME
   },
+  areaServed: 'Global',
+  availableLanguage: ['es', 'en'],
+  email: SITE_CONTACT_EMAIL,
   priceRange: '$$$',
   serviceType: ['Automatizaciones', 'Diseño Web', 'SEO', 'AEO']
 }
@@ -56,10 +57,10 @@ export function serviceSchema(input: {
     description: input.description,
     provider: {
       '@type': 'ProfessionalService',
-      name: SITE_NAME,
+      name: SITE_ENTITY_NAME,
       url: SITE_URL
     },
-    areaServed: 'Remote',
+    areaServed: 'Global',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: `${input.name} - Alcances`,
@@ -107,7 +108,7 @@ export function blogPostingSchema(input: {
     },
     publisher: {
       '@type': 'Organization',
-      name: SITE_NAME
+      name: SITE_ENTITY_NAME
     },
     keywords: input.tags.join(', '),
     mainEntityOfPage: `${SITE_URL}${input.path}`

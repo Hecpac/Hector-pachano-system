@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+
 import { buildPageMetadata } from '@/lib/seo/meta'
+import { SITE_CONTACT_EMAIL } from '@/lib/seo/site'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Aviso Legal',
@@ -20,7 +22,10 @@ export default function AvisoLegalPage() {
         <h2>Condiciones de Uso</h2>
         <p>El uso de este sitio web implica la aceptación de estas condiciones. Queda prohibida la reproducción total o parcial del contenido sin autorización previa.</p>
         <h2>Contacto</h2>
-        <p>Para cualquier duda o consulta sobre este aviso legal, puedes escribir a Pachanodesign@gmail.com.</p>
+        <p>
+          Para cualquier duda o consulta sobre este aviso legal, puedes escribir a{' '}
+          <a href={`mailto:${SITE_CONTACT_EMAIL}`}>{SITE_CONTACT_EMAIL}</a>.
+        </p>
       </div>
     </main>
   )

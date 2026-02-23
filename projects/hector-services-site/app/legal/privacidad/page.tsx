@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+
 import { buildPageMetadata } from '@/lib/seo/meta'
+import { SITE_CONTACT_EMAIL } from '@/lib/seo/site'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Política de Privacidad',
@@ -20,7 +22,10 @@ export default function PrivacidadPage() {
         <h2>Uso de la Información</h2>
         <p>No compartimos, vendemos ni alquilamos tus datos personales a terceros. Los utilizamos únicamente para establecer comunicación comercial contigo.</p>
         <h2>Tus Derechos</h2>
-        <p>Tienes derecho a acceder, rectificar o eliminar tus datos personales en cualquier momento enviando un correo a Pachanodesign@gmail.com.</p>
+        <p>
+          Tienes derecho a acceder, rectificar o eliminar tus datos personales en cualquier momento enviando un correo a{' '}
+          <a href={`mailto:${SITE_CONTACT_EMAIL}`}>{SITE_CONTACT_EMAIL}</a>.
+        </p>
       </div>
     </main>
   )

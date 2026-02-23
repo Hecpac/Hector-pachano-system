@@ -11,7 +11,7 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { Parallax } from '@/components/ui/parallax'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { faqSchema, organizationSchema, websiteSchema } from '@/lib/seo/schema'
-import { SITE_DESCRIPTION } from '@/lib/seo/site'
+import { SITE_CAL_LINK, SITE_DESCRIPTION } from '@/lib/seo/site'
 
 const services = [
   {
@@ -58,7 +58,7 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default function HomePage() {
-  const calLink = '/contact'
+  const calLink = SITE_CAL_LINK
 
   return (
     <main id="main-content">

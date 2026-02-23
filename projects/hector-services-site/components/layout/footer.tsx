@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import { SITE_CONTACT_EMAIL } from '@/lib/seo/site'
+
 export function Footer() {
   return (
     <footer className="site-footer" style={{ borderTop: '1px solid var(--line)', padding: '2rem 1rem', marginTop: '4rem', textAlign: 'center' }}>
@@ -8,7 +10,7 @@ export function Footer() {
           <a href="https://www.pachanodesign.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>Pachano Design ↗</a>
           <Link href="/legal/privacidad" style={{ color: 'var(--muted)' }}>Política de Privacidad</Link>
           <Link href="/legal/aviso-legal" style={{ color: 'var(--muted)' }}>Aviso Legal</Link>
-          <a href="mailto:Pachanodesign@gmail.com" style={{ color: 'var(--muted)' }}>Pachanodesign@gmail.com</a>
+          <a href={`mailto:${SITE_CONTACT_EMAIL}`} style={{ color: 'var(--muted)' }}>{SITE_CONTACT_EMAIL}</a>
         </nav>
         <p style={{ color: 'var(--muted)', fontSize: '0.8rem', margin: 0 }}>
           &copy; {new Date().getFullYear()} Hector Pachano // Digital Systems. Todos los derechos reservados.

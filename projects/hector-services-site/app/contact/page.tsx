@@ -7,6 +7,7 @@ import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { JsonLd } from '@/components/ui/json-ld'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema } from '@/lib/seo/schema'
+import { SITE_CAL_LINK } from '@/lib/seo/site'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Contacto',
@@ -15,7 +16,7 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default function ContactPage() {
-  const calLink = '/contact'
+  const calLink = SITE_CAL_LINK
 
   return (
     <main className="page-shell contact-page" id="main-content">

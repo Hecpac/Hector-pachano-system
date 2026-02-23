@@ -49,6 +49,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico'
+  },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION
   }
