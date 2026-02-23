@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { submitLeadAction } from './actions'
 
 import { CaseStudiesSection } from '@/components/sections/case-studies'
+import { HeroMonitorIntro } from '@/components/sections/hero-monitor-intro'
 import { LandingNav } from '@/components/sections/landing-nav'
 import { LeadForm } from '@/components/sections/lead-form'
 import { JsonLd } from '@/components/ui/json-ld'
@@ -96,30 +97,7 @@ export default function HomePage() {
             </div>
           </Parallax>
 
-          <Parallax speed={0.1} relativeTo="viewport" className="landing-hero__computer-stage" zIndex={2}>
-            <div className="landing-floor-line" aria-hidden="true" />
-            <div className="landing-computer" aria-hidden="true">
-              <div className="landing-computer__glow" />
-              <div className="landing-computer__bezel">
-                <span className="landing-computer__camera" />
-                <div className="landing-computer__screen">
-                  <p className="landing-computer__screen-kicker">Hector Services // Live</p>
-                  <p className="landing-computer__screen-title">Design. Automate. Rank.</p>
-                  <p className="landing-computer__screen-metric">Leads ↑ 39% · SEO ↑ 62%</p>
-                </div>
-                <span className="landing-computer__logo">HS</span>
-              </div>
-              <div className="landing-computer__body">
-                <span className="landing-computer__port" />
-                <span className="landing-computer__port" />
-                <span className="landing-computer__slot" />
-                <span className="landing-computer__vents" />
-              </div>
-              <div className="landing-computer__stand" />
-              <div className="landing-computer__shadow" />
-              <div className="landing-computer__cable" />
-            </div>
-          </Parallax>
+          <HeroMonitorIntro />
         </div>
 
         <Parallax speed={0.2} relativeTo="scroll" className="landing-hero__bottom" zIndex={2}>
