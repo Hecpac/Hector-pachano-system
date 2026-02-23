@@ -1,0 +1,42 @@
+{
+  "topic": "IA + SEO + Ads: convertir visibilidad en compras cuando el journey ocurre dentro del asistente",
+  "angle": "Para B2B, el cuello de botella ya no es solo rankear: es permitir rastreo correcto por bot de búsqueda y capturar intención alta en experiencias conversacionales con checkout nativo.",
+  "hook": "Puedes tener buen SEO clásico y aun perder ventas si tu robots.txt bloquea bots de búsqueda de IA o si no estás listo para journeys transaccionales dentro de asistentes.",
+  "key_insight": "La nueva ventaja competitiva B2B combina dos capas: (1) gobernanza fina de crawlers por canal (search vs training vs user-triggered) y (2) activación comercial en superficies de compra asistida por IA que reducen fricción hasta el pago.",
+  "data_points": [
+    {
+      "stat": "AI Overviews está disponible en más de 200 países y territorios, y en más de 40 idiomas.",
+      "source": "Google",
+      "url": "https://blog.google/products-and-platforms/products/search/ai-overview-expansion-may-2025-update/"
+    },
+    {
+      "stat": "En mercados grandes como EE. UU. e India, AI Overviews impulsa más de 10% de aumento de uso de Google en consultas donde aparece.",
+      "source": "Google",
+      "url": "https://blog.google/products-and-platforms/products/search/ai-overview-expansion-may-2025-update/"
+    },
+    {
+      "stat": "En experiencias de compra con Copilot, los journeys con Copilot mostraron 53% más compras en los 30 minutos posteriores vs journeys sin Copilot.",
+      "source": "Microsoft Advertising",
+      "url": "https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents"
+    },
+    {
+      "stat": "Cuando hay intención de compra, los journeys con Copilot fueron 194% más propensos a terminar en compra.",
+      "source": "Microsoft Advertising",
+      "url": "https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents"
+    }
+  ],
+  "real_example": {
+    "description": "Copilot Checkout (Microsoft) permite completar la compra dentro de la conversación sin redirección y mantiene al merchant como merchant of record.",
+    "result": "Se reportan señales tempranas de conversión: +53% compras en 30 min y +194% probabilidad de compra en journeys con intención.",
+    "source_url": "https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents"
+  },
+  "tension": "Marketing quiere alcance rápido en IA, pero Legal/IT teme ceder contenido a entrenamiento. El reto operativo B2B es permitir bots de búsqueda que dan visibilidad/comercialización, sin abrir indiscriminadamente entrenamiento y sin romper cumplimiento.",
+  "sources_used": [
+    "https://blog.google/products-and-platforms/products/search/ai-overview-expansion-may-2025-update/",
+    "https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents",
+    "https://developers.openai.com/api/docs/bots/",
+    "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=en",
+    "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler"
+  ],
+  "freshness_check": "2026-02-23"
+}

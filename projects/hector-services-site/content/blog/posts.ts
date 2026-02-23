@@ -10,6 +10,42 @@ export type BlogPost = {
 
 const posts: BlogPost[] = [
   {
+    slug: 'si-la-ia-no-te-ve-2026-w09',
+    title: 'Si la IA no te ve: bloqueas bots de búsqueda y pierdes compras asistidas (cómo resolverlo)',
+    excerpt:
+      'Tu SEO puede verse sano y aun perder ventas: corrige políticas de bots por canal y activa journeys conversacionales de compra con un plan de 30 días.',
+    publishedAt: '2026-02-23',
+    readingTime: '7 min',
+    tags: ['AEO', 'SEO', 'Web', 'Conversión'],
+    content: [
+      '## El problema real: visibilidad sin capacidad de convertir',
+      'Muchas empresas B2B creen que “ya están bien” porque mantienen tráfico orgánico y posiciones aceptables en búsquedas clásicas. El problema es que una parte creciente del journey ocurre dentro de experiencias asistidas por IA. Ahí, el criterio no es solo rankear: es que tu contenido sea rastreable por bots de búsqueda y que tu oferta pueda capturar intención transaccional cuando el comprador ya está decidido.',
+      'Si hoy bloqueas de forma indiscriminada crawlers en robots.txt o no distingues entre bots de búsqueda y bots de entrenamiento, puedes estar cerrando justo el canal que te daba descubrimiento y demanda de alta intención. Resultado: tu web existe, pero para el nuevo journey comercial es prácticamente invisible.',
+      '## Lo que cambió en 2025–2026 (con datos verificables)',
+      'Google confirmó que AI Overviews está disponible en más de 200 países y territorios y en más de 40 idiomas (fuente: https://blog.google/products-and-platforms/products/search/ai-overview-expansion-may-2025-update/). Eso significa que la capa de respuesta asistida ya es una interfaz global de descubrimiento, no una prueba aislada.',
+      'En esa misma actualización, Google reportó que en mercados como EE. UU. e India, AI Overviews impulsó más de 10% de aumento de uso de Google en consultas donde aparece (fuente: https://blog.google/products-and-platforms/products/search/ai-overview-expansion-may-2025-update/). Para B2B, esto se traduce en más decisiones iniciales tomadas en respuestas sintetizadas y menos en listas tradicionales de enlaces.',
+      'Microsoft Advertising, por su parte, reportó que en experiencias de compra con Copilot hubo 53% más compras en los 30 minutos posteriores frente a journeys sin Copilot y, cuando había intención de compra, los journeys con Copilot fueron 194% más propensos a terminar en compra (fuente: https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents). No es teoría de contenido: es impacto transaccional.',
+      '## Antes vs después: un caso concreto que sí mueve ingresos',
+      'Antes: empresa B2B con buena base SEO, pero robots heredado y política “bloquear todo bot nuevo por defecto”. El equipo de marketing celebraba tráfico estable; ventas, en cambio, notaba menos menciones orgánicas cualificadas en conversaciones tempranas con prospectos. Además, la experiencia de compra seguía fragmentada: del asistente al sitio, del sitio al carrito, del carrito al checkout, con abandono en cada salto.',
+      'Después: la empresa separó su gobernanza por canal. Permitió bots de búsqueda relevantes y mantuvo controles más estrictos para entrenamiento cuando aplicaba. En paralelo, adaptó su experiencia comercial para journeys asistidos por IA, tomando como referencia el enfoque de checkout conversacional que Microsoft describe en Copilot Checkout, donde la compra se completa dentro de la conversación y el merchant mantiene el control comercial.',
+      'Resultado esperado del “después”: menos fricción en descubrimiento (más elegibilidad para aparecer en respuestas) y menos fricción transaccional (más probabilidad de conversión cuando ya existe intención). No es promesa vacía; está alineado con las señales reportadas por Google y Microsoft en sus publicaciones oficiales.',
+      '## Plan de ejecución en 30 días para un equipo B2B',
+      'Paso 1 (días 1-5): inventario de bots y política por objetivo. Revisa robots.txt y define explícitamente qué permites para búsqueda, qué restringes para entrenamiento y qué requiere validación legal/compliance. Apóyate en documentación oficial de OpenAI, Google y Anthropic para no mezclar categorías de bots: https://developers.openai.com/api/docs/bots/, https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=en, https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler.',
+      'Paso 2 (días 6-12): prioriza 5 URLs de mayor impacto comercial (servicios, comparativas, pricing o casos). Cada URL debe responder con claridad: problema, solución, evidencia y siguiente acción. Si un asistente no puede extraer esto en segundos, tu citabilidad cae.',
+      'Paso 3 (días 13-20): elimina fricción de conversión en flujos de alta intención. Simplifica formularios, reduce pasos entre interés y acción, y prepara una experiencia que soporte journeys asistidos donde el usuario ya llega preconvencido. Aquí no se trata de “más contenido”, sino de menos obstáculos para cerrar.',
+      'Paso 4 (días 21-30): mide en tablero único. No te quedes en impresiones o sesiones; monitorea consultas entrantes con referencia a asistentes, tasa de lead cualificado, tiempo a primer contacto y cierre en ventanas cortas cuando hay intención explícita.',
+      '## Decisión ejecutiva: qué hacer esta semana',
+      'Si tu empresa aún no distingue técnicamente búsqueda vs entrenamiento y todavía obliga al comprador a saltar entre demasiadas pantallas para comprar o agendar, estás perdiendo eficiencia en el momento más valioso del journey. Esta semana define la política por canal y selecciona un flujo comercial para rediseñarlo con lógica conversacional orientada a cierre.',
+      'No necesitas rehacer toda la web para empezar. Necesitas criterio técnico en rastreo, foco en páginas que venden y disciplina operativa para medir conversión real. Ahí es donde se gana ventaja en 2026.',
+      '## Fuentes verificadas',
+      '- https://blog.google/products-and-platforms/products/search/ai-overview-expansion-may-2025-update/',
+      '- https://about.ads.microsoft.com/en/blog/post/january-2026/conversations-that-convert-copilot-checkout-and-brand-agents',
+      '- https://developers.openai.com/api/docs/bots/',
+      '- https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers?hl=en',
+      '- https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler'
+    ]
+  },
+  {
     slug: 'ia-b2b-global-2026-playbook-90-dias',
     title: 'IA B2B global en 2026: el playbook de 90 días para salir del piloto eterno',
     excerpt:
