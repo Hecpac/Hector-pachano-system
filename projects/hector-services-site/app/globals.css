@@ -1454,12 +1454,12 @@ h3 {
 
 .landing-floor-line {
   position: absolute;
-  left: -8%;
-  right: -8%;
-  bottom: 18%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0, rgba(232, 230, 225, 0.4) 12%, rgba(232, 230, 225, 0.4) 88%, transparent 100%);
-  opacity: 0.5;
+  left: -10%;
+  right: -10%;
+  bottom: 16%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0, rgba(232, 230, 225, 0.52) 12%, rgba(232, 230, 225, 0.52) 88%, transparent 100%);
+  opacity: 0.46;
 }
 
 .landing-computer {
@@ -1469,31 +1469,92 @@ h3 {
   flex-direction: column;
   align-items: center;
   z-index: 2;
+  isolation: isolate;
+}
+
+.landing-computer__glow {
+  position: absolute;
+  top: -14%;
+  left: 50%;
+  width: 74%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(238, 236, 231, 0.26) 0%, rgba(238, 236, 231, 0.08) 32%, rgba(238, 236, 231, 0) 72%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .landing-computer__bezel {
+  position: relative;
   width: 72%;
   aspect-ratio: 4 / 3;
-  border-radius: 26px;
-  background: linear-gradient(165deg, #f2f1ee 0%, #d5d3ce 100%);
-  border: 1px solid rgba(0, 0, 0, 0.14);
-  padding: 14px;
-  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.32);
+  border-radius: 28px;
+  background: linear-gradient(155deg, #fbfaf7 0%, #d4d1ca 48%, #c8c5be 100%);
+  border: 1px solid rgba(20, 20, 20, 0.16);
+  padding: 16px 14px 26px;
+  box-shadow: 0 30px 42px rgba(0, 0, 0, 0.34);
+  overflow: hidden;
+}
+
+.landing-computer__bezel::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 25px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0) 38%);
+  pointer-events: none;
+}
+
+.landing-computer__bezel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  box-shadow: inset -16px -20px 24px rgba(40, 40, 40, 0.12);
+  pointer-events: none;
+}
+
+.landing-computer__camera {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 1px solid rgba(28, 32, 38, 0.32);
+  background: radial-gradient(circle, #1b2430 0, #0d1118 68%);
+  z-index: 2;
+}
+
+.landing-computer__logo {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  color: rgba(24, 24, 24, 0.56);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  z-index: 2;
 }
 
 .landing-computer__screen {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 17px;
+  border-radius: 19px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: radial-gradient(circle at 58% 42%, rgba(34, 46, 62, 0.84) 0, #070a10 62%);
+  background: radial-gradient(circle at 58% 42%, rgba(54, 66, 84, 0.8) 0, rgba(18, 25, 36, 0.95) 44%, #05080f 88%);
   color: rgba(232, 230, 225, 0.86);
   padding: 14px;
   display: grid;
   align-content: space-between;
   gap: 0.5rem;
   overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), inset 0 -18px 30px rgba(0, 0, 0, 0.35);
 }
 
 .landing-computer__screen::before {
@@ -1504,10 +1565,22 @@ h3 {
     180deg,
     transparent 0,
     transparent 3px,
-    rgba(255, 255, 255, 0.03) 3px,
-    rgba(255, 255, 255, 0.03) 4px
+    rgba(255, 255, 255, 0.04) 3px,
+    rgba(255, 255, 255, 0.04) 4px
   );
   mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.landing-computer__screen::after {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: 18%;
+  width: 54%;
+  height: 170%;
+  background: linear-gradient(104deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.02) 35%, rgba(255, 255, 255, 0) 78%);
+  transform: rotate(10deg);
   pointer-events: none;
 }
 
@@ -1517,6 +1590,8 @@ h3 {
   margin: 0;
   text-transform: uppercase;
   font-family: var(--font-mono), ui-monospace, monospace;
+  position: relative;
+  z-index: 1;
 }
 
 .landing-computer__screen-kicker {
@@ -1530,6 +1605,7 @@ h3 {
   line-height: 1.08;
   color: #f6f4ef;
   letter-spacing: 0.04em;
+  text-shadow: 0 0 18px rgba(195, 220, 255, 0.2);
 }
 
 .landing-computer__screen-metric {
@@ -1539,48 +1615,75 @@ h3 {
 }
 
 .landing-computer__body {
+  position: relative;
   width: 80%;
-  margin-top: -6px;
-  min-height: 76px;
-  border-radius: 0 0 18px 18px;
-  background: linear-gradient(180deg, #e2e0db 0%, #c9c7c2 100%);
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  margin-top: -8px;
+  min-height: 84px;
+  border-radius: 0 0 19px 19px;
+  background: linear-gradient(180deg, #e8e5df 0%, #cfccc5 44%, #bcb9b1 100%);
+  border: 1px solid rgba(0, 0, 0, 0.14);
   border-top: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
   padding: 0 16px;
-  box-shadow: 0 14px 22px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 18px 26px rgba(0, 0, 0, 0.26);
+}
+
+.landing-computer__body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.44);
 }
 
 .landing-computer__port {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: #101214;
-  opacity: 0.76;
+  background: #111319;
+  opacity: 0.78;
+}
+
+.landing-computer__slot {
+  width: 24%;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(16, 19, 23, 0.44) 0%, rgba(16, 19, 23, 0.2) 100%);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.12);
 }
 
 .landing-computer__vents {
-  width: 36%;
-  height: 28px;
+  width: 34%;
+  height: 30px;
   border-radius: 6px;
   background: repeating-linear-gradient(
     90deg,
-    rgba(13, 15, 18, 0.22) 0,
-    rgba(13, 15, 18, 0.22) 3px,
+    rgba(13, 15, 18, 0.24) 0,
+    rgba(13, 15, 18, 0.24) 3px,
     transparent 3px,
     transparent 6px
   );
 }
 
+.landing-computer__stand {
+  width: 34%;
+  height: 8px;
+  margin-top: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(197, 194, 186, 0.75) 0%, rgba(143, 141, 135, 0.85) 100%);
+}
+
 .landing-computer__shadow {
-  width: 58%;
-  height: 20px;
-  margin-top: 4px;
+  width: 66%;
+  height: 24px;
+  margin-top: 2px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.42) 0, rgba(0, 0, 0, 0) 72%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.46) 0, rgba(0, 0, 0, 0) 74%);
 }
 
 @keyframes pulse {
@@ -2109,13 +2212,46 @@ h3 {
     width: min(420px, 100%);
   }
 
+  .landing-computer__glow {
+    width: 84%;
+    top: -18%;
+  }
+
   .landing-computer__bezel {
     width: 82%;
+    padding: 14px 12px 22px;
+    border-radius: 22px;
+  }
+
+  .landing-computer__camera {
+    top: 7px;
+    width: 7px;
+    height: 7px;
+  }
+
+  .landing-computer__logo {
+    bottom: 6px;
+    font-size: 7px;
   }
 
   .landing-computer__body {
-    width: 88%;
-    min-height: 64px;
+    width: 90%;
+    min-height: 62px;
+    padding: 0 12px;
+  }
+
+  .landing-computer__slot {
+    width: 30%;
+  }
+
+  .landing-computer__stand {
+    width: 42%;
+    height: 6px;
+  }
+
+  .landing-computer__shadow {
+    width: 72%;
+    height: 16px;
   }
 
   .landing-hero__counter,
