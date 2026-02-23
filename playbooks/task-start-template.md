@@ -2,6 +2,11 @@
 
 > Úsalo al iniciar cualquier tarea técnica o de diseño.
 
+## 0) Reverse prompt (obligatorio)
+Usa este prompt antes de ejecutar:
+
+"Con base en mi meta [META], propón la mejor ruta de ejecución hoy. Devuélveme solo: objetivo, primer paso (<5 min), riesgo principal y criterio de terminado."
+
 ## 1) Contexto base
 - **Proyecto:**
 - **Ruta/Repo:**
@@ -21,7 +26,12 @@
 - **Dependencias sensibles:**
 - **Riesgo principal esperado:**
 
-## 4) Validación obligatoria
+## 4) Routing brain + muscles
+- **Brain (estrategia/ideación):** Gemini
+- **Muscle (implementación/validación):** Codex
+- **Cierre técnico final:** Codex
+
+## 5) Validación obligatoria
 - **Comandos esperados:**
   - `lint:`
   - `test:`
@@ -29,12 +39,12 @@
 - **Script recomendado:**
   - `scripts/validate-stack.sh <ruta-del-proyecto>`
 
-## 5) Plan corto (máx. 5 pasos)
+## 6) Plan corto (máx. 5 pasos)
 1.
 2.
 3.
 4.
 5.
 
-## 6) Entregable esperado
+## 7) Entregable esperado
 - **Formato de salida:** Hecho / Evidencia / Riesgo / Siguiente paso

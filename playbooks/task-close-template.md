@@ -24,10 +24,17 @@
 - **Impacto si no se atiende:**
 - **Mitigación sugerida:**
 
-## 4) Siguiente paso recomendado (1 opción)
+## 4) Auto-mejora (si hubo fallo)
+- **Qué falló (1 línea):**
+- **Causa raíz:**
+- **Micro-fix/skill creada:**
+- **Cómo se validó que no se repita:**
+- **Rollback definido:**
+
+## 5) Siguiente paso recomendado (1 opción)
 1.
 
-## 5) Estado final
+## 6) Estado final
 - [ ] Listo para merge
 - [ ] Requiere revisión
 - [ ] Bloqueado
