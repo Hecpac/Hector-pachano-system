@@ -2284,6 +2284,7 @@ h3 {
     list-style: none;
     flex-direction: column;
     gap: 0;
+    overscroll-behavior: contain;
     overflow: hidden;
     opacity: 0;
     visibility: hidden;

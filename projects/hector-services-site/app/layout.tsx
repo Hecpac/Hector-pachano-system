@@ -19,6 +19,10 @@ const monoFont = DM_Mono({
   style: ['normal', 'italic']
 })
 
+export const viewport = {
+  themeColor: '#0b0c10',
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {

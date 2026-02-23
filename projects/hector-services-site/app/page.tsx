@@ -131,7 +131,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="landing-section-label">Servicios</div>
+        <h2 className="landing-section-label">Servicios</h2>
         <section className="landing-services-grid">
           {services.map((service, index) => (
             <Parallax 
@@ -142,7 +142,7 @@ export default function HomePage() {
             >
               <Link href={service.href} className="landing-service-card">
                 <p className="landing-service-card__num">{service.id}</p>
-                <h2 className="landing-service-card__name">{service.title}</h2>
+                <h3 className="landing-service-card__name">{service.title}</h3>
                 <p className="landing-service-card__desc">{service.description}</p>
                 <div className="landing-service-card__footer">
                   <span className="landing-service-card__arrow">↗</span>

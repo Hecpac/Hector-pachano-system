@@ -70,11 +70,11 @@ export function LandingNav() {
   return (
     <header className="landing-header">
       <nav ref={navRef} className={`landing-nav${isOpen ? ' is-open' : ''}`} aria-label="Navegación principal">
-        <div className="landing-nav__brand">
+        <Link href="/" className="landing-nav__brand">
           <span className="landing-nav__brand-name">{SITE_NAME}</span>
           <span className="landing-nav__brand-sep">{' // '}</span>
           <span className="landing-nav__brand-sub"> Digital Systems</span>
-        </div>
+        </Link>
 
         <div className="landing-nav__cta">
           <Link href="/auditor" className="btn-auditor" onClick={closeMenu}>

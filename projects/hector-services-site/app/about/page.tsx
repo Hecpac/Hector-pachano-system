@@ -38,7 +38,7 @@ export default function AboutPage() {
           <p>
             Llevo años viendo cómo las empresas gastan miles en diseño o herramientas SaaS, solo para descubrir 
             meses después que los sistemas no se comunican, que el SEO no despega porque la arquitectura técnica 
-            es deficiente, o que el diseño "bonito" espanta a los usuarios por tiempos de carga lentos.
+            es deficiente, o que el diseño &quot;bonito&quot; espanta a los usuarios por tiempos de carga lentos.
           </p>
           <p>
             No me defino solo como un desarrollador o consultor, sino como un <strong>constructor de sistemas digitales</strong>.

@@ -7,7 +7,7 @@ export function CaseStudiesSection() {
   return (
     <section className="section reveal-on-scroll cinematic-panel" id="casos">
       <div className="case-grid__header">
-        <p className="eyebrow">CASOS</p>
+        <h2 className="eyebrow">CASOS</h2>
         <Link href="/cases" className="case-grid__all-link" aria-label="Ver todos los casos">
           Ver todos
         </Link>
