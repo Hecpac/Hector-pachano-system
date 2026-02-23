@@ -10,10 +10,12 @@ npm install
 npm run dev
 ```
 
-Para lint:
+Para checks de calidad:
 
 ```bash
 npm run lint
+npm run typecheck
+npm run test
 ```
 
 ## Estado cron real en `/`

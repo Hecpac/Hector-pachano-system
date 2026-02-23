@@ -26,7 +26,12 @@ export function SidebarNav({ mode }: SidebarNavProps) {
         const linkClass = active ? "nav-link is-active" : "nav-link";
 
         return (
-          <Link key={item.href} href={item.href} className={linkClass}>
+          <Link
+            key={item.href}
+            href={item.href}
+            className={linkClass}
+            aria-current={active ? "page" : undefined}
+          >
             {item.label}
           </Link>
         );

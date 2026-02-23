@@ -1,5 +1,15 @@
 import { boardLanes, projects, tasks } from "@/lib/seed";
 
+const tasksByProjectAndLane = tasks.reduce<Record<string, Record<string, typeof tasks>>>(
+  (acc, task) => {
+    acc[task.project] ??= {};
+    acc[task.project][task.lane] ??= [];
+    acc[task.project][task.lane].push(task);
+    return acc;
+  },
+  {}
+);
+
 export default function TasksPage() {
   return (
     <section className="page">
@@ -17,7 +27,7 @@ export default function TasksPage() {
 
             <div className="lane-grid">
               {boardLanes.map((lane) => {
-                const laneTasks = tasks.filter((task) => task.project === project && task.lane === lane);
+                const laneTasks = tasksByProjectAndLane[project]?.[lane] ?? [];
 
                 return (
                   <section key={`${project}-${lane}`} className="lane-column">

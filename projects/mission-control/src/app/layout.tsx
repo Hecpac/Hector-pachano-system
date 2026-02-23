@@ -17,6 +17,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
+        <a className="skip-link" href="#main-content">
+          Saltar al contenido
+        </a>
         <div className="shell">
           <aside className="sidebar">
             <div className="brand">
@@ -33,7 +36,9 @@ export default function RootLayout({
               </div>
               <SidebarNav mode="mobile" />
             </header>
-            <main className="main-content">{children}</main>
+            <main id="main-content" className="main-content" tabIndex={-1}>
+              {children}
+            </main>
           </section>
         </div>
       </body>

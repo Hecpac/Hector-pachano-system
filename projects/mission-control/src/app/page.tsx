@@ -52,7 +52,14 @@ export default async function DashboardPage() {
             <p className="card-meta">Owner: {item.owner}</p>
             <p className="card-meta">Siguiente: {item.nextStep}</p>
             <p className="card-meta">Due: {item.due}</p>
-            <div className="progress-track" aria-label={`progreso ${item.project}`}>
+            <div
+              className="progress-track"
+              role="progressbar"
+              aria-label={`progreso ${item.project}`}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Number(item.progress)}
+            >
               <span className="progress-fill" style={{ width: `${item.progress}%` }} />
             </div>
             <p className="card-meta">{item.progress}% completado</p>

@@ -1,15 +1,36 @@
-export type ProjectKey = "PHD" | "TCinsurance" | "SGC" | "QTS";
+export const projects = ["PHD", "TCinsurance", "SGC", "QTS"] as const;
 
-export const projects: ProjectKey[] = ["PHD", "TCinsurance", "SGC", "QTS"];
+export type ProjectKey = (typeof projects)[number];
+export type IsoDate = `${number}-${number}-${number}`;
+export type RiskLevel = "alto" | "medio" | "bajo";
+
+type ProgressPercent = number & { readonly __brand: "ProgressPercent" };
+
+function asIsoDate(value: IsoDate): IsoDate {
+  const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/;
+  if (!isoDatePattern.test(value)) {
+    throw new Error(`Fecha invalida en seed: ${value}`);
+  }
+
+  return value;
+}
+
+function asProgressPercent(value: number): ProgressPercent {
+  if (!Number.isFinite(value) || value < 0 || value > 100) {
+    throw new Error(`Progress fuera de rango [0..100]: ${value}`);
+  }
+
+  return value as ProgressPercent;
+}
 
 export type Priority = {
   project: ProjectKey;
   owner: string;
   focus: string;
-  progress: number;
+  progress: ProgressPercent;
   nextStep: string;
-  due: string;
-  risk: "alto" | "medio" | "bajo";
+  due: IsoDate;
+  risk: RiskLevel;
 };
 
 export const priorities: Priority[] = [
@@ -17,36 +38,36 @@ export const priorities: Priority[] = [
     project: "PHD",
     owner: "Hector",
     focus: "Cerrar entregables del sprint",
-    progress: 72,
+    progress: asProgressPercent(72),
     nextStep: "Validar flujo final con QA",
-    due: "2026-02-25",
+    due: asIsoDate("2026-02-25"),
     risk: "medio"
   },
   {
     project: "TCinsurance",
     owner: "Ops",
     focus: "Activar tracking base local",
-    progress: 45,
+    progress: asProgressPercent(45),
     nextStep: "Definir META_PIXEL_ID de produccion",
-    due: "2026-02-26",
+    due: asIsoDate("2026-02-26"),
     risk: "alto"
   },
   {
     project: "SGC",
     owner: "Compliance",
     focus: "Consolidar pilotos internos Fase 12",
-    progress: 81,
+    progress: asProgressPercent(81),
     nextStep: "Publicar reporte de control",
-    due: "2026-02-24",
+    due: asIsoDate("2026-02-24"),
     risk: "bajo"
   },
   {
     project: "QTS",
     owner: "Trading",
     focus: "Hardening de loop operativo",
-    progress: 63,
+    progress: asProgressPercent(63),
     nextStep: "Ejecutar runbook P0/P1 en horario de mercado",
-    due: "2026-02-24",
+    due: asIsoDate("2026-02-24"),
     risk: "medio"
   }
 ];
@@ -65,7 +86,7 @@ export type Approval = {
   project: ProjectKey;
   request: string;
   requestedBy: string;
-  due: string;
+  due: IsoDate;
   status: ApprovalStatus;
 };
 
@@ -75,7 +96,7 @@ export const approvals: Approval[] = [
     project: "PHD",
     request: "Liberar deploy de cierre de sprint",
     requestedBy: "Producto",
-    due: "2026-02-23",
+    due: asIsoDate("2026-02-23"),
     status: "pendiente"
   },
   {
@@ -83,7 +104,7 @@ export const approvals: Approval[] = [
     project: "TCinsurance",
     request: "Confirmar variable NEXT_PUBLIC_META_PIXEL_ID",
     requestedBy: "Marketing",
-    due: "2026-02-23",
+    due: asIsoDate("2026-02-23"),
     status: "en_revision"
   },
   {
@@ -91,7 +112,7 @@ export const approvals: Approval[] = [
     project: "SGC",
     request: "Aprobacion legal de runbook piloto",
     requestedBy: "Compliance",
-    due: "2026-02-24",
+    due: asIsoDate("2026-02-24"),
     status: "pendiente"
   },
   {
@@ -99,12 +120,18 @@ export const approvals: Approval[] = [
     project: "QTS",
     request: "Go/No-Go de strict profile en live",
     requestedBy: "Riesgo",
-    due: "2026-02-24",
+    due: asIsoDate("2026-02-24"),
     status: "bloqueado"
   }
 ];
 
-export const pendingApprovals = approvals.filter((item) => item.status !== "aprobado");
+export type PendingApproval = Approval & { status: Exclude<ApprovalStatus, "aprobado"> };
+
+function isPendingApproval(item: Approval): item is PendingApproval {
+  return item.status !== "aprobado";
+}
+
+export const pendingApprovals: PendingApproval[] = approvals.filter(isPendingApproval);
 
 export type TaskLane = "Por hacer" | "En curso" | "Hecho";
 
@@ -116,7 +143,7 @@ export type Task = {
   title: string;
   lane: TaskLane;
   owner: string;
-  due: string;
+  due: IsoDate;
 };
 
 export const tasks: Task[] = [
@@ -126,7 +153,7 @@ export const tasks: Task[] = [
     title: "Cerrar validacion de modulos finales",
     lane: "En curso",
     owner: "Hector",
-    due: "2026-02-23"
+    due: asIsoDate("2026-02-23")
   },
   {
     id: "T-02",
@@ -134,7 +161,7 @@ export const tasks: Task[] = [
     title: "Preparar checklist de closeout",
     lane: "Por hacer",
     owner: "PM",
-    due: "2026-02-24"
+    due: asIsoDate("2026-02-24")
   },
   {
     id: "T-03",
@@ -142,7 +169,7 @@ export const tasks: Task[] = [
     title: "Agregar placeholders de entorno",
     lane: "Hecho",
     owner: "Ops",
-    due: "2026-02-22"
+    due: asIsoDate("2026-02-22")
   },
   {
     id: "T-04",
@@ -150,7 +177,7 @@ export const tasks: Task[] = [
     title: "Definir id de pixel con negocio",
     lane: "En curso",
     owner: "Marketing",
-    due: "2026-02-23"
+    due: asIsoDate("2026-02-23")
   },
   {
     id: "T-05",
@@ -158,7 +185,7 @@ export const tasks: Task[] = [
     title: "Ejecutar preflight final del piloto",
     lane: "Hecho",
     owner: "QA",
-    due: "2026-02-22"
+    due: asIsoDate("2026-02-22")
   },
   {
     id: "T-06",
@@ -166,7 +193,7 @@ export const tasks: Task[] = [
     title: "Emitir minuta de no conformidades",
     lane: "Por hacer",
     owner: "Compliance",
-    due: "2026-02-24"
+    due: asIsoDate("2026-02-24")
   },
   {
     id: "T-07",
@@ -174,7 +201,7 @@ export const tasks: Task[] = [
     title: "Auditar timeout ambiguo en OMS",
     lane: "En curso",
     owner: "Trading",
-    due: "2026-02-23"
+    due: asIsoDate("2026-02-23")
   },
   {
     id: "T-08",
@@ -182,11 +209,30 @@ export const tasks: Task[] = [
     title: "Correr test focal de circuit breaker",
     lane: "Por hacer",
     owner: "Risk",
-    due: "2026-02-24"
+    due: asIsoDate("2026-02-24")
   }
 ];
 
-export const agentConfig = {
+export type AgentMode = "local";
+export type AgentStatus = "Activo";
+
+export type AgentConfig = {
+  brain: {
+    model: string;
+    fallback: string;
+    mode: AgentMode;
+    notes: string;
+  };
+  muscles: Array<{
+    id: "code" | "search" | "news";
+    name: string;
+    provider: string;
+    purpose: string;
+    status: AgentStatus;
+  }>;
+};
+
+export const agentConfig: AgentConfig = {
   brain: {
     model: "openai-codex/gpt-5.3-codex",
     fallback: "openai-codex/gpt-5.3-codex-spark",
