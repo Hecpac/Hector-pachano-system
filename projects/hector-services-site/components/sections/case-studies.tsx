@@ -19,7 +19,6 @@ export function CaseStudiesSection() {
             key={item.id}
             href={`/cases/${item.slug}`}
             className={`case-card ${item.featured ? 'case-card--wide' : ''}`}
-            aria-label={`Ver caso: ${item.title}`}
           >
             <Image src={item.image} alt={item.alt} width={1600} height={1000} />
             <div className="case-card__meta">

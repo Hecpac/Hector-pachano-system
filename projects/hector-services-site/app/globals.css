@@ -1322,7 +1322,7 @@ h3 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   background: var(--accent);
-  color: #fff;
+  color: #111419;
   border: none;
   padding: 8px 20px;
   border-radius: 50px;
@@ -1363,7 +1363,7 @@ h3 {
 }
 
 .btn-cta:hover {
-  background: color-mix(in srgb, var(--accent) 78%, #000);
+  background: color-mix(in srgb, var(--accent) 88%, #fff);
 }
 
 .btn-cta:focus-visible {
@@ -2055,7 +2055,7 @@ h3 {
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #fff;
+  color: #1f1d1a;
   padding: 0 24px;
   font-family: var(--font-mono), ui-monospace, monospace;
 }
@@ -2152,13 +2152,13 @@ h3 {
 .landing-service-card__num {
   font-size: 9px;
   letter-spacing: 0.2em;
-  color: #6d665d;
+  color: #4b453f;
   margin-bottom: 24px;
   font-family: var(--font-mono), ui-monospace, monospace;
 }
 
 .landing-service-card-wrapper:nth-child(2) .landing-service-card__num {
-  color: rgba(232, 230, 225, 0.38);
+  color: rgba(232, 230, 225, 0.72);
 }
 
 .landing-service-card__name {
