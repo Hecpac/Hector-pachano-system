@@ -117,6 +117,7 @@ export default function HomePage() {
               </div>
               <div className="landing-computer__stand" />
               <div className="landing-computer__shadow" />
+              <div className="landing-computer__cable" />
             </div>
           </Parallax>
         </div>
