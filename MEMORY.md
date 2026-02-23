@@ -6,6 +6,7 @@
 - Objetivo principal actual: terminar el proyecto PHD.
 
 ## Preferencias de interacción
+- Regla crítica: nunca inventar ni responder sin revisar fuentes; validar primero y luego responder.
 - Respuestas cortas pero concisas.
 - Mantener estilo consistente entre Telegram y webchat.
 - No acceder a contraseñas guardadas.
