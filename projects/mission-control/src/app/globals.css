@@ -329,6 +329,25 @@ a {
   color: var(--danger);
 }
 
+.cron-card {
+  gap: 12px;
+}
+
+.cron-list .list-row {
+  align-items: flex-start;
+}
+
+.cron-meta {
+  text-align: right;
+  display: grid;
+  gap: 4px;
+}
+
+.cron-error {
+  color: var(--danger);
+  font-weight: 600;
+}
+
 .rise-in {
   animation: rise-in 320ms ease both;
 }
@@ -377,5 +396,16 @@ a {
 
   .main-content {
     padding: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .cron-list .list-row {
+    flex-direction: column;
+  }
+
+  .cron-meta {
+    text-align: left;
+    width: 100%;
   }
 }

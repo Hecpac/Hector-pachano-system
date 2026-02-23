@@ -16,6 +16,11 @@ Para lint:
 npm run lint
 ```
 
+## Estado cron real en `/`
+
+La home incluye una seccion "Estado cron real" que lee cron jobs locales con `openclaw cron list --json` desde servidor (sin client-side fetching).
+Depende de tener OpenClaw CLI instalado y el gateway local accesible; si falla, la UI muestra un mensaje claro sin romper la pagina.
+
 ## Editar seed data
 
 Todo el mock data vive en:
