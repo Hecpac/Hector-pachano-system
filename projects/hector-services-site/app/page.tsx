@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 
 import { submitLeadAction } from './actions'
 
@@ -97,17 +96,22 @@ export default function HomePage() {
             </div>
           </Parallax>
 
-          <Parallax speed={0.15} relativeTo="scroll" className="landing-hero__image-container" zIndex={2}>
-            <div className="landing-hero__image-inner">
-              <Image
-                src="/images/services/hero.jpeg"
-                alt="Escultura clásica trabajando en laptop, visual editorial de sistemas digitales"
-                className="landing-hero__image"
-                fill
-                quality={90}
-                priority
-                fetchPriority="high"
-              />
+          <Parallax speed={0.1} relativeTo="viewport" className="landing-hero__computer-stage" zIndex={2}>
+            <div className="landing-floor-line" aria-hidden="true" />
+            <div className="landing-computer" aria-hidden="true">
+              <div className="landing-computer__bezel">
+                <div className="landing-computer__screen">
+                  <p className="landing-computer__screen-kicker">Hector Services // Live</p>
+                  <p className="landing-computer__screen-title">Design. Automate. Rank.</p>
+                  <p className="landing-computer__screen-metric">Leads ↑ 39% · SEO ↑ 62%</p>
+                </div>
+              </div>
+              <div className="landing-computer__body">
+                <span className="landing-computer__port" />
+                <span className="landing-computer__port" />
+                <span className="landing-computer__vents" />
+              </div>
+              <div className="landing-computer__shadow" />
             </div>
           </Parallax>
         </div>

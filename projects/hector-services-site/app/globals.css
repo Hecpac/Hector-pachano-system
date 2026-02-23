@@ -1444,28 +1444,143 @@ h3 {
   flex-grow: 1;
 }
 
-.landing-hero__image-container {
+.landing-hero__computer-stage {
   position: relative;
-  height: 65vh;
-  aspect-ratio: 7 / 10;
-  max-width: 100%;
-  margin-inline: auto;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.landing-hero__image-inner {
+.landing-floor-line {
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  bottom: 18%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0, rgba(232, 230, 225, 0.4) 12%, rgba(232, 230, 225, 0.4) 88%, transparent 100%);
+  opacity: 0.5;
+}
+
+.landing-computer {
+  position: relative;
+  width: min(520px, 94%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.landing-computer__bezel {
+  width: 72%;
+  aspect-ratio: 4 / 3;
+  border-radius: 26px;
+  background: linear-gradient(165deg, #f2f1ee 0%, #d5d3ce 100%);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  padding: 14px;
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.32);
+}
+
+.landing-computer__screen {
   position: relative;
   width: 100%;
   height: 100%;
-  filter: none;
+  border-radius: 17px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: radial-gradient(circle at 58% 42%, rgba(34, 46, 62, 0.84) 0, #070a10 62%);
+  color: rgba(232, 230, 225, 0.86);
+  padding: 14px;
+  display: grid;
+  align-content: space-between;
+  gap: 0.5rem;
+  overflow: hidden;
 }
 
-.landing-hero__image {
-  object-fit: cover;
-  object-position: 34% 66%;
+.landing-computer__screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0,
+    transparent 3px,
+    rgba(255, 255, 255, 0.03) 3px,
+    rgba(255, 255, 255, 0.03) 4px
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.landing-computer__screen-kicker,
+.landing-computer__screen-title,
+.landing-computer__screen-metric {
+  margin: 0;
+  text-transform: uppercase;
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.landing-computer__screen-kicker {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(232, 230, 225, 0.64);
+}
+
+.landing-computer__screen-title {
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.08;
+  color: #f6f4ef;
+  letter-spacing: 0.04em;
+}
+
+.landing-computer__screen-metric {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: color-mix(in srgb, var(--accent) 72%, #fff);
+}
+
+.landing-computer__body {
+  width: 80%;
+  margin-top: -6px;
+  min-height: 76px;
+  border-radius: 0 0 18px 18px;
+  background: linear-gradient(180deg, #e2e0db 0%, #c9c7c2 100%);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 16px;
+  box-shadow: 0 14px 22px rgba(0, 0, 0, 0.24);
+}
+
+.landing-computer__port {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #101214;
+  opacity: 0.76;
+}
+
+.landing-computer__vents {
+  width: 36%;
+  height: 28px;
+  border-radius: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(13, 15, 18, 0.22) 0,
+    rgba(13, 15, 18, 0.22) 3px,
+    transparent 3px,
+    transparent 6px
+  );
+}
+
+.landing-computer__shadow {
+  width: 58%;
+  height: 20px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.42) 0, rgba(0, 0, 0, 0) 72%);
 }
 
 @keyframes pulse {
@@ -1981,14 +2096,26 @@ h3 {
     margin-top: 100px;
   }
 
-  .landing-hero__image-container {
-    height: auto;
-    width: 80%;
-    max-height: 50vh;
+  .landing-hero__computer-stage {
+    min-height: 44vh;
+    order: -1;
   }
 
-  .landing-hero__image {
-    object-position: 28% 82%;
+  .landing-floor-line {
+    bottom: 11%;
+  }
+
+  .landing-computer {
+    width: min(420px, 100%);
+  }
+
+  .landing-computer__bezel {
+    width: 82%;
+  }
+
+  .landing-computer__body {
+    width: 88%;
+    min-height: 64px;
   }
 
   .landing-hero__counter,
@@ -1997,9 +2124,9 @@ h3 {
   }
 
   .landing-hero__headline {
-    font-size: clamp(52px, 18vw, 132px);
+    font-size: clamp(42px, 14vw, 92px);
     letter-spacing: -0.01em;
-    gap: 0.12em;
+    gap: 0.1em;
   }
 
   .landing-hero__headline .line-kicker {
