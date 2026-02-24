@@ -53,8 +53,9 @@ ORQUESTACION: PLAN(planner)->EXECUTE(executor)->REVIEW(reviewer)->GATE(determini
 EOF
 )
 
+# Nota: usamos agent main para evitar bloqueo por cuota en planner (Gemini API).
 openclaw agent \
-  --agent planner \
+  --agent main \
   --thinking medium \
   --timeout 1800 \
   --json \
