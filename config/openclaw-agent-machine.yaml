@@ -1,0 +1,90 @@
+version: 1
+name: openclaw-agent-machine-enterprise
+
+routing:
+  bouncer: fast-economy
+  planner: gemini-pro
+  executor: gpt-5.3-codex
+  reviewer: sonnet
+  reviewer_critical: opus
+
+limits:
+  max_agent_depth: 2
+  max_children_per_agent: 3
+  max_parallel_agents_total: 6
+  max_retries_execute: 3
+
+budgets:
+  token_budget: 600000
+  time_budget_min: 90
+  cost_budget_usd: 25
+
+state_machine:
+  - INTAKE
+  - TRIAGE
+  - PLAN
+  - EXECUTE
+  - REVIEW
+  - GATE
+  - DELIVER
+  - ROLLBACK
+
+transitions:
+  - from: INTAKE
+    to: TRIAGE
+  - from: TRIAGE
+    to: PLAN
+  - from: TRIAGE
+    to: EXECUTE
+    condition: trivial_task
+  - from: PLAN
+    to: EXECUTE
+  - from: EXECUTE
+    to: REVIEW
+    condition: compile_or_local_checks_ok
+  - from: EXECUTE
+    to: ROLLBACK
+    condition: retries_exhausted
+  - from: REVIEW
+    to: GATE
+  - from: GATE
+    to: DELIVER
+    condition: all_checks_pass
+  - from: GATE
+    to: ROLLBACK
+    condition: any_check_fail
+
+gatekeeper:
+  deterministic_only: true
+  checks:
+    - lint
+    - typecheck
+    - build
+    - tests
+    - security_scan
+
+human_approval_required:
+  - deploy
+  - destructive_change
+  - credentials_or_secrets
+  - irreversible_infra
+  - external_public_action
+
+artifacts:
+  blackboard_dir: .machine/blackboard
+  required_files:
+    - plan.md
+    - decisions.md
+    - risks.md
+    - diff-summary.md
+    - rollback.md
+
+observability:
+  fields:
+    - run_id
+    - task_id
+    - state
+    - model_used
+    - tokens
+    - cost_estimate
+    - duration_ms
