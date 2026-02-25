@@ -10,7 +10,7 @@ import { LeadForm } from '@/components/sections/lead-form'
 import { JsonLd } from '@/components/ui/json-ld'
 import { Parallax } from '@/components/ui/parallax'
 import { buildPageMetadata } from '@/lib/seo/meta'
-import { faqSchema, organizationSchema, websiteSchema } from '@/lib/seo/schema'
+import { faqSchema, organizationSchema, serviceSchema, websiteSchema } from '@/lib/seo/schema'
 import { SITE_CAL_LINK, SITE_DESCRIPTION } from '@/lib/seo/site'
 
 const services = [
@@ -51,6 +51,27 @@ const faqItems = [
 
 const tickerItems = ['Automatizaciones', 'Diseño Web', 'SEO / AEO', 'Performance', 'Conversión']
 
+const homeServiceSchemas = [
+  serviceSchema({
+    name: 'Diseño Web B2B',
+    description: 'Sitios de alto rendimiento orientados a conversión para empresas B2B.',
+    path: '/services/diseno-web',
+    offers: ['Landing comercial', 'Sitio corporativo', 'Optimización de conversión']
+  }),
+  serviceSchema({
+    name: 'Automatizaciones de procesos',
+    description: 'Flujos automatizados para captación, seguimiento y operación comercial.',
+    path: '/services/automatizaciones',
+    offers: ['Pipeline de leads', 'Integración CRM', 'Automatización de seguimiento']
+  }),
+  serviceSchema({
+    name: 'SEO / AEO estratégico',
+    description: 'Posicionamiento en buscadores y preparación de contenido citable para IA.',
+    path: '/services/seo-aeo',
+    offers: ['SEO técnico', 'Arquitectura semántica', 'Contenido para AEO']
+  })
+]
+
 export const metadata: Metadata = buildPageMetadata({
   title: 'Sistemas Digitales: Web, Automatización y SEO',
   description: SITE_DESCRIPTION,
@@ -64,6 +85,9 @@ export default function HomePage() {
     <main id="main-content">
       <JsonLd data={websiteSchema} />
       <JsonLd data={organizationSchema} />
+      {homeServiceSchemas.map((schema, idx) => (
+        <JsonLd key={`service-schema-${idx}`} data={schema} />
+      ))}
       <JsonLd data={faqSchema(faqItems)} />
 
       <LandingNav />

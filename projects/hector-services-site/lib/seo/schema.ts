@@ -7,12 +7,17 @@ export const websiteSchema = {
   alternateName: SITE_NAME,
   url: SITE_URL,
   description: SITE_DESCRIPTION,
-  inLanguage: 'es'
+  inLanguage: 'es',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${SITE_URL}/blog?query={search_term_string}`,
+    'query-input': 'required name=search_term_string'
+  }
 }
 
 export const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
+  '@type': ['Organization', 'ProfessionalService'],
   name: SITE_ENTITY_NAME,
   alternateName: SITE_NAME,
   url: SITE_URL,

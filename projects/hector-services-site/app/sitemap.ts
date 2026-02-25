@@ -11,10 +11,14 @@ const baseRoutes = [
   '/services/diseno-web',
   '/services/seo-aeo',
   '/cases',
+  '/auditor',
+  '/work',
   '/about',
   '/contact',
   '/faq',
-  '/blog'
+  '/blog',
+  '/legal/privacidad',
+  '/legal/aviso-legal'
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
