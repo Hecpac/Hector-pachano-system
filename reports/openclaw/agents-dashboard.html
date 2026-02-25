@@ -64,7 +64,8 @@
       const tbody = document.getElementById('cronBody');
       tbody.innerHTML = '';
 
-      const rows = (Array.isArray(jobs) ? jobs : []).sort((a,b)=>(a.name||'').localeCompare(b.name||''));
+      const list = Array.isArray(jobs) ? jobs : (Array.isArray(jobs?.jobs) ? jobs.jobs : []);
+      const rows = list.sort((a,b)=>(a.name||'').localeCompare(b.name||''));
       rows.forEach(j => {
         const tr = document.createElement('tr');
         const schedule = j.schedule?.kind === 'cron'
