@@ -42,5 +42,14 @@ Ejemplo de config:
 ## Notas
 
 - Salidas se guardan en `./out/`.
+- Incluye plantilla base: `templates/sgc_template.docx`.
 - Si `template_path` no existe, se usa plantilla simple generada en runtime.
 - PDF usa WeasyPrint desde HTML.
+
+## Generar ejemplo completo
+
+```bash
+cd projects/sgc-reports-mcp
+source .venv/bin/activate
+python examples_generate_sample.py
+```
