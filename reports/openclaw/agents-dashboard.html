@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenClaw Agents Dashboard</title>
+  <style>
+    :root { --bg:#0b1020; --card:#121a31; --muted:#9fb0d0; --text:#e7eeff; --ok:#27c281; --warn:#f5a524; --accent:#6ea8fe; }
+    body { margin:0; background:linear-gradient(180deg,#0b1020,#080d19); color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,sans-serif; }
+    .wrap { max-width:1100px; margin:24px auto; padding:0 16px; }
+    h1 { margin:0 0 8px; font-size:28px; }
+    .muted { color:var(--muted); font-size:14px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:12px; margin:16px 0 22px; }
+    .card { background:var(--card); border:1px solid #253050; border-radius:14px; padding:14px; }
+    .name { font-weight:700; font-size:16px; margin-bottom:6px; }
+    .chip { display:inline-block; font-size:12px; border-radius:999px; padding:2px 8px; background:#1d294b; color:var(--muted); }
+    .ok { color:var(--ok); }
+    table { width:100%; border-collapse: collapse; background:var(--card); border:1px solid #253050; border-radius:12px; overflow:hidden; }
+    th,td { padding:10px 12px; border-bottom:1px solid #253050; font-size:13px; text-align:left; }
+    th { color:#bcd0ff; background:#162141; }
+    tr:last-child td { border-bottom:none; }
+    .section { margin:18px 0; }
+    pre { white-space:pre-wrap; background:var(--card); border:1px solid #253050; border-radius:12px; padding:12px; font-size:12px; color:#c8d5f5; max-height:280px; overflow:auto; }
+    a { color:var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>OpenClaw Agents Dashboard</h1>
+    <div class="muted">Generated: <span id="ts">-</span> · Source files: <code>cron-jobs.json</code> + <code>agents-status.txt</code></div>
+
+    <div class="section">
+      <h3>Core Agents</h3>
+      <div class="grid" id="agentCards"></div>
+    </div>
+
+    <div class="section">
+      <h3>Cron Jobs</h3>
+      <table>
+        <thead><tr><th>Name</th><th>Agent</th><th>Enabled</th><th>Schedule</th><th>Next Run</th></tr></thead>
+        <tbody id="cronBody"></tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h3>Quick Status</h3>
+      <pre id="statusText">Loading...</pre>
+    </div>
+  </div>
+
+  <script>
+    const targetAgents = ["main", "dev", "marketing", "ops", "assistant"];
+    document.getElementById('ts').textContent = new Date().toLocaleString();
+
+    function fmtMs(ms){
+      if(!ms) return "-";
+      try { return new Date(ms).toLocaleString(); } catch { return "-"; }
+    }
+
+    async function loadCron(){
+      const res = await fetch('./cron-jobs.json?_=' + Date.now());
+      const jobs = await res.json();
+      const tbody = document.getElementById('cronBody');
+      tbody.innerHTML = '';
+
+      const rows = (Array.isArray(jobs) ? jobs : []).sort((a,b)=>(a.name||'').localeCompare(b.name||''));
+      rows.forEach(j => {
+        const tr = document.createElement('tr');
+        const schedule = j.schedule?.kind === 'cron'
+          ? `${j.schedule.expr || '-'} (${j.schedule.tz || 'local'})`
+          : (j.schedule?.kind === 'every' ? `every ${Math.round((j.schedule.everyMs||0)/3600000)}h` : j.schedule?.kind || '-');
+        tr.innerHTML = `
+          <td>${j.name || '-'}</td>
+          <td>${j.agentId || 'main'}</td>
+          <td>${j.enabled ? '<span class="ok">yes</span>' : '<span class="warn">no</span>'}</td>
+          <td>${schedule}</td>
+          <td>${fmtMs(j.state?.nextRunAtMs)}</td>`;
+        tbody.appendChild(tr);
+      });
+
+      const cards = document.getElementById('agentCards');
+      cards.innerHTML = '';
+      targetAgents.forEach(name => {
+        const own = rows.filter(j => (j.agentId || 'main') === name);
+        const enabled = own.filter(j => j.enabled).length;
+        const c = document.createElement('div');
+        c.className = 'card';
+        c.innerHTML = `<div class="name">${name}</div><div class="muted">Cron jobs: ${own.length}</div><div class="chip">enabled ${enabled}</div>`;
+        cards.appendChild(c);
+      });
+    }
+
+    async function loadStatus(){
+      const res = await fetch('./agents-status.txt?_=' + Date.now());
+      const txt = await res.text();
+      document.getElementById('statusText').textContent = txt;
+    }
+
+    Promise.all([loadCron(), loadStatus()]).catch(e => {
+      document.getElementById('statusText').textContent = 'Error loading dashboard data: ' + e.message;
+    });
+  </script>
+</body>
+</html>

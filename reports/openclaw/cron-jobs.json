@@ -1,0 +1,685 @@
+{
+  "jobs": [
+    {
+      "id": "784725e4-a46d-4ca0-b07c-1c5a074ccbd9",
+      "agentId": "main",
+      "name": "telegram-gateway-watchdog",
+      "enabled": true,
+      "createdAtMs": 1771979797824,
+      "updatedAtMs": 1772039814104,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 300000,
+        "anchorMs": 1771979797824
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run a quick health check for local OpenClaw gateway + Telegram channel. Steps: (1) run 'openclaw status' and 'openclaw channels status --probe'. (2) If gateway is not running/reachable OR Telegram is not works/OK, run 'openclaw gateway restart', wait 5s, then re-run both checks. (3) Output exactly one concise line: HEALTHY (no action) or RECOVERED (restarted) or FAILED (still unhealthy). Keep it short.",
+        "timeoutSeconds": 90
+      },
+      "delivery": {
+        "mode": "none",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772040097982,
+        "lastRunAtMs": 1772039797982,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 16122,
+        "lastDelivered": false,
+        "lastDeliveryStatus": "not-delivered",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "0130b33d-aeed-45e1-b817-3bd177afe4db",
+      "name": "mission-control-approvals-check",
+      "enabled": true,
+      "createdAtMs": 1771860473972,
+      "updatedAtMs": 1771960213646,
+      "schedule": {
+        "kind": "cron",
+        "expr": "10 13 * * *",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Haz un check rápido de approvals/bloqueos operativos del día para Hector.\n\nFormato (máximo 6 bullets):\n1) Pendiente crítico #1 (si existe).\n2) Pendiente crítico #2 (si existe).\n3) Impacto directo en PHD, TCinsurance, SGC o QTS.\n4) Decisión recomendada única para desbloquear hoy.\n5) Primer paso ejecutable (<5 min).\n\nReglas:\n- Español, directo, sin relleno.\n- Si no hay bloqueos relevantes, responde exactamente: \"Sin bloqueos críticos en approvals hoy.\"",
+        "model": "google/gemini-2.5-flash",
+        "thinking": "low",
+        "timeoutSeconds": 240
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975"
+      },
+      "state": {
+        "nextRunAtMs": 1772046600000,
+        "lastRunAtMs": 1771960200012,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 13634,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "617a91a3-fa39-4ac6-89c7-2727a08c3a13",
+      "agentId": "ops",
+      "name": "ops-health-audit",
+      "enabled": true,
+      "createdAtMs": 1772036639687,
+      "updatedAtMs": 1772036639687,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 21600000,
+        "anchorMs": 1772036639687
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run skill health-audit and report critical/warn/info plus immediate actions."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772058239687
+      }
+    },
+    {
+      "id": "459527e8-4f4a-4a10-9972-8d555c0fcca8",
+      "agentId": "main",
+      "sessionKey": "agent:main:main",
+      "name": "qts-cierre-6pm-report",
+      "enabled": true,
+      "createdAtMs": 1771456064611,
+      "updatedAtMs": 1771977787542,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 18 * * *",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Genera y anuncia el informe de cierre de QTS (6:00 PM America/Chicago) para hoy en español, corto y conciso. Usa verificación real con comandos (no suposiciones): 1) lee claves Redis `SYSTEM:HEARTBEAT`, `SYSTEM:HALT`, `METRICS:TOTAL_VALUE`, `METRICS:CASH`, `METRICS:PNL_DAILY`, `MARKET:ACTIVE_SYMBOLS`, `VIEW:ORDERS`, `VIEW:POSITIONS`, y últimos `ALERTS:EVENT:*`; 2) resume operaciones del día con conteo BUY vs SELL y últimos fills; 3) si hay logs/hydra en `QTS-ARCHITECT/outputs/<fecha>` úsalos como respaldo. Formato final: título + 5-8 bullets. Si faltan datos, dilo explícitamente.",
+        "timeoutSeconds": 900,
+        "model": "openai-codex/gpt-5.3-codex",
+        "thinking": "low"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1772064000000,
+        "lastRunAtMs": 1771977600015,
+        "lastStatus": "ok",
+        "lastDurationMs": 187527,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
+      }
+    },
+    {
+      "id": "b2d037c8-73e1-40af-96f9-873f693aa241",
+      "name": "reminder-seo-package-6pm",
+      "enabled": true,
+      "deleteAfterRun": true,
+      "createdAtMs": 1772035680443,
+      "updatedAtMs": 1772035680443,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-02-26T00:00:00.000Z"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "Reminder: retomar el paquete SEO guardado (3 páginas ciudad + 2 posts para TC Insurance) y continuar ejecución."
+      },
+      "state": {
+        "nextRunAtMs": 1772064000000
+      }
+    },
+    {
+      "id": "8eeb153d-6ddf-4be6-972f-ebaa4e665adc",
+      "name": "mission-control-closeout",
+      "enabled": true,
+      "createdAtMs": 1771860482033,
+      "updatedAtMs": 1771977908245,
+      "schedule": {
+        "kind": "cron",
+        "expr": "5 18 * * *",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Genera cierre operativo del día para Hector en español (5-8 bullets, corto).\n\nIncluye en orden:\n1) Qué avanzó hoy en PHD, TCinsurance, SGC y QTS (si aplica).\n2) Qué quedó bloqueado (máx 2 bloqueos).\n3) Riesgo principal abierto para mañana.\n4) Acción única recomendada para arrancar mañana (<5 min).\n5) Criterio de éxito de mañana en 1 línea.\n\nReglas:\n- Sin relleno.\n- Si falta evidencia en algún proyecto, dilo explícitamente.\n- Cerrar con: \"Closeout completo.\"",
+        "model": "google/gemini-2.5-flash",
+        "thinking": "low",
+        "timeoutSeconds": 420
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975"
+      },
+      "state": {
+        "nextRunAtMs": 1772064300000,
+        "lastRunAtMs": 1771977900016,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 8229,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
+      }
+    },
+    {
+      "id": "5fd91a38-85ae-4cce-8f76-c1e90cb1f5af",
+      "agentId": "main",
+      "name": "x-llm-news-digest",
+      "enabled": true,
+      "createdAtMs": 1771803702321,
+      "updatedAtMs": 1772032580402,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9,21 * * *",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Haz una ronda en X para noticias nuevas de LLMs (global). Entrega en español, corto: 1 título + 5-7 bullets. REGLAS DE CALIDAD: (1) cada bullet debe incluir enlace directo a post (x.com/.../status/...) o fuente primaria sólida; NO usar solo links de perfil. (2) Marca cada punto como [confirmado] o [rumor]. (3) Rumores solo si hay al menos 2 fuentes independientes y aclara que no es oficial. (4) Si no hay evidencia suficiente, escribe 'Sin novedades verificables en esta ventana'. Cuentas prioridad: OpenAI, GoogleDeepMind, AnthropicAI, xAI, MetaAI, MistralAI, Cohere, Karpathy, emollick, simonw.",
+        "model": "google/gemini-3.1-pro-preview",
+        "timeoutSeconds": 1200
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1772074800000,
+        "lastRunAtMs": 1772031600017,
+        "lastStatus": "ok",
+        "lastDurationMs": 980385,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDelivered": false,
+        "lastDeliveryStatus": "not-delivered"
+      }
+    },
+    {
+      "id": "667d0307-8ea4-405a-af7e-0cc936c52c7a",
+      "agentId": "marketing",
+      "name": "marketing-content-radar",
+      "enabled": true,
+      "createdAtMs": 1772036639117,
+      "updatedAtMs": 1772036639117,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 43200000,
+        "anchorMs": 1772036639117
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run skill content-radar and deliver 3 high-impact content ideas with hooks and CTA."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772079839117
+      }
+    },
+    {
+      "id": "176d5c72-2212-4d1d-babc-0923f60248ec",
+      "agentId": "main",
+      "name": "healthcheck:update-status",
+      "enabled": true,
+      "notify": true,
+      "createdAtMs": 1771254420321,
+      "updatedAtMs": 1772028024466,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * *",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run `openclaw update status`. Announce a concise report in Spanish with current channel/version and whether an update is available.",
+        "timeoutSeconds": 300,
+        "model": "openai-codex/gpt-5.3-codex-spark",
+        "thinking": "low"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1772114400000,
+        "lastRunAtMs": 1772028019667,
+        "lastStatus": "ok",
+        "lastDurationMs": 4799,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
+      }
+    },
+    {
+      "id": "402ce3cb-a0e9-4a57-a5f2-518ee41b9a7f",
+      "agentId": "assistant",
+      "name": "assistant-morning-brief",
+      "enabled": true,
+      "createdAtMs": 1772036640254,
+      "updatedAtMs": 1772036640254,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * *",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run skill daily-brief and deliver a concise executive morning brief."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772114400000
+      }
+    },
+    {
+      "id": "be73d818-a0e1-4c3a-9519-3279a6d40eb3",
+      "agentId": "main",
+      "name": "healthcheck:security-audit",
+      "enabled": true,
+      "notify": true,
+      "createdAtMs": 1771254420310,
+      "updatedAtMs": 1772028019667,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * *",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run `openclaw security audit` and `openclaw status`. Then announce a concise report in Spanish with: (1) critical/warn/info counts, (2) top finding, (3) if anything needs action now. End with: 'Si quieres que lo corrija, pídeme ejecutar healthcheck.'",
+        "timeoutSeconds": 900,
+        "model": "openai-codex/gpt-5.3-codex",
+        "thinking": "low"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1772114400000,
+        "lastRunAtMs": 1772028000018,
+        "lastStatus": "ok",
+        "lastDurationMs": 19649,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
+      }
+    },
+    {
+      "id": "19660203-beec-4510-af65-009323f239ad",
+      "agentId": "main",
+      "name": "daily-morning-brief-hector",
+      "enabled": true,
+      "createdAtMs": 1771856957942,
+      "updatedAtMs": 1772028363338,
+      "schedule": {
+        "kind": "cron",
+        "expr": "5 8 * * *",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Genera el morning brief diario de Hector en español, corto y accionable.\n\nAntes de redactar, aplica reverse prompting interno para optimizar la ruta del día:\n\"Con base en mis metas (PHD primero), cuál es la mejor ruta hoy. Devuelve objetivo, primer paso <5 min, riesgo principal y criterio de terminado.\"\n\nFormato de salida (obligatorio):\n1) IA global: máximo 3 bullets de noticias IA de últimas 24h con cobertura global (no México-céntrico), cada bullet con fuente + enlace.\n   - Primero intenta búsqueda web real.\n   - Si no hay fuerte en 24h, usa 72h y marca: \"sin novedades fuertes de 24h\".\n2) Prioridades hoy: incluir explícitamente PHD, TCinsurance y SGC (QTS si aplica), con foco concreto.\n3) Aprobaciones/bloqueos: indica qué frena ejecución hoy (incluye pendientes críticos como variables/env o decisiones).\n4) Acción #1: una sola acción de mayor impacto, con primer paso ejecutable en menos de 5 min.\n5) Riesgo principal + criterio de cierre del día.\n\nReglas:\n- 150-260 palabras.\n- Tono directo.\n- Sin inventar datos.\n- Si falta información, decir motivo explícito tras intentar búsqueda.\n- Cerrar con esta línea exacta: \"Flujo recomendado: morning brief -> prioridades -> approvals -> closeout.\"",
+        "model": "google/gemini-3.1-pro-preview",
+        "thinking": "medium",
+        "timeoutSeconds": 540
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975"
+      },
+      "state": {
+        "nextRunAtMs": 1772114700000,
+        "lastRunAtMs": 1772028300019,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 63319,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "03e11bec-442c-4a9e-b8e8-7e04351fc765",
+      "agentId": "dev",
+      "name": "dev-daily-triage",
+      "enabled": true,
+      "createdAtMs": 1772036638550,
+      "updatedAtMs": 1772036638550,
+      "schedule": {
+        "kind": "every",
+        "everyMs": 86400000,
+        "anchorMs": 1772036638550
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run skill bug-triage from your workspace and return top 5 prioritized fixes."
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772123038550
+      }
+    },
+    {
+      "id": "cf30929d-9c71-49b1-85a1-67712e396aa2",
+      "agentId": "main",
+      "name": "weekly-summarize-eval",
+      "enabled": true,
+      "createdAtMs": 1771141291149,
+      "updatedAtMs": 1771862880102,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7 * * 1",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run `/Users/hector/.openclaw/workspace/scripts/weekly-summarize-eval.sh`. After it finishes, read the newest report at `/Users/hector/.openclaw/workspace/reports/summarize-eval/latest/report.md` and announce a concise weekly summary in Spanish with: (1) free candidate selected, (2) baseline gpt-5.2 status, (3) best performing CLI runner among codex/claude/gemini/agent, (4) any hard failures/timeouts. Include the report path.",
+        "timeoutSeconds": 2400,
+        "model": "openai-codex/gpt-5.3-codex",
+        "thinking": "low"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1772456400000,
+        "lastRunAtMs": 1771851600011,
+        "lastStatus": "error",
+        "lastDurationMs": 95448,
+        "consecutiveErrors": 1,
+        "lastError": "cron delivery target is missing"
+      }
+    },
+    {
+      "id": "e8b9d563-0556-4106-8ccf-767e28306dd4",
+      "agentId": "main",
+      "name": "newsletter-weekly-research",
+      "enabled": true,
+      "createdAtMs": 1771610060415,
+      "updatedAtMs": 1771862880665,
+      "schedule": {
+        "kind": "cron",
+        "expr": "50 8 * * 1",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Subagente INVESTIGADOR del boletín semanal \"Si la IA no te ve\".\n\nObjetivo:\nGenerar research_doc con información fresca y verificable (IA, SEO, Ads), para que el subagente editor escriba el boletín sin contenido genérico.\n\nContexto:\n- Repo: /Users/hector/.openclaw/workspace\n- Sitio: /Users/hector/.openclaw/workspace/projects/hector-services-site\n- Blog file: /Users/hector/.openclaw/workspace/projects/hector-services-site/content/blog/posts.ts\n- Output JSON: /Users/hector/.openclaw/workspace/projects/hector-services-site/content/newsletter-research/<YYYY-Www>.json\n- Output MD: /Users/hector/.openclaw/workspace/projects/hector-services-site/content/newsletter-sources/<YYYY-Www>.md\n\nFlujo:\n1) Calcula semana ISO actual (YYYY-Www).\n2) Si ya existe post semanal con slug `si-la-ia-no-te-ve-<YYYY>-w<ww>` en posts.ts, termina con estado `already_published_skip`.\n3) Si NO existe:\n   - Define ángulo editorial concreto (no genérico) para B2B.\n   - Realiza investigación real con búsqueda web + fetch de URLs.\n   - Usa mínimo 4 fuentes primarias/fiables y recientes en IA/SEO/Ads.\n   - Prioriza: Google Search Central/Ads docs, OpenAI, Anthropic, Google AI, Meta Ads, Microsoft Ads, Vercel/Next docs.\n   - No inventes datos; si no hay evidencia suficiente, usa estado `skipped_no_sources`.\n4) Produce `research_doc` JSON ESTRICTO con esta estructura:\n{\n  \"topic\": \"...\",\n  \"angle\": \"...\",\n  \"hook\": \"...\",\n  \"key_insight\": \"...\",\n  \"data_points\": [\n    {\"stat\":\"...\",\"source\":\"...\",\"url\":\"...\"}\n  ],\n  \"real_example\": {\"description\":\"...\",\"result\":\"...\",\"source_url\":\"...\"},\n  \"tension\": \"...\",\n  \"sources_used\": [\"url1\",\"url2\",\"url3\",\"url4\"],\n  \"freshness_check\": \"YYYY-MM-DD\"\n}\n5) Guarda el JSON en `content/newsletter-research/<YYYY-Www>.json`.\n6) Guarda respaldo en `content/newsletter-sources/<YYYY-Www>.md` con:\n   - lista de fuentes (título + URL)\n   - 4-8 bullets de hechos verificados con URL.\n7) NO modifiques `posts.ts` en esta tarea.\n\nRespuesta final (español, breve):\n- estado: generated / already_published_skip / skipped_no_sources / error\n- semana ISO\n- count de fuentes\n- 3 URLs clave\n- paths generados (json/md)",
+        "timeoutSeconds": 1800,
+        "model": "anthropic/claude-sonnet-4-6",
+        "thinking": "medium"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772463000000,
+        "lastRunAtMs": 1771858200016,
+        "lastStatus": "ok",
+        "lastDurationMs": 69136,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
+      }
+    },
+    {
+      "id": "87fefb22-d2eb-4790-87dd-46cdcf99683d",
+      "agentId": "main",
+      "name": "newsletter-weekly-publish",
+      "enabled": true,
+      "createdAtMs": 1771604820094,
+      "updatedAtMs": 1771862881220,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Subagente EDITOR del boletín semanal \"Si la IA no te ve\" (calidad editorial reforzada).\n\nObjetivo:\nEscribir y publicar el boletín usando ÚNICAMENTE el research_doc del investigador, evitando contenido genérico.\n\nContexto:\n- Repo: /Users/hector/.openclaw/workspace\n- Sitio: /Users/hector/.openclaw/workspace/projects/hector-services-site\n- Blog file: /Users/hector/.openclaw/workspace/projects/hector-services-site/content/blog/posts.ts\n- Research JSON: /Users/hector/.openclaw/workspace/projects/hector-services-site/content/newsletter-research/<YYYY-Www>.json\n- Sources MD: /Users/hector/.openclaw/workspace/projects/hector-services-site/content/newsletter-sources/<YYYY-Www>.md\n\nReglas obligatorias:\n- NO inventar datos ni porcentajes.\n- Si falta research JSON o trae <4 fuentes o <2 data_points, NO publicar (`skipped_no_research`).\n- Tono: español, directo, B2B, accionable.\n\nFlujo:\n1) Calcula semana ISO (YYYY-Www) y slug `si-la-ia-no-te-ve-<YYYY>-w<ww>`.\n2) Si slug ya existe en posts.ts => `already_published`.\n3) Carga y valida research JSON.\n4) Si cumple, agrega post al inicio de `posts` con:\n   - title: `Si la IA no te ve: <problema concreto> y cómo resolverlo`\n   - excerpt: 1 oración accionable (~150-180 chars)\n   - publishedAt: hoy\n   - readingTime: '6 min' o '7 min' según longitud\n   - tags: ['AEO','SEO','Web','Conversión']\n   - content (string[]): mínimo 12 bloques y calidad alta:\n     a) usar subtítulos con prefijo `## ` (mínimo 4 secciones),\n     b) incluir 1 caso concreto “antes vs después”,\n     c) incluir plan de ejecución por pasos,\n     d) incluir al menos 2 afirmaciones con fuente explícita en el texto,\n     e) cerrar con sección `## Fuentes verificadas` + lista `- <url>` (mínimo 4 URLs).\n   - Longitud objetivo del cuerpo: 650–950 palabras (no micro-post).\n5) Validar: `cd /Users/hector/.openclaw/workspace/projects/hector-services-site && npx tsc --noEmit`\n6) Commit + push con posts.ts + research/sources de la semana.\n\nSalida final breve:\n- estado (published/already_published/skipped_no_research/error)\n- título\n- slug\n- hash commit (si aplica)\n- nº fuentes + 3 URLs clave",
+        "timeoutSeconds": 1800,
+        "model": "openai-codex/gpt-5.3-codex",
+        "thinking": "medium"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772463600000,
+        "lastRunAtMs": 1771858800015,
+        "lastStatus": "ok",
+        "lastDurationMs": 61833,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
+      }
+    },
+    {
+      "id": "f0ec683a-cf50-43ec-9852-05fb2507a3f0",
+      "agentId": "main",
+      "name": "healthcheck:backup-reminder",
+      "enabled": true,
+      "createdAtMs": 1771666503554,
+      "updatedAtMs": 1771862882334,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Envía este recordatorio breve en español: 'Recordatorio semanal: valida que Time Machine/NAS tenga destino activo y último backup reciente. Ejecuta tmutil destinationinfo y tmutil latestbackup. Si no hay destino, configúralo hoy.'",
+        "timeoutSeconds": 180,
+        "model": "google/gemini-2.5-flash",
+        "thinking": "low"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975",
+        "bestEffort": true
+      },
+      "state": {
+        "nextRunAtMs": 1772463600000,
+        "lastRunAtMs": 1771858861848,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 3250,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "ff84631e-275c-4903-8aac-89913b4e8380",
+      "name": "weekly-marketing-seo-review",
+      "enabled": true,
+      "createdAtMs": 1771866743269,
+      "updatedAtMs": 1771869012308,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Haz una revisión semanal completa de marketing + SEO de estos sitios: https://www.pachanodesign.com/ y https://tcinsurancetx.com.\n\nObjetivo:\n- Detectar caídas, oportunidades y acciones de alto impacto.\n\nChecklist mínimo por sitio:\n1) SEO técnico: indexación, títulos/meta, canonicals, sitemap/robots, 404/redirects, schema básico.\n2) SEO contenido: páginas nuevas, gaps de keywords, canibalización, intención de búsqueda.\n3) Performance UX: Core Web Vitals aproximadas, tiempos de carga, mobile UX.\n4) Conversión marketing: claridad de oferta, CTA, fricción en formularios, páginas con mayor potencial.\n5) Competencia: 2-3 movimientos relevantes de competidores (si hay evidencia pública).\n6) Riesgos: priorizar P0/P1/P2.\n\nFormato de salida (estricto):\n- Resumen ejecutivo (6-10 bullets)\n- Hallazgos por sitio\n- Top 5 acciones de la semana (con impacto esperado)\n- Quick wins < 60 min\n- Bloqueos/datos faltantes\n- Plan de ejecución 7 días (qué hacer lunes-viernes)\n\nReglas:\n- No inventar datos.\n- Si falta evidencia, decirlo explícitamente.\n- Incluir fuentes/links por hallazgo crítico.",
+        "model": "anthropic/claude-sonnet-4-6",
+        "thinking": "medium",
+        "timeoutSeconds": 900
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975"
+      },
+      "state": {
+        "nextRunAtMs": 1772463600000,
+        "lastRunAtMs": 1771868779231,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 233077,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      }
+    },
+    {
+      "id": "e9f96433-310a-4c26-b94c-9141bd3a7443",
+      "agentId": "main",
+      "name": "newsletter-weekly-send",
+      "enabled": true,
+      "createdAtMs": 1771605241067,
+      "updatedAtMs": 1771862881775,
+      "schedule": {
+        "kind": "cron",
+        "expr": "20 9 * * 1",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Envía el boletín semanal por email usando Resend.\n\nContexto:\n- Repo: /Users/hector/.openclaw/workspace\n- Script: /Users/hector/.openclaw/workspace/projects/hector-services-site/scripts/send-weekly-newsletter.mjs\n\nPasos:\n1) Ejecuta: `node /Users/hector/.openclaw/workspace/projects/hector-services-site/scripts/send-weekly-newsletter.mjs`\n2) El script imprime JSON con status `sent|already_sent|skipped`.\n3) Anuncia resultado corto en español con:\n   - estado\n   - título\n   - slug\n   - número de destinatarios\n4) Si status es `skipped`, explica qué falta (por ejemplo RESEND_API_KEY o NEWSLETTER_RECIPIENTS).\n5) Si falla comando, reporta error exacto.",
+        "timeoutSeconds": 900,
+        "model": "openai-codex/gpt-5.3-codex-spark",
+        "thinking": "low"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1772464800000,
+        "lastRunAtMs": 1771860000007,
+        "lastStatus": "ok",
+        "lastDurationMs": 6499,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
+      }
+    },
+    {
+      "id": "b5191bb2-628f-47af-9fd4-1e82bfc3e97c",
+      "name": "midweek-marketing-seo-alerts",
+      "enabled": true,
+      "createdAtMs": 1771866861784,
+      "updatedAtMs": 1772032599305,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 3",
+        "tz": "America/Chicago"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Haz un chequeo de mitad de semana (ligero) para estos sitios: https://www.pachanodesign.com/ y https://tcinsurancetx.com.\n\nObjetivo: detectar solo alertas críticas y quick wins inmediatos.\n\nSalida (máximo 8 bullets):\n1) Alertas críticas SEO técnico (si existen)\n2) Caídas o riesgos de conversión (si existen)\n3) 3 quick wins accionables para hoy\n4) Qué NO requiere acción esta semana\n\nReglas:\n- Solo evidencias verificables.\n- Sin inventar.\n- Si no hay alertas críticas, responder exactamente: \"Sin alertas críticas esta semana; mantener plan actual.\"",
+        "model": "google/gemini-2.5-flash",
+        "thinking": "low",
+        "timeoutSeconds": 420
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "telegram",
+        "to": "574707975"
+      },
+      "state": {
+        "nextRunAtMs": 1772636400000,
+        "lastRunAtMs": 1772032580402,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 18903,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0
+      }
+    }
+  ],
+  "total": 20,
+  "offset": 0,
+  "limit": 20,
+  "hasMore": false,
+  "nextOffset": null
+}
