@@ -12,7 +12,8 @@
     .muted { color:var(--muted); font-size:14px; }
     .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:12px; margin:16px 0 22px; }
     .card { background:var(--card); border:1px solid #253050; border-radius:14px; padding:14px; }
-    .name { font-weight:700; font-size:16px; margin-bottom:6px; }
+    .avatar { width:56px; height:56px; border-radius:12px; object-fit:cover; border:1px solid #2f3c64; margin-bottom:8px; background:#0c1328; }
+    .name { font-weight:700; font-size:16px; margin-bottom:6px; text-transform:capitalize; }
     .chip { display:inline-block; font-size:12px; border-radius:999px; padding:2px 8px; background:#1d294b; color:var(--muted); }
     .ok { color:var(--ok); }
     table { width:100%; border-collapse: collapse; background:var(--card); border:1px solid #253050; border-radius:12px; overflow:hidden; }
@@ -85,7 +86,11 @@
         const enabled = own.filter(j => j.enabled).length;
         const c = document.createElement('div');
         c.className = 'card';
-        c.innerHTML = `<div class="name">${name}</div><div class="muted">Cron jobs: ${own.length}</div><div class="chip">enabled ${enabled}</div>`;
+        c.innerHTML = `
+          <img class="avatar" src="./avatars/${name}.jpg" alt="${name} avatar" onerror="this.style.display='none'"/>
+          <div class="name">${name}</div>
+          <div class="muted">Cron jobs: ${own.length}</div>
+          <div class="chip">enabled ${enabled}</div>`;
         cards.appendChild(c);
       });
     }
