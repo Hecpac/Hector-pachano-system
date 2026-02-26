@@ -1,0 +1,4 @@
+document_code,document_version,annex_id,annex_type,section_ref,evidence_title,file_name,file_format,responsible,capture_date,integrity_status,storage_path,notes
+REG-SGC-MEC-2026-003,v1,ANEXO-SGC-MEC-FOTO-2026-001,FOTO,2.8.1,Checklist visual frontal,ANEXO-SGC-MEC-FOTO-2026-001.jpg,jpg,Leonardo Yepez,2025-10-31,OK,anexos/ANEXO-SGC-MEC-FOTO-2026-001.jpg,Ejemplo
+REG-SGC-MEC-2026-003,v1,ANEXO-SGC-MEC-PT-2026-001,EVD,2.8.2,Registro evidencia PT,ANEXO-SGC-MEC-PT-2026-001.pdf,pdf,Orlando Medina,2025-10-31,OK,anexos/ANEXO-SGC-MEC-PT-2026-001.pdf,Ejemplo
+REG-SGC-MEC-2026-003,v1,ANEXO-SGC-MEC-MET-2026-001,MET,2.8.3,Certificado calibración instrumento,ANEXO-SGC-MEC-MET-2026-001.pdf,pdf,Metrología SGC,2025-10-30,OK,anexos/ANEXO-SGC-MEC-MET-2026-001.pdf,Ejemplo

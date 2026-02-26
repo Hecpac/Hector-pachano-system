@@ -28,15 +28,15 @@ Implementar flujo SGC confiable para generación, revisión, aprobación y traza
   - depends_on: [S1]
   - salida: estándar tipo `REG-SGC-MEC-YYYY-###`
 
-- [ ] S5 Validador automático de calidad documental
+- [x] S5 Validador automático de calidad documental
   - depends_on: [S2, S3, S4]
   - checks: campos vacíos, fechas, firmas, unidades, anexos
 
-- [ ] S6 Flujo de aprobación (roles y estados)
+- [x] S6 Flujo de aprobación (roles y estados)
   - depends_on: [S3]
   - estados: Draft / Revisión Técnica / Aprobado / Rechazado
 
-- [ ] S7 Trazabilidad de anexos y evidencias
+- [x] S7 Trazabilidad de anexos y evidencias
   - depends_on: [S4]
   - salida: convención de nombres + índice de anexos
 
