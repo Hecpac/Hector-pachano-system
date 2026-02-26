@@ -43,6 +43,13 @@ Things like:
 - Siempre definir: objetivo, entregable, criterio de done, límite de tiempo/costo/tokens
 - Siempre cerrar con: validación técnica final de Codex + checks reales
 
+### Regla fija — Codex vs Gemini
+
+- Implementación, refactor, debug, tests, cierre técnico → **Codex**.
+- Deep-dive estratégico, hipótesis, diseño de experimentos → **Gemini**.
+- Tareas mixtas (estrategia + código) → **Gemini diseña, Codex ejecuta y valida**.
+- Cambios sensibles en riesgo/producción → **Codex como gate final**.
+
 ## Why Separate?
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
