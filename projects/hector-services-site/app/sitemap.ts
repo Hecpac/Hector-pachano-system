@@ -50,9 +50,12 @@ const baseRoutes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
   const blogRoutes = getBlogPosts().map((post) => `/blog/${post.slug}`)
+  const blogRoutesEn = getBlogPosts().map((post) => `/en/blog/${post.slug}`)
   const caseRoutes = getCaseStudies().map((caseStudy) => `/cases/${caseStudy.slug}`)
+  const caseRoutesEn = getCaseStudies().map((caseStudy) => `/en/cases/${caseStudy.slug}`)
   const faqRoutes = getAnswerFirstFaqs().map((item) => `/faq/${item.slug}`)
-  const routes = [...baseRoutes, ...caseRoutes, ...faqRoutes, ...blogRoutes]
+  const faqRoutesEn = getAnswerFirstFaqs().map((item) => `/en/faq/${item.slug}`)
+  const routes = [...baseRoutes, ...caseRoutes, ...caseRoutesEn, ...faqRoutes, ...faqRoutesEn, ...blogRoutes, ...blogRoutesEn]
 
   return routes.map((route) => ({
     url: `${SITE_URL}${route}`,

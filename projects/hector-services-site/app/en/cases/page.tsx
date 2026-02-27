@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { getCaseStudies } from '@/content/case-studies/cases'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
+import { caseEn } from '@/app/en/content'
 import { buildPageMetadata } from '@/lib/seo/meta'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -23,15 +24,19 @@ export default function CasesPageEn() {
         <p className="lead">Problem, implementation, measurement and outcomes in one structure.</p>
 
         <div className="service-grid">
-          {cases.map((item) => (
-            <article key={item.slug} className="service-card">
-              <h2>{item.title}</h2>
-              <p>{item.metric}</p>
-              <Link href={`/en/cases/${item.slug}`} className="service-link">
-                View case →
-              </Link>
-            </article>
-          ))}
+          {cases.map((item) => {
+            const t = caseEn[item.slug]
+            return (
+              <article key={item.slug} className="service-card">
+                <h2>{t?.title ?? item.title}</h2>
+                <p>{t?.metric ?? item.metric}</p>
+                <p>{t?.summary ?? item.detail}</p>
+                <Link href={`/en/cases/${item.slug}`} className="service-link">
+                  View case →
+                </Link>
+              </article>
+            )
+          })}
         </div>
       </section>
     </main>

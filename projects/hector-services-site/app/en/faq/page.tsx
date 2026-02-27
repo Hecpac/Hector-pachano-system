@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { getAnswerFirstFaqs } from '@/content/faqs/answer-first'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
+import { faqEn } from '@/app/en/content'
 import { buildPageMetadata } from '@/lib/seo/meta'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -22,11 +23,14 @@ export default function FAQPageEn() {
         <h1>Frequently asked questions</h1>
 
         <ul className="bullet-list">
-          {items.map((item) => (
-            <li key={item.slug}>
-              <Link href={`/en/faq/${item.slug}`}>{item.question}</Link>
-            </li>
-          ))}
+          {items.map((item) => {
+            const t = faqEn[item.slug]
+            return (
+              <li key={item.slug}>
+                <Link href={`/en/faq/${item.slug}`}>{t?.question ?? item.question}</Link>
+              </li>
+            )
+          })}
         </ul>
       </section>
     </main>
