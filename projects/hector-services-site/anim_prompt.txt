@@ -1,0 +1,137 @@
+Implement 5 animation enhancements for the home page of pachanodesign.com. The site is Next.js 16 App Router with TypeScript. All animations must use CSS + vanilla JS (no external animation libraries). Respect prefers-reduced-motion. Keep existing code intact — extend only.
+
+REFERENCE AESTHETIC:
+Site: hle.io — dark/minimal, centered monitor with ambient radial spotlight, typewriter headline, live timestamp bottom-right, hand-drawn annotation arrows.
+Our site is DARK (#0b0c10 bg, orange accent #e85d04), monospace/display fonts, cinematic panels.
+
+=== ANIMATION 1: Typewriter word cycling in hero headline ===
+
+Create components/ui/typewriter-word.tsx — a client component that cycles through an array of words with a typewriter effect (type in char by char, pause 1.8s, erase, next word).
+- Props: words: string[]
+- CSS cursor blink via keyframes, not JS
+- requestAnimationFrame + setTimeout pattern
+- prefers-reduced-motion: show first word static, no animation
+
+In app/page.tsx, the h1 has a span with class "line-orange landing-hero__line landing-hero__line--2" containing "I build digital systems". Replace that text content with TypewriterWord component:
+  import { TypewriterWord } from "@/components/ui/typewriter-word"
+  ...
+  <span className="line-orange landing-hero__line landing-hero__line--2">
+    <TypewriterWord words={["Diseno Web", "Automatizaciones", "SEO/AEO"]} />
+  </span>
+
+In app/en/page.tsx similarly replace "I build digital systems" with:
+  <TypewriterWord words={["Web Design", "Automations", "SEO/AEO"]} />
+
+=== ANIMATION 2: Ambient glow pulse behind monitor ===
+
+In app/globals.css, find .landing-computer__glow and add animation.
+Add new keyframes: glow-pulse (opacity 0.5 to 0.85, transform scale 1 to 1.08, 3s ease-in-out infinite alternate).
+Add keyframes: bezel-pulse (box-shadow intensity variation, 3s ease-in-out infinite alternate, 0.7s delay).
+Apply glow-pulse to .landing-computer__glow.
+Apply bezel-pulse to .landing-computer__bezel.
+Add prefers-reduced-motion: reduce override to disable both animations.
+
+=== ANIMATION 3: Live clock in hero ===
+
+Create components/ui/live-clock.tsx:
+- use client
+- useState for current time string (HH:MM 24h format)
+- useEffect: set initial time, then setInterval every 60 seconds
+- cleanup interval on unmount
+- Returns: <time className="hero-live-clock" dateTime={isoString}>{timeString}</time>
+
+In app/globals.css append:
+.hero-live-clock {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  pointer-events: none;
+}
+
+In app/page.tsx and app/en/page.tsx, import LiveClock and add it inside the .landing-hero__bottom div (or as a sibling just before closing the landing-hero section).
+The landing-hero section needs position: relative if not already set (check globals.css for .landing-hero).
+
+=== ANIMATION 4: Animated number counters ===
+
+Create components/ui/animated-counter.tsx:
+- use client
+- Props: value: number, prefix?: string, suffix?: string, duration?: number (default 1800)
+- useRef for the DOM element and for tracking if animation started
+- IntersectionObserver: when element enters viewport, run the counter animation
+- easeOutQuart: (t) => 1 - Math.pow(1 - t, 4)
+- If prefers-reduced-motion, skip to final value immediately
+- Renders: <span ref={ref} className="animated-counter">{prefix}{displayed}{suffix}</span>
+
+In app/page.tsx, find the hero descriptor area (landing-hero__descriptor). After the two descriptor paragraphs, add a hero-stats-bar div:
+  <div className="hero-stats-bar">
+    <span className="hero-stat"><AnimatedCounter value={123} suffix="%" /> tráfico</span>
+    <span className="hero-stat"><AnimatedCounter value={38} suffix="%" /> conversión</span>
+    <span className="hero-stat"><AnimatedCounter value={62} prefix="-" suffix="%" /> tiempo op.</span>
+  </div>
+
+In app/globals.css append styles for .hero-stats-bar and .hero-stat:
+- display flex, gap 1.5rem, margin-top 1rem
+- .hero-stat: font-family mono, font-size 0.7rem, color var(--muted), letter-spacing 0.06em
+- .animated-counter: color var(--accent), font-weight 500
+
+=== ANIMATION 5: Annotation arrow ===
+
+Create components/ui/annotation-arrow.tsx:
+- Renders an SVG curved arrow with CSS draw animation
+- Props: label: string, direction?: "left" | "right" (default "right")
+- SVG path: a simple curved arrow ~60x30px, stroke-dasharray equal to path length, stroke-dashoffset starts at full length, animates to 0 on load (1s ease, 1.2s delay)
+- Small label text as a span beside the SVG
+- Wrapper class: annotation-arrow
+
+In app/globals.css append:
+.annotation-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.annotation-arrow__label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.annotation-arrow svg path {
+  stroke: var(--muted);
+  stroke-width: 1.2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: draw-arrow 1s ease forwards;
+  animation-delay: 1.2s;
+}
+@keyframes draw-arrow {
+  to { stroke-dashoffset: 0; }
+}
+@media (max-width: 639px) {
+  .annotation-arrow { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .annotation-arrow svg path { animation: none; stroke-dashoffset: 0; }
+}
+
+In app/page.tsx, add AnnotationArrow in the landing-hero__actions div, below the btn-secondary link:
+  <AnnotationArrow label="agenda gratis" direction="left" />
+
+In app/en/page.tsx:
+  <AnnotationArrow label="book free call" direction="left" />
+
+=== FINAL STEPS ===
+1. Run: npm run build
+2. Fix ALL TypeScript errors if any
+3. Run: git add -A
+4. Run: git commit -m "feat(animations): typewriter, glow pulse, live clock, counters, annotation arrow"
+5. Run: git push origin main
+6. Run: openclaw system event --text "Done: home animations deployed" --mode now

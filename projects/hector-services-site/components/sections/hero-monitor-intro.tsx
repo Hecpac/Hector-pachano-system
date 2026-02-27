@@ -27,7 +27,57 @@ export function HeroMonitorIntro() {
     let pointerY = window.innerHeight / 2
     let zoomProgress = 0
 
-    const MAX_SCALE = prefersReducedMotion ? 1 : 80
+    const isMobile = window.innerWidth < 980
+    const MAX_SCALE = prefersReducedMotion || isMobile ? 1 : 80
+
+    if (isMobile) {
+      track.classList.remove('h-[300vh]')
+      track.style.height = 'auto'
+      stage.classList.remove('h-screen', 'sticky')
+      stage.style.height = 'auto'
+      stage.style.position = 'relative'
+    }
+
+    
+    // Boot sequence
+    const screenTitle = stage.querySelector('.landing-computer__screen-title') as HTMLElement
+    const screenMetric = stage.querySelector('.landing-computer__screen-metric') as HTMLElement
+    const screenStatus = stage.querySelector('.landing-computer__screen-status') as HTMLElement
+    
+    if (screenTitle && screenMetric && screenStatus) {
+      screenTitle.style.opacity = '0'
+      screenMetric.style.opacity = '0'
+      screenStatus.style.opacity = '0'
+      
+      setTimeout(() => {
+        // Flicker 1
+        screenTitle.style.opacity = '0.5'
+        setTimeout(() => { screenTitle.style.opacity = '0' }, 50)
+        setTimeout(() => { 
+          screenTitle.style.opacity = '1'
+          // Typewriter effect on spans
+          const spans = screenTitle.querySelectorAll('span') as NodeListOf<HTMLElement>
+          spans.forEach((span, i) => {
+            span.style.opacity = '0'
+            span.style.transform = 'translateY(4px)'
+            span.style.transition = 'opacity 0.1s ease, transform 0.1s ease'
+            setTimeout(() => {
+              span.style.opacity = '1'
+              span.style.transform = 'translateY(0)'
+            }, 300 + (i * 200))
+          })
+          
+          setTimeout(() => {
+            screenMetric.style.transition = 'opacity 0.2s ease'
+            screenMetric.style.opacity = '1'
+            setTimeout(() => {
+              screenStatus.style.transition = 'opacity 0.2s ease'
+              screenStatus.style.opacity = '1'
+            }, 300)
+          }, 1000)
+        }, 150)
+      }, 500)
+    }
 
     const recalcTransformOrigin = () => {
       const computerRect = computer.getBoundingClientRect()
