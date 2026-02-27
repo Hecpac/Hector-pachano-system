@@ -8,7 +8,7 @@ import { breadcrumbSchema, serviceSchema } from '@/lib/seo/schema'
 
 const title = 'Automatizaciones de Procesos para Empresas B2B'
 const description =
-  'Automatizaciones de procesos para empresas B2B: integración de CRM, formularios, notificaciones y flujos operativos.'
+  'Automatizaciones B2B para capturar y dar seguimiento a leads sin fricción: CRM, reglas de enrutamiento y alertas SLA. Reduce horas operativas y sube tasa de contacto.'
 const path = '/services/automatizaciones'
 
 export const metadata: Metadata = buildPageMetadata({

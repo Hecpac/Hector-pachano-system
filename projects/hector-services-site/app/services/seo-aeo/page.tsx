@@ -8,7 +8,7 @@ import { breadcrumbSchema, serviceSchema } from '@/lib/seo/schema'
 
 const title = 'SEO y AEO para Empresas B2B'
 const description =
-  'Servicio SEO y AEO para empresas B2B: posicionamiento orgánico, arquitectura de contenidos y visibilidad en respuestas de IA.'
+  'SEO + AEO para B2B: intención comercial, landings answer-first + schema y contenido citable para IA. Aumenta clicks cualificados, CTR y leads orgánicos medibles.'
 const path = '/services/seo-aeo'
 
 export const metadata: Metadata = buildPageMetadata({

@@ -8,7 +8,7 @@ import { breadcrumbSchema, serviceSchema } from '@/lib/seo/schema'
 
 const title = 'Diseño Web de Alto Rendimiento para Empresas B2B'
 const description =
-  'Diseño y desarrollo web para empresas B2B con foco en conversión, arquitectura editorial y performance en Next.js.'
+  'Diseño web B2B performance-first: narrativa comercial, UX/UI de conversión y Next.js. Mejora LCP/INP, CTR de CTA y tasa de formularios con medición real.'
 const path = '/services/diseno-web'
 
 export const metadata: Metadata = buildPageMetadata({

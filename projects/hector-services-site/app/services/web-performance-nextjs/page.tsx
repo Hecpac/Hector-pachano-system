@@ -9,7 +9,7 @@ import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/seo/schema'
 const title = 'Web Performance con Next.js para conversiones B2B'
 const path = '/services/web-performance-nextjs'
 const description =
-  'Optimización de rendimiento en Next.js con foco en conversión: CWV, arquitectura de contenido y UX comercial.'
+  'Diseño web B2B performance-first: narrativa comercial, UX/UI de conversión y Next.js. Mejora LCP/INP, CTR de CTA y tasa de formularios con medición real.'
 
 const faqs = [
   {
@@ -65,31 +65,72 @@ export default function WebPerformanceNextjsPage() {
 
         <p className="eyebrow">LANDING DE INTENCIÓN</p>
         <h1>{title}</h1>
-        <p className="lead">Mejora de velocidad, interacción y claridad comercial sin sacrificar identidad visual.</p>
+        <p className="lead">Mejoramos velocidad y UX comercial para que tu tráfico actual convierta mejor sin subir gasto publicitario.</p>
 
-        <h2>Qué es / para quién</h2>
-        <p>
-          Para equipos que ya tienen web activa pero pierden oportunidades por lentitud, fricción de UX o embudos poco
-          claros en móvil.
-        </p>
-
-        <h2>Cómo lo implementamos</h2>
         <ul className="bullet-list">
-          <li>Auditoría técnica de CWV + interacción real en móvil (INP).</li>
-          <li>Optimización de recursos críticos y carga no bloqueante.</li>
-          <li>Refuerzo de narrativa/CTA para mejorar avance comercial.</li>
+          <li><strong>Para quién:</strong> equipos con web lenta o fricción móvil en el embudo.</li>
+          <li><strong>Qué incluye:</strong> baseline CWV, refactor, estrategia de assets y fixes de interacción.</li>
+          <li><strong>Prueba:</strong> +38% conversion rate y mejora de LCP móvil en caso real.</li>
         </ul>
 
-        <h2>Qué resultados esperar</h2>
+        <div className="money-hero-actions">
+          <Link href="/auditor" className="button">
+            Agenda diagnóstico
+          </Link>
+          <Link href="/cases/landing-alta-conversion" className="button button--ghost">
+            Ver caso
+          </Link>
+        </div>
+
+        <h2>Tabla de entregables</h2>
+        <div className="money-table-wrap">
+          <table className="money-table">
+            <thead>
+              <tr>
+                <th>Entregable</th>
+                <th>Qué resuelve</th>
+                <th>Cómo se mide (KPI)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Baseline técnico + mapa de fricción</td>
+                <td>Detecta cuellos de botella reales del embudo.</td>
+                <td>LCP/INP/CLS + drop-off por sección.</td>
+              </tr>
+              <tr>
+                <td>Optimización de assets y render</td>
+                <td>Reduce latencia percibida y bloqueo de interacción.</td>
+                <td>INP móvil + tiempo interactivo.</td>
+              </tr>
+              <tr>
+                <td>Ajuste de CTA y flujo</td>
+                <td>Mejora avance comercial del tráfico existente.</td>
+                <td>CTR de CTA + tasa de formulario.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Proceso (5 pasos)</h2>
+        <ul className="bullet-list">
+          <li>Semana 1: auditoría de rendimiento y UX comercial.</li>
+          <li>Semana 2: plan de optimización priorizado por impacto.</li>
+          <li>Semana 3: implementación técnica (render, assets, scripts).</li>
+          <li>Semana 4: ajustes de copy/CTA y pruebas de flujo.</li>
+          <li>Semana 5+: iteración por métricas y cierre de fricción.</li>
+        </ul>
+
+        <h2>Caso relacionado</h2>
         <p>
-          Mejora en experiencia percibida y mayor eficiencia del tráfico actual para convertir más sin aumentar inversión
-          publicitaria de inmediato.
+          Problema: web pesada y baja conversión. Intervención: optimización técnica + narrativa + CTA. Resultado:{' '}
+          <strong>+38% conversion rate</strong>, <strong>LCP 3.9s → 2.3s</strong>, <strong>+29% CTR principal</strong>.
         </p>
         <p>
-          <Link href="/cases/landing-alta-conversion">Ver caso: +38% conversión y mejor LCP móvil →</Link>
+          <Link href="/cases/landing-alta-conversion">Ver caso completo →</Link>
         </p>
 
-        <h2>FAQ rápida</h2>
+        <h2>Objeciones frecuentes</h2>
         {faqs.map((item) => (
           <details key={item.question}>
             <summary>{item.question}</summary>
@@ -97,11 +138,20 @@ export default function WebPerformanceNextjsPage() {
           </details>
         ))}
 
-        <p>
+        <h2>Señales de confianza</h2>
+        <ul className="bullet-list">
+          <li>Validación por métricas técnicas y comerciales en paralelo.</li>
+          <li>Stack Next.js performance-first con control de regresiones.</li>
+          <li>Qué NO hacemos: optimizar score sin impacto en conversión.</li>
+        </ul>
+
+        <section className="money-final-cta">
+          <h2>¿Quieres una web más rápida que convierta más?</h2>
+          <p>Respuesta en menos de 24h. Sin spam. Te damos plan técnico-comercial accionable.</p>
           <Link href="/auditor" className="service-link">
             Solicitar auditoría de rendimiento →
           </Link>
-        </p>
+        </section>
       </section>
     </main>
   )

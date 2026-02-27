@@ -2942,6 +2942,64 @@ h3 {
   border-color: var(--accent);
 }
 
+.money-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.85rem 0 0.4rem;
+}
+
+.money-table-wrap {
+  margin-top: 0.8rem;
+  overflow-x: auto;
+}
+
+.money-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+}
+
+.money-table th,
+.money-table td {
+  border: 1px solid color-mix(in srgb, var(--line) 75%, #fff 8%);
+  padding: 0.56rem 0.62rem;
+  vertical-align: top;
+}
+
+.money-table th {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.72rem;
+  color: color-mix(in srgb, var(--ink) 78%, var(--accent));
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.money-table td {
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.45;
+}
+
+.money-final-cta {
+  margin-top: 1rem;
+  border: 1px solid color-mix(in srgb, var(--line) 75%, #fff 8%);
+  border-radius: var(--radius);
+  padding: clamp(0.9rem, 1.5vw, 1.2rem);
+  background:
+    radial-gradient(circle at 86% 6%, rgba(255, 91, 54, 0.16) 0%, transparent 42%),
+    #11161d;
+}
+
+.money-final-cta h2 {
+  margin: 0;
+}
+
+.money-final-cta p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+}
+
 @media (max-width: 980px) {
   body.landing-nav-open {
     overflow: hidden;

@@ -20,6 +20,10 @@ const faqs = [
   {
     question: '¿Qué mejora primero?',
     answer: 'Claridad de oferta por tipo de proyecto, casos técnicos y ruta de contacto sin fricción para licitaciones/reuniones.'
+  },
+  {
+    question: '¿Qué resultados esperar en 60 días?',
+    answer: 'Mayor calidad de consultas, mejor filtrado comercial y más consistencia en respuesta a oportunidades calificadas.'
   }
 ]
 
@@ -52,23 +56,74 @@ export default function ConstructorasIngenieriaIndustryPage() {
           ]}
         />
 
-        <p className="eyebrow">INDUSTRIA</p>
+        <p className="eyebrow">MONEY PAGE · INDUSTRIA</p>
         <h1>{title}</h1>
-        <p className="lead">Más claridad técnica y comercial para convertir oportunidades complejas en proyectos cerrados.</p>
+        <p className="lead">Alineamos señal técnica y señal comercial para convertir ciclos de venta complejos en cierres más previsibles.</p>
 
-        <h2>Problema común</h2>
-        <p>
-          Webs genéricas sin estructura por tipo de servicio/proyecto y baja trazabilidad en seguimiento comercial.
-        </p>
-
-        <h2>Sistema recomendado</h2>
         <ul className="bullet-list">
-          <li>Páginas por vertical (QA/QC, supervisión, ejecución, etc.).</li>
-          <li>Casos con resultados y metodología visible para generar confianza.</li>
-          <li>Automatización de intake y clasificación por tipo de proyecto.</li>
+          <li><strong>Para quién:</strong> constructoras/ingenierías con múltiples decisores y ventas largas.</li>
+          <li><strong>Qué incluye:</strong> contenido técnico citable, casos estructurados y ruta de contacto cualificada.</li>
+          <li><strong>Prueba:</strong> mejoras en consultas calificadas y conversiones de páginas técnicas.</li>
         </ul>
 
-        <h2>FAQ rápida</h2>
+        <div className="money-hero-actions">
+          <Link href="/contact" className="button">
+            Agenda diagnóstico
+          </Link>
+          <Link href="/cases/visibilidad-organica-aeo" className="button button--ghost">
+            Ver caso
+          </Link>
+        </div>
+
+        <h2>Tabla de entregables</h2>
+        <div className="money-table-wrap">
+          <table className="money-table">
+            <thead>
+              <tr>
+                <th>Entregable</th>
+                <th>Qué resuelve</th>
+                <th>Cómo se mide (KPI)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Páginas por vertical técnico</td>
+                <td>Ordena oferta por tipo de proyecto y decisor.</td>
+                <td>CTR de páginas técnicas + formularios cualificados.</td>
+              </tr>
+              <tr>
+                <td>Casos y metodología visible</td>
+                <td>Sube confianza en procesos de evaluación.</td>
+                <td>Tasa de contacto con fit técnico.</td>
+              </tr>
+              <tr>
+                <td>Intake y pre-calificación</td>
+                <td>Reduce ruido comercial y acelera respuesta.</td>
+                <td>Tiempo de clasificación + tasa de oportunidad útil.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Proceso (5 pasos)</h2>
+        <ul className="bullet-list">
+          <li>Semana 1: diagnóstico de verticales, stakeholders y objeciones.</li>
+          <li>Semana 2: arquitectura de contenido técnico-comercial.</li>
+          <li>Semana 3: implementación de páginas y señales de confianza.</li>
+          <li>Semana 4: conexión de captación + clasificación de oportunidades.</li>
+          <li>Semana 5+: optimización por consultas y calidad de lead.</li>
+        </ul>
+
+        <h2>Caso relacionado</h2>
+        <p>
+          Problema: visibilidad dispersa en temas técnicos. Intervención: arquitectura por intención + citabilidad + contenido. Resultado:{' '}
+          <strong>+123% tráfico orgánico</strong>, <strong>+71% clicks cualificados</strong>, <strong>+44% queries top 10</strong>.
+        </p>
+        <p>
+          <Link href="/cases/visibilidad-organica-aeo">Ver caso completo →</Link>
+        </p>
+
+        <h2>Objeciones frecuentes</h2>
         {faqs.map((item) => (
           <details key={item.question}>
             <summary>{item.question}</summary>
@@ -76,11 +131,20 @@ export default function ConstructorasIngenieriaIndustryPage() {
           </details>
         ))}
 
-        <p>
+        <h2>Señales de confianza</h2>
+        <ul className="bullet-list">
+          <li>Enfoque técnico-comercial para ciclos complejos.</li>
+          <li>Contenido orientado a decisores (no solo tráfico masivo).</li>
+          <li>Qué NO hacemos: landing genérica sin pre-calificación.</li>
+        </ul>
+
+        <section className="money-final-cta">
+          <h2>¿Quieres más oportunidades cualificadas en ingeniería?</h2>
+          <p>Respuesta en menos de 24h. Sin spam. Te compartimos plan por vertical y prioridad.</p>
           <Link href="/contact" className="service-link">
             Quiero plan para constructora/ingeniería →
           </Link>
-        </p>
+        </section>
       </section>
     </main>
   )

@@ -9,7 +9,7 @@ import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/seo/schema'
 const title = 'Automatizaciones CRM + HubSpot para equipos B2B'
 const path = '/services/automatizaciones-crm-hubspot'
 const description =
-  'Automatización de captura, enrutamiento y seguimiento de leads en CRM/HubSpot para acelerar respuesta comercial y reducir retrabajo.'
+  'Automatizaciones B2B para capturar y dar seguimiento a leads sin fricción: CRM, reglas de enrutamiento y alertas SLA. Reduce horas operativas y sube tasa de contacto.'
 
 const faqs = [
   {
@@ -64,29 +64,72 @@ export default function AutomatizacionesCrmHubspotPage() {
 
         <p className="eyebrow">LANDING DE INTENCIÓN</p>
         <h1>{title}</h1>
-        <p className="lead">Convierte tu flujo comercial en un sistema trazable, rápido y menos dependiente de tareas manuales.</p>
+        <p className="lead">Convierte tu pipeline en un sistema trazable con respuesta rápida y menos carga operativa.</p>
 
-        <h2>Qué es / para quién</h2>
-        <p>
-          Para empresas B2B con leads entrando por varios canales y equipo comercial saturado por seguimiento manual.
-        </p>
-
-        <h2>Cómo lo implementamos</h2>
         <ul className="bullet-list">
-          <li>Estandarización de datos de entrada y validaciones.</li>
-          <li>Reglas de asignación por intención, servicio y mercado.</li>
-          <li>Secuencias automáticas con alertas de SLA y dashboard operativo.</li>
+          <li><strong>Para quién:</strong> equipos B2B con seguimiento manual y leads dispersos.</li>
+          <li><strong>Qué incluye:</strong> mapping, routing rules, SLA alerts, secuencias y dashboard.</li>
+          <li><strong>Prueba:</strong> -62% tiempo operativo y +31% tasa de contacto.</li>
         </ul>
 
-        <h2>Qué resultados esperar</h2>
+        <div className="money-hero-actions">
+          <Link href="/contact" className="button">
+            Agenda diagnóstico
+          </Link>
+          <Link href="/cases/pipeline-leads-automatizado" className="button button--ghost">
+            Ver caso
+          </Link>
+        </div>
+
+        <h2>Tabla de entregables</h2>
+        <div className="money-table-wrap">
+          <table className="money-table">
+            <thead>
+              <tr>
+                <th>Entregable</th>
+                <th>Qué resuelve</th>
+                <th>Cómo se mide (KPI)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lead intake + normalización</td>
+                <td>Evita datos sucios y duplicados.</td>
+                <td>% leads válidos / duplicados.</td>
+              </tr>
+              <tr>
+                <td>Routing por reglas</td>
+                <td>Asigna leads correctos al owner correcto.</td>
+                <td>Tiempo de asignación + tasa de contacto.</td>
+              </tr>
+              <tr>
+                <td>Alertas SLA + secuencias</td>
+                <td>Reduce pérdida por seguimiento tardío.</td>
+                <td>Tiempo primera respuesta + leads perdidos.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Proceso (5 pasos)</h2>
+        <ul className="bullet-list">
+          <li>Semana 1: auditoría de flujo y datos.</li>
+          <li>Semana 2: blueprint de routing + SLA.</li>
+          <li>Semana 3: implementación CRM + secuencias.</li>
+          <li>Semana 4: pruebas con casos reales y fallback.</li>
+          <li>Semana 5+: optimización por KPI operativo/comercial.</li>
+        </ul>
+
+        <h2>Caso relacionado</h2>
         <p>
-          Menos fricción en operación comercial, mejor velocidad de contacto y mayor consistencia del pipeline.
+          Problema: seguimiento lento y manual. Intervención: pipeline automatizado con reglas y alertas. Resultado:{' '}
+          <strong>-62% tiempo operativo</strong>, <strong>4h → 43 min</strong>, <strong>+31% tasa de contacto</strong>.
         </p>
         <p>
-          <Link href="/cases/pipeline-leads-automatizado">Ver caso con reducción de tiempo operativo (-62%) →</Link>
+          <Link href="/cases/pipeline-leads-automatizado">Ver caso completo →</Link>
         </p>
 
-        <h2>FAQ rápida</h2>
+        <h2>Objeciones frecuentes</h2>
         {faqs.map((item) => (
           <details key={item.question}>
             <summary>{item.question}</summary>
@@ -94,11 +137,20 @@ export default function AutomatizacionesCrmHubspotPage() {
           </details>
         ))}
 
-        <p>
+        <h2>Señales de confianza</h2>
+        <ul className="bullet-list">
+          <li>Arquitectura con rollback y etapas de validación.</li>
+          <li>Dashboard operativo para monitoreo diario.</li>
+          <li>Qué NO hacemos: automatizar caos sin proceso base.</li>
+        </ul>
+
+        <section className="money-final-cta">
+          <h2>¿Quieres un pipeline más rápido y predecible?</h2>
+          <p>Respuesta en menos de 24h. Sin spam. Saldrás con prioridades P0/P1 claras.</p>
           <Link href="/contact" className="service-link">
             Quiero mapear mi flujo de leads →
           </Link>
-        </p>
+        </section>
       </section>
     </main>
   )

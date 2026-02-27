@@ -9,7 +9,7 @@ import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/seo/schema'
 const title = 'SEO/AEO B2B: posicionamiento para Google y motores de IA'
 const path = '/services/seo-aeo-b2b'
 const description =
-  'Servicio SEO/AEO B2B para generar demanda calificada: arquitectura de intención, contenido citable y métricas comerciales.'
+  'SEO + AEO para B2B: intención comercial, landings answer-first + schema y contenido citable para IA. Aumenta clicks cualificados, CTR y leads orgánicos medibles.'
 
 const faqs = [
   {
@@ -66,31 +66,72 @@ export default function SeoAeoB2BPage() {
 
         <p className="eyebrow">LANDING DE INTENCIÓN</p>
         <h1>{title}</h1>
-        <p className="lead">Diseñado para empresas B2B que quieren convertir visibilidad orgánica en pipeline real.</p>
+        <p className="lead">Capturamos demanda comercial y aumentamos citabilidad en IA con estructura + contenido + medición real.</p>
 
-        <h2>Qué es / para quién</h2>
-        <p>
-          Este servicio es para equipos comerciales y de marketing que ya publican contenido, pero no logran suficientes
-          consultas de alta intención ni tracción en respuestas con IA.
-        </p>
-
-        <h2>Cómo lo implementamos</h2>
         <ul className="bullet-list">
-          <li>Diagnóstico técnico: indexación, canónicas, arquitectura y rendimiento.</li>
-          <li>Diseño de páginas answer-first por intención comercial.</li>
-          <li>Schema + iteración semanal por queries y conversiones.</li>
+          <li><strong>Para quién:</strong> equipos B2B con tráfico orgánico sin suficiente intención de compra.</li>
+          <li><strong>Qué incluye:</strong> intent map, answer blocks, schema y backlog editorial.</li>
+          <li><strong>Prueba:</strong> +123% tráfico orgánico, +71% clicks cualificados, +44% queries top 10.</li>
         </ul>
 
-        <h2>Qué resultados esperar</h2>
+        <div className="money-hero-actions">
+          <Link href="/contact" className="button">
+            Agenda diagnóstico
+          </Link>
+          <Link href="/cases/visibilidad-organica-aeo" className="button button--ghost">
+            Ver caso
+          </Link>
+        </div>
+
+        <h2>Tabla de entregables</h2>
+        <div className="money-table-wrap">
+          <table className="money-table">
+            <thead>
+              <tr>
+                <th>Entregable</th>
+                <th>Qué resuelve</th>
+                <th>Cómo se mide (KPI)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Intent map + arquitectura</td>
+                <td>Evita canibalización y ordena páginas por intención comercial.</td>
+                <td>Queries top 10 por servicio.</td>
+              </tr>
+              <tr>
+                <td>Answer blocks + schema</td>
+                <td>Mejora comprensión y citabilidad en motores IA.</td>
+                <td>CTR orgánico + impresiones cualificadas.</td>
+              </tr>
+              <tr>
+                <td>Backlog editorial priorizado</td>
+                <td>Escala contenido útil con foco en pipeline.</td>
+                <td>Clicks cualificados + leads orgánicos.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Proceso (5 pasos)</h2>
+        <ul className="bullet-list">
+          <li>Semana 1: auditoría técnica + baseline de demanda.</li>
+          <li>Semana 2: arquitectura por intención y prioridades P0/P1.</li>
+          <li>Semana 3-4: implementación de páginas answer-first + schema.</li>
+          <li>Semana 5-6: ajustes por Search Console y CTR.</li>
+          <li>Semana 7+: escalado editorial y optimización continua.</li>
+        </ul>
+
+        <h2>Caso relacionado</h2>
         <p>
-          Mejor cobertura de intención comercial, más citabilidad en motores de respuesta y mayor activación de CTA en
-          páginas clave.
+          Problema: estructura dispersa y baja citabilidad. Intervención: arquitectura + schema + contenido por intención. Resultado:{' '}
+          <strong>+123% orgánico</strong>, <strong>+71% clicks cualificados</strong>, <strong>+44% queries top 10</strong>.
         </p>
         <p>
-          <Link href="/cases/visibilidad-organica-aeo">Ver caso con resultados reales (+123% orgánico) →</Link>
+          <Link href="/cases/visibilidad-organica-aeo">Ver caso completo →</Link>
         </p>
 
-        <h2>FAQ rápida</h2>
+        <h2>Objeciones frecuentes</h2>
         {faqs.map((item) => (
           <details key={item.question}>
             <summary>{item.question}</summary>
@@ -98,11 +139,20 @@ export default function SeoAeoB2BPage() {
           </details>
         ))}
 
-        <p>
+        <h2>Señales de confianza</h2>
+        <ul className="bullet-list">
+          <li>Service/Organization/Breadcrumb/Article schema como base.</li>
+          <li>Medición semanal de consultas, CTR y leads.</li>
+          <li>Qué NO hacemos: tráfico vanity sin intención comercial.</li>
+        </ul>
+
+        <section className="money-final-cta">
+          <h2>¿Listo para convertir SEO en pipeline?</h2>
+          <p>Respuesta en menos de 24h. Sin spam. Plan accionable desde el primer mensaje.</p>
           <Link href="/contact" className="service-link">
-            Agendar diagnóstico SEO/AEO →
+            Quiero plan SEO/AEO B2B →
           </Link>
-        </p>
+        </section>
       </section>
     </main>
   )
