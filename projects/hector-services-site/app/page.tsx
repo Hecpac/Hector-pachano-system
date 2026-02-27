@@ -93,6 +93,9 @@ export default function HomePage() {
       <LandingNav />
 
       <section className="landing-hero">
+        <div className="landing-hero__grain" aria-hidden="true" />
+        <div className="landing-hero__vignette" aria-hidden="true" />
+
         <Parallax speed={-0.3} relativeTo="scroll" zIndex={0}>
           <div className="landing-hero__bg-glow" />
         </Parallax>
@@ -108,21 +111,23 @@ export default function HomePage() {
             </div>
 
             <h1 className="landing-hero__headline">
-              <span className="line-kicker">No vendo páginas web. </span>
-              <span className="line-orange">Construyo sistemas digitales</span>
-              <span className="line-outline">que generan ingresos.</span>
+              <span className="line-kicker landing-hero__line landing-hero__line--1">No vendo páginas web.</span>
+              <span className="line-orange landing-hero__line landing-hero__line--2">Construyo sistemas digitales</span>
+              <span className="line-outline landing-hero__line landing-hero__line--3">que generan ingresos.</span>
             </h1>
 
-            <h2 className="landing-hero__subheadline">Sistemas digitales para empresas B2B: Web + Automatización + SEO/AEO</h2>
+            <h2 className="landing-hero__subheadline landing-hero__line landing-hero__line--4">
+              Sistemas digitales para empresas B2B: Web + Automatización + SEO/AEO
+            </h2>
 
-            <div className="landing-hero__descriptor">
+            <div className="landing-hero__descriptor landing-hero__line landing-hero__line--5">
               <p className="landing-hero__descriptor-main">
                 Diseño que convierte + SEO que posiciona + automatización que escala.
               </p>
               <p className="landing-hero__descriptor-support">Todo integrado, todo medible, todo tuyo.</p>
             </div>
 
-            <div className="landing-proof-grid" aria-label="Prueba de resultados">
+            <div className="landing-proof-grid landing-hero__line landing-hero__line--6" aria-label="Prueba de resultados">
               <article className="landing-proof-card">
                 <p className="landing-proof-card__kicker">Sistema</p>
                 <p className="landing-proof-card__value">Captura → CRM → Seguimiento → Dashboard</p>
@@ -137,7 +142,12 @@ export default function HomePage() {
           <HeroMonitorIntro />
         </div>
 
-        <Parallax speed={0.2} relativeTo="scroll" className="landing-hero__bottom" zIndex={2}>
+        <Parallax
+          speed={0.2}
+          relativeTo="scroll"
+          className="landing-hero__bottom landing-hero__line landing-hero__line--7"
+          zIndex={2}
+        >
           <div className="landing-hero__actions">
             <Link href="/contact" className="btn-primary">
               Agenda el diagnóstico

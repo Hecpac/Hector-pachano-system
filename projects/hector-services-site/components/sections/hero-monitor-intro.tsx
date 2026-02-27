@@ -15,6 +15,7 @@ export function HeroMonitorIntro() {
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     let rafId = 0
+    let scrollRafId = 0
     let pointerX = window.innerWidth / 2
     let pointerY = window.innerHeight / 2
 
@@ -67,7 +68,11 @@ export function HeroMonitorIntro() {
     }
 
     const onScroll = () => {
-      syncScroll()
+      if (scrollRafId) return
+      scrollRafId = window.requestAnimationFrame(() => {
+        scrollRafId = 0
+        syncScroll()
+      })
     }
 
     const onResize = () => {
@@ -90,6 +95,7 @@ export function HeroMonitorIntro() {
 
     return () => {
       if (rafId) window.cancelAnimationFrame(rafId)
+      if (scrollRafId) window.cancelAnimationFrame(scrollRafId)
       stage.removeEventListener('pointermove', onPointerMove)
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)

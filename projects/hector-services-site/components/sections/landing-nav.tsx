@@ -18,6 +18,7 @@ const links = [
 
 export function LandingNav() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const navRef = useRef<HTMLElement | null>(null)
 
   const closeMenu = () => setIsOpen(false)
@@ -54,6 +55,28 @@ export function LandingNav() {
   }, [isOpen])
 
   useEffect(() => {
+    let rafId = 0
+
+    const updateScrollState = () => {
+      rafId = 0
+      setIsScrolled(window.scrollY > 18)
+    }
+
+    const onScroll = () => {
+      if (rafId) return
+      rafId = window.requestAnimationFrame(updateScrollState)
+    }
+
+    updateScrollState()
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (rafId) window.cancelAnimationFrame(rafId)
+    }
+  }, [])
+
+  useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 981px)')
 
     const handleDesktop = (event: MediaQueryListEvent) => {
@@ -71,7 +94,11 @@ export function LandingNav() {
 
   return (
     <header className="landing-header">
-      <nav ref={navRef} className={`landing-nav${isOpen ? ' is-open' : ''}`} aria-label="Navegación principal">
+      <nav
+        ref={navRef}
+        className={`landing-nav${isOpen ? ' is-open' : ''}${isScrolled ? ' is-scrolled' : ''}`}
+        aria-label="Navegación principal"
+      >
         <Link href="/" className="landing-nav__brand">
           <span className="landing-nav__brand-name">{SITE_NAME}</span>
           <span className="landing-nav__brand-sep">{' // '}</span>
