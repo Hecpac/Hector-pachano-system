@@ -139,6 +139,8 @@ export default function HomePage() {
                 <p className="landing-proof-card__value">Tiempo operativo -62%</p>
               </article>
             </div>
+
+            <p className="landing-hero__perf-proof landing-hero__line landing-hero__line--6">INP &lt; 200ms · LCP &lt; 2.5s · conversion-ready</p>
           </Parallax>
 
           <HeroMonitorIntro />

@@ -7,7 +7,7 @@ import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema } from '@/lib/seo/schema'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'About',
+  title: 'Sobre mí',
   description:
     'Perfil y enfoque de trabajo: ejecución técnica en automatizaciones, web y posicionamiento orgánico.',
   path: '/about'
@@ -20,14 +20,14 @@ export default function AboutPage() {
         data={
           breadcrumbSchema([
             { name: 'Inicio', path: '/' },
-            { name: 'About', path: '/about' }
+            { name: 'Sobre mí', path: '/about' }
           ])
         }
       />
 
       <section className="section reveal-on-scroll cinematic-panel is-visible">
-        <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'About' }]} />
-        <p className="eyebrow">ABOUT</p>
+        <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Sobre mí' }]} />
+        <p className="eyebrow">SOBRE MÍ</p>
         <h1>Operación técnica con foco en resultados</h1>
         <p className="lead">
           Trabajo como partner de ejecución para equipos que necesitan mover rápido sin sacrificar calidad.

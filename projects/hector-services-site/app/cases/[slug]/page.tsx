@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { getCaseMetaTitle, getCaseStudies, getCaseStudyBySlug } from '@/content/case-studies/cases'
@@ -24,6 +25,29 @@ const tocItems = [
   { id: 'resultados', label: 'Resultados' },
   { id: 'aprendizajes', label: 'Aprendizajes' }
 ]
+
+function getRelatedService(service: string) {
+  const normalized = service.toLowerCase()
+
+  if (normalized.includes('automat')) {
+    return {
+      href: '/services/automatizaciones-crm-hubspot',
+      label: 'Automatizaciones CRM + HubSpot'
+    }
+  }
+
+  if (normalized.includes('seo') || normalized.includes('aeo')) {
+    return {
+      href: '/services/seo-aeo-b2b',
+      label: 'SEO/AEO B2B'
+    }
+  }
+
+  return {
+    href: '/services/web-performance-nextjs',
+    label: 'Web Performance en Next.js'
+  }
+}
 
 export async function generateMetadata({ params }: CasePageProps): Promise<Metadata> {
   const { slug } = await params
@@ -86,6 +110,8 @@ export default async function CasePage({ params }: CasePageProps) {
   const caseStudy = getCaseStudyBySlug(slug)
 
   if (!caseStudy) notFound()
+
+  const relatedService = getRelatedService(caseStudy.service)
 
   const caseSchema = {
     '@context': 'https://schema.org',
@@ -259,6 +285,18 @@ export default async function CasePage({ params }: CasePageProps) {
                   </ul>
                 </article>
               </div>
+            </section>
+
+            <section className="case-related-service">
+              <p className="case-related-service__kicker">Servicio relacionado</p>
+              <h3>¿Quieres ejecutar este mismo enfoque en tu negocio?</h3>
+              <p>
+                Este caso se conecta directo con nuestra línea de <strong>{relatedService.label}</strong> para acelerar implementación
+                y resultados medibles.
+              </p>
+              <Link href={relatedService.href} className="button button--ghost">
+                Ver servicio relacionado
+              </Link>
             </section>
 
             <CaseCTA

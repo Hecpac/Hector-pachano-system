@@ -12,7 +12,7 @@ const links = [
   { label: 'Casos', href: '/cases' },
   { label: 'Auditor Web', href: '/auditor' },
   { label: 'Blog', href: '/blog' },
-  { label: 'About', href: '/about' },
+  { label: 'Sobre mí', href: '/about' },
   { label: 'Contacto', href: '/contact' }
 ]
 

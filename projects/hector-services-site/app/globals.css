@@ -2349,6 +2349,15 @@ h3 {
   line-height: 1.4;
 }
 
+.landing-hero__perf-proof {
+  margin: 0.7rem 0 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.74);
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
 .landing-hero__counter {
   position: absolute;
   right: 40px;
@@ -3136,6 +3145,11 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .landing-hero__perf-proof {
+    font-size: 0.62rem;
+    letter-spacing: 0.11em;
+  }
+
   .landing-hero__bottom {
     flex-direction: column;
     align-items: flex-start;
@@ -3887,6 +3901,40 @@ h3 {
   padding-left: 1rem;
   display: grid;
   gap: 0.35rem;
+}
+
+.case-related-service {
+  border: 1px solid color-mix(in srgb, var(--line) 70%, #fff 8%);
+  border-radius: var(--radius);
+  padding: clamp(0.9rem, 1.6vw, 1.2rem);
+  background:
+    radial-gradient(circle at 84% 8%, rgba(255, 91, 54, 0.18) 0%, transparent 42%),
+    #11161d;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.case-related-service__kicker {
+  margin: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 74%, var(--accent));
+}
+
+.case-related-service h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.case-related-service p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.case-related-service .button {
+  width: fit-content;
 }
 
 .case-final-cta {
