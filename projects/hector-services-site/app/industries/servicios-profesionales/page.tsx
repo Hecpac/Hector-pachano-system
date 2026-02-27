@@ -7,9 +7,9 @@ import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, faqSchema } from '@/lib/seo/schema'
 
 const path = '/industries/servicios-profesionales'
-const title = 'Sistemas digitales para Servicios Profesionales B2B'
+const title = 'Sistemas digitales para servicios profesionales B2B'
 const description =
-  'Web, automatización y SEO/AEO para firmas de servicios profesionales que quieren más demanda calificada y mejor conversión.'
+  'Web, automatización y SEO/AEO para firmas de servicios profesionales B2B que quieren más demanda calificada, mejor conversión y seguimiento comercial sin fricción.'
 
 const faqs = [
   {

@@ -6,10 +6,10 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/seo/schema'
 
-const title = 'Automatizaciones CRM + HubSpot para equipos B2B'
+const title = 'Automatizaciones CRM + HubSpot B2B: routing y SLA'
 const path = '/services/automatizaciones-crm-hubspot'
 const description =
-  'Automatizaciones B2B para capturar y dar seguimiento a leads sin fricción: CRM, reglas de enrutamiento y alertas SLA. Reduce horas operativas y sube tasa de contacto.'
+  'Automatizaciones CRM + HubSpot B2B para capturar y dar seguimiento a leads: routing, alertas SLA y secuencias. Reduce horas operativas y sube tasa de contacto.'
 
 const faqs = [
   {

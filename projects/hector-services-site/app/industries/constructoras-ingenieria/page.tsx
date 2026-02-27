@@ -7,9 +7,9 @@ import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, faqSchema } from '@/lib/seo/schema'
 
 const path = '/industries/constructoras-ingenieria'
-const title = 'Sistemas digitales para Constructoras e Ingeniería'
+const title = 'Sistemas digitales para constructoras e ingeniería B2B'
 const description =
-  'Arquitectura web, automatización y SEO/AEO para constructoras e ingeniería con ventas complejas y múltiples decisores.'
+  'Arquitectura web, automatización y SEO/AEO para constructoras e ingeniería B2B con ventas complejas, múltiples decisores y captación técnica más cualificada.'
 
 const faqs = [
   {

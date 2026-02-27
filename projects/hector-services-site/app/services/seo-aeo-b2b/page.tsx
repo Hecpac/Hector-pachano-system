@@ -6,10 +6,10 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/seo/schema'
 
-const title = 'SEO/AEO B2B: posicionamiento para Google y motores de IA'
+const title = 'SEO/AEO B2B para captar demanda de alto intento'
 const path = '/services/seo-aeo-b2b'
 const description =
-  'SEO + AEO para B2B: intención comercial, landings answer-first + schema y contenido citable para IA. Aumenta clicks cualificados, CTR y leads orgánicos medibles.'
+  'SEO/AEO B2B para demanda de alto intento: intent map, answer blocks, schema y contenido citable en IA. Mejora CTR, clicks cualificados y leads orgánicos medibles.'
 
 const faqs = [
   {

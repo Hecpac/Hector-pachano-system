@@ -6,9 +6,9 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, serviceSchema } from '@/lib/seo/schema'
 
-const title = 'Diseño Web de Alto Rendimiento para Empresas B2B'
+const title = 'Diseño Web B2B en Next.js: performance y conversión'
 const description =
-  'Diseño web B2B performance-first: narrativa comercial, UX/UI de conversión y Next.js. Mejora LCP/INP, CTR de CTA y tasa de formularios con medición real.'
+  'Diseño web B2B en Next.js con enfoque conversion-first: narrativa comercial, UX/UI y performance técnico. Mejora LCP/INP, CTR de CTA y tasa de formularios con medición real.'
 const path = '/services/diseno-web'
 
 export const metadata: Metadata = buildPageMetadata({

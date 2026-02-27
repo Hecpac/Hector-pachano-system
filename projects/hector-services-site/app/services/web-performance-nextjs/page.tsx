@@ -6,10 +6,10 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/seo/schema'
 
-const title = 'Web Performance con Next.js para conversiones B2B'
+const title = 'Web Performance Next.js B2B: INP, LCP y conversión'
 const path = '/services/web-performance-nextjs'
 const description =
-  'Diseño web B2B performance-first: narrativa comercial, UX/UI de conversión y Next.js. Mejora LCP/INP, CTR de CTA y tasa de formularios con medición real.'
+  'Web Performance Next.js para B2B: baseline CWV, fixes de INP/LCP y optimización de UX comercial. Mejora CTR de CTA y tasa de formularios con medición real.'
 
 const faqs = [
   {

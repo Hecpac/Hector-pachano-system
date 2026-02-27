@@ -6,9 +6,9 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, serviceSchema } from '@/lib/seo/schema'
 
-const title = 'Automatizaciones de Procesos para Empresas B2B'
+const title = 'Automatizaciones CRM B2B: integración, SLA y seguimiento'
 const description =
-  'Automatizaciones B2B para capturar y dar seguimiento a leads sin fricción: CRM, reglas de enrutamiento y alertas SLA. Reduce horas operativas y sube tasa de contacto.'
+  'Automatizaciones CRM B2B para capturar y dar seguimiento a leads sin fricción: routing, alertas SLA e integración HubSpot. Reduce horas operativas y sube tasa de contacto.'
 const path = '/services/automatizaciones'
 
 export const metadata: Metadata = buildPageMetadata({

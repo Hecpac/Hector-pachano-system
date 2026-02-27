@@ -10,7 +10,7 @@ import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema } from '@/lib/seo/schema'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Servicios de Diseño Web, SEO/AEO y Automatización para Empresas B2B',
+  title: 'Servicios B2B de Web, Automatización y SEO/AEO',
   description:
     'Sistemas integrados para crecimiento B2B: Web + Automatización + SEO/AEO. Priorización por impacto, ejecución en fases y validación semanal con KPIs reales.',
   path: '/services'
