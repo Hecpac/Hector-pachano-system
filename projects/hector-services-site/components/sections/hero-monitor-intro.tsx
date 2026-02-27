@@ -2,118 +2,149 @@
 
 import { useEffect, useRef } from 'react'
 
-import { Parallax } from '@/components/ui/parallax'
-
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value))
 
 export function HeroMonitorIntro() {
+  const trackRef = useRef<HTMLDivElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const track = trackRef.current
     const stage = stageRef.current
-    if (!stage) return
+    if (!track || !stage) return
+
+    const computer = stage.querySelector('.landing-computer') as HTMLDivElement | null
+    const screen = stage.querySelector('.landing-computer__screen') as HTMLDivElement | null
+    if (!computer || !screen) return
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    let rafId = 0
-    let scrollRafId = 0
+
+    let rafPointerId = 0
+    let rafScrollId = 0
+    let rafInitId = 0
+
     let pointerX = window.innerWidth / 2
     let pointerY = window.innerHeight / 2
+    let zoomProgress = 0
 
-    const setVar = (name: string, value: string) => {
-      stage.style.setProperty(name, value)
+    const MAX_SCALE = prefersReducedMotion ? 1 : 80
+
+    const recalcTransformOrigin = () => {
+      const computerRect = computer.getBoundingClientRect()
+      const screenRect = screen.getBoundingClientRect()
+
+      const originX = screenRect.left - computerRect.left + screenRect.width / 2
+      const originY = screenRect.top - computerRect.top + screenRect.height / 2
+
+      computer.style.transformOrigin = `${originX.toFixed(2)}px ${originY.toFixed(2)}px`
+    }
+
+    const applyTransform = () => {
+      if (prefersReducedMotion) {
+        computer.style.transform = 'scale(1)'
+        computer.style.opacity = '1'
+        return
+      }
+
+      const zoomCurve = Math.pow(zoomProgress, 1.35)
+      const scale = Math.exp(Math.log(MAX_SCALE) * zoomCurve)
+
+      const tiltStrength = 1 - clamp(Math.pow(zoomProgress, 1.2) * 1.15, 0, 1)
+
+      const stageRect = stage.getBoundingClientRect()
+      const halfWidth = Math.max(stageRect.width / 2, 1)
+      const halfHeight = Math.max(stageRect.height / 2, 1)
+      const stageCenterX = stageRect.left + halfWidth
+      const stageCenterY = stageRect.top + halfHeight
+
+      const offsetX = clamp((pointerX - stageCenterX) / halfWidth, -1, 1)
+      const offsetY = clamp((pointerY - stageCenterY) / halfHeight, -1, 1)
+
+      const rotateY = offsetX * 6 * tiltStrength
+      const rotateX = -offsetY * 4 * tiltStrength
+      const panX = offsetX * 10 * tiltStrength
+      const panY = offsetY * 7 * tiltStrength
+
+      const fadeStart = 0.84
+      const opacity = 1 - clamp((zoomProgress - fadeStart) / (1 - fadeStart), 0, 1)
+
+      computer.style.opacity = opacity.toFixed(3)
+      computer.style.transform = `translate3d(${panX.toFixed(2)}px, ${panY.toFixed(2)}px, 0) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(${scale.toFixed(4)})`
     }
 
     const syncScroll = () => {
-      const hero = stage.closest('.landing-hero') as HTMLElement | null
-      if (!hero) return
-
-      const rect = hero.getBoundingClientRect()
+      const trackRect = track.getBoundingClientRect()
       const viewportHeight = window.innerHeight || 1
-      const travel = Math.max(hero.offsetHeight - viewportHeight * 0.55, viewportHeight * 0.38)
-      const progress = clamp((-rect.top + viewportHeight * 0.12) / travel, 0, 1)
+      const travel = Math.max(trackRect.height - viewportHeight, 1)
 
-      setVar('--monitor-scroll', progress.toFixed(3))
-      setVar('--monitor-scale', (0.84 + progress * 0.2).toFixed(3))
-      setVar('--monitor-depth', `${((1 - progress) * 36).toFixed(1)}px`)
-    }
-
-    const syncPointer = () => {
-      rafId = 0
-      if (prefersReducedMotion) return
-
-      const rect = stage.getBoundingClientRect()
-      const centerX = rect.left + rect.width / 2
-      const centerY = rect.top + rect.height / 2
-      const offsetX = clamp((pointerX - centerX) / (rect.width / 2), -1, 1)
-      const offsetY = clamp((pointerY - centerY) / (rect.height / 2), -1, 1)
-
-      setVar('--monitor-tilt-y', `${(offsetX * 6).toFixed(2)}deg`)
-      setVar('--monitor-tilt-x', `${(-offsetY * 4).toFixed(2)}deg`)
-      setVar('--monitor-pan-x', `${(offsetX * 10).toFixed(1)}px`)
-      setVar('--monitor-pan-y', `${(offsetY * 7).toFixed(1)}px`)
-    }
-
-    const resetPointer = () => {
-      if (prefersReducedMotion) return
-      setVar('--monitor-tilt-y', '0deg')
-      setVar('--monitor-tilt-x', '0deg')
-      setVar('--monitor-pan-x', '0px')
-      setVar('--monitor-pan-y', '0px')
+      zoomProgress = clamp(-trackRect.top / travel, 0, 1)
+      applyTransform()
     }
 
     const onPointerMove = (event: PointerEvent) => {
       pointerX = event.clientX
       pointerY = event.clientY
-      if (!rafId) rafId = window.requestAnimationFrame(syncPointer)
+
+      if (rafPointerId) return
+      rafPointerId = window.requestAnimationFrame(() => {
+        rafPointerId = 0
+        applyTransform()
+      })
     }
 
     const onScroll = () => {
-      if (scrollRafId) return
-      scrollRafId = window.requestAnimationFrame(() => {
-        scrollRafId = 0
+      if (rafScrollId) return
+      rafScrollId = window.requestAnimationFrame(() => {
+        rafScrollId = 0
         syncScroll()
       })
     }
 
     const onResize = () => {
+      recalcTransformOrigin()
       syncScroll()
-      resetPointer()
     }
 
-    // Defer initial layout reads to avoid forced reflow during hydration
-    let initRafId = window.requestAnimationFrame(() => {
-      initRafId = 0
-      syncScroll()
-      resetPointer()
+    const onPointerLeave = () => {
+      pointerX = window.innerWidth / 2
+      pointerY = window.innerHeight / 2
 
-      if (prefersReducedMotion) {
-        setVar('--monitor-scale', '1')
-        setVar('--monitor-depth', '0px')
-      }
+      if (rafPointerId) return
+      rafPointerId = window.requestAnimationFrame(() => {
+        rafPointerId = 0
+        applyTransform()
+      })
+    }
+
+    rafInitId = window.requestAnimationFrame(() => {
+      rafInitId = 0
+      recalcTransformOrigin()
+      syncScroll()
     })
 
     stage.addEventListener('pointermove', onPointerMove, { passive: true })
+    stage.addEventListener('mouseleave', onPointerLeave)
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onResize)
-    stage.addEventListener('mouseleave', resetPointer)
 
     return () => {
-      if (initRafId) window.cancelAnimationFrame(initRafId)
-      if (rafId) window.cancelAnimationFrame(rafId)
-      if (scrollRafId) window.cancelAnimationFrame(scrollRafId)
+      if (rafInitId) window.cancelAnimationFrame(rafInitId)
+      if (rafPointerId) window.cancelAnimationFrame(rafPointerId)
+      if (rafScrollId) window.cancelAnimationFrame(rafScrollId)
+
       stage.removeEventListener('pointermove', onPointerMove)
+      stage.removeEventListener('mouseleave', onPointerLeave)
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
-      stage.removeEventListener('mouseleave', resetPointer)
     }
   }, [])
 
   return (
-    <Parallax speed={0.1} relativeTo="viewport" className="landing-hero__computer-stage landing-hero__computer-stage--intro" zIndex={2}>
-      <div ref={stageRef} className="landing-hero__computer-stage-inner" aria-hidden="true">
+    <div ref={trackRef} className="landing-hero__computer-stage landing-hero__computer-stage--intro relative h-[300vh]" aria-hidden="true">
+      <div className="landing-hero__computer-stage-inner sticky top-0 flex h-screen items-center justify-center" ref={stageRef}>
         <div className="landing-floor-line" />
 
-        <div className="landing-computer">
+        <div className="landing-computer will-change-transform">
           <div className="landing-computer__glow" />
 
           <div className="landing-computer__bezel">
@@ -163,6 +194,6 @@ export function HeroMonitorIntro() {
           <div className="landing-computer__cable" />
         </div>
       </div>
-    </Parallax>
+    </div>
   )
 }
