@@ -14,6 +14,7 @@ export type ContactLeadPayload = {
   email: string
   company: string
   projectType: string
+  mainGoal: string
   message: string
 }
 

@@ -91,6 +91,20 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
           </select>
         </label>
 
+        <label htmlFor="mainGoal" className="lead-form__field">
+          <span>Objetivo principal</span>
+          <select id="mainGoal" name="mainGoal" defaultValue="" required>
+            <option value="" disabled>
+              Selecciona tu foco principal
+            </option>
+            <option value="Generar más leads">Generar más leads</option>
+            <option value="Subir autoridad de marca">Subir autoridad de marca</option>
+            <option value="Automatizar operación">Automatizar operación</option>
+            <option value="Mejorar SEO/AEO">Mejorar SEO/AEO</option>
+          </select>
+          <small className="lead-form__hint">Con esto te regreso un plan más preciso desde la primera respuesta.</small>
+        </label>
+
         <label htmlFor="budgetRange" className="lead-form__field">
           <span>Presupuesto aproximado (opcional)</span>
           <select id="budgetRange" name="budgetRange" defaultValue="">

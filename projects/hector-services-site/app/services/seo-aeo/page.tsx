@@ -54,21 +54,63 @@ export default function SeoAeoPage() {
           Posicionamos tu marca para capturar demanda orgánica en Google y en sistemas de respuestas con IA.
         </p>
 
-        <h2>Qué incluye</h2>
+        <h2>Para quién es / para quién no</h2>
+        <div className="service-grid">
+          <article className="service-card">
+            <h3>Ideal para</h3>
+            <ul className="bullet-list">
+              <li>Empresas B2B con autoridad técnica, pero baja visibilidad de intención.</li>
+              <li>Equipos que necesitan que SEO contribuya a pipeline, no solo tráfico.</li>
+              <li>Marcas que quieren ser más citables en respuestas de IA.</li>
+            </ul>
+          </article>
+          <article className="service-card">
+            <h3>No es ideal si</h3>
+            <ul className="bullet-list">
+              <li>No existe capacidad mínima de publicación o actualización de páginas.</li>
+              <li>Se esperan resultados sin alinear oferta y mensaje comercial.</li>
+              <li>No habrá seguimiento de métricas de negocio.</li>
+            </ul>
+          </article>
+        </div>
+
+        <h2>Entregables exactos</h2>
         <ul className="bullet-list">
-          <li>Technical SEO: indexación, estructura y velocidad.</li>
-          <li>Arquitectura de contenidos por intención comercial.</li>
-          <li>Schema (Service + FAQ) para mejorar citabilidad en IA.</li>
+          <li>Auditoría técnica SEO (indexación, arquitectura, rendimiento).</li>
+          <li>Mapa de intención y priorización de páginas por impacto comercial.</li>
+          <li>Bloques answer-first + schema en landings clave.</li>
+          <li>Backlog editorial accionable por clusters.</li>
+          <li>Dashboard de queries, CTR y conversión.</li>
         </ul>
 
-        <h2>Proceso (8-12 semanas)</h2>
+        <h2>Proceso resumido (5 pasos)</h2>
         <ul className="bullet-list">
-          <li>Semana 1-2: auditoría técnica y limpieza de señales SEO.</li>
-          <li>Semana 3-6: páginas answer-first + clusters de intención.</li>
-          <li>Semana 7-12: iteración por queries comerciales y CTR/CTA.</li>
+          <li>1) Diagnóstico técnico y de intención comercial.</li>
+          <li>2) Reestructura de páginas prioritarias.</li>
+          <li>3) Implementación de contenido citable + schema.</li>
+          <li>4) Iteración por datos de Search Console y conversión.</li>
+          <li>5) Escalado editorial con control de canibalización.</li>
         </ul>
 
-        <h2>Prueba y resultados</h2>
+        <h2>Métricas objetivo</h2>
+        <ul className="bullet-list">
+          <li>Clicks cualificados por query de intención.</li>
+          <li>Queries en top 10 por servicio.</li>
+          <li>CTR en páginas de servicio.</li>
+          <li>Leads orgánicos y activación de CTA.</li>
+        </ul>
+
+        <h2>Objeciones frecuentes</h2>
+        <details>
+          <summary>“¿SEO todavía funciona con IA?”</summary>
+          <p>Sí: SEO + AEO hoy se complementan. La clave es estructura + contenido útil + señales de autoridad.</p>
+        </details>
+        <details>
+          <summary>“¿Cuánto tarda?”</summary>
+          <p>Las primeras señales aparecen en semanas; la consolidación suele verse en ciclos de 8-12 semanas.</p>
+        </details>
+
+        <h2>Mini caso relacionado</h2>
         <p>
           Caso aplicado: <strong>+123% tráfico orgánico</strong>, <strong>+71% clicks cualificados</strong> y{' '}
           <strong>+44% queries top 10</strong>.
@@ -76,13 +118,6 @@ export default function SeoAeoPage() {
         <p>
           <Link href="/cases/visibilidad-organica-aeo">Ver caso completo de SEO/AEO →</Link>
         </p>
-
-        <h2>Por qué Pachano Design</h2>
-        <ul className="bullet-list">
-          <li>Combinamos arquitectura técnica + contenido comercial.</li>
-          <li>Foco en demanda útil (pipeline), no solo volumen de tráfico.</li>
-          <li>Roadmap semanal con evidencia y decisiones de priorización.</li>
-        </ul>
       </section>
     </main>
   )

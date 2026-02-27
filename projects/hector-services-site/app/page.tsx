@@ -52,6 +52,21 @@ const faqItems = [
 
 const tickerItems = ['Automatizaciones', 'Diseño Web', 'SEO / AEO', 'Performance', 'Conversión']
 
+const answerBlocks = [
+  {
+    title: 'Qué hago',
+    content: 'Construyo sistemas digitales B2B que convierten: web, automatización y SEO/AEO en una sola ejecución.'
+  },
+  {
+    title: 'Para quién',
+    content: 'Equipos de servicios profesionales y B2B que necesitan más demanda calificada sin improvisar operación.'
+  },
+  {
+    title: 'Cómo lo ejecuto',
+    content: 'Diagnóstico → implementación por fases → medición semanal de conversión, velocidad y pipeline.'
+  }
+]
+
 const homeServiceSchemas = [
   serviceSchema({
     name: 'Diseño Web B2B',
@@ -141,6 +156,15 @@ export default function HomePage() {
             </div>
 
             <p className="landing-hero__perf-proof landing-hero__line landing-hero__line--6">INP &lt; 200ms · LCP &lt; 2.5s · conversion-ready</p>
+
+            <div className="landing-answer-blocks landing-hero__line landing-hero__line--7" aria-label="Answer blocks">
+              {answerBlocks.map((block) => (
+                <article key={block.title} className="landing-answer-block">
+                  <p className="landing-answer-block__title">{block.title}</p>
+                  <p className="landing-answer-block__content">{block.content}</p>
+                </article>
+              ))}
+            </div>
           </Parallax>
 
           <HeroMonitorIntro />
@@ -149,7 +173,7 @@ export default function HomePage() {
         <Parallax
           speed={0.2}
           relativeTo="scroll"
-          className="landing-hero__bottom landing-hero__line landing-hero__line--7"
+          className="landing-hero__bottom landing-hero__line landing-hero__line--8"
           zIndex={2}
         >
           <div className="landing-hero__actions">

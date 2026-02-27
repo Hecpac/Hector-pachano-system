@@ -30,13 +30,14 @@ export async function submitLeadAction(
   const email = String(formData.get('email') || '').trim()
   const company = String(formData.get('company') || '').trim()
   const projectType = String(formData.get('projectType') || '').trim()
+  const mainGoal = String(formData.get('mainGoal') || '').trim()
   const budgetRange = String(formData.get('budgetRange') || '').trim()
   const message = String(formData.get('message') || '').trim()
 
-  if (!name || !email || !message) {
+  if (!name || !email || !message || !projectType || !mainGoal) {
     return {
       status: 'error',
-      message: 'Completa nombre, email y objetivo del proyecto.'
+      message: 'Completa nombre, email, servicio y objetivo principal.'
     }
   }
 
@@ -75,6 +76,7 @@ export async function submitLeadAction(
     email,
     company,
     projectType,
+    mainGoal,
     message: budgetRange ? `${message}\n\nPresupuesto aproximado: ${budgetRange}` : message
   }
 
@@ -88,9 +90,10 @@ export async function submitLeadAction(
       `Email: ${email}`,
       `Empresa: ${company || 'N/A'}`,
       `Tipo de proyecto: ${projectType || 'N/A'}`,
+      `Objetivo principal: ${mainGoal || 'N/A'}`,
       `Presupuesto aproximado: ${budgetRange || 'N/A'}`,
       '',
-      'Objetivo:',
+      'Contexto:',
       message
     ].join('\n')
   }

@@ -54,35 +54,70 @@ export default function AutomatizacionesPage() {
           Diseñamos flujos que eliminan tareas repetitivas y conectan herramientas clave para operar con velocidad.
         </p>
 
-        <h2>Qué incluye</h2>
+        <h2>Para quién es / para quién no</h2>
+        <div className="service-grid">
+          <article className="service-card">
+            <h3>Ideal para</h3>
+            <ul className="bullet-list">
+              <li>Equipos B2B con leads en varios canales y seguimiento manual.</li>
+              <li>Operaciones comerciales con tiempos de respuesta lentos.</li>
+              <li>Empresas que quieren escalar sin contratar más operación repetitiva.</li>
+            </ul>
+          </article>
+          <article className="service-card">
+            <h3>No es ideal si</h3>
+            <ul className="bullet-list">
+              <li>Aún no existe oferta/servicio definido para vender.</li>
+              <li>No hay owner comercial para ejecutar sobre los leads entrantes.</li>
+              <li>Buscas “automatizar todo” sin proceso base mínimo.</li>
+            </ul>
+          </article>
+        </div>
+
+        <h2>Entregables exactos</h2>
         <ul className="bullet-list">
-          <li>Automatización de lead intake y seguimiento.</li>
-          <li>Integración CRM, formularios y email transaccional.</li>
-          <li>Dashboard operativo para decisiones rápidas.</li>
+          <li>Mapa de flujo actual y blueprint objetivo (captura → CRM → seguimiento).</li>
+          <li>Integración de formularios, CRM y notificaciones operativas.</li>
+          <li>Reglas de enrutamiento por servicio, fit y prioridad comercial.</li>
+          <li>Secuencias de seguimiento y alertas de SLA.</li>
+          <li>Dashboard operativo para control diario.</li>
         </ul>
 
-        <h2>Proceso (cómo lo ejecutamos)</h2>
+        <h2>Proceso resumido (5 pasos)</h2>
         <ul className="bullet-list">
-          <li>Semana 1: auditoría de flujo actual y estandarización de datos.</li>
-          <li>Semana 2: reglas de enrutamiento por intención comercial.</li>
-          <li>Semana 3-4: seguimiento automático + SLA + alertas operativas.</li>
+          <li>1) Auditoría de pipeline y calidad de datos.</li>
+          <li>2) Diseño de arquitectura de automatización por impacto.</li>
+          <li>3) Implementación de integraciones y reglas de enrutamiento.</li>
+          <li>4) Pruebas reales con leads y fallback de errores.</li>
+          <li>5) Optimización semanal por KPI comercial.</li>
         </ul>
 
-        <h2>Prueba y resultados</h2>
+        <h2>Métricas objetivo</h2>
+        <ul className="bullet-list">
+          <li>Tiempo de primera respuesta (SLA).</li>
+          <li>Tasa de contacto efectivo.</li>
+          <li>Horas operativas liberadas por semana.</li>
+          <li>Leads perdidos por falta de seguimiento.</li>
+        </ul>
+
+        <h2>Objeciones frecuentes</h2>
+        <details>
+          <summary>“No quiero romper lo que ya funciona.”</summary>
+          <p>Se implementa por fases y con rollback explícito en cada etapa crítica.</p>
+        </details>
+        <details>
+          <summary>“Mi equipo no es técnico.”</summary>
+          <p>La operación final queda documentada y usable por negocio, no solo por developers.</p>
+        </details>
+
+        <h2>Mini caso relacionado</h2>
         <p>
-          Caso aplicado: <strong>-62% tiempo operativo</strong>, primera respuesta de <strong>4h a 43 min</strong> y{' '}
+          Resultado real: <strong>-62% tiempo operativo</strong>, primera respuesta de <strong>4h a 43 min</strong> y{' '}
           <strong>+31% tasa de contacto</strong>.
         </p>
         <p>
           <Link href="/cases/pipeline-leads-automatizado">Ver caso completo de automatizaciones →</Link>
         </p>
-
-        <h2>Por qué Pachano Design</h2>
-        <ul className="bullet-list">
-          <li>Implementación orientada a KPI comercial, no solo a tareas técnicas.</li>
-          <li>Trazabilidad de cada etapa del pipeline (datos, owner y estado).</li>
-          <li>Diseño de sistema con criterio operativo y validación real.</li>
-        </ul>
       </section>
     </main>
   )

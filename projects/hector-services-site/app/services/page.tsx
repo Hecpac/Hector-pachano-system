@@ -59,6 +59,21 @@ const engagementModels = [
   }
 ]
 
+const answerBlocks = [
+  {
+    title: 'Qué resolvemos',
+    content: 'Convertimos webs y operaciones dispersas en sistemas que capturan, califican y convierten demanda B2B.'
+  },
+  {
+    title: 'Cómo trabajamos',
+    content: 'Priorización por impacto, ejecución en fases y validación semanal con métricas reales de negocio.'
+  },
+  {
+    title: 'Qué entregamos',
+    content: 'Arquitectura, implementación y optimización continua en Web + Automatización + SEO/AEO.'
+  }
+]
+
 export default function ServicesPage() {
   return (
     <main className="page-shell" id="main-content">
@@ -81,6 +96,15 @@ export default function ServicesPage() {
             <p className="lead">
               Puedes contratar una línea puntual o un plan integral de ejecución tecnológica.
             </p>
+
+            <div className="service-grid" style={{ marginTop: '1rem', gap: '0.55rem' }}>
+              {answerBlocks.map((block) => (
+                <article key={block.title} className="service-card" style={{ padding: '0.85rem 0.9rem' }}>
+                  <h2 style={{ margin: 0, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{block.title}</h2>
+                  <p style={{ marginTop: '0.45rem', marginBottom: 0 }}>{block.content}</p>
+                </article>
+              ))}
+            </div>
           </div>
 
           <Parallax speed={0.1} relativeTo="scroll" className="services-hero__image-container" zIndex={1}>
