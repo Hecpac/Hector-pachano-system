@@ -30,6 +30,7 @@ export async function submitLeadAction(
   const email = String(formData.get('email') || '').trim()
   const company = String(formData.get('company') || '').trim()
   const projectType = String(formData.get('projectType') || '').trim()
+  const budgetRange = String(formData.get('budgetRange') || '').trim()
   const message = String(formData.get('message') || '').trim()
 
   if (!name || !email || !message) {
@@ -74,7 +75,7 @@ export async function submitLeadAction(
     email,
     company,
     projectType,
-    message
+    message: budgetRange ? `${message}\n\nPresupuesto aproximado: ${budgetRange}` : message
   }
 
   const emailPayload: LeadEmailInput = {
@@ -87,6 +88,7 @@ export async function submitLeadAction(
       `Email: ${email}`,
       `Empresa: ${company || 'N/A'}`,
       `Tipo de proyecto: ${projectType || 'N/A'}`,
+      `Presupuesto aproximado: ${budgetRange || 'N/A'}`,
       '',
       'Objetivo:',
       message

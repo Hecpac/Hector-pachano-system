@@ -60,7 +60,7 @@ export function HeroMonitorIntro() {
       setVar('--monitor-pan-y', '0px')
     }
 
-    const onMouseMove = (event: MouseEvent) => {
+    const onPointerMove = (event: PointerEvent) => {
       pointerX = event.clientX
       pointerY = event.clientY
       if (!rafId) rafId = window.requestAnimationFrame(syncPointer)
@@ -83,14 +83,14 @@ export function HeroMonitorIntro() {
       setVar('--monitor-depth', '0px')
     }
 
-    window.addEventListener('mousemove', onMouseMove, { passive: true })
+    stage.addEventListener('pointermove', onPointerMove, { passive: true })
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onResize)
     stage.addEventListener('mouseleave', resetPointer)
 
     return () => {
       if (rafId) window.cancelAnimationFrame(rafId)
-      window.removeEventListener('mousemove', onMouseMove)
+      stage.removeEventListener('pointermove', onPointerMove)
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
       stage.removeEventListener('mouseleave', resetPointer)

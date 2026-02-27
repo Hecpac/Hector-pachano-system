@@ -8,6 +8,8 @@ export function Footer() {
       <div className="page-shell" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
         <nav aria-label="Navegación secundaria" style={{ display: 'flex', gap: '1.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', textTransform: 'uppercase', flexWrap: 'wrap', justifyContent: 'center' }}>
           <a href="https://www.pachanodesign.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>Pachano Design ↗</a>
+          <Link href="/process" style={{ color: 'var(--muted)' }}>Proceso</Link>
+          <Link href="/industries" style={{ color: 'var(--muted)' }}>Industrias</Link>
           <Link href="/legal/privacidad" style={{ color: 'var(--muted)' }}>Política de Privacidad</Link>
           <Link href="/legal/aviso-legal" style={{ color: 'var(--muted)' }}>Aviso Legal</Link>
           <a href={`mailto:${SITE_CONTACT_EMAIL}`} style={{ color: 'var(--muted)' }}>{SITE_CONTACT_EMAIL}</a>

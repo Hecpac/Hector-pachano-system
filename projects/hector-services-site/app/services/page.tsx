@@ -36,6 +36,29 @@ const services = [
 
 const answerFirstFaqs = getAnswerFirstFaqs().slice(0, 5)
 
+const intentPages = [
+  { href: '/services/seo-aeo-b2b', label: 'SEO/AEO B2B' },
+  { href: '/services/automatizaciones-crm-hubspot', label: 'Automatizaciones CRM + HubSpot' },
+  { href: '/services/web-performance-nextjs', label: 'Web Performance en Next.js' },
+  { href: '/industries/servicios-profesionales', label: 'Industria: Servicios Profesionales' },
+  { href: '/industries/constructoras-ingenieria', label: 'Industria: Constructoras e Ingeniería' }
+]
+
+const engagementModels = [
+  {
+    title: 'Sprint (1-2 semanas)',
+    detail: 'Quick win medible para desbloquear una prioridad crítica sin esperar un proyecto largo.'
+  },
+  {
+    title: 'Build (4-8 semanas)',
+    detail: 'Sistema completo de Web + Automatización + SEO/AEO con entregables por fase y validación real.'
+  },
+  {
+    title: 'Retainer continuo',
+    detail: 'Mejora semanal con backlog priorizado, KPIs de negocio y optimización de embudo.'
+  }
+]
+
 export default function ServicesPage() {
   return (
     <main className="page-shell" id="main-content">
@@ -86,6 +109,30 @@ export default function ServicesPage() {
               </article>
             ))}
           </div>
+
+          <article className="service-card" style={{ marginTop: '2rem' }}>
+            <h2>Landings por intención (SEO + AEO)</h2>
+            <p>Páginas específicas para capturar demanda de mayor intención comercial.</p>
+            <ul className="bullet-list">
+              {intentPages.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="service-card" style={{ marginTop: '2rem' }}>
+            <h2>Modelos de trabajo</h2>
+            <div className="service-grid">
+              {engagementModels.map((model) => (
+                <div key={model.title} className="service-card">
+                  <h3>{model.title}</h3>
+                  <p>{model.detail}</p>
+                </div>
+              ))}
+            </div>
+          </article>
 
           <article className="service-card" style={{ marginTop: '2rem' }}>
             <h2>Preguntas de alto intento (AEO)</h2>

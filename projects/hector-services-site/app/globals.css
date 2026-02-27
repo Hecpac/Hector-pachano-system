@@ -989,6 +989,12 @@ h3 {
   color: var(--muted);
 }
 
+.lead-form__hint {
+  margin-top: -0.1rem;
+  color: color-mix(in srgb, var(--muted) 90%, #fff 10%);
+  font-size: 0.72rem;
+}
+
 .lead-form input,
 .lead-form select,
 .lead-form textarea {
@@ -1897,6 +1903,45 @@ h3 {
   color: transparent;
 }
 
+.landing-hero__subheadline {
+  margin: 0.8rem 0 0;
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  letter-spacing: 0.02em;
+  color: rgba(232, 230, 225, 0.88);
+  max-width: 52ch;
+}
+
+.landing-proof-grid {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  max-width: 640px;
+}
+
+.landing-proof-card {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(17, 17, 17, 0.78);
+  padding: 0.72rem 0.8rem;
+}
+
+.landing-proof-card__kicker {
+  margin: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.62);
+  font-size: 0.68rem;
+}
+
+.landing-proof-card__value {
+  margin: 0.32rem 0 0;
+  color: #f4f1ea;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
 .landing-hero__counter {
   position: absolute;
   right: 40px;
@@ -2428,6 +2473,15 @@ h3 {
     font-size: clamp(13px, 3.8vw, 18px);
     letter-spacing: 0.06em;
     margin-bottom: 0.16em;
+  }
+
+  .landing-hero__subheadline {
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .landing-proof-grid {
+    grid-template-columns: 1fr;
   }
 
   .landing-hero__bottom {

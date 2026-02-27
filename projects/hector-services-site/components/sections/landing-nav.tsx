@@ -7,6 +7,8 @@ import { SITE_NAME } from '@/lib/seo/site'
 
 const links = [
   { label: 'Servicios', href: '/services' },
+  { label: 'Industrias', href: '/industries' },
+  { label: 'Proceso', href: '/process' },
   { label: 'Casos', href: '/cases' },
   { label: 'Auditor Web', href: '/auditor' },
   { label: 'Blog', href: '/blog' },

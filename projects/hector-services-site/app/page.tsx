@@ -73,7 +73,7 @@ const homeServiceSchemas = [
 ]
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Sistemas Digitales: Web, Automatización y SEO',
+  title: 'Sistemas Digitales B2B | Web, Automatización y SEO/AEO',
   description: SITE_DESCRIPTION,
   path: '/'
 })
@@ -113,11 +113,24 @@ export default function HomePage() {
               <span className="line-outline">que generan ingresos.</span>
             </h1>
 
+            <h2 className="landing-hero__subheadline">Sistemas digitales para empresas B2B: Web + Automatización + SEO/AEO</h2>
+
             <div className="landing-hero__descriptor">
               <p className="landing-hero__descriptor-main">
                 Diseño que convierte + SEO que posiciona + automatización que escala.
               </p>
               <p className="landing-hero__descriptor-support">Todo integrado, todo medible, todo tuyo.</p>
+            </div>
+
+            <div className="landing-proof-grid" aria-label="Prueba de resultados">
+              <article className="landing-proof-card">
+                <p className="landing-proof-card__kicker">Sistema</p>
+                <p className="landing-proof-card__value">Captura → CRM → Seguimiento → Dashboard</p>
+              </article>
+              <article className="landing-proof-card">
+                <p className="landing-proof-card__kicker">Caso real</p>
+                <p className="landing-proof-card__value">Tiempo operativo -62%</p>
+              </article>
             </div>
           </Parallax>
 

@@ -70,6 +70,7 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
             spellCheck={false}
             inputMode="email"
           />
+          <small className="lead-form__hint">No spam. Respuesta en menos de 24h.</small>
         </label>
 
         <label htmlFor="company" className="lead-form__field">
@@ -90,6 +91,17 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
           </select>
         </label>
 
+        <label htmlFor="budgetRange" className="lead-form__field">
+          <span>Presupuesto aproximado (opcional)</span>
+          <select id="budgetRange" name="budgetRange" defaultValue="">
+            <option value="">Prefiero comentarlo en llamada</option>
+            <option value="<2k">Menos de $2k</option>
+            <option value="2k-5k">$2k - $5k</option>
+            <option value="5k-10k">$5k - $10k</option>
+            <option value=">10k">Más de $10k</option>
+          </select>
+        </label>
+
         <label htmlFor="message" className="lead-form__field lead-form__field--full">
           <span>¿Qué quieres resolver?</span>
           <textarea
@@ -97,7 +109,7 @@ export function LeadForm({ action, calLink }: LeadFormProps) {
             name="message"
             required
             rows={4}
-            placeholder="Cuéntame el contexto, objetivo y deadline…"
+            placeholder="Ejemplo: quiero +X leads/mes sin contratar más equipo comercial"
           />
         </label>
 
