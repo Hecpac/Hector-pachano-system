@@ -1517,12 +1517,7 @@ h3 {
 
 .landing-hero-track {
   position: relative;
-  height: auto;
-}
-@media (min-width: 981px) {
-  .landing-hero-track {
-    height: 250vh;
-  }
+  height: 250vh;
 }
 
 .landing-hero {
