@@ -26,7 +26,18 @@ const baseRoutes = [
   '/faq',
   '/blog',
   '/legal/privacidad',
-  '/legal/aviso-legal'
+  '/legal/aviso-legal',
+  '/en',
+  '/en/services',
+  '/en/services/automatizaciones',
+  '/en/services/diseno-web',
+  '/en/services/seo-aeo',
+  '/en/contact',
+  '/en/about',
+  '/en/process',
+  '/en/industries',
+  '/en/industries/servicios-profesionales',
+  '/en/industries/constructoras-ingenieria'
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

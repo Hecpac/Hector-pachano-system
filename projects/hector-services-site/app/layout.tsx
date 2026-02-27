@@ -47,7 +47,11 @@ export const metadata: Metadata = {
     images: ['/opengraph-image']
   },
   alternates: {
-    canonical: SITE_URL
+    canonical: SITE_URL,
+    languages: {
+      es: SITE_URL,
+      en: `${SITE_URL}/en`
+    }
   },
   icons: {
     icon: '/favicon.ico',

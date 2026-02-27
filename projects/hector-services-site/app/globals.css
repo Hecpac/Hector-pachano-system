@@ -1440,6 +1440,25 @@ h3 {
   transition: border-color 0.2s, background 0.2s, color 0.2s;
 }
 
+.btn-lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(232, 230, 225, 0.92);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
 .btn-auditor:hover {
   border-color: rgba(255, 75, 43, 0.75);
   background: rgba(255, 75, 43, 0.14);
@@ -1447,6 +1466,16 @@ h3 {
 }
 
 .btn-auditor:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn-lang:hover {
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-lang:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
@@ -3036,6 +3065,13 @@ h3 {
     letter-spacing: 0.1em;
   }
 
+  .btn-lang {
+    min-height: 32px;
+    padding: 6px 8px;
+    font-size: 8px;
+    letter-spacing: 0.09em;
+  }
+
   .btn-cta {
     min-height: 34px;
     padding: 7px 14px;
@@ -3358,6 +3394,11 @@ h3 {
   .btn-auditor {
     padding: 6px 8px;
     font-size: 7.5px;
+  }
+
+  .btn-lang {
+    padding: 6px 7px;
+    font-size: 7px;
   }
 
   .landing-nav__links a {

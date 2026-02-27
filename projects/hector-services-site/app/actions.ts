@@ -19,10 +19,41 @@ export async function submitLeadAction(
   formData: FormData
 ): Promise<LeadFormState> {
   const trap = String(formData.get('website') || '')
+  const locale = String(formData.get('locale') || 'es').trim() === 'en' ? 'en' : 'es'
+  const m = {
+    spamOk: locale === 'en' ? 'Thanks. I will contact you soon.' : 'Gracias. Te contacto pronto.',
+    missing:
+      locale === 'en'
+        ? 'Please complete name, email, service, and main goal.'
+        : 'Completa nombre, email, servicio y objetivo principal.',
+    invalidEmail:
+      locale === 'en'
+        ? 'Please check your email format and try again.'
+        : 'Revisa el formato del email e intenta de nuevo.',
+    localFallback:
+      locale === 'en'
+        ? 'Received. (Local mode) We will enable real delivery once webhook or Resend is connected.'
+        : 'Recibido. (Modo local) Configuramos envío real en cuanto conectes webhook o Resend.',
+    productionMissing:
+      locale === 'en'
+        ? 'Form temporarily unavailable. Email me directly and we will solve it.'
+        : 'Formulario temporalmente no disponible. Escríbeme directo por email y lo resolvemos.',
+    queued:
+      locale === 'en'
+        ? 'Received. There was a technical delay, but your request is safely queued.'
+        : 'Recibido. Hubo una demora técnica, pero tu solicitud quedó en cola segura.',
+    failed:
+      locale === 'en'
+        ? 'I could not send the form. Try again in a few minutes.'
+        : 'No pude enviar el formulario. Intenta de nuevo en unos minutos.',
+    success:
+      locale === 'en' ? 'Done. I will reply within 24 hours.' : 'Listo. Te responderé en menos de 24 horas.'
+  }
+
   if (trap) {
     return {
       status: 'success',
-      message: 'Gracias. Te contacto pronto.'
+      message: m.spamOk
     }
   }
 
@@ -37,14 +68,14 @@ export async function submitLeadAction(
   if (!name || !email || !message || !projectType || !mainGoal) {
     return {
       status: 'error',
-      message: 'Completa nombre, email, servicio y objetivo principal.'
+      message: m.missing
     }
   }
 
   if (!isValidEmail(email)) {
     return {
       status: 'error',
-      message: 'Revisa el formato del email e intenta de nuevo.'
+      message: m.invalidEmail
     }
   }
 
@@ -56,7 +87,7 @@ export async function submitLeadAction(
 
       return {
         status: 'success',
-        message: 'Recibido. (Modo local) Configuramos envío real en cuanto conectes webhook o Resend.'
+        message: m.localFallback
       }
     }
 
@@ -64,7 +95,7 @@ export async function submitLeadAction(
 
     return {
       status: 'error',
-      message: 'Formulario temporalmente no disponible. Escríbeme directo por email y lo resolvemos.'
+      message: m.productionMissing
     }
   }
 
@@ -117,19 +148,19 @@ export async function submitLeadAction(
     if (queueResult.enqueued) {
       return {
         status: 'success',
-        message: 'Recibido. Hubo una demora técnica, pero tu solicitud quedó en cola segura.'
+        message: m.queued
       }
     }
 
     return {
       status: 'error',
-      message: 'No pude enviar el formulario. Intenta de nuevo en unos minutos.'
+      message: m.failed
     }
   }
 
   return {
     status: 'success',
-    message: 'Listo. Te responderé en menos de 24 horas.'
+    message: m.success
   }
 }
 

@@ -1,27 +1,84 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 import { SITE_NAME } from '@/lib/seo/site'
 
-const links = [
-  { label: 'Servicios', href: '/services' },
-  { label: 'Industrias', href: '/industries' },
-  { label: 'Proceso', href: '/process' },
-  { label: 'Casos', href: '/cases' },
-  { label: 'Auditor Web', href: '/auditor' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Sobre mí', href: '/about' },
-  { label: 'Contacto', href: '/contact' }
-]
+type Locale = 'es' | 'en'
+
+const navLabels = {
+  es: {
+    navigation: 'Navegación principal',
+    open: 'Abrir menú',
+    close: 'Cerrar menú',
+    auditor: 'Auditor Web',
+    cta: 'Agenda',
+    languageSwitch: 'English',
+    links: [
+      { label: 'Servicios', href: '/services' },
+      { label: 'Industrias', href: '/industries' },
+      { label: 'Proceso', href: '/process' },
+      { label: 'Casos', href: '/cases' },
+      { label: 'Auditor Web', href: '/auditor' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Sobre mí', href: '/about' },
+      { label: 'Contacto', href: '/contact' }
+    ]
+  },
+  en: {
+    navigation: 'Main navigation',
+    open: 'Open menu',
+    close: 'Close menu',
+    auditor: 'Web Auditor',
+    cta: 'Book call',
+    languageSwitch: 'Español',
+    links: [
+      { label: 'Services', href: '/services' },
+      { label: 'Industries', href: '/industries' },
+      { label: 'Process', href: '/process' },
+      { label: 'Case studies', href: '/cases' },
+      { label: 'Web Auditor', href: '/auditor' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' }
+    ]
+  }
+} as const
+
+function getLocaleFromPath(pathname: string): Locale {
+  return pathname.startsWith('/en') ? 'en' : 'es'
+}
+
+function stripLocale(pathname: string) {
+  if (!pathname.startsWith('/en')) return pathname || '/'
+  const stripped = pathname.replace(/^\/en/, '')
+  return stripped || '/'
+}
+
+function localizePath(path: string, locale: Locale) {
+  if (locale === 'es') return path
+  return path === '/' ? '/en' : `/en${path}`
+}
+
+function getLanguageSwitchHref(pathname: string, locale: Locale) {
+  const withoutLocale = stripLocale(pathname)
+  return locale === 'es' ? localizePath(withoutLocale, 'en') : withoutLocale
+}
 
 export function LandingNav() {
+  const pathname = usePathname() || '/'
+  const locale = getLocaleFromPath(pathname)
+  const labels = navLabels[locale]
+
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const navRef = useRef<HTMLElement | null>(null)
 
   const closeMenu = () => setIsOpen(false)
+
+  const languageSwitchHref = useMemo(() => getLanguageSwitchHref(pathname, locale), [pathname, locale])
 
   useEffect(() => {
     if (!isOpen) {
@@ -97,27 +154,31 @@ export function LandingNav() {
       <nav
         ref={navRef}
         className={`landing-nav${isOpen ? ' is-open' : ''}${isScrolled ? ' is-scrolled' : ''}`}
-        aria-label="Navegación principal"
+        aria-label={labels.navigation}
       >
-        <Link href="/" className="landing-nav__brand">
+        <Link href={localizePath('/', locale)} className="landing-nav__brand">
           <span className="landing-nav__brand-name">{SITE_NAME}</span>
           <span className="landing-nav__brand-sep">{' // '}</span>
           <span className="landing-nav__brand-sub"> Digital Systems</span>
         </Link>
 
         <div className="landing-nav__cta">
-          <Link href="/auditor" className="btn-auditor" onClick={closeMenu}>
-            Auditor Web
+          <Link href={localizePath('/auditor', locale)} className="btn-auditor" onClick={closeMenu}>
+            {labels.auditor}
           </Link>
 
-          <Link href="/contact" className="btn-cta" onClick={closeMenu}>
-            Agenda
+          <Link href={localizePath('/contact', locale)} className="btn-cta" onClick={closeMenu}>
+            {labels.cta}
+          </Link>
+
+          <Link href={languageSwitchHref} className="btn-lang" onClick={closeMenu}>
+            {labels.languageSwitch}
           </Link>
 
           <button
             type="button"
             className="landing-nav__menu-btn"
-            aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-label={isOpen ? labels.close : labels.open}
             aria-controls="landing-nav-links"
             aria-expanded={isOpen}
             onClick={() => setIsOpen((prev) => !prev)}
@@ -129,17 +190,11 @@ export function LandingNav() {
         </div>
 
         <ul id="landing-nav-links" className="landing-nav__links">
-          {links.map((item) => (
+          {labels.links.map((item) => (
             <li key={item.label}>
-              {item.href.startsWith('#') ? (
-                <a href={item.href} onClick={closeMenu}>
-                  {item.label}
-                </a>
-              ) : (
-                <Link href={item.href} onClick={closeMenu}>
-                  {item.label}
-                </Link>
-              )}
+              <Link href={localizePath(item.href, locale)} onClick={closeMenu}>
+                {item.label}
+              </Link>
             </li>
           ))}
         </ul>
