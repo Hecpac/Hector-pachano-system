@@ -8,6 +8,7 @@ import { HeroMonitorIntro } from '@/components/sections/hero-monitor-intro'
 import { LandingNav } from '@/components/sections/landing-nav'
 import { LeadForm } from '@/components/sections/lead-form'
 import { JsonLd } from '@/components/ui/json-ld'
+import { MobileCarouselDriver } from '@/components/ui/mobile-carousel-driver'
 import { Parallax } from '@/components/ui/parallax'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { faqSchema, organizationSchema, serviceSchema, websiteSchema } from '@/lib/seo/schema'
@@ -91,6 +92,7 @@ export default function HomePage() {
       <JsonLd data={faqSchema(faqItems)} />
 
       <LandingNav />
+      <MobileCarouselDriver />
 
       <section className="landing-hero">
         <div className="landing-hero__grain" aria-hidden="true" />
@@ -179,7 +181,11 @@ export default function HomePage() {
         </div>
 
         <h2 className="landing-section-label">Servicios</h2>
-        <section className="landing-services-grid reveal-on-scroll cinematic-panel scene-block scene-block--services stagger-fade-in">
+        <p className="mobile-swipe-hint" aria-hidden="true">Desliza →</p>
+        <section
+          className="landing-services-grid reveal-on-scroll cinematic-panel scene-block scene-block--services stagger-fade-in"
+          data-mobile-carousel="true"
+        >
           {services.map((service, index) => (
             <Parallax
               key={service.id}

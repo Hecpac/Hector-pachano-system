@@ -2351,6 +2351,52 @@ h3 {
   }
 }
 
+@keyframes mobile-hero-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes mobile-accent-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(255, 75, 43, 0);
+    filter: saturate(1);
+  }
+  50% {
+    text-shadow: 0 0 16px rgba(255, 75, 43, 0.32);
+    filter: saturate(1.25);
+  }
+}
+
+@keyframes mobile-cta-pulse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    box-shadow: 0 0 0 rgba(255, 75, 43, 0);
+  }
+  50% {
+    transform: translate3d(0, -2px, 0) scale(1.02);
+    box-shadow: 0 12px 28px rgba(255, 75, 43, 0.34);
+  }
+}
+
+@keyframes swipe-hint-pulse {
+  0%,
+  100% {
+    opacity: 0.66;
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(6px, 0, 0);
+  }
+}
+
 .landing-ticker {
   --ticker-speed: 18s;
   background: var(--accent);
@@ -2415,6 +2461,20 @@ h3 {
   padding: 64px 40px 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.mobile-swipe-hint {
+  display: none;
+  margin: 0 16px 10px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.72);
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.mobile-swipe-hint--cases {
+  margin: 4px 0 10px;
 }
 
 .landing-services-grid {
@@ -2698,8 +2758,15 @@ h3 {
     border-bottom: none;
   }
 
+  .mobile-swipe-hint {
+    display: block;
+    animation: swipe-hint-pulse 1.8s ease-in-out infinite;
+  }
+
   .landing-hero {
     padding: 0 16px;
+    background-size: 160% 160%;
+    animation: mobile-hero-shift 9s ease-in-out infinite;
   }
 
   .landing-hero__grid {
@@ -2806,6 +2873,10 @@ h3 {
     line-height: 1.45;
   }
 
+  .landing-hero__headline .line-orange {
+    animation: mobile-accent-pulse 2.2s ease-in-out infinite;
+  }
+
   .landing-proof-grid {
     grid-template-columns: 1fr;
   }
@@ -2832,6 +2903,10 @@ h3 {
     padding: 12px 16px;
   }
 
+  .landing-hero__actions .btn-primary {
+    animation: mobile-cta-pulse 1.9s ease-in-out infinite;
+  }
+
   .landing-section-label {
     padding: 40px 16px 14px;
   }
@@ -2847,11 +2922,17 @@ h3 {
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+
+  .landing-services-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .landing-service-card-wrapper {
-    flex: 0 0 84vw;
-    min-width: 84vw;
+    flex: 0 0 78vw;
+    min-width: 78vw;
     scroll-snap-align: center;
   }
 
@@ -2876,14 +2957,20 @@ h3 {
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     padding-bottom: 0.45rem;
+    scrollbar-width: none;
+  }
+
+  #casos .case-grid::-webkit-scrollbar {
+    display: none;
   }
 
   #casos .case-card,
   #casos .case-card--wide {
     grid-column: unset;
-    min-width: 86vw;
-    flex: 0 0 86vw;
+    min-width: 82vw;
+    flex: 0 0 82vw;
     scroll-snap-align: center;
+    animation: mobile-card-breathe 6.4s ease-in-out infinite;
   }
 }
 

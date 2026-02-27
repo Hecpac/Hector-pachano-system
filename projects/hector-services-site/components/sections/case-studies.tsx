@@ -13,7 +13,9 @@ export function CaseStudiesSection() {
         </Link>
       </div>
 
-      <div className="case-grid stagger-fade-in">
+      <p className="mobile-swipe-hint mobile-swipe-hint--cases" aria-hidden="true">Desliza casos →</p>
+
+      <div className="case-grid stagger-fade-in" data-mobile-carousel="true">
         {caseStudies.map((item) => (
           <Link
             key={item.id}
