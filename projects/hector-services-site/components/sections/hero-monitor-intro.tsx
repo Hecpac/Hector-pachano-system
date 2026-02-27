@@ -31,9 +31,9 @@ export function HeroMonitorIntro() {
     const MAX_SCALE = prefersReducedMotion || isMobile ? 1 : 80
 
     if (isMobile) {
-      track.classList.remove('h-[300vh]')
-      track.style.height = 'auto'
-      stage.classList.remove('h-screen', 'sticky')
+      // track.classList.remove('h-[300vh]')
+      // track.style.height = 'auto'
+      // stage.classList.remove('h-screen', 'sticky')
       stage.style.height = 'auto'
       stage.style.position = 'relative'
     }
@@ -82,7 +82,7 @@ export function HeroMonitorIntro() {
     }
 
     const applyTransform = () => {
-      if (prefersReducedMotion) {
+      if (prefersReducedMotion || isMobile) {
         computer.style.transform = 'scale(1)'
         computer.style.opacity = '1'
         return
@@ -107,18 +107,40 @@ export function HeroMonitorIntro() {
       const panX = offsetX * 10 * tiltStrength
       const panY = offsetY * 7 * tiltStrength
 
+
       const fadeStart = 0.84
       const opacity = 1 - clamp((zoomProgress - fadeStart) / (1 - fadeStart), 0, 1)
 
       computer.style.opacity = opacity.toFixed(3)
       computer.style.transform = `translate3d(${panX.toFixed(2)}px, ${panY.toFixed(2)}px, 0) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(${scale.toFixed(4)})`
+
+      // Fade out the surrounding hero text early in the zoom
+      const contentText = document.querySelector('.landing-hero__content') as HTMLElement
+      const bottomActions = document.querySelector('.landing-hero__bottom') as HTMLElement
+      if (contentText && bottomActions) {
+        // Fade them out between 10% and 40% zoom progress
+        const textOpacity = 1 - clamp((zoomProgress - 0.1) / 0.3, 0, 1)
+        contentText.style.opacity = textOpacity.toFixed(3)
+        bottomActions.style.opacity = textOpacity.toFixed(3)
+        
+        // Also fade out the background glow and vignette
+        const bgElements = document.querySelectorAll('.landing-hero__vignette, .landing-hero__bg-glow, .landing-hero__grain')
+        bgElements.forEach(el => {
+            (el as HTMLElement).style.opacity = textOpacity.toFixed(3)
+        })
+      }
+
     }
 
     const syncScroll = () => {
-      const trackRect = track.getBoundingClientRect()
+      const heroTrack = document.querySelector('.landing-hero-track') as HTMLElement
+      if (!heroTrack) return
+      
+      const trackRect = heroTrack.getBoundingClientRect()
       const viewportHeight = window.innerHeight || 1
       const travel = Math.max(trackRect.height - viewportHeight, 1)
-
+      
+      // Calculate how far down the 250vh track we have scrolled
       zoomProgress = clamp(-trackRect.top / travel, 0, 1)
       applyTransform()
     }
@@ -182,8 +204,8 @@ export function HeroMonitorIntro() {
   }, [])
 
   return (
-    <div ref={trackRef} className="landing-hero__computer-stage landing-hero__computer-stage--intro relative h-[300vh]" aria-hidden="true">
-      <div className="landing-hero__computer-stage-inner sticky top-0 flex h-screen items-center justify-center" ref={stageRef}>
+    <div ref={trackRef} className="landing-hero__computer-stage landing-hero__computer-stage--intro" aria-hidden="true">
+      <div className="landing-hero__computer-stage-inner" ref={stageRef}>
         <div className="landing-floor-line" />
 
         <div className="landing-computer will-change-transform">

@@ -92,7 +92,7 @@ export default function EnglishHomePage() {
 
       <LandingNav />
 
-      <section className="landing-hero">
+      <section className="landing-hero-track"><div className="landing-hero sticky top-0 h-[100svh] w-full">
         <div className="landing-hero__grain" aria-hidden="true" />
         <div className="landing-hero__vignette" aria-hidden="true" />
 
@@ -105,7 +105,7 @@ export default function EnglishHomePage() {
         </div>
 
         <div className="landing-hero__grid">
-          <Parallax speed={0.4} relativeTo="scroll" className="landing-hero__content" zIndex={2}>
+          <Parallax speed={0.4} relativeTo="scroll" className="landing-hero__content self-start" zIndex={2}>
             <div className="landing-hero__tags">
               <span className="landing-hero__tag">Automations</span>
               <span className="landing-hero__tag">Web Design</span>
@@ -185,7 +185,8 @@ export default function EnglishHomePage() {
             <span className="landing-hero__scroll-line" />
           </div>
         </Parallax>
-      </section>
+      </div>
+    </section>
 
       <section className="landing-content-wrapper">
         <h2 className="landing-section-label">Services</h2>

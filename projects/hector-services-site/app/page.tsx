@@ -113,7 +113,7 @@ export default function HomePage() {
       <LandingNav />
       <MobileCarouselDriver />
 
-      <section className="landing-hero">
+      <section className="landing-hero-track"><div className="landing-hero sticky top-0 h-[100svh] w-full">
         <div className="landing-hero__grain" aria-hidden="true" />
         <div className="landing-hero__vignette" aria-hidden="true" />
 
@@ -124,7 +124,7 @@ export default function HomePage() {
         <div className="landing-hero__counter">01 / 04</div>
 
         <div className="landing-hero__grid">
-          <Parallax speed={0.4} relativeTo="scroll" className="landing-hero__content" zIndex={2}>
+          <Parallax speed={0.4} relativeTo="scroll" className="landing-hero__content self-start" zIndex={2}>
             <div className="landing-hero__tags">
               <span className="landing-hero__tag">Automatizaciones</span>
               <span className="landing-hero__tag">Diseño Web</span>
@@ -209,7 +209,8 @@ export default function HomePage() {
           <div className="landing-scroll-line" />
           <span>Scroll</span>
         </div>
-      </section>
+      </div>
+    </section>
 
       <div className="landing-content-wrapper">
         <div className="landing-ticker" aria-hidden="true">

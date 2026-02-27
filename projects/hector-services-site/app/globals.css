@@ -153,7 +153,8 @@ a {
 
 .cinematic-panel {
   position: relative;
-  overflow: clip;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .cinematic-panel::before {
@@ -1513,13 +1514,24 @@ h3 {
   }
 }
 
+
+.landing-hero-track {
+  position: relative;
+  height: auto;
+}
+@media (min-width: 981px) {
+  .landing-hero-track {
+    height: 250vh;
+  }
+}
+
 .landing-hero {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   padding: 0 40px;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   background: #0d0f12;
   z-index: 1;
 }
