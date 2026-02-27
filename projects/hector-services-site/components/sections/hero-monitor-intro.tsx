@@ -55,17 +55,9 @@ export function HeroMonitorIntro() {
         setTimeout(() => { screenTitle.style.opacity = '0' }, 50)
         setTimeout(() => { 
           screenTitle.style.opacity = '1'
-          // Typewriter effect on spans
-          const spans = screenTitle.querySelectorAll('span') as NodeListOf<HTMLElement>
-          spans.forEach((span, i) => {
-            span.style.opacity = '0'
-            span.style.transform = 'translateY(4px)'
-            span.style.transition = 'opacity 0.1s ease, transform 0.1s ease'
-            setTimeout(() => {
-              span.style.opacity = '1'
-              span.style.transform = 'translateY(0)'
-            }, 300 + (i * 200))
-          })
+          // Let CSS animations handle the spans, just make the container visible
+          screenTitle.style.transition = 'opacity 0.1s ease'
+          screenTitle.style.opacity = '1'
           
           setTimeout(() => {
             screenMetric.style.transition = 'opacity 0.2s ease'
