@@ -179,7 +179,7 @@ export default function HomePage() {
         </div>
 
         <h2 className="landing-section-label">Servicios</h2>
-        <section className="landing-services-grid reveal-on-scroll cinematic-panel stagger-fade-in">
+        <section className="landing-services-grid reveal-on-scroll cinematic-panel scene-block scene-block--services stagger-fade-in">
           {services.map((service, index) => (
             <Parallax
               key={service.id}
@@ -199,10 +199,10 @@ export default function HomePage() {
           ))}
         </section>
 
-        <div className="page-shell">
+        <div className="page-shell home-scene-stack">
           <CaseStudiesSection />
 
-          <section className="section cta reveal-on-scroll cinematic-panel" id="contact">
+          <section className="section cta reveal-on-scroll cinematic-panel scene-block scene-block--cta" id="contact">
             <h2>¿Listo para dejar de improvisar tu presencia digital?</h2>
             <p className="lead lead--center">
               Cuéntame tu objetivo y te propongo un plan claro con alcance, tiempos e inversión.
