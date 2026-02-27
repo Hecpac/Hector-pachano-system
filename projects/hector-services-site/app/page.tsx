@@ -7,9 +7,13 @@ import { CaseStudiesSection } from '@/components/sections/case-studies'
 import { HeroMonitorIntroLazy as HeroMonitorIntro } from '@/components/sections/hero-monitor-intro-lazy'
 import { LandingNav } from '@/components/sections/landing-nav'
 import { LeadForm } from '@/components/sections/lead-form'
+import { AnimatedCounter } from '@/components/ui/animated-counter'
+import { AnnotationArrow } from '@/components/ui/annotation-arrow'
 import { JsonLd } from '@/components/ui/json-ld'
+import { LiveClock } from '@/components/ui/live-clock'
 import { MobileCarouselDriver } from '@/components/ui/mobile-carousel-driver'
 import { Parallax } from '@/components/ui/parallax'
+import { TypewriterWord } from '@/components/ui/typewriter-word'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { faqSchema, organizationSchema, serviceSchema, websiteSchema } from '@/lib/seo/schema'
 import { SITE_CAL_LINK, SITE_DESCRIPTION } from '@/lib/seo/site'
@@ -129,7 +133,9 @@ export default function HomePage() {
 
             <h1 className="landing-hero__headline">
               <span className="line-kicker landing-hero__line landing-hero__line--1">No vendo páginas web.</span>
-              <span className="line-orange landing-hero__line landing-hero__line--2">Construyo sistemas digitales</span>
+              <span className="line-orange landing-hero__line landing-hero__line--2">
+                <TypewriterWord words={['Diseno Web', 'Automatizaciones', 'SEO/AEO']} />
+              </span>
               <span className="line-outline landing-hero__line landing-hero__line--3">que generan ingresos.</span>
             </h1>
 
@@ -142,6 +148,17 @@ export default function HomePage() {
                 Diseño que convierte + SEO que posiciona + automatización que escala.
               </p>
               <p className="landing-hero__descriptor-support">Todo integrado, todo medible, todo tuyo.</p>
+              <div className="hero-stats-bar">
+                <span className="hero-stat">
+                  <AnimatedCounter value={123} suffix="%" /> tráfico
+                </span>
+                <span className="hero-stat">
+                  <AnimatedCounter value={38} suffix="%" /> conversión
+                </span>
+                <span className="hero-stat">
+                  <AnimatedCounter value={62} prefix="-" suffix="%" /> tiempo op.
+                </span>
+              </div>
             </div>
 
             <div className="landing-proof-grid landing-hero__line landing-hero__line--6" aria-label="Prueba de resultados">
@@ -183,7 +200,9 @@ export default function HomePage() {
             <Link href="/cases" className="btn-secondary">
               Ver resultados
             </Link>
+            <AnnotationArrow label="agenda gratis" direction="left" />
           </div>
+          <LiveClock />
         </Parallax>
 
         <div className="landing-scroll-indicator" aria-hidden="true">
