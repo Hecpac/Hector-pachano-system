@@ -10,6 +10,38 @@ export type BlogPost = {
 
 const posts: BlogPost[] = [
   {
+    slug: 'texas-hb2067-explicaciones-aseguradoras-2026',
+    title: 'Texas HB 2067 (2026): qué hacer si tu aseguradora niega, cancela o no renueva tu póliza',
+    excerpt:
+      'Desde 2026, en Texas las aseguradoras deben explicar por escrito sus decisiones en auto y hogar. Guía práctica para protegerte y actuar rápido.',
+    publishedAt: '2026-02-27',
+    readingTime: '6 min',
+    tags: ['Texas', 'Seguros', 'Auto', 'Hogar', 'TDI'],
+    content: [
+      '## ¿Qué cambió en Texas en 2026?',
+      'Con la entrada de HB 2067, las aseguradoras en Texas deben dar una explicación por escrito cuando niegan, cancelan o no renuevan pólizas de auto y hogar. Antes, muchas veces el cliente tenía que solicitar esa explicación de forma expresa; ahora la transparencia sube y el derecho del consumidor se vuelve más práctico.',
+      '## Por qué te importa (aunque hoy sí tengas póliza activa)',
+      'Porque una no renovación o cancelación puede afectar precio, continuidad de cobertura y elegibilidad con otras compañías. Tener el motivo por escrito te permite corregir a tiempo y presentar evidencia si hay errores en underwriting, historial de siniestros o datos personales.',
+      '## Qué hacer si recibes una negativa o no renovación',
+      '1) Guarda el aviso completo (PDF/carta/correo).',
+      '2) Verifica la causa exacta y fecha efectiva.',
+      '3) Pide confirmación de datos usados por la aseguradora (domicilio, historial, vehículo, propiedad).',
+      '4) Si detectas inconsistencias, documenta y solicita corrección por escrito.',
+      '5) Compara opciones con anticipación para no quedarte sin cobertura.',
+      '6) Si no recibes explicación clara, presenta queja ante TDI.',
+      '## Checklist rápido para familias en Dallas/Fort Worth',
+      '- Revisar aviso de renovación 30-45 días antes del vencimiento.',
+      '- Confirmar que nombre, dirección y uso del vehículo/vivienda estén correctos.',
+      '- Mantener evidencia de reparaciones o mejoras de riesgo (techo, alarmas, etc.).',
+      '- Consultar alternativas antes de la fecha límite para evitar periodos sin cobertura.',
+      '## En TC Insurance te ayudamos a resolverlo sin fricción',
+      'Si recibiste una negativa, cancelación o no renovación, te ayudamos a entender el motivo, ordenar documentación y evaluar opciones de reemplazo para proteger tu continuidad de cobertura.',
+      '## Fuentes verificadas',
+      '- Texas Department of Insurance (TDI): https://www.tdi.texas.gov/',
+      '- Cobertura local sobre implementación HB 2067 y reporte a TDI: https://www.fox4news.com/news/texas-insurance-law-2026-automatic-explanations.amp'
+    ]
+  },
+  {
     slug: 'si-la-ia-no-te-ve-2026-w09',
     title: 'Si la IA no te ve: bloqueas bots de búsqueda y pierdes compras asistidas (cómo resolverlo)',
     excerpt:
