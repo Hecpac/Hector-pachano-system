@@ -179,13 +179,13 @@ export default function HomePage() {
         </div>
 
         <h2 className="landing-section-label">Servicios</h2>
-        <section className="landing-services-grid">
+        <section className="landing-services-grid reveal-on-scroll cinematic-panel stagger-fade-in">
           {services.map((service, index) => (
-            <Parallax 
-              key={service.id} 
-              speed={index === 1 ? -0.05 : 0.05} 
+            <Parallax
+              key={service.id}
+              speed={index === 1 ? -0.05 : 0.05}
               relativeTo="viewport"
-              className="landing-service-card-wrapper"
+              className={`landing-service-card-wrapper landing-service-card-wrapper--${index + 1}`}
             >
               <Link href={service.href} className="landing-service-card">
                 <p className="landing-service-card__num">{service.id}</p>
