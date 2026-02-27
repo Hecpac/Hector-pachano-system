@@ -2373,6 +2373,8 @@ h3 {
 .typewriter-word {
   display: inline-flex;
   align-items: baseline;
+  /* Prevent line collapse while typewriter is transitioning between words */
+  min-width: 2ch;
 }
 
 .typewriter-word__text {
@@ -3422,7 +3424,7 @@ h3 {
     line-height: 1.45;
   }
 
-  .landing-hero__headline .line-orange {
+  .landing-hero__headline .line-orange:not(:has(.typewriter-word)) {
     animation: mobile-accent-pulse 2.2s ease-in-out infinite;
   }
 

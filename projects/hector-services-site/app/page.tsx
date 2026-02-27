@@ -134,7 +134,7 @@ export default function HomePage() {
             <h1 className="landing-hero__headline">
               <span className="line-kicker landing-hero__line landing-hero__line--1">No vendo páginas web.</span>
               <span className="line-orange landing-hero__line landing-hero__line--2">
-                <TypewriterWord words={['Diseno Web', 'Automatizaciones', 'SEO/AEO']} />
+                <TypewriterWord words={['Diseño Web', 'Automatizaciones', 'SEO/AEO']} />
               </span>
               <span className="line-outline landing-hero__line landing-hero__line--3">que generan ingresos.</span>
             </h1>

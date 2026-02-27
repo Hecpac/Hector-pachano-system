@@ -56,11 +56,13 @@ export function TypewriterWord({ words }: TypewriterWordProps) {
       return clearScheduled
     }
 
+    const firstWord = safeWords[0] ?? ''
     wordIndexRef.current = 0
-    charIndexRef.current = 0
+    charIndexRef.current = firstWord.length
     lastFrameRef.current = 0
     phaseRef.current = 'typing'
-    setDisplayWord('')
+    // Start with first word fully visible, then pause before cycling
+    setDisplayWord(firstWord)
 
     const tick = (timestamp: number) => {
       if (lastFrameRef.current === 0) {
@@ -101,7 +103,12 @@ export function TypewriterWord({ words }: TypewriterWordProps) {
       frameRef.current = window.requestAnimationFrame(tick)
     }
 
-    frameRef.current = window.requestAnimationFrame(tick)
+    // Delay the first cycle start so first word is visible on load
+    timeoutRef.current = window.setTimeout(() => {
+      phaseRef.current = 'deleting'
+      lastFrameRef.current = 0
+      frameRef.current = window.requestAnimationFrame(tick)
+    }, WORD_PAUSE_MS)
 
     return clearScheduled
   }, [prefersReducedMotion, safeWords])
