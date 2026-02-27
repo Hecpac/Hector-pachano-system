@@ -65,6 +65,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang={locale}>
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
+      </head>
       <body className={`${displayFont.variable} ${monoFont.variable}`}>
         <SkipLink />
         {children}

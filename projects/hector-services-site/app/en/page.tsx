@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { submitLeadAction } from '../actions'
 
-import { HeroMonitorIntro } from '@/components/sections/hero-monitor-intro'
+import { HeroMonitorIntroLazy as HeroMonitorIntro } from '@/components/sections/hero-monitor-intro-lazy'
 import { LandingNav } from '@/components/sections/landing-nav'
 import { LeadForm } from '@/components/sections/lead-form'
 import { JsonLd } from '@/components/ui/json-ld'

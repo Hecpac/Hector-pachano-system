@@ -80,13 +80,17 @@ export function HeroMonitorIntro() {
       resetPointer()
     }
 
-    syncScroll()
-    resetPointer()
+    // Defer initial layout reads to avoid forced reflow during hydration
+    let initRafId = window.requestAnimationFrame(() => {
+      initRafId = 0
+      syncScroll()
+      resetPointer()
 
-    if (prefersReducedMotion) {
-      setVar('--monitor-scale', '1')
-      setVar('--monitor-depth', '0px')
-    }
+      if (prefersReducedMotion) {
+        setVar('--monitor-scale', '1')
+        setVar('--monitor-depth', '0px')
+      }
+    })
 
     stage.addEventListener('pointermove', onPointerMove, { passive: true })
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -94,6 +98,7 @@ export function HeroMonitorIntro() {
     stage.addEventListener('mouseleave', resetPointer)
 
     return () => {
+      if (initRafId) window.cancelAnimationFrame(initRafId)
       if (rafId) window.cancelAnimationFrame(rafId)
       if (scrollRafId) window.cancelAnimationFrame(scrollRafId)
       stage.removeEventListener('pointermove', onPointerMove)

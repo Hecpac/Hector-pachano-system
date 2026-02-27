@@ -661,9 +661,9 @@ h3 {
 }
 
 .expandable-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .expandable-content-inner {
@@ -673,7 +673,7 @@ h3 {
 }
 
 .expandable-card.is-expanded .expandable-content {
-  grid-template-rows: 1fr;
+  max-height: 600px;
 }
 
 .expandable-card.is-expanded .expandable-content-inner {
@@ -1549,6 +1549,8 @@ h3 {
   position: relative;
   z-index: 10;
   background: var(--bg);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
 .landing-content-wrapper::before {
