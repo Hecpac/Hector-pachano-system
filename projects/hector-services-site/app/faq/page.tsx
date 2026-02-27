@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { JsonLd } from '@/components/ui/json-ld'
+import { getAnswerFirstFaqs } from '@/content/faqs/answer-first'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema, faqSchema } from '@/lib/seo/schema'
 
-const items = [
+const generalItems = [
   {
     question: '¿Cuál es el tiempo típico de implementación?',
     answer: 'Un MVP comercial suele estar en 1 a 2 semanas, dependiendo del alcance.'
@@ -20,6 +22,8 @@ const items = [
   }
 ]
 
+const answerFirstFaqs = getAnswerFirstFaqs()
+
 export const metadata: Metadata = buildPageMetadata({
   title: 'FAQ',
   description: 'Preguntas frecuentes sobre alcance, tiempos y forma de trabajo.',
@@ -31,7 +35,7 @@ export default function FAQPage() {
     <main className="page-shell" id="main-content">
       <JsonLd
         data={[
-          faqSchema(items),
+          faqSchema(generalItems),
           breadcrumbSchema([
             { name: 'Inicio', path: '/' },
             { name: 'FAQ', path: '/faq' }
@@ -43,7 +47,23 @@ export default function FAQPage() {
         <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'FAQ' }]} />
         <p className="eyebrow">FAQ</p>
         <h1>Preguntas frecuentes</h1>
-        {items.map((item) => (
+
+        <h2>Answer-first (AEO) — consultas de alto intento</h2>
+        <p className="lead">
+          Estas guías están diseñadas para responder preguntas largas con intención comercial y facilitar descubrimiento en
+          buscadores y motores de respuesta con IA.
+        </p>
+
+        <ul className="bullet-list">
+          {answerFirstFaqs.map((item) => (
+            <li key={item.slug}>
+              <Link href={`/faq/${item.slug}`}>{item.question}</Link>
+            </li>
+          ))}
+        </ul>
+
+        <h2>FAQ general</h2>
+        {generalItems.map((item) => (
           <details key={item.question}>
             <summary>{item.question}</summary>
             <p>{item.answer}</p>

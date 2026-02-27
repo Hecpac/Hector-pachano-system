@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { JsonLd } from '@/components/ui/json-ld'
@@ -52,10 +53,35 @@ export default function SeoAeoPage() {
         <p className="lead">
           Posicionamos tu marca para capturar demanda orgánica en Google y en sistemas de respuestas con IA.
         </p>
+
+        <h2>Qué incluye</h2>
         <ul className="bullet-list">
           <li>Technical SEO: indexación, estructura y velocidad.</li>
-          <li>Arquitectura de contenidos con intención comercial.</li>
-          <li>Schema para mejorar visibilidad en rich results y respuestas IA.</li>
+          <li>Arquitectura de contenidos por intención comercial.</li>
+          <li>Schema (Service + FAQ) para mejorar citabilidad en IA.</li>
+        </ul>
+
+        <h2>Proceso (8-12 semanas)</h2>
+        <ul className="bullet-list">
+          <li>Semana 1-2: auditoría técnica y limpieza de señales SEO.</li>
+          <li>Semana 3-6: páginas answer-first + clusters de intención.</li>
+          <li>Semana 7-12: iteración por queries comerciales y CTR/CTA.</li>
+        </ul>
+
+        <h2>Prueba y resultados</h2>
+        <p>
+          Caso aplicado: <strong>+123% tráfico orgánico</strong>, <strong>+71% clicks cualificados</strong> y{' '}
+          <strong>+44% queries top 10</strong>.
+        </p>
+        <p>
+          <Link href="/cases/visibilidad-organica-aeo">Ver caso completo de SEO/AEO →</Link>
+        </p>
+
+        <h2>Por qué Pachano Design</h2>
+        <ul className="bullet-list">
+          <li>Combinamos arquitectura técnica + contenido comercial.</li>
+          <li>Foco en demanda útil (pipeline), no solo volumen de tráfico.</li>
+          <li>Roadmap semanal con evidencia y decisiones de priorización.</li>
         </ul>
       </section>
     </main>

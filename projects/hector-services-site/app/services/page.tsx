@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { JsonLd } from '@/components/ui/json-ld'
 import { Parallax } from '@/components/ui/parallax'
+import { getAnswerFirstFaqs } from '@/content/faqs/answer-first'
 import { buildPageMetadata } from '@/lib/seo/meta'
 import { breadcrumbSchema } from '@/lib/seo/schema'
 
@@ -32,6 +33,8 @@ const services = [
     copy: 'Posicionamiento orgánico + visibilidad en respuestas de IA con estrategia técnica y de contenidos.'
   }
 ]
+
+const answerFirstFaqs = getAnswerFirstFaqs().slice(0, 5)
 
 export default function ServicesPage() {
   return (
@@ -83,6 +86,18 @@ export default function ServicesPage() {
               </article>
             ))}
           </div>
+
+          <article className="service-card" style={{ marginTop: '2rem' }}>
+            <h2>Preguntas de alto intento (AEO)</h2>
+            <p>Respuestas directas para consultas largas que traen tráfico más calificado.</p>
+            <ul className="bullet-list">
+              {answerFirstFaqs.map((item) => (
+                <li key={item.slug}>
+                  <Link href={`/faq/${item.slug}`}>{item.question}</Link>
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
       </section>
     </main>

@@ -10,6 +10,49 @@ export type BlogPost = {
 
 const posts: BlogPost[] = [
   {
+    slug: 'guidelines-copy-ads-b2b-2026-w09',
+    title: 'Guía de copy para Ads B2B en 2026: promesas permitidas, términos prohibidos y tono por campaña',
+    excerpt:
+      'Plantilla operativa para campañas de Ads: qué sí decir, qué evitar y cómo mantener coherencia comercial por objetivo de campaña.',
+    publishedAt: '2026-02-27',
+    readingTime: '7 min',
+    tags: ['Ads', 'Copywriting', 'B2B', 'Conversión'],
+    content: [
+      '## Objetivo: evitar anuncios bonitos que no convierten (o que generan fricción legal/comercial)',
+      'Un sistema de Ads B2B necesita reglas de mensaje por campaña. Sin eso, el equipo improvisa: promesas ambiguas, claims no verificables y tono inconsistente entre anuncio, landing y venta.',
+      '## Framework rápido por campaña',
+      '### 1) TOFU (awareness) — captar atención correcta',
+      '- Promesas permitidas: claridad, velocidad, enfoque en proceso, diagnóstico inicial.',
+      '- Términos a evitar: “garantizado”, “instantáneo”, “sin esfuerzo”.',
+      '- Tono recomendado: educativo + autoridad práctica.',
+      '- Ejemplo: “Detecta 3 fricciones que están frenando tus leads B2B en menos de 15 minutos”.',
+      '### 2) MOFU (consideración) — demostrar método',
+      '- Promesas permitidas: método, roadmap, implementación por fases, evidencia de casos.',
+      '- Términos a evitar: superlativos absolutos sin prueba (“el mejor”, “número 1”).',
+      '- Tono recomendado: consultivo + técnico-comercial.',
+      '- Ejemplo: “Diseñamos sistemas web y de automatización con KPI semanal y validación real”.',
+      '### 3) BOFU (decisión) — convertir con precisión',
+      '- Promesas permitidas: entregables, tiempos de arranque, siguientes pasos concretos.',
+      '- Términos a evitar: descuentos agresivos sin contexto o urgencias artificiales.',
+      '- Tono recomendado: directo + confiable + accionable.',
+      '- Ejemplo: “Agenda diagnóstico: saldrás con prioridades P0/P1 y plan de ejecución de 30 días”.',
+      '## Diferenciadores que sí venden (sin sobreprometer)',
+      '- “Implementación por fases con métricas de negocio”',
+      '- “Performance + conversión + trazabilidad del embudo”',
+      '- “Estrategia y ejecución en el mismo equipo”',
+      '## Checklist de control antes de publicar un anuncio',
+      '- ¿El claim principal tiene evidencia o caso que lo respalde?',
+      '- ¿El texto del anuncio coincide con el H1 y CTA de la landing?',
+      '- ¿El tono está alineado al nivel de intención de esa campaña?',
+      '- ¿Hay un siguiente paso claro (auditoría, llamada, propuesta)?',
+      '## Plantilla de mensaje por campaña (reutilizable)',
+      '- Problema específico del ICP → método breve → prueba/caso → CTA único.',
+      '- Mantén una sola promesa principal por anuncio para reducir fricción cognitiva.',
+      '## Cierre',
+      'Cuando Ads, landing y discurso comercial usan la misma guía de mensaje, sube la calidad del lead y baja el retrabajo del equipo de ventas. El objetivo no es sonar “creativo”; es mover pipeline con consistencia.'
+    ]
+  },
+  {
     slug: 'openai-londres-anthropic-enterprise-2026-w09',
     title: 'OpenAI expande I+D en Londres y Anthropic acelera plug-ins enterprise: qué significa para equipos B2B',
     excerpt:
