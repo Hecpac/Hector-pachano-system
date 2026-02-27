@@ -16,7 +16,7 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default function ContactPageEn() {
-  const calLink = SITE_CAL_LINK
+  const calLink = SITE_CAL_LINK.startsWith('/') ? '/en/contact' : SITE_CAL_LINK
 
   return (
     <main className="page-shell contact-page" id="main-content" lang="en">

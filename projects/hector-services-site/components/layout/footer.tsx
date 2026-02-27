@@ -67,8 +67,8 @@ export function Footer() {
             justifyContent: 'center'
           }}
         >
-          <a href="https://www.pachanodesign.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)' }}>
-            Pachano Design ↗
+          <a href="https://www.pachanodesign.com/" style={{ color: 'var(--accent)' }}>
+            Pachano Design
           </a>
           <Link href={localizePath('/process', locale)} style={{ color: 'var(--muted)' }}>
             {labels.process}

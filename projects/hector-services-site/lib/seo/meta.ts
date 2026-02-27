@@ -12,6 +12,7 @@ type BuildPageMetadataInput = {
 export function buildPageMetadata({ title, description, path, noindex = false }: BuildPageMetadataInput): Metadata {
   const canonical = `${SITE_URL}${path}`
   const imagePath = path === '/' ? '/opengraph-image' : `${path}/opengraph-image`
+  const ogLocale = path.startsWith('/en') ? 'en_US' : 'es_MX'
 
   return {
     title,
@@ -24,7 +25,7 @@ export function buildPageMetadata({ title, description, path, noindex = false }:
       description,
       url: canonical,
       siteName: SITE_NAME,
-      locale: 'es_MX',
+      locale: ogLocale,
       type: 'website',
       images: [imagePath]
     },

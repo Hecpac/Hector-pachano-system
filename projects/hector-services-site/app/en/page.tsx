@@ -9,8 +9,8 @@ import { LeadForm } from '@/components/sections/lead-form'
 import { JsonLd } from '@/components/ui/json-ld'
 import { Parallax } from '@/components/ui/parallax'
 import { buildPageMetadata } from '@/lib/seo/meta'
-import { breadcrumbSchema, organizationSchema, websiteSchema } from '@/lib/seo/schema'
-import { SITE_CAL_LINK } from '@/lib/seo/site'
+import { breadcrumbSchema } from '@/lib/seo/schema'
+import { SITE_CAL_LINK, SITE_CONTACT_EMAIL, SITE_ENTITY_NAME, SITE_NAME, SITE_URL } from '@/lib/seo/site'
 
 const services = [
   { id: '01', name: 'Automations', href: '/en/services/automatizaciones', desc: 'CRM routing, lead follow-up and SLA visibility.' },
@@ -26,14 +26,44 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default function EnglishHomePage() {
-  const calLink = SITE_CAL_LINK
+  const calLink = SITE_CAL_LINK.startsWith('/') ? '/en/contact' : SITE_CAL_LINK
 
   return (
     <main className="landing-page" id="main-content" lang="en">
       <JsonLd
         data={[
-          organizationSchema,
-          websiteSchema,
+          {
+            '@context': 'https://schema.org',
+            '@type': ['Organization', 'ProfessionalService'],
+            name: SITE_ENTITY_NAME,
+            alternateName: SITE_NAME,
+            url: `${SITE_URL}/en`,
+            description:
+              'B2B digital systems partner for web, automations and SEO/AEO with measurable execution.',
+            founder: {
+              '@type': 'Person',
+              name: SITE_NAME
+            },
+            areaServed: 'Global',
+            availableLanguage: ['en', 'es'],
+            email: SITE_CONTACT_EMAIL,
+            serviceType: ['B2B Web Design', 'CRM Automations', 'SEO', 'AEO']
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: `${SITE_NAME} // Digital Systems`,
+            alternateName: SITE_NAME,
+            url: `${SITE_URL}/en`,
+            description:
+              'English version of Pachano Design: B2B web, automations and SEO/AEO systems focused on revenue.',
+            inLanguage: 'en',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: `${SITE_URL}/en/blog?query={search_term_string}`,
+              'query-input': 'required name=search_term_string'
+            }
+          },
           breadcrumbSchema([
             { name: 'Home', path: '/en' }
           ])

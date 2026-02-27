@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 import { Bebas_Neue, DM_Mono } from 'next/font/google'
 
 import { AnalyticsSnippets } from '@/components/ui/analytics-snippets'
+import { SkipLink } from '@/components/ui/skip-link'
 import { Footer } from '@/components/layout/footer'
 import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_URL } from '@/lib/seo/site'
 import './globals.css'
@@ -62,13 +64,19 @@ export const metadata: Metadata = {
   }
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headerList = await headers()
+  const locale = headerList.get('x-locale') === 'en' ? 'en' : 'es'
+
   return (
-    <html lang="es">
+    <html lang={locale}>
+      <head>
+        <link rel="alternate" hrefLang="es" href={`${SITE_URL}/`} />
+        <link rel="alternate" hrefLang="en" href={`${SITE_URL}/en`} />
+        <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}/`} />
+      </head>
       <body className={`${displayFont.variable} ${monoFont.variable}`}>
-        <a className="skip-link" href="#main-content">
-          Ir al contenido principal
-        </a>
+        <SkipLink />
         {children}
         <Footer />
         <AnalyticsSnippets />

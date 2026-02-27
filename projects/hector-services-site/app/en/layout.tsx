@@ -9,8 +9,22 @@ export const metadata: Metadata = {
   },
   description:
     'English version of Pachano Design: digital systems for B2B teams (web, automations and SEO/AEO).',
+  keywords: [
+    'b2b web design',
+    'crm automations',
+    'seo for b2b',
+    'answer engine optimization',
+    'next.js development'
+  ],
+  openGraph: {
+    locale: 'en_US'
+  },
   alternates: {
-    canonical: '/en'
+    canonical: '/en',
+    languages: {
+      en: '/en',
+      es: '/'
+    }
   }
 }
 
