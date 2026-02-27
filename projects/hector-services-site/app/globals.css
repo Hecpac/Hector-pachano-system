@@ -2341,6 +2341,16 @@ h3 {
   }
 }
 
+@keyframes mobile-card-breathe {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0) scale(1.01);
+  }
+}
+
 .landing-ticker {
   --ticker-speed: 18s;
   background: var(--accent);
@@ -2827,8 +2837,53 @@ h3 {
   }
 
   .landing-services-grid {
-    grid-template-columns: 1fr;
-    margin: 0 16px 36px;
+    display: flex;
+    gap: 10px;
+    margin: 0 0 32px;
+    padding: 0 16px 8px;
+    border: 0;
+    background: transparent;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .landing-service-card-wrapper {
+    flex: 0 0 84vw;
+    min-width: 84vw;
+    scroll-snap-align: center;
+  }
+
+  .landing-service-card {
+    border-radius: 16px;
+    min-height: 248px;
+    animation: mobile-card-breathe 5.8s ease-in-out infinite;
+  }
+
+  .landing-service-card-wrapper--2 .landing-service-card {
+    animation-delay: 0.65s;
+  }
+
+  .landing-service-card-wrapper--3 .landing-service-card {
+    animation-delay: 1.3s;
+  }
+
+  #casos .case-grid {
+    display: flex;
+    gap: 0.72rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.45rem;
+  }
+
+  #casos .case-card,
+  #casos .case-card--wide {
+    grid-column: unset;
+    min-width: 86vw;
+    flex: 0 0 86vw;
+    scroll-snap-align: center;
   }
 }
 
