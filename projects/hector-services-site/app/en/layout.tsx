@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { buildLocaleAlternates } from '@/lib/seo/meta'
 import { SITE_NAME } from '@/lib/seo/site'
 
 export const metadata: Metadata = {
@@ -19,13 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     locale: 'en_US'
   },
-  alternates: {
-    canonical: '/en',
-    languages: {
-      en: '/en',
-      es: '/'
-    }
-  }
+  alternates: buildLocaleAlternates('/en')
 }
 
 export default function EnglishLayout({ children }: { children: React.ReactNode }) {

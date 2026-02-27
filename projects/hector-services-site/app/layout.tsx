@@ -5,6 +5,7 @@ import { Bebas_Neue, DM_Mono } from 'next/font/google'
 import { AnalyticsSnippets } from '@/components/ui/analytics-snippets'
 import { SkipLink } from '@/components/ui/skip-link'
 import { Footer } from '@/components/layout/footer'
+import { buildLocaleAlternates } from '@/lib/seo/meta'
 import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_URL } from '@/lib/seo/site'
 import './globals.css'
 
@@ -48,13 +49,7 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: ['/opengraph-image']
   },
-  alternates: {
-    canonical: SITE_URL,
-    languages: {
-      es: SITE_URL,
-      en: `${SITE_URL}/en`
-    }
-  },
+  alternates: buildLocaleAlternates('/'),
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico'
@@ -70,11 +65,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang={locale}>
-      <head>
-        <link rel="alternate" hrefLang="es" href={`${SITE_URL}/`} />
-        <link rel="alternate" hrefLang="en" href={`${SITE_URL}/en`} />
-        <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}/`} />
-      </head>
       <body className={`${displayFont.variable} ${monoFont.variable}`}>
         <SkipLink />
         {children}

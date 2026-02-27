@@ -10,6 +10,7 @@ import { CaseResults } from '@/components/cases/case-results'
 import { CaseTOCSticky } from '@/components/cases/case-toc-sticky'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { JsonLd } from '@/components/ui/json-ld'
+import { buildLocaleAlternates } from '@/lib/seo/meta'
 import { breadcrumbSchema } from '@/lib/seo/schema'
 import { SITE_NAME, SITE_URL } from '@/lib/seo/site'
 
@@ -76,9 +77,7 @@ export async function generateMetadata({ params }: CasePageProps): Promise<Metad
       absolute: title
     },
     description: caseStudy.metaDescription,
-    alternates: {
-      canonical
-    },
+    alternates: buildLocaleAlternates(path),
     openGraph: {
       title,
       description: caseStudy.metaDescription,
