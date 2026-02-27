@@ -74,6 +74,8 @@ const answerBlocks = [
   }
 ]
 
+const proofMetrics = ['+123% tráfico orgánico', '+38% conversion rate', '-62% tiempo operativo']
+
 export default function ServicesPage() {
   return (
     <main className="page-shell" id="main-content">
@@ -105,6 +107,15 @@ export default function ServicesPage() {
                 </article>
               ))}
             </div>
+
+            <article className="service-card" style={{ marginTop: '0.8rem', padding: '0.9rem' }}>
+              <h2 style={{ margin: 0, fontSize: '0.8rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Prueba rápida</h2>
+              <ul className="bullet-list" style={{ marginTop: '0.55rem', marginBottom: 0 }}>
+                {proofMetrics.map((metric) => (
+                  <li key={metric}>{metric}</li>
+                ))}
+              </ul>
+            </article>
           </div>
 
           <Parallax speed={0.1} relativeTo="scroll" className="services-hero__image-container" zIndex={1}>
