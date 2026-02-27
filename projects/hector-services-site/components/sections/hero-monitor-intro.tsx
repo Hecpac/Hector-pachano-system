@@ -118,8 +118,29 @@ export function HeroMonitorIntro() {
               <span className="landing-computer__screen-noise" />
               <span className="landing-computer__screen-sweep" />
               <p className="landing-computer__screen-kicker">Hector Services // Live</p>
-              <p className="landing-computer__screen-title">Design. Automate. Rank.</p>
+              <p className="landing-computer__screen-title" aria-live="off">
+                <span>Design.</span>
+                <span>Automate.</span>
+                <span>Rank.</span>
+              </p>
               <p className="landing-computer__screen-metric">Leads ↑ 39% · SEO ↑ 62%</p>
+
+              <div className="landing-computer__screen-status">
+                <span className="landing-computer__status-dot" />
+                <span>Pipeline online</span>
+              </div>
+
+              <div className="landing-computer__screen-eq" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
+
+              <div className="landing-computer__screen-progress" aria-hidden="true">
+                <span />
+              </div>
             </div>
 
             <span className="landing-computer__logo">HS</span>

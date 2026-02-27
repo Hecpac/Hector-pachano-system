@@ -1827,7 +1827,8 @@ h3 {
 
 .landing-computer__screen-kicker,
 .landing-computer__screen-title,
-.landing-computer__screen-metric {
+.landing-computer__screen-metric,
+.landing-computer__screen-status {
   margin: 0;
   text-transform: uppercase;
   font-family: var(--font-mono), ui-monospace, monospace;
@@ -1847,12 +1848,106 @@ h3 {
   color: #f6f4ef;
   letter-spacing: 0.04em;
   text-shadow: 0 0 18px rgba(195, 220, 255, 0.2);
+  min-height: 1.4em;
+  display: grid;
+  overflow: hidden;
+}
+
+.landing-computer__screen-title span {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translate3d(0, 120%, 0);
+  animation: monitor-title-cycle 5.6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.landing-computer__screen-title span:nth-child(2) {
+  animation-delay: 1.86s;
+}
+
+.landing-computer__screen-title span:nth-child(3) {
+  animation-delay: 3.72s;
 }
 
 .landing-computer__screen-metric {
   font-size: 10px;
   letter-spacing: 0.1em;
   color: color-mix(in srgb, var(--accent) 72%, #fff);
+  animation: monitor-metric-flicker 2.8s ease-in-out infinite;
+}
+
+.landing-computer__screen-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: rgba(232, 230, 225, 0.74);
+}
+
+.landing-computer__status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 78%, #fff 22%);
+  box-shadow: 0 0 12px rgba(255, 75, 43, 0.7);
+  animation: monitor-dot-blink 1.2s ease-in-out infinite;
+}
+
+.landing-computer__screen-eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  min-height: 16px;
+}
+
+.landing-computer__screen-eq span {
+  width: 3px;
+  border-radius: 999px;
+  background: color-mix(in srgb, #9ec8ff 70%, #fff 30%);
+  box-shadow: 0 0 8px rgba(158, 200, 255, 0.42);
+  animation: monitor-eq-bounce 1.2s ease-in-out infinite;
+}
+
+.landing-computer__screen-eq span:nth-child(1) {
+  height: 5px;
+  animation-delay: 0s;
+}
+
+.landing-computer__screen-eq span:nth-child(2) {
+  height: 11px;
+  animation-delay: 0.12s;
+}
+
+.landing-computer__screen-eq span:nth-child(3) {
+  height: 8px;
+  animation-delay: 0.24s;
+}
+
+.landing-computer__screen-eq span:nth-child(4) {
+  height: 13px;
+  animation-delay: 0.36s;
+}
+
+.landing-computer__screen-eq span:nth-child(5) {
+  height: 7px;
+  animation-delay: 0.48s;
+}
+
+.landing-computer__screen-progress {
+  width: 100%;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.landing-computer__screen-progress span {
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 84%, #fff 16%) 0%, rgba(255, 255, 255, 0.85) 100%);
+  animation: monitor-progress-run 2.6s ease-in-out infinite;
 }
 
 .landing-computer__body {
@@ -1989,6 +2084,76 @@ h3 {
   }
 }
 
+@keyframes monitor-title-cycle {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translate3d(0, 120%, 0);
+  }
+  14%,
+  30% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  38%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -120%, 0);
+  }
+}
+
+@keyframes monitor-metric-flicker {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+  45% {
+    opacity: 1;
+  }
+  52% {
+    opacity: 0.6;
+  }
+  58% {
+    opacity: 0.95;
+  }
+}
+
+@keyframes monitor-dot-blink {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes monitor-eq-bounce {
+  0%,
+  100% {
+    transform: scaleY(0.6);
+    opacity: 0.68;
+  }
+  50% {
+    transform: scaleY(1.28);
+    opacity: 1;
+  }
+}
+
+@keyframes monitor-progress-run {
+  0% {
+    transform: translateX(-130%);
+  }
+  60% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .landing-computer {
     transition: none;
@@ -1998,9 +2163,23 @@ h3 {
 
   .landing-computer__screen-noise,
   .landing-computer__screen-sweep,
+  .landing-computer__screen-metric,
+  .landing-computer__status-dot,
+  .landing-computer__screen-eq span,
+  .landing-computer__screen-progress span,
   .landing-hero__grain,
   .landing-proof-card {
     animation: none;
+  }
+
+  .landing-computer__screen-title span {
+    animation: none;
+    opacity: 0;
+    transform: none;
+  }
+
+  .landing-computer__screen-title span:first-child {
+    opacity: 1;
   }
 
   .landing-hero__line {
@@ -2814,6 +2993,20 @@ h3 {
     width: 82%;
     padding: 14px 12px 22px;
     border-radius: 22px;
+  }
+
+  .landing-computer__screen-title {
+    min-height: 1.2em;
+    font-size: clamp(14px, 4.2vw, 18px);
+  }
+
+  .landing-computer__screen-status {
+    font-size: 7px;
+    letter-spacing: 0.11em;
+  }
+
+  .landing-computer__screen-eq span {
+    width: 2px;
   }
 
   .landing-computer__camera {
