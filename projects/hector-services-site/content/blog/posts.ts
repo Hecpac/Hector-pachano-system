@@ -10,6 +10,36 @@ export type BlogPost = {
 
 const posts: BlogPost[] = [
   {
+    slug: 'openai-londres-anthropic-enterprise-2026-w09',
+    title: 'OpenAI expande I+D en Londres y Anthropic acelera plug-ins enterprise: qué significa para equipos B2B',
+    excerpt:
+      'Dos señales de esta semana: OpenAI fortalece su hub de investigación fuera de EE. UU. y Anthropic amplía integraciones empresariales. Traducción práctica para operación B2B.',
+    publishedAt: '2026-02-27',
+    readingTime: '6 min',
+    tags: ['IA', 'B2B', 'Estrategia', 'Operación'],
+    content: [
+      '## Señal 1: OpenAI convierte Londres en su mayor hub de investigación fuera de EE. UU.',
+      'Reuters reportó que OpenAI anunció Londres como su mayor centro de investigación fuera de Estados Unidos, destacando talento local y ecosistema científico del Reino Unido. Más allá del titular, esto sugiere que la carrera por talento y capacidad de ejecución en IA se está regionalizando con más velocidad.',
+      '## Señal 2: Anthropic empuja integración real en flujos de negocio',
+      'También según Reuters, Anthropic presentó nuevas formas de integrar Claude en tareas enterprise (finanzas, RRHH, ingeniería y operaciones), con partners como LSEG, FactSet, Slack y DocuSign. La lectura para empresas no es “más features”, sino menos fricción para adoptar IA dentro de herramientas ya usadas por equipos comerciales y operativos.',
+      '## ¿Qué cambia para un negocio B2B en 2026?',
+      'Que la ventaja no está solo en “usar un modelo”, sino en conectar IA a flujos críticos donde hay impacto económico medible: velocidad comercial, calidad de propuesta, eficiencia operativa y reducción de tiempos muertos.',
+      '## Riesgo de no moverse',
+      'Seguir en piloto eterno: pruebas sueltas, sin dueño de P&L, sin integración al stack y sin métricas de cierre. En ese escenario, la IA genera actividad, pero no resultados.',
+      '## Plan táctico de 7 días (accionable)',
+      '- Día 1: elegir 1 flujo crítico (ej. calificación de leads o propuesta comercial).',
+      '- Día 2-3: mapear herramientas actuales (CRM, correo, docs, chat interno) y puntos de fricción.',
+      '- Día 4-5: implementar versión mínima con IA + humano en el loop.',
+      '- Día 6: definir 3 KPIs duros (tiempo de respuesta, tasa de avance, conversión).',
+      '- Día 7: revisar resultados y decidir escalar, ajustar o apagar.',
+      '## Criterio de éxito',
+      'Si en 2-3 semanas no mejora una métrica comercial/operativa concreta, no es adopción: es experimento. El foco debe ser impacto real, no volumen de prompts.',
+      '## Fuentes verificadas',
+      '- Reuters (26 Feb 2026): https://www.reuters.com/world/uk/openai-make-london-its-biggest-research-hub-outside-us-2026-02-26/',
+      '- Reuters (24 Feb 2026): https://www.reuters.com/business/finance/anthropic-touts-new-ai-tools-weeks-after-legal-plug-in-spurred-market-rout-2026-02-24/'
+    ]
+  },
+  {
     slug: 'texas-hb2067-explicaciones-aseguradoras-2026',
     title: 'Texas HB 2067 (2026): qué hacer si tu aseguradora niega, cancela o no renueva tu póliza',
     excerpt:
