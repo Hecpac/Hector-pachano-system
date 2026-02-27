@@ -37,7 +37,14 @@ const baseRoutes = [
   '/en/process',
   '/en/industries',
   '/en/industries/servicios-profesionales',
-  '/en/industries/constructoras-ingenieria'
+  '/en/industries/constructoras-ingenieria',
+  '/en/blog',
+  '/en/cases',
+  '/en/faq',
+  '/en/auditor',
+  '/en/work',
+  '/en/legal/privacidad',
+  '/en/legal/aviso-legal'
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
