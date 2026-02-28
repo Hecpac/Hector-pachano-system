@@ -50,6 +50,16 @@ export default function SeoAeoServiceEn() {
           Capture high-intent organic demand in Google and become more citable inside AI answer engines.
         </p>
 
+        <figure style={{ margin: '2rem 0', borderRadius: '16px', overflow: 'hidden', border: '1px solid #2a2a2a' }}>
+          <img
+            src="/images/services/seo-aeo.svg"
+            alt="Organic traffic growth and high intent capture chart"
+            width={1600}
+            height={900}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+          />
+        </figure>
+
         <h2>Best fit / not a fit</h2>
         <div className="service-grid">
           <article className="service-card">
