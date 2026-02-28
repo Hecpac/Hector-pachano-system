@@ -42,6 +42,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-mono), ui-monospace, monospace;
+  overflow-x: clip;
 }
 
 a {
@@ -1558,6 +1559,7 @@ h3 {
   background: var(--bg);
   content-visibility: auto;
   contain-intrinsic-size: auto 600px;
+  overflow: clip;
 }
 
 .landing-content-wrapper::before {
