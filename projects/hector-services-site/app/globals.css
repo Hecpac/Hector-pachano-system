@@ -1557,8 +1557,6 @@ h3 {
   position: relative;
   z-index: 10;
   background: var(--bg);
-  content-visibility: auto;
-  contain-intrinsic-size: auto 600px;
   overflow: clip;
 }
 
@@ -1658,7 +1656,7 @@ h3 {
   background: radial-gradient(circle, rgba(255, 75, 43, 0.18) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
-  animation: pulse 6s ease-in-out infinite;
+  animation: glow-pulse 6s ease-in-out infinite alternate;
 }
 
 .landing-hero__grid {
@@ -1763,8 +1761,6 @@ h3 {
   padding: 16px 14px 26px;
   box-shadow: 0 34px 46px rgba(0, 0, 0, 0.34), 0 8px 14px rgba(0, 0, 0, 0.12);
   overflow: hidden;
-  animation: bezel-pulse 3s ease-in-out infinite alternate;
-  animation-delay: 0.7s;
 }
 
 @keyframes glow-pulse {

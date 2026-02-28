@@ -15,10 +15,6 @@ const parallaxEntries = new Set<ParallaxEntry>()
 let rafId: number | null = null
 let listenersAttached = false
 
-function clampShift(value: number, maxShift: number) {
-  return Math.max(-maxShift, Math.min(maxShift, value))
-}
-
 function updateEntry(entry: ParallaxEntry) {
   const parent = entry.node.parentElement
   if (!parent) return
@@ -33,12 +29,12 @@ function updateEntry(entry: ParallaxEntry) {
   let yPos = 0
 
   if (entry.relativeTo === 'scroll') {
-    yPos = clampShift(window.scrollY * entry.speed, 160)
+    yPos = window.scrollY * entry.speed
   } else {
     const elementCenter = rect.top + rect.height / 2
     const viewportCenter = viewportHeight / 2
     const distance = viewportCenter - elementCenter
-    yPos = clampShift(-distance * entry.speed, 140)
+    yPos = -distance * entry.speed
   }
 
   entry.node.style.transform = `translate3d(0, ${yPos}px, 0)`
