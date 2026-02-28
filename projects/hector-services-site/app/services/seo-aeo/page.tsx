@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
@@ -56,13 +55,12 @@ export default function SeoAeoPage() {
         </p>
 
         <figure style={{ margin: '2rem 0', borderRadius: '16px', overflow: 'hidden', border: '1px solid #2a2a2a' }}>
-          <Image
+          <img
             src="/images/services/seo-aeo.svg"
             alt="Gráfica de crecimiento de tráfico orgánico y captura de alta intención"
             width={1600}
             height={900}
             style={{ width: '100%', height: 'auto', display: 'block' }}
-            priority
           />
         </figure>
 
