@@ -1742,7 +1742,6 @@ h3 {
   transform: translateX(-50%);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(238, 236, 231, 0.26) 0%, rgba(238, 236, 231, 0.08) 32%, rgba(238, 236, 231, 0) 72%);
-  filter: blur(10px);
   pointer-events: none;
   z-index: -1;
   animation: glow-pulse 3s ease-in-out infinite alternate;

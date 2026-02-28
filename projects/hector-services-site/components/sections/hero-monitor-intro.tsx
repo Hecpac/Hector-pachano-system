@@ -27,7 +27,7 @@ export function HeroMonitorIntro() {
     let pointerY = window.innerHeight / 2
     let zoomProgress = 0
 
-    const MAX_SCALE = prefersReducedMotion ? 1 : 80
+    const MAX_SCALE = prefersReducedMotion ? 1 : 24
 
     
     // Boot sequence
@@ -99,11 +99,17 @@ export function HeroMonitorIntro() {
       const panY = offsetY * 7 * tiltStrength
 
 
-      const fadeStart = 0.84
+      const fadeStart = 0.76
       const opacity = 1 - clamp((zoomProgress - fadeStart) / (1 - fadeStart), 0, 1)
 
-      computer.style.opacity = opacity.toFixed(3)
-      computer.style.transform = `translate3d(${panX.toFixed(2)}px, ${panY.toFixed(2)}px, 0) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(${scale.toFixed(4)})`
+      if (opacity <= 0.01) {
+        computer.style.opacity = '0'
+        computer.style.visibility = 'hidden'
+      } else {
+        computer.style.opacity = opacity.toFixed(3)
+        computer.style.visibility = 'visible'
+        computer.style.transform = `translate3d(${panX.toFixed(2)}px, ${panY.toFixed(2)}px, 0) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(${scale.toFixed(4)})`
+      }
 
     }
 
