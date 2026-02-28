@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
@@ -53,6 +54,17 @@ export default function DisenoWebPage() {
         <p className="lead">
           Construimos sitios que comunican autoridad y convierten visitas en oportunidades reales.
         </p>
+
+        <figure style={{ margin: '2rem 0', borderRadius: '16px', overflow: 'hidden', border: '1px solid #2a2a2a' }}>
+          <Image
+            src="/images/services/diseno-web.svg"
+            alt="Wireframe de diseño web orientado a conversión"
+            width={1600}
+            height={900}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+            priority
+          />
+        </figure>
 
         <h2>Para quién es / para quién no</h2>
         <div className="service-grid">
