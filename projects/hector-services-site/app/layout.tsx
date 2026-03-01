@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
 import { Bebas_Neue, DM_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 
 import { AnalyticsSnippets } from '@/components/ui/analytics-snippets'
 import { SkipLink } from '@/components/ui/skip-link'
@@ -75,6 +76,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {children}
         <Footer />
         <AnalyticsSnippets />
+        <Analytics />
       </body>
     </html>
   )
