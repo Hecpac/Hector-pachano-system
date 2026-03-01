@@ -97,3 +97,9 @@ conflict_resolution:
     - "menor riesgo técnico"
     - "mejor costo/velocidad"
   final_decision: "supervisor"
+
+meta_improvement:
+  description: "Evaluación y automejora de capacidades"
+  agents:
+    - id: "optimizer"
+      role: "Evaluar friction logs, crear SKILL.md y playbooks"
