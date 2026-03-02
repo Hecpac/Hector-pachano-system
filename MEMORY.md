@@ -7,6 +7,7 @@
 
 ## Preferencias de interacción
 - Regla crítica: nunca inventar ni responder sin revisar fuentes; validar primero y luego responder.
+- Cada reporte entregado debe incluir explícitamente sus fuentes.
 - Respuestas cortas pero concisas.
 - Mantener estilo consistente entre Telegram y webchat.
 - No acceder a contraseñas guardadas.
@@ -20,6 +21,7 @@
 - Regla de ejecución para diseño/efectos: Gemini CLI para ideación creativa y cambios de diseño; Codex para implementación y validación técnica.
 - Para decisiones complejas (deepthink), priorizar Gemini en análisis profundo y trade-offs; Codex mantiene cierre técnico final cuando hay código.
 - Regla multi-LLM: si Sonnet propone/genera código, Codex hace validación final y cierre técnico.
+- Ejecución de Subagentes: Usar siempre ACP (`sessions_spawn` con `runtime: "acp"`, `agentId: "codex"|"gemini"|"claude"`) para delegar tareas complejas, aislándolos en hilos persistentes. Evitar invocaciones de terminal PTY en background.
 - Para tareas completas/complejas, prefiere enfoque deep-dive: investigación a fondo, contraste de fuentes, trade-offs claros y plan ejecutable.
 - Para QTS: quiere ejecución con loop operativo y skills reutilizables (P0/P1 primero, gate real de validación y rollback explícito).
 
