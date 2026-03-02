@@ -10,6 +10,44 @@ export type BlogPost = {
 
 const posts: BlogPost[] = [
   {
+    slug: 'si-la-ia-no-te-ve-2026-w10',
+    title: 'Si la IA no te ve: tus activos son ambiguos y la automatización te quema presupuesto (cómo resolverlo)',
+    excerpt:
+      'Estandariza contexto semántico y gobernanza de campañas para que AI Overviews y AI Max trabajen a favor de tu pipeline, no en contra.',
+    publishedAt: '2026-03-02',
+    readingTime: '7 min',
+    tags: ['AEO', 'SEO', 'Web', 'Conversión'],
+    content: [
+      '## El problema concreto: producción alta, interpretación baja',
+      'Muchos equipos B2B siguen midiendo éxito por volumen: más páginas, más variantes de anuncio y más automatización. En 2026 eso ya no alcanza. Cuando el usuario pregunta a un sistema asistido por IA, el motor prioriza contenido que entiende y puede recombinar con precisión. Si tu sitio y tus assets no tienen contexto semántico claro, no solo pierdes visibilidad: alimentas sistemas que pueden optimizar hacia señales equivocadas y degradar calidad de lead.',
+      'Google Search Central indica que para aparecer como enlace de respaldo en AI Overviews y AI Mode no necesitas “técnicos extra de IA”: la página debe estar indexada y ser elegible para snippet (fuente: https://developers.google.com/search/docs/appearance/ai-features). El mensaje ejecutivo es directo: el bloqueo hoy no suele ser “falta de feature nueva”, sino calidad estructural y claridad del contenido que ya publicas.',
+      '## Lo que cambió en búsqueda y anuncios (y por qué importa a dirección)',
+      'Google también documenta que AI Overviews se muestran cuando aportan valor adicional y que AI Mode puede ejecutar query fan-out (múltiples búsquedas secundarias) para construir respuestas más ricas con enlaces diversos (fuente: https://developers.google.com/search/docs/appearance/ai-features). Si tu material está difuso, ese fan-out no te favorece; encuentra alternativas mejor explicadas.',
+      'En paralelo, Google Ads Text Customization genera titulares y descripciones desde URL, anuncios y keywords existentes, y refresca assets al menos cada 48 horas (fuente: https://support.google.com/google-ads/answer/11259373). Traducido a operación: la automatización acelera, pero también amplifica cualquier ambigüedad de tu página de destino y tu mensaje comercial.',
+      'Google reporta que anunciantes no retail que activan AI Max en Search suelen ver ~14% más conversiones o valor de conversión con CPA/ROAS similar (fuente: https://support.google.com/google-ads/answer/15910366). Úsalo como benchmark de oportunidad, no como promesa universal: el impacto depende de la calidad de señales de entrada y del control editorial de assets.',
+      '## Antes vs después: caso B2B realista de control semántico',
+      'Antes: una empresa B2B industrial tenía páginas de servicio extensas, pero con H1 genéricos, claims mezclados y CTAs ambiguos. Activó automatización de anuncios sin corregir landing pages. Resultado operativo: crecimiento en impresiones y variación de copies, pero leads menos calificados y conversaciones comerciales largas porque el mensaje “prometía amplitud” sin aterrizar capacidad concreta.',
+      'Después: el equipo definió una taxonomía mínima por página (problema, industria, capacidad, restricción, siguiente paso), limpió claims no verificables y alineó esa estructura con campañas Search. Luego habilitó AI Max con guardrails de mensaje. Resultado esperado: más consistencia entre lo que interpreta el motor, lo que anuncia la campaña y lo que entiende ventas en la primera llamada. La mejora no vino de publicar más, sino de reducir ambigüedad y gobernar señal.',
+      '## Plan de ejecución de 30 días (accionable para B2B)',
+      'Paso 1 (días 1-4): auditoría de elegibilidad y claridad. Revisa que las 5 URLs más comerciales estén indexadas, con extractos claros y secciones que respondan problema-solución-prueba. Prioriza precisión semántica sobre extensión.',
+      'Paso 2 (días 5-10): política editorial anti-spam de IA. Aplica la guía de Google sobre contenido generado con IA para evitar escalado sin valor y mantener originalidad verificable (https://developers.google.com/search/docs/fundamentals/using-gen-ai-content). Define qué evidencia mínima exige cada pieza antes de publicarse.',
+      'Paso 3 (días 11-17): saneamiento de activos para automatización. Ajusta landings y anuncios base para que Text Customization tenga material sólido. Si el origen es débil, el refresh cada 48 horas solo multiplica ruido.',
+      'Paso 4 (días 18-24): activación controlada de AI Max en una campaña con intención alta. Mide contra baseline real de CPA/ROAS y calidad de lead; no expandas presupuesto hasta confirmar coherencia en consultas y cierres.',
+      'Paso 5 (días 25-30): optimización costo-latencia en la capa de IA interna. Si operas generación o análisis con LLMs para marketing, incorpora mejoras de costo/latencia reportadas por proveedores para sostener ritmo sin inflar costos (OpenAI changelog: https://platform.openai.com/docs/changelog; Anthropic token-saving updates: https://www.anthropic.com/news/token-saving-updates).',
+      '## Qué decidir esta semana para no perder el trimestre',
+      'No compitas por volumen de contenido ni por cantidad de assets. Compite por interpretación correcta y consistencia comercial. Si tu dirección pide un único KPI guía, usa este: proporción de leads calificados provenientes de experiencias asistidas con trazabilidad de mensaje (búsqueda/anuncio/landing) sin contradicciones en la primera reunión.',
+      'La prioridad ejecutiva es simple: arregla primero las páginas y mensajes que ya tienen intención de compra, luego escala automatización. En 2026, la IA no premia al que más publica; premia al que mejor estructura su contexto y mantiene control de calidad al escalar.',
+      '## Fuentes verificadas',
+      '- https://developers.google.com/search/docs/appearance/ai-features',
+      '- https://developers.google.com/search/docs/fundamentals/using-gen-ai-content',
+      '- https://support.google.com/google-ads/answer/11259373',
+      '- https://support.google.com/google-ads/answer/15910366',
+      '- https://platform.openai.com/docs/changelog',
+      '- https://www.anthropic.com/news/token-saving-updates',
+      '- https://learn.microsoft.com/en-us/advertising/guides/generative-ai?view=bingads-13'
+    ]
+  },
+  {
     slug: 'guidelines-copy-ads-b2b-2026-w09',
     title: 'Guía de copy para Ads B2B en 2026: promesas permitidas, términos prohibidos y tono por campaña',
     excerpt:

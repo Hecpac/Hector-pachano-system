@@ -1,0 +1,65 @@
+{
+  "topic": "B2B: ganar visibilidad cuando la búsqueda y los anuncios ya no dependen solo de la URL exacta de tu keyword",
+  "angle": "Para cuentas B2B, el cambio de juego en 2026 es pasar de producir más páginas y variantes de anuncios a producir mejor contexto semántico y señales de calidad que puedan ser reutilizadas por AI Overviews, AI Mode y copilotos de anuncios sin perder control de marca.",
+  "hook": "Tu cliente ya no busca solo keywords; le pide al motor que resuelva la decisión. Si no le das contexto claro, la IA lo rellenará con otros. ",
+  "key_insight": "La ventaja competitiva ya no es solo 'optimizar para ranking', sino 'optimizar para interpretación'. Cuando las páginas y activos de campaña están bien estructurados, exactos y gobernados, Google usa esos contenidos en modos de IA con mejor calidad y la automatización publicitaria escala sin disparar el costo de experimentación.",
+  "data_points": [
+    {
+      "stat": "Google indica que para aparecer como enlace de soporte en AI Overviews/AI Mode una página debe estar indexada y ser elegible para snippet, sin requisitos técnicos adicionales específicos de IA; las buenas prácticas SEO siguen siendo las mismas.",
+      "source": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/ai-features"
+    },
+    {
+      "stat": "La documentación de Google Search central señala que AI Overviews se muestran solo cuando añaden valor respecto a la búsqueda clásica y que AI Mode puede distribuir múltiples búsquedas secundarias (query fan-out) para construir respuestas más ricas y con enlaces más diversos.",
+      "source": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/appearance/ai-features"
+    },
+    {
+      "stat": "Google advierte que generar muchos contenidos con IA sin valor de usuario puede entrar en abuso de contenido escalado/spam y exige mantener calidad, originalidad y cumplimiento de políticas de Search Essentials.",
+      "source": "Google Search Central",
+      "url": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+    },
+    {
+      "stat": "Text customization en Google Ads genera nuevos titulares/descripciones a partir de URL, anuncios y palabras clave existentes, y refresca assets al menos cada 48 horas para mantener relevancia con cambios en comportamiento y páginas de destino.",
+      "source": "Google Ads Help",
+      "url": "https://support.google.com/google-ads/answer/11259373"
+    },
+    {
+      "stat": "Google afirma que los anunciantes que activan AI Max en campañas Search ven típicamente 14% más conversiones o valor de conversión a CPA/ROAS similar para no retail (dato interno de Google, 2025).",
+      "source": "Google Ads Help",
+      "url": "https://support.google.com/google-ads/answer/15910366"
+    },
+    {
+      "stat": "OpenAI reportó en su changelog que GPT-5.2 y GPT-5.2-Codex corren aprox. 40% más rápido en inferencia en API, sin cambios de modelo/pesos.",
+      "source": "OpenAI Changelog",
+      "url": "https://platform.openai.com/docs/changelog"
+    },
+    {
+      "stat": "Anthropic anunció para Claude 3.7 Sonnet mejoras de caché con reducción de costos de hasta 90% y latencia de hasta 85% en prompts largos; además, uso de herramientas con reducción de tokens de salida de hasta 70% (promedio 14%).",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/news/token-saving-updates"
+    },
+    {
+      "stat": "La API de Microsoft Advertising documenta generación de anuncios (text, image, banner y video) con Copilot y Brand Kit, incluyendo límites operativos como 10 assets por llamada y hasta 50-100 assets/cambios según endpoint.",
+      "source": "Microsoft Advertising API",
+      "url": "https://learn.microsoft.com/en-us/advertising/guides/generative-ai?view=bingads-13"
+    }
+  ],
+  "real_example": {
+    "description": "Caso de producto/servicio B2B: activar AI Max para campañas Search y combinarlo con assets de calidad que cumplan landing pages y AdStrength.",
+    "result": "Google informa que esa activación suele generar alrededor de 14% más conversiones o valor de conversión con CPA/ROAS similar para anunciantes no retail, lo que lo vuelve una palanca inicial de rendimiento si se controla la calidad de contenido, pero sin prometerlo como único control.",
+    "source_url": "https://support.google.com/google-ads/answer/15910366"
+  },
+  "tension": "La tracción aparece en el ecosistema IA cuando hay volumen y velocidad, pero el riesgo para B2B es perder control de precisión: la automatización mejora escala, pero cualquier señal débil de contenido/producto se amplifica en SEO y anuncios, dañando calidad de leads.",
+  "sources_used": [
+    "https://developers.google.com/search/docs/appearance/ai-features",
+    "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content",
+    "https://support.google.com/google-ads/answer/11259373",
+    "https://support.google.com/google-ads/answer/15910366",
+    "https://platform.openai.com/docs/changelog",
+    "https://www.anthropic.com/news/token-saving-updates",
+    "https://learn.microsoft.com/en-us/advertising/guides/generative-ai?view=bingads-13",
+    "https://nextjs.org/docs/app/getting-started/metadata-and-og-images"
+  ],
+  "freshness_check": "2026-03-02"
+}
